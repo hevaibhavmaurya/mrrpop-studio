@@ -1,0 +1,70 @@
+{
+  "format": "mrrpop-character@1",
+  "id": "mr-pop",
+  "name": "Mr. Pop",
+  "status": "interim",
+  "notes": "Ported 1:1 from mr-pop-v2/rig/rig-v5.svg (the rig used in the approved v5 demo). Redesign in the v5 palette is pending: smoother shapes, elbows + hands, 3/4 head, more mouths, walk cycle. Redraw any part with the same filename + viewBox and nothing else changes.",
+  "source": "../mr-pop-v2/rig/rig-v5.svg (regenerate: npm run character:parts)",
+  "viewBox": [0, 0, 600, 1380],
+  "crops": {
+    "full": [0, 40, 600, 1340],
+    "bust": [110, 60, 380, 620],
+    "head": [150, 70, 320, 400]
+  },
+  "headPivot": [300, 470],
+  "layers": [
+    { "id": "legs", "file": "parts/legs.svg" },
+    { "id": "arms-back", "dir": "parts/arms-back", "slot": "arms" },
+    { "id": "torso", "file": "parts/torso.svg" },
+    { "id": "badge", "file": "parts/badge.svg", "optional": true, "note": "$ pin — hidden for Sponsored content" },
+    { "id": "arms-front", "dir": "parts/arms-front", "slot": "arms" },
+    { "id": "head-base", "file": "parts/head-base.svg", "head": true },
+    { "id": "mouth", "dir": "parts/mouth", "slot": "mouth", "head": true },
+    { "id": "moustache", "file": "parts/moustache.svg", "head": true },
+    { "id": "eyes", "dir": "parts/eyes", "slot": "eyes", "head": true },
+    { "id": "glasses", "file": "parts/glasses.svg", "head": true },
+    { "id": "brows", "dir": "parts/brows", "slot": "brows", "head": true },
+    { "id": "hair", "file": "parts/hair.svg", "head": true }
+  ],
+  "poses": {
+    "idle": { "arms": "idle", "use_for": "intro, end card, listening" },
+    "pointing": { "arms": "point", "use_for": "point at headline / number" },
+    "celebrating": { "arms": "celebrate", "use_for": "milestone, big number lands" },
+    "shrug": { "arms": "shrug", "use_for": "\"who knows?\", mixed results" },
+    "thumbs-up": { "arms": "thumb", "use_for": "recommend a launch, sign-off" },
+    "explaining": { "arms": "explain", "use_for": "walkthrough, how it works" }
+  },
+  "expressions": {
+    "smile": { "eyes": "open", "brows": "up", "mouth": "smile", "use_for": "calm explaining (default)" },
+    "grin": { "eyes": "open", "brows": "up", "mouth": "grin", "use_for": "end card, friendly" },
+    "laughing": { "eyes": "happy", "brows": "high", "mouth": "D", "use_for": "funny fact" },
+    "money-eyes": { "eyes": "money", "brows": "high", "mouth": "grin", "use_for": "revenue hook" },
+    "shocked": { "eyes": "shock", "brows": "high", "mouth": "o", "use_for": "big number, acquisition" },
+    "star-struck": { "eyes": "star", "brows": "high", "mouth": "grin", "use_for": "record milestone" },
+    "wink": { "eyes": "wink", "brows": "up", "mouth": "grin", "use_for": "tip, smug fact" },
+    "thinking": { "eyes": "up", "brows": "think", "mouth": "X", "use_for": "\"how did they do it?\"" },
+    "curious": { "eyes": "up", "brows": "high", "mouth": "smile", "use_for": "investigating a claim" },
+    "skeptical": { "eyes": "open", "brows": "flat", "mouth": "A", "use_for": "estimates, myths" },
+    "serious": { "eyes": "open", "brows": "flat", "mouth": "X", "use_for": "sources, disclaimers" },
+    "confident": { "eyes": "open", "brows": "flat", "mouth": "grin", "use_for": "strong verdict" },
+    "nervous": { "eyes": "shock", "brows": "flat", "mouth": "G", "use_for": "risky bet, low runway" },
+    "happy": { "eyes": "happy", "brows": "high", "mouth": "grin", "use_for": "celebration" }
+  },
+  "visemes": {
+    "engine": "rhubarb",
+    "map": { "A": "A", "B": "B", "C": "C", "D": "D", "E": "E", "F": "F", "G": "G", "H": "H", "X": "X" },
+    "labels": {
+      "A": "M, B, P — closed",
+      "B": "most consonants — slightly open, teeth",
+      "C": "EH, AE — open",
+      "D": "AA — wide open",
+      "E": "AO, ER — rounded",
+      "F": "UW, OW, W — puckered",
+      "G": "F, V — teeth on lip",
+      "H": "L — tongue",
+      "X": "rest / silence"
+    },
+    "restUsesExpression": true
+  },
+  "blink": { "eyes": "closed", "onlyWhen": ["open", "up"], "every": 3.4, "duration": 0.13 }
+}

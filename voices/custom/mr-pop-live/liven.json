@@ -1,0 +1,63 @@
+{
+  "source": "voices/custom/mr-pop/reference.wav (Kokoro blend, no real person)",
+  "rounds": [
+    [
+      {
+        "emotion": "excited",
+        "take": 0,
+        "range_st": 13.3,
+        "pitch_sd_hz": 70,
+        "similarity": 0.902,
+        "text": "Wait, what? One person built this in a weekend, and it already pays a salary!"
+      },
+      {
+        "emotion": "curious",
+        "take": 0,
+        "range_st": 25.0,
+        "pitch_sd_hz": 94,
+        "similarity": 0.935,
+        "text": "Okay, so how did they actually find their first paying users?"
+      },
+      {
+        "emotion": "laugh",
+        "take": 3,
+        "range_st": 12.1,
+        "pitch_sd_hz": 61,
+        "similarity": 0.94,
+        "text": "Ha! Nine bucks a month, and people are lining up for it. I love that."
+      },
+      {
+        "emotion": "annoyed",
+        "take": 0,
+        "range_st": 15.2,
+        "pitch_sd_hz": 64,
+        "similarity": 0.889,
+        "text": "Seriously? Nobody told me about this? Come on!"
+      },
+      {
+        "emotion": "warm",
+        "take": 1,
+        "range_st": 12.1,
+        "pitch_sd_hz": 38,
+        "similarity": 0.917,
+        "text": "Here's the thing. That number comes straight from their payment dashboard."
+      },
+      {
+        "emotion": "shocked",
+        "take": 3,
+        "range_st": 15.2,
+        "pitch_sd_hz": 66,
+        "similarity": 0.908,
+        "text": "No way. Twelve thousand dollars? In one month?"
+      },
+      {
+        "emotion": "playful",
+        "take": 1,
+        "range_st": 15.0,
+        "pitch_sd_hz": 56,
+        "similarity": 0.886,
+        "text": "So, would you build it, or buy it? Tell me in the comments."
+      }
+    ]
+  ]
+}

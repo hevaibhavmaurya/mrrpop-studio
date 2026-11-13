@@ -1,0 +1,420 @@
+{
+  "id": "mrrpop-v6",
+  "name": "MRR Pop v6 — Pop Sheet",
+  "version": "6.0.0",
+  "brand": {
+    "name": "MRR Pop",
+    "handle": "@getmrrpop",
+    "tagline": "The business behind software.",
+    "host": "Mr. Pop"
+  },
+  "colors": {
+    "base": {
+      "paper": {
+        "value": "#FAF9FF",
+        "role": "Page background (~60%) — near-white with a violet whisper"
+      },
+      "white": {
+        "value": "#FFFFFF",
+        "role": "Cards, captions"
+      },
+      "ink": {
+        "value": "#1B1838",
+        "role": "Text, outlines, hard shadows"
+      },
+      "navy": {
+        "value": "#20244A",
+        "role": "Mr. Pop's jacket; dark bubbles, dark cards"
+      },
+      "muted": {
+        "value": "#6E6A8E",
+        "role": "Labels, secondary text"
+      },
+      "faint": {
+        "value": "#A3A0BC",
+        "role": "Meta, axis labels"
+      }
+    },
+    "scene": {
+      "lavender": {
+        "value": "#ECE6FF",
+        "role": "Scene card — hook"
+      },
+      "limeMist": {
+        "value": "#F0F9D4",
+        "role": "Scene card — money / numbers"
+      },
+      "sky": {
+        "value": "#E4EEFF",
+        "role": "Scene card — product"
+      },
+      "blush": {
+        "value": "#FFE5F1",
+        "role": "Scene card — deals"
+      },
+      "cream": {
+        "value": "#FFF4CC",
+        "role": "Scene card — end card"
+      }
+    },
+    "accent": {
+      "violet": {
+        "value": "#6A42EC",
+        "role": "Brand primary — hoodie violet, CTA, accent word"
+      },
+      "lime": {
+        "value": "#C6F03A",
+        "role": "Signature pop — logo sticker, Pop badge, highlighter"
+      },
+      "yellow": {
+        "value": "#FFD43B",
+        "role": "Money, coins, LET'S GO / SUBSCRIBE bubbles"
+      },
+      "pink": {
+        "value": "#FF6FB5",
+        "role": "Deal Pop, DEAL! bubble"
+      },
+      "lilac": {
+        "value": "#BBA6FF",
+        "role": "HMM… bubble, soft chart bars"
+      }
+    },
+    "data": {
+      "violet": {
+        "value": "#6A42EC",
+        "role": "Series 1"
+      },
+      "blue": {
+        "value": "#4C8DF6",
+        "role": "Series 2"
+      },
+      "green": {
+        "value": "#3DBE6E",
+        "role": "Series 3, positive delta"
+      },
+      "greenInk": {
+        "value": "#1F8A48",
+        "role": "Positive delta text"
+      },
+      "pink": {
+        "value": "#FF6FB5",
+        "role": "Series 4"
+      }
+    }
+  },
+  "roles": {
+    "page": "base.paper",
+    "surface": "base.white",
+    "ink": "base.ink",
+    "muted": "base.muted",
+    "faint": "base.faint",
+    "primary": "accent.violet",
+    "onPrimary": "base.white",
+    "secondary": "accent.pink",
+    "highlight": "accent.lime",
+    "hero": "scene.lavender",
+    "cardA": "scene.lavender",
+    "cardB": "scene.limeMist",
+    "cardC": "scene.blush",
+    "positive": "data.green",
+    "positiveInk": "data.greenInk"
+  },
+  "mix": {
+    "neutral": 0.6,
+    "soft": 0.25,
+    "accent": 0.15
+  },
+  "evidence": {
+    "payment-verified": {
+      "label": "Payment-verified",
+      "icon": "check",
+      "bg": "#E3F3EA",
+      "fg": "#2E8B60",
+      "border": "#9ED3B6"
+    },
+    "company-announced": {
+      "label": "Company-announced",
+      "icon": "megaphone",
+      "bg": "#E7EEFB",
+      "fg": "#3B5C9A",
+      "border": "#A9C1EA"
+    },
+    "founder-reported": {
+      "label": "Founder-reported",
+      "icon": "quote",
+      "bg": "#FFF8E6",
+      "fg": "#8A6400",
+      "border": "#E8C96A"
+    },
+    "estimated": {
+      "label": "Estimated",
+      "icon": "approx",
+      "bg": "#F1EFF6",
+      "fg": "#5E5A78",
+      "border": "#C9C5DA"
+    },
+    "sponsored": {
+      "label": "Sponsored",
+      "icon": "star",
+      "bg": "#FDE7E2",
+      "fg": "#B04A3A",
+      "border": "#F2B3A7"
+    },
+    "demo": {
+      "label": "DEMO data",
+      "icon": "flask",
+      "bg": "#FFFFFF",
+      "fg": "#8A6400",
+      "border": "#E8C96A"
+    }
+  },
+  "series": {
+    "revenue-pop": {
+      "label": "Revenue Pop",
+      "scene": "scene.limeMist",
+      "chip": "accent.lime",
+      "chipText": "base.ink",
+      "icon": "cash"
+    },
+    "launch-pop": {
+      "label": "Launch Pop",
+      "scene": "scene.lavender",
+      "chip": "accent.violet",
+      "icon": "rocket"
+    },
+    "deal-pop": {
+      "label": "Deal Pop",
+      "scene": "scene.blush",
+      "chip": "accent.pink",
+      "chipText": "base.ink",
+      "icon": "handshake"
+    },
+    "growth-story": {
+      "label": "Growth Story",
+      "scene": "scene.sky",
+      "chip": "base.navy",
+      "icon": "growth"
+    },
+    "founder-brief": {
+      "label": "Founder Brief",
+      "scene": "scene.cream",
+      "chip": "accent.yellow",
+      "chipText": "base.ink",
+      "icon": "bulb"
+    },
+    "sponsored-pop": {
+      "label": "Sponsored Pop",
+      "scene": "base.paper",
+      "chip": "base.ink",
+      "icon": "star"
+    }
+  },
+  "bubbles": [
+    {
+      "text": "WOW!",
+      "bg": "accent.violet",
+      "fg": "base.white"
+    },
+    {
+      "text": "LET'S GO!",
+      "bg": "accent.yellow",
+      "fg": "base.ink"
+    },
+    {
+      "text": "DEAL!",
+      "bg": "accent.pink",
+      "fg": "base.ink"
+    },
+    {
+      "text": "GREAT STORY!",
+      "bg": "accent.lime",
+      "fg": "base.ink"
+    },
+    {
+      "text": "HMM…",
+      "bg": "accent.lilac",
+      "fg": "base.ink"
+    },
+    {
+      "text": "INTERESTING!",
+      "bg": "base.navy",
+      "fg": "base.white"
+    },
+    {
+      "text": "SUBSCRIBE!",
+      "bg": "accent.yellow",
+      "fg": "base.ink"
+    },
+    {
+      "text": "BOOM!",
+      "bg": "base.white",
+      "fg": "accent.violet"
+    }
+  ],
+  "fonts": {
+    "sans": {
+      "family": "Inter",
+      "stack": "Inter, ui-sans-serif, system-ui, sans-serif",
+      "files": [
+        {
+          "src": "fonts/Inter-Variable.ttf",
+          "weight": "100 900",
+          "style": "normal"
+        },
+        {
+          "src": "fonts/Inter-Italic-Variable.ttf",
+          "weight": "100 900",
+          "style": "italic"
+        }
+      ],
+      "features": "\"tnum\" 1",
+      "license": "fonts/OFL-Inter.txt",
+      "use": "Everything. Tight tracking on headlines, tabular numbers."
+    },
+    "accent": {
+      "family": "Instrument Serif",
+      "stack": "\"Instrument Serif\", ui-serif, Georgia, serif",
+      "files": [
+        {
+          "src": "fonts/InstrumentSerif-Italic.ttf",
+          "weight": "400",
+          "style": "italic"
+        },
+        {
+          "src": "fonts/InstrumentSerif-Regular.ttf",
+          "weight": "400",
+          "style": "normal"
+        }
+      ],
+      "license": "fonts/OFL-InstrumentSerif.txt",
+      "use": "ONE accent word per line, italic, in violet or coral."
+    }
+  },
+  "type": {
+    "number": {
+      "size": 236,
+      "weight": 900,
+      "tracking": -12,
+      "min": 160
+    },
+    "headline": {
+      "size": 76,
+      "weight": 900,
+      "tracking": -3,
+      "min": 64,
+      "lineHeight": 1.02
+    },
+    "accentWord": {
+      "scale": 1.16
+    },
+    "caption": {
+      "size": 50,
+      "weight": 800,
+      "tracking": -1,
+      "min": 52,
+      "lineHeight": 1.15
+    },
+    "chip": {
+      "size": 24,
+      "weight": 800,
+      "tracking": 1
+    },
+    "bubble": {
+      "size": 52,
+      "weight": 900,
+      "tracking": -1
+    }
+  },
+  "radius": {
+    "panel": 60,
+    "card": 36,
+    "bubble": 30,
+    "caption": 26,
+    "chip": 999,
+    "tile": 16
+  },
+  "shadow": {
+    "panel": "0 30px 60px -30px rgba(27,24,56,.35), 0 2px 0 rgba(27,24,56,.06)",
+    "card": "0 16px 36px -18px rgba(27,24,56,.30), 0 0 0 2px rgba(27,24,56,.06)",
+    "caption": "0 14px 30px -14px rgba(27,24,56,.45)",
+    "hard": "6px 6px 0 #1B1838",
+    "character": "0 18px 18px rgba(27,24,56,.20)"
+  },
+  "stroke": {
+    "bubble": 5,
+    "sticker": 6,
+    "chart": 8
+  },
+  "texture": {
+    "dotGrid": {
+      "color": "rgba(106,66,236,.10)",
+      "dot": 2,
+      "gap": 36
+    }
+  },
+  "motion": {
+    "fps": 30,
+    "easing": {
+      "out": "cubic-bezier(0.33, 1, 0.68, 1)",
+      "inOut": "cubic-bezier(0.65, 0, 0.35, 1)",
+      "back": "cubic-bezier(0.34, 1.56, 0.64, 1)"
+    },
+    "durations": {
+      "popIn": 0.4,
+      "bubbleIn": 0.35,
+      "bubbleOut": 0.25,
+      "sceneSlide": 0.55,
+      "countUp": 0.9,
+      "hop": 0.42
+    },
+    "sceneTransition": "paper-slide",
+    "blinkEvery": 3.4
+  },
+  "layout": {
+    "reel": {
+      "width": 1080,
+      "height": 1920,
+      "safeTop": 250,
+      "safeBottom": 400,
+      "safeSide": 80,
+      "panel": {
+        "x": 36,
+        "y": 236,
+        "w": 1008,
+        "h": 1290
+      }
+    },
+    "carousel": {
+      "width": 1080,
+      "height": 1350,
+      "maxSlides": 10
+    },
+    "post": [
+      {
+        "width": 1080,
+        "height": 1350
+      },
+      {
+        "width": 1080,
+        "height": 1080
+      }
+    ],
+    "story": {
+      "width": 1080,
+      "height": 1920
+    }
+  },
+  "rules": [
+    "Base is near-white paper; violet + lime are the signature pair — lime is an accent, never a full background.",
+    "Speech bubbles use the candy set (violet, yellow, pink, lime, lilac, navy) with a thick ink outline + hard shadow.",
+    "One Instrument Serif italic accent word per line (violet).",
+    "Evidence chip only when a number is on screen.",
+    "No full-black backgrounds, no neon glows.",
+    "Components read theme roles — never hard-code colours."
+  ],
+  "logo": {
+    "wordmark": "logo.svg",
+    "mark": "logo-mark.svg"
+  },
+  "notes": "Matches the approved Mr. Pop concept sheet (packs/mr-pop-v3/reference/concept-sheet.webp): clean white base, electric violet + lime signature, navy ink, candy-colour speech bubbles."
+}

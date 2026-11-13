@@ -1,0 +1,28 @@
+node_modules/
+dist/
+.DS_Store
+.env
+*.log
+# heavy / private
+archive/private/
+content/stories/*/exports/*.mp4
+studio/.cache/
+packages/pipeline/.venv/
+
+# python envs (rebuild locally)
+packages/pipeline/.venv*/
+__pycache__/
+*.pyc
+
+# render intermediates (regenerate with capture.mjs)
+content/stories/*/build/frames*/
+content/stories/*/build/check/
+content/stories/*/build/*.html
+!content/stories/*/build/*.tpl.html
+*.sb-*
+
+# not ours to publish: other creators' material (inspiration only, CLAUDE.md rule 4),
+# old/private work, and a licensed third-party voice clip
+references/
+archive/
+voices/new-voice/

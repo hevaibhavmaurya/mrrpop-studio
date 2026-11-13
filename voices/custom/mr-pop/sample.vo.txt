@@ -1,0 +1,4 @@
+# Card sample for the Voices page — rendered with the locked signature (expressive.py defaults).
+{hook}    Wait. One developer, one browser extension, twelve thousand dollars a month?
+{wow}     That's a pop!
+{cta}     Here's how they did it.

@@ -1,0 +1,9 @@
+{
+  "name": "@mrrpop/character",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.tsx",
+  "exports": { ".": "./src/index.tsx", "./packs/*": "./packs/*" },
+  "peerDependencies": { "react": "^18.3.1" }
+}

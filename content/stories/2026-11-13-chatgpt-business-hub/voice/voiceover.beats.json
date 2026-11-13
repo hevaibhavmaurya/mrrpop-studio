@@ -1,0 +1,131 @@
+{
+  "engine": "chatterbox",
+  "ref": "voices/custom/mr-pop/reference.wav",
+  "seed": 7,
+  "more": 0.0,
+  "duration": 41.596,
+  "lufs": -14.1,
+  "beats": [
+    {
+      "style": "hook",
+      "text": "One point two billion people use ChatGPT weekly.",
+      "start": 0.3,
+      "end": 5.035,
+      "take": 0,
+      "score": 9.35,
+      "pitch_range_st": 10.1,
+      "median_hz": 136,
+      "len_ratio": 1.72
+    },
+    {
+      "style": "curious",
+      "text": "Are you losing customers to it?",
+      "start": 5.375,
+      "end": 7.239,
+      "take": 0,
+      "score": 11.33,
+      "pitch_range_st": 11.3,
+      "median_hz": 114,
+      "len_ratio": 1.08
+    },
+    {
+      "style": "wow",
+      "text": "Now you can check!",
+      "start": 7.559,
+      "end": 8.981,
+      "take": 2,
+      "score": 12.71,
+      "pitch_range_st": 12.7,
+      "median_hz": 163,
+      "len_ratio": 1.47
+    },
+    {
+      "style": "fun",
+      "text": "On November tenth, OpenAI launched Business Hub.",
+      "start": 9.281,
+      "end": 12.945,
+      "take": 1,
+      "score": 9.62,
+      "pitch_range_st": 9.6,
+      "median_hz": 118,
+      "len_ratio": 1.33
+    },
+    {
+      "style": "trust",
+      "text": "Claim your business, grab the blue check, and update your prices and stock so ChatGPT shows the right ones.",
+      "start": 13.185,
+      "end": 19.744,
+      "take": 1,
+      "score": 9.79,
+      "pitch_range_st": 9.8,
+      "median_hz": 118,
+      "len_ratio": 1.11
+    },
+    {
+      "style": "fun",
+      "text": "Then you get three insights.",
+      "start": 20.124,
+      "end": 21.543,
+      "take": 2,
+      "score": 20.62,
+      "pitch_range_st": 20.6,
+      "median_hz": 135,
+      "len_ratio": 0.89
+    },
+    {
+      "style": "fun",
+      "text": "Mentions. Clicks. Topics.",
+      "start": 21.783,
+      "end": 23.904,
+      "take": 1,
+      "score": 13.98,
+      "pitch_range_st": 14.0,
+      "median_hz": 138,
+      "len_ratio": 1.54
+    },
+    {
+      "style": "curious",
+      "text": "And U.S. stores can launch a Business Agent that answers your buyers' questions right inside ChatGPT.",
+      "start": 24.144,
+      "end": 31.158,
+      "take": 2,
+      "score": 10.18,
+      "pitch_range_st": 10.2,
+      "median_hz": 118,
+      "len_ratio": 1.24
+    },
+    {
+      "style": "curious",
+      "text": "The catch?",
+      "start": 31.478,
+      "end": 32.127,
+      "take": 1,
+      "score": 6.8,
+      "pitch_range_st": 6.8,
+      "median_hz": 112,
+      "len_ratio": 1.18
+    },
+    {
+      "style": "trust",
+      "text": "It's ChatGPT only, so no Gemini and no Perplexity.",
+      "start": 32.447,
+      "end": 36.662,
+      "take": 2,
+      "score": 8.87,
+      "pitch_range_st": 8.9,
+      "median_hz": 110,
+      "len_ratio": 1.57
+    },
+    {
+      "style": "cta",
+      "text": "So, would you claim yours on ChatGPT? Follow MRR Pop!",
+      "start": 37.042,
+      "end": 41.396,
+      "take": 0,
+      "score": 8.5,
+      "pitch_range_st": 8.5,
+      "median_hz": 125,
+      "len_ratio": 1.54
+    }
+  ]
+}

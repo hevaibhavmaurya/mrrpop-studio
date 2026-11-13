@@ -1,0 +1,27 @@
+{
+  "slug": "2026-11-13-meet-mr-pop",
+  "series": "intro",
+  "template": "build/reel.tpl.html",
+  "status": "draft",
+  "sponsored": false,
+  "product": "MRR Pop (channel intro)",
+  "product_url": "",
+  "key_number": "",
+  "evidence": "company-announced",
+  "sources": [
+    "docs/BRAND.md"
+  ],
+  "highlight": "Start here",
+  "character": "mr-pop-v3",
+  "files": {
+    "voice": "voice/voiceover.wav",
+    "final": "exports/reel.mp4",
+    "cover": "exports/cover.jpg",
+    "caption": "caption.md"
+  },
+  "published": {
+    "instagram": null,
+    "x": null,
+    "linkedin": null
+  }
+}

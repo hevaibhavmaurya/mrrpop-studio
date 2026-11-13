@@ -1,0 +1,209 @@
+{
+  "engine": "chatterbox (performance) · kokoro-82m (timbre reference only)",
+  "license": "Apache-2.0 (Kokoro base voices for the original timbre) + MIT (Chatterbox performance). Mr. Pop is an original MRR Pop voice — not cloned from any person. mr-pop-2 is bootstrapped from mr-pop's own audio only.",
+  "sample": "Wait. One developer, one browser extension, twelve thousand dollars a month? That's a pop! Here's how they did it.",
+  "default": "mr-pop-2",
+  "voices": [
+    {
+      "id": "mr-pop-2",
+      "name": "Mr. Pop",
+      "role": "THE voice of Mr. Pop — every Reel (signature)",
+      "vibe": "Same Mr. Pop, more human: wider pitch movement, real excitement, laughs and annoyance",
+      "engine": "chatterbox",
+      "notes": "Reference = voices/custom/mr-pop-2/reference.wav, bootstrapped by packages/pipeline/voice/liven.py (round 1, seed 7) from Mr. Pop's own Kokoro reference. No outside or real person's voice used. 97.8% speaker similarity to the previous signature."
+    },
+    {
+      "id": "mr-pop",
+      "name": "Mr. Pop (previous)",
+      "role": "Previous signature (2026-11-13 morning) — kept for comparison",
+      "vibe": "Male, bright and high on the big moments, warm and steady on the numbers",
+      "blend": {
+        "am_puck": 0.45,
+        "am_fenrir": 0.35,
+        "am_michael": 0.2
+      },
+      "lang": "a",
+      "speed": 1.08,
+      "engine": "chatterbox",
+      "notes": "Timbre reference = voices/custom/mr-pop/reference.wav (Kokoro blend, Apache-2.0, no real person). Performed by expressive.py."
+    }
+  ],
+  "delivery": {
+    "_about": "Kokoro delivery styles — used only to rebuild Mr. Pop's timbre reference (voices/custom/mr-pop/reference.wav).",
+    "_lead_in": 0.3,
+    "hook": {
+      "pace": 0.98,
+      "pause": 0.4,
+      "gain_db": 1.0,
+      "tilt": {
+        "am_puck": 0.18
+      },
+      "use": "First line. Big, bright, a little breathless."
+    },
+    "curious": {
+      "pace": 0.9,
+      "pause": 0.36,
+      "gain_db": 0.0,
+      "tilt": {
+        "am_puck": 0.08,
+        "am_liam": 0.07
+      },
+      "use": "Questions and set-ups. Slower, leaning in — end on ? or …"
+    },
+    "fun": {
+      "pace": 0.96,
+      "pause": 0.28,
+      "gain_db": 0.5,
+      "tilt": {
+        "am_puck": 0.1
+      },
+      "use": "Story beats, punchlines, 'boom'."
+    },
+    "trust": {
+      "pace": 0.86,
+      "pause": 0.42,
+      "gain_db": -0.5,
+      "tilt": {
+        "am_michael": 0.2
+      },
+      "use": "Numbers, sources, evidence labels. Steady and warm, no hype."
+    },
+    "cta": {
+      "pace": 0.94,
+      "pause": 0.24,
+      "gain_db": 0.8,
+      "tilt": {
+        "am_puck": 0.12
+      },
+      "use": "End card: question + Follow MRR Pop."
+    },
+    "wow": {
+      "pace": 1.0,
+      "pause": 0.3,
+      "gain_db": 1.2,
+      "tilt": {
+        "am_puck": 0.2
+      },
+      "use": "One-word peaks."
+    }
+  },
+  "expressive": {
+    "_about": "Per-beat styles for expressive.py (Chatterbox). exaggeration = emotion/pitch range; cfg lower = slower, more deliberate; temperature = take variation; pause = seconds after the beat. emotion = which voices/custom/<voice>/emotions/<name>.wav reference performs the line (same voice, that emotion first).",
+    "_lead_in": 0.3,
+    "hook": {
+      "exaggeration": 0.85,
+      "cfg": 0.32,
+      "temperature": 0.85,
+      "pause": 0.34,
+      "gain_db": 0.8,
+      "face": {
+        "expression": "shocked",
+        "pose": "pointing"
+      },
+      "emotion": "excited"
+    },
+    "curious": {
+      "exaggeration": 0.68,
+      "cfg": 0.4,
+      "temperature": 0.8,
+      "pause": 0.32,
+      "gain_db": 0.0,
+      "face": {
+        "expression": "curious",
+        "pose": "thinking"
+      },
+      "emotion": "curious"
+    },
+    "fun": {
+      "exaggeration": 0.78,
+      "cfg": 0.34,
+      "temperature": 0.85,
+      "pause": 0.24,
+      "gain_db": 0.4,
+      "face": {
+        "expression": "grin",
+        "pose": "explaining"
+      },
+      "emotion": "playful"
+    },
+    "trust": {
+      "exaggeration": 0.45,
+      "cfg": 0.5,
+      "temperature": 0.7,
+      "pause": 0.38,
+      "gain_db": -0.4,
+      "face": {
+        "expression": "smile",
+        "pose": "explaining"
+      },
+      "emotion": "warm"
+    },
+    "cta": {
+      "exaggeration": 0.72,
+      "cfg": 0.38,
+      "temperature": 0.8,
+      "pause": 0.2,
+      "gain_db": 0.6,
+      "face": {
+        "expression": "grin",
+        "pose": "waving"
+      },
+      "emotion": "playful"
+    },
+    "wow": {
+      "exaggeration": 1.0,
+      "cfg": 0.3,
+      "temperature": 0.85,
+      "pause": 0.3,
+      "gain_db": 1.0,
+      "face": {
+        "expression": "star-struck",
+        "pose": "celebrating"
+      },
+      "use": "One-word peaks: Boom. Wow. Let's go! Highest pitch + energy.",
+      "emotion": "shocked"
+    },
+    "laugh": {
+      "exaggeration": 0.9,
+      "cfg": 0.32,
+      "temperature": 0.85,
+      "pause": 0.26,
+      "gain_db": 0.5,
+      "emotion": "laugh",
+      "face": {
+        "expression": "laughing",
+        "pose": "belly-laugh"
+      },
+      "use": "Laughing lines: 'Ha! Nine bucks?'"
+    },
+    "annoyed": {
+      "exaggeration": 0.8,
+      "cfg": 0.36,
+      "temperature": 0.8,
+      "pause": 0.3,
+      "gain_db": 0.4,
+      "emotion": "annoyed",
+      "face": {
+        "expression": "annoyed",
+        "pose": "hands-on-hips"
+      },
+      "use": "Mock outrage: 'Seriously? Come on!'"
+    }
+  },
+  "signature": {
+    "voice": "mr-pop-2",
+    "engine": "chatterbox",
+    "ref": "mr-pop-2",
+    "seed": 7,
+    "takes": 6,
+    "more": 0.0,
+    "ref_sha256_16": "13368124c3b19820",
+    "approved": "2026-11-13 — Vaibhav picked liven.py round 1 (voices/custom/mr-pop-2) + per-emotion references (emotions/*.wav, emotions.py), 6 takes, voice-match take picking. Previous signature: voices/custom/mr-pop (kept).",
+    "script": "packages/pipeline/voice/expressive.py",
+    "_about": "LOCKED: the approved Mr. Pop voice. expressive.py uses these defaults. Changing the 'expressive' styles, the seed or reference.wav changes how he sounds.",
+    "previous": {
+      "voice": "mr-pop",
+      "ref_sha256_16": "90fc13f225418c09"
+    }
+  }
+}

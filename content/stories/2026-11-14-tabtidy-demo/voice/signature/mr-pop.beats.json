@@ -1,0 +1,87 @@
+{
+  "engine": "chatterbox",
+  "ref": "voices/custom/mr-pop/reference.wav",
+  "seed": 7,
+  "more": 0.0,
+  "duration": 27.254,
+  "lufs": -14.1,
+  "beats": [
+    {
+      "style": "hook",
+      "text": "Twelve thousand four hundred dollars a month\u2026 from a Chrome extension!",
+      "start": 0.3,
+      "end": 4.447,
+      "take": 0,
+      "score": 10.58,
+      "pitch_range_st": 10.6,
+      "median_hz": 132,
+      "len_ratio": 1.04
+    },
+    {
+      "style": "curious",
+      "text": "It's called TabTidy. It turns forty-eight messy tabs\u2026 into four neat groups.",
+      "start": 4.787,
+      "end": 9.782,
+      "take": 1,
+      "score": 9.09,
+      "pitch_range_st": 9.1,
+      "median_hz": 128,
+      "len_ratio": 1.21
+    },
+    {
+      "style": "trust",
+      "text": "After thirty days, the payments keep coming. Nine bucks\u2026 then an annual plan.",
+      "start": 10.102,
+      "end": 15.398,
+      "take": 0,
+      "score": 9.82,
+      "pitch_range_st": 9.8,
+      "median_hz": 119,
+      "len_ratio": 1.26
+    },
+    {
+      "style": "curious",
+      "text": "How?",
+      "start": 15.778,
+      "end": 16.296,
+      "take": 1,
+      "score": 9.07,
+      "pitch_range_st": 9.8,
+      "median_hz": 122,
+      "len_ratio": 1.73
+    },
+    {
+      "style": "fun",
+      "text": "He built it solo, launched it on Reddit, and kept one simple plan.",
+      "start": 16.616,
+      "end": 21.779,
+      "take": 2,
+      "score": 10.56,
+      "pitch_range_st": 10.6,
+      "median_hz": 149,
+      "len_ratio": 1.47
+    },
+    {
+      "style": "wow",
+      "text": "Boom.",
+      "start": 22.019,
+      "end": 22.461,
+      "take": 2,
+      "score": 21.21,
+      "pitch_range_st": 21.2,
+      "median_hz": 213,
+      "len_ratio": 1.47
+    },
+    {
+      "style": "cta",
+      "text": "So\u2026 would you build this? Comment below, and follow MRR Pop!",
+      "start": 22.761,
+      "end": 27.054,
+      "take": 2,
+      "score": 9.24,
+      "pitch_range_st": 9.2,
+      "median_hz": 127,
+      "len_ratio": 1.35
+    }
+  ]
+}

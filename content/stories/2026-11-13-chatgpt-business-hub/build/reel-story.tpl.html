@@ -1,0 +1,316 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+/* MRR Pop · Launch Pop · STORY version (Maya = ILLUSTRATION). Same layout system as v3: text safe box (x 80–850, y 250–1440), ≤6-word caption chunks.
+   Script: voice/story/voiceover.vo.txt · Theme tokens: packages/theme/themes/mrrpop-v6/theme.json · Icons: packages/ui/icons/*.svg (injected) */
+@font-face{font-family:Inter;src:url(../../../../packages/theme/themes/mrrpop-v6/fonts/Inter-Variable.ttf);font-weight:100 900}
+@font-face{font-family:Inter;src:url(../../../../packages/theme/themes/mrrpop-v6/fonts/Inter-Italic-Variable.ttf);font-weight:100 900;font-style:italic}
+@font-face{font-family:IS;src:url(../../../../packages/theme/themes/mrrpop-v6/fonts/InstrumentSerif-Italic.ttf);font-style:italic}
+:root{--paper:#FAF9FF;--white:#fff;--ink:#1B1838;--navy:#20244A;--muted:#6E6A8E;--faint:#A3A0BC;
+--lav:#ECE6FF;--limeMist:#F0F9D4;--sky:#E4EEFF;--blush:#FFE5F1;--cream:#FFF4CC;
+--violet:#6A42EC;--lime:#C6F03A;--yellow:#FFD43B;--pink:#FF6FB5;--lilac:#BBA6FF;--blue:#4C8DF6;--green:#3DBE6E;--greenInk:#1F8A48;--red:#F0475A}
+*{margin:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{background:var(--paper);font-family:Inter;color:var(--ink);font-feature-settings:"tnum" 1;position:relative}
+.abs{position:absolute}
+.scene{position:absolute;inset:0;overflow:hidden;display:none}
+.scene.dots:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(27,24,56,.07) 2px,transparent 2px);background-size:40px 40px}
+.scene.dark.dots:before{background-image:radial-gradient(rgba(255,255,255,.07) 2px,transparent 2px)}
+.glow{position:absolute;border-radius:50%;background-image:radial-gradient(circle,var(--gc,rgba(255,212,59,.75)) 2.6px,transparent 3px);background-size:15px 15px;
+  -webkit-mask-image:radial-gradient(circle,#000 0%,rgba(0,0,0,.55) 40%,transparent 70%);mask-image:radial-gradient(circle,#000 0%,rgba(0,0,0,.55) 40%,transparent 70%)}
+/* headline = the spoken line, revealed word by word */
+#hl{position:absolute;left:80px;top:262px;width:770px;font:600 66px/1.13 Inter;letter-spacing:-1.8px;z-index:30}
+#hl .w{display:inline-block;margin-right:.24em}
+#hl .acc{font-family:IS;font-style:italic;font-weight:400;letter-spacing:0;font-size:1.2em;line-height:.9}
+/* stamp labels */
+.stamp{position:absolute;display:inline-block;padding:12px 22px 10px;--fs:44px;border:5px solid var(--ink);border-radius:12px;box-shadow:6px 6px 0 var(--ink);
+  font:900 44px/1 Inter;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap;opacity:0;z-index:6}
+.stamp span{display:inline-block;transform:scaleX(.84);transform-origin:left center;margin-right:-14%}
+.rubber{position:absolute;padding:10px 24px;border:7px solid var(--red);border-radius:14px;color:var(--red);font:900 58px/1 Inter;letter-spacing:2px;text-transform:uppercase;white-space:nowrap;opacity:0;z-index:7}
+.tag{position:absolute;padding:7px 12px;border:3px solid var(--ink);border-radius:999px;background:var(--yellow);font:800 17px/1 Inter;letter-spacing:1.5px;text-transform:uppercase;opacity:0}
+/* UI cards */
+.win{position:absolute;background:#fff;border:5px solid var(--ink);border-radius:30px;box-shadow:10px 10px 0 rgba(27,24,56,.9);overflow:hidden;opacity:0}
+.win .bar{display:flex;align-items:center;gap:10px;padding:16px 20px;border-bottom:4px solid var(--ink);background:var(--paper)}
+.win .bar i{width:16px;height:16px;border-radius:50%;border:3px solid var(--ink)}
+.win .url{margin-left:12px;flex:1;height:30px;border-radius:999px;border:3px solid var(--ink);background:#fff;font:700 16px/24px Inter;padding-left:14px;color:var(--muted)}
+.card{position:absolute;background:#fff;border:5px solid var(--ink);border-radius:26px;box-shadow:8px 8px 0 var(--ink);opacity:0}
+.row{display:flex;align-items:center;gap:16px}
+.ico{display:inline-block;flex:none}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;border:4px solid var(--ink);font:800 28px/1 Inter;background:var(--violet);color:#fff;white-space:nowrap}
+.chipui{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:3px solid var(--ink);font:800 18px/1 Inter;letter-spacing:1px;text-transform:uppercase;white-space:nowrap}
+.src{position:absolute;left:80px;top:1380px;display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.88);border:3px solid var(--ink);font:600 20px/1 Inter;z-index:31}
+.src b{font-weight:800}
+.ev{position:absolute;display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border-radius:999px;font:700 24px/1 Inter;white-space:nowrap;opacity:0}
+#char{position:absolute;left:0;top:0;width:461px;height:1060px;transform-origin:0 0;z-index:40}
+#char svg{width:461px;height:1060px;display:block;filter:drop-shadow(0 20px 24px rgba(27,24,56,.28))}
+#px{position:absolute;inset:0;z-index:25;pointer-events:none}
+#px i{position:absolute;width:90px;height:92px;opacity:0}
+.msg{position:absolute;max-width:470px;padding:18px 24px;border-radius:26px;border:4px solid var(--ink);font:600 30px/1.3 Inter;opacity:0}
+</style></head><body>
+
+<div id="scenes"></div>
+<div id="px"></div>
+<div id="hl"></div>
+<div id="src" class="src"><span>Source:</span><b>OpenAI announcement</b><span>· Nov 10, 2026</span></div>
+<div id="char">RIG</div>
+
+<script>
+const DATA=DATAJSON, ICONS=ICONSJSON, B=DATA.beats, MAN=DATA.manifest, VIS=DATA.visemes;
+const C=(x,a=0,b=1)=>Math.max(a,Math.min(b,x)),P=(t,s,d)=>C((t-s)/d),eOut=x=>1-Math.pow(1-x,3),eIO=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const eBack=x=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const $=id=>document.getElementById(id), $$=s=>[...document.querySelectorAll(s)];
+const bs=i=>B[Math.min(i,B.length-1)].start, be=i=>B[Math.min(i,B.length-1)].end;
+const I=(n,s=80)=>(ICONS[n]||'').replace('<svg ',`<svg class="ico" width="${s}" height="${s}" `);
+const pop=(e,t,s,d=.4)=>{const k=P(t,s,d);e.style.opacity=C(k*3);return k};
+const stamp=(id,txt,bg,fg,x,y)=>`<div id="${id}" class="stamp" style="left:${x}px;top:${y}px;background:${bg};color:${fg}"><span>${txt}</span></div>`;
+const stampAnim=(id,t,s,rot)=>{const e=$(id);if(!e)return;const k=P(t,s,.32);e.style.opacity=C(k*4);e.style.transform=`rotate(${rot}deg) scale(${1.6-.6*eBack(k)})`};
+// Maya's candle (illustration, brand colours only)
+const CANDLE=(s=90)=>`<svg class="ico" width="${s}" height="${s}" viewBox="0 0 100 100"><path d="M50 8 C60 22 62 30 50 40 C38 30 40 22 50 8Z" fill="#FFD43B" stroke="#1B1838" stroke-width="5" stroke-linejoin="round"/><rect x="26" y="44" width="48" height="48" rx="8" fill="#BBA6FF" stroke="#1B1838" stroke-width="5"/><path d="M26 58 H74" stroke="#1B1838" stroke-width="4"/><path d="M50 40 V46" stroke="#1B1838" stroke-width="5" stroke-linecap="round"/></svg>`;
+
+// beats (voice/story/voiceover.vo.txt):
+// 0 hook 1.2B · 1 in the answer? · 2 Maya · 3 soy candle ask · 4 Not once · 5 launch · 6 claim + blue check
+// 7 prices + stock · 8 three numbers · 9 Business Agent · 10 the catch · 11 CTA
+const DISPLAY=B.map(b=>b.text.replace(/one point two billion/i,'1.2 billion').replace('November tenth','November 10th'));
+const ACCENT=['weekly','answer','maya','candle','once','hub','done','guessing','numbers','agent','only','shop'];
+const DARKBEAT=[0,1,0,0,0,0,0,0,0,0,1,0];
+
+// scenes: [first beat, background, transition-in]
+const SC=[[0,'#ECE6FF','none'],[1,'#20244A','pixel'],[2,'#FFE5F1','wipe'],[5,'#F0F9D4','wipe'],[6,'#E4EEFF','wipe'],[8,'#FFF4CC','wipe'],[9,'#ECE6FF','wipe'],[10,'#20244A','pixel'],[11,'#FFF4CC','wipe']];
+const A=SC.map((s,i)=>i?bs(s[0])-.18:0); A.push(DATA.duration+5);
+const DOTS=(dark)=>`scene dots${dark?' dark':''}`;
+const ANS=(rows,id)=>`<div style="margin-top:18px;display:grid;gap:10px">${rows.map((r,i)=>`<div ${i===rows.length-1?`id="${id}"`:''} class="row" style="gap:10px;padding:10px 14px;border-radius:16px;${i===rows.length-1?'border:3px dashed var(--faint);color:var(--faint);':'background:#F4F1FB;'}font:700 24px Inter">${I('store',40)} <span>${r}</span></div>`).join('')}</div>`;
+
+let H='';
+// S0 hook: 1.2B card inside a halftone glow, people orbiting
+H+=`<div class="${DOTS()}" id="s0" style="background:${SC[0][1]}">
+ <div class="glow" style="left:90px;top:500px;width:900px;height:900px;--gc:rgba(106,66,236,.45)"></div>
+ <div id="n0" class="card" style="left:150px;top:740px;width:640px;height:300px;display:grid;place-items:center;border-radius:40px;opacity:1">
+   <div style="font:900 240px/1 Inter;letter-spacing:-12px">1.2B</div></div>
+ ${[0,1,2,3,4,5].map(i=>`<div class="abs orb" id="o${i}" style="opacity:0">${I('person'+(i%5+1),100)}</div>`).join('')}
+ <div id="ch0" class="abs" style="left:760px;top:600px;opacity:0">${I('chat',130)}</div>
+ ${stamp('st0','Every week','var(--yellow)','var(--ink)',150,640)}
+ <div id="ev0" class="ev" style="left:150px;top:1056px;background:#E7EEFB;color:#3B5C9A;border:3px solid #A9C1EA">${I('megaphone',34)} Company-announced · OpenAI</div>
+</div>`;
+// S1 (dark): the question — is your shop in ChatGPT's answer?
+H+=`<div class="${DOTS(1)}" id="s1" style="background:${SC[1][1]}">
+ <div id="q1" class="card" style="left:80px;top:700px;width:770px;padding:26px 30px;border-radius:32px">
+   <div class="row">${I('chat',84)}<div><div style="font:900 40px Inter">ChatGPT</div><div style="font:600 26px Inter;color:var(--muted)">answering 1.2B people a week</div></div></div>
+   ${ANS(['Shop A','Shop B','Your shop?'],'you1')}</div>
+ <div id="mg1" class="abs" style="left:640px;top:1000px;opacity:0;z-index:8">${I('magnifier',170)}</div>
+ <div class="tag" id="tg1" style="left:80px;top:655px">Illustration</div>
+</div>`;
+// S2 Maya's candle shop → the soy-candle question → NOT ONCE
+H+=`<div class="${DOTS()}" id="s2" style="background:${SC[2][1]}">
+ <div id="w2" class="win" style="left:80px;top:550px;width:420px;height:370px">
+   <div class="bar"><i style="background:#FF6FB5"></i><i style="background:#FFD43B"></i><i style="background:#C6F03A"></i><div class="url">mayascandles.shop</div></div>
+   <div style="padding:16px;text-align:center">${CANDLE(120)}<div style="font:900 40px/1.05 Inter;letter-spacing:-1px;margin-top:10px">Maya's<br>Candles</div></div></div>
+ <div id="mn" class="abs" style="left:540px;top:590px;opacity:0;text-align:center"><div style="width:200px;height:200px;border-radius:50%;background:#fff;border:5px solid var(--ink);display:grid;place-items:center;box-shadow:8px 8px 0 var(--ink)">${I('person4',150)}</div><div style="margin-top:12px;font:900 34px Inter">Maya</div></div>
+ <div id="q2" class="card" style="left:80px;top:560px;width:770px;padding:22px 26px;border-radius:30px">
+   <div class="row">${I('chat',64)}<div style="font:800 30px Inter">"best soy candle?"</div></div>
+   ${ANS(['Big Candle Co.','Glow Brand','Maya\'s Candles'],'maya2')}</div>
+ <div id="r2" class="rubber" style="left:300px;top:740px;font-size:66px;background:rgba(255,229,241,.6)">Not once</div>
+ <div class="tag" id="tg2" style="left:80px;top:510px">Illustration · Maya is not real</div>
+</div>`;
+// S3 launch
+H+=`<div class="${DOTS()}" id="s3" style="background:${SC[3][1]}">
+ <div class="glow" style="left:140px;top:500px;width:860px;height:860px"></div>
+ <div id="cal" class="abs" style="left:96px;top:540px;width:230px;height:230px;opacity:0">${I('calendar',230)}<div class="abs" style="left:0;top:98px;width:230px;text-align:center;font:900 30px/1 Inter;letter-spacing:3px">NOV</div><div class="abs" style="left:0;top:132px;width:230px;text-align:center;font:900 76px/1 Inter;letter-spacing:-3px">10</div></div>
+ <div id="app" class="card" style="left:96px;top:800px;width:740px;padding:26px 30px;border-radius:34px">
+   <div class="row">${I('hub',120)}<div><div style="font:900 60px/1 Inter;letter-spacing:-2.5px">Business Hub</div><div style="font:600 26px Inter;color:var(--muted);margin-top:8px">inside ChatGPT · by OpenAI</div></div></div>
+   <div class="row" style="margin-top:20px;gap:10px"><span class="chipui" style="background:var(--yellow)">Beta</span><span class="chipui" style="background:#fff">Nov 10, 2026</span></div></div>
+ ${stamp('st3','New','var(--pink)','var(--ink)',620,680)}
+ ${[0,1,2].map(i=>`<div class="abs spk" id="sp${i}" style="left:${[70,900,560][i]}px;top:${[1150,860,640][i]}px;opacity:0">${I('sparkle',[70,56,46][i])}</div>`).join('')}
+ <div id="conf" class="abs" style="left:0;top:0;width:1080px;height:1920px"></div>
+</div>`;
+// S4 claim → blue check → prices + stock
+H+=`<div class="${DOTS()}" id="s4" style="background:${SC[4][1]}">
+ <div id="w4" class="win" style="left:80px;top:590px;width:770px;height:450px">
+   <div class="bar"><i style="background:#FF6FB5"></i><i style="background:#FFD43B"></i><i style="background:#C6F03A"></i><div class="url">chatgpt · business hub</div></div>
+   <div style="padding:24px">
+     <div class="row">${CANDLE(90)}<div><div class="row" style="gap:10px;font:900 38px Inter;letter-spacing:-1px">Maya's Candles <span id="vb" style="display:inline-block;transform:scale(0)">${I('verified',54)}</span></div><div style="font:600 22px Inter;color:var(--muted)">mayascandles.shop</div></div>
+       <div id="claimBtn" class="btn" style="margin-left:auto;font-size:24px;padding:12px 20px">Claim</div></div>
+     <div id="rows4" style="margin-top:18px;display:grid;gap:12px"></div></div></div>
+ <div id="cur4" class="abs" style="left:900px;top:1180px;opacity:0;z-index:9">${I('cursor',90)}</div>
+ ${stamp('st4a','Blue check','var(--blue)','#fff',560,540)}
+ ${stamp('st4b','No more guessing','var(--lime)','var(--ink)',90,1010)}
+ <div class="tag" id="tg4" style="left:80px;top:560px">Illustration</div>
+</div>`;
+// S5 three numbers
+H+=`<div class="${DOTS()}" id="s5" style="background:${SC[5][1]}">
+ <div class="glow" style="left:90px;top:560px;width:900px;height:900px"></div>
+ ${stamp('st5','3 numbers','var(--ink)','#fff',80,540)}
+ <div id="t0" class="card" style="left:80px;top:650px;width:430px;padding:24px"><div class="row">${I('chat',72)}<div style="font:900 40px Inter;letter-spacing:-1px">Mentions</div></div>
+   <svg width="370" height="90" style="margin-top:12px"><path id="spark" d="M6 78 L60 62 L110 68 L170 40 L230 48 L300 20 L380 10" fill="none" stroke="#6A42EC" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="470" stroke-dashoffset="470"/></svg></div>
+ <div id="t1" class="card" style="left:536px;top:690px;width:314px;padding:22px"><div class="row">${I('cursor',72)}<div style="font:900 40px Inter;letter-spacing:-1px">Clicks</div></div>
+   <div style="display:flex;align-items:flex-end;gap:14px;height:96px;margin-top:12px">${[34,60,48,92].map((h,i)=>`<i class="cb" style="flex:1;height:${h}%;border:4px solid var(--ink);border-radius:10px;background:${i==3?'var(--violet)':'var(--lilac)'};transform-origin:bottom"></i>`).join('')}</div></div>
+ <div id="t2" class="card" style="left:80px;top:890px;width:600px;padding:24px"><div class="row">${I('hashtag',72)}<div style="font:900 40px Inter;letter-spacing:-1px">Topics</div></div>
+   <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px">${['soy candles','gift ideas','scents'].map((x,i)=>`<span class="chipui tp" style="background:${['var(--lav)','var(--limeMist)','var(--blush)'][i]};text-transform:none;letter-spacing:0;font-size:24px;opacity:0">${x}</span>`).join('')}</div></div>
+ <div class="tag" id="tg5" style="left:420px;top:556px">Sample data</div>
+</div>`;
+// S6 business agent
+H+=`<div class="${DOTS()}" id="s6" style="background:${SC[6][1]}">
+ <div id="w6" class="win" style="left:80px;top:565px;width:770px;height:500px">
+   <div class="bar" style="padding:12px 20px">${I('bot',56)}<div style="font:900 30px Inter">Maya's Candles</div><span class="chipui" style="margin-left:auto;background:var(--lime)">Business Agent</span></div>
+   <div id="m0" class="msg" style="right:26px;top:110px;background:var(--violet);color:#fff">Is the lavender one strong?</div>
+   <div id="typ" class="msg" style="left:26px;top:236px;background:#F4F1FB;display:flex;gap:10px">${[0,1,2].map(()=>`<i class="td" style="width:16px;height:16px;border-radius:50%;background:var(--muted)"></i>`).join('')}</div>
+   <div id="m1" class="msg" style="left:26px;top:236px;background:#F4F1FB">It's soft and calm. Want to see the scent guide?</div>
+   <div id="qr" class="abs" style="left:26px;top:372px;opacity:0"><span class="chipui" style="background:var(--yellow);font-size:24px;text-transform:none;letter-spacing:0;padding:10px 18px">${I('tag',34)} Scent guide</span></div>
+   <div class="abs" style="left:26px;bottom:22px;font:700 20px Inter;color:var(--muted)">Labeled · separate from ChatGPT's own answers</div></div>
+ ${stamp('st6','U.S. only','var(--yellow)','var(--ink)',600,530)}
+ <div class="tag" id="tg6" style="left:80px;top:1100px">Sample chat</div>
+</div>`;
+// S7 the catch (dark)
+H+=`<div class="${DOTS(1)}" id="s7" style="background:${SC[7][1]}">
+ ${stamp('st7','The catch','var(--pink)','var(--ink)',80,550)}
+ ${[['ChatGPT','check','var(--lime)'],['Gemini','cross','#fff'],['Perplexity','cross','#fff']].map((r,i)=>`<div id="c${i}" class="card" style="left:80px;top:${670+i*130}px;width:640px;padding:20px 26px;border-radius:24px;background:${r[2]};${i?'box-shadow:8px 8px 0 #0E1030;':''}"><div class="row">${I(r[1],70)}<div style="font:900 46px Inter;letter-spacing:-1.5px;${i?'color:#8D8AA8':''}">${r[0]}</div><span class="chipui" style="margin-left:auto;background:${i?'#ECEAF3':'var(--ink)'};color:${i?'#8D8AA8':'#fff'}">${i?'not covered':'covered'}</span></div></div>`).join('')}
+ <div id="r7" class="rubber" style="left:230px;top:850px;font-size:60px;background:rgba(32,36,74,.25)">ChatGPT only</div>
+</div>`;
+// S8 end card: Pop Burst avatar + follow + question
+H+=`<div class="${DOTS()}" id="s8" style="background:${SC[8][1]}">
+ <div class="glow" style="left:60px;top:540px;width:900px;height:900px;--gc:rgba(106,66,236,.35)"></div>
+ <div id="cm8" class="card" style="left:80px;top:560px;width:700px;padding:22px 26px"><div class="row">${I('comment',76)}<div><div style="font:900 38px Inter;letter-spacing:-1px">Would you claim your shop?</div><div style="font:600 24px Inter;color:var(--muted);margin-top:6px">Yes or no, tell me in the comments</div></div></div></div>
+ <div id="fl8" class="card" style="left:80px;top:770px;width:700px;padding:22px 24px"><div class="row"><img src="avatar.svg" alt="MRR Pop profile picture (Pop Burst)" style="width:132px;height:132px;border-radius:50%;border:5px solid var(--ink);flex:none"><div><div style="font:900 36px Inter;letter-spacing:-1px">@getmrrpop</div><div style="font:600 22px Inter;color:var(--muted);margin-top:4px">The business behind software</div></div></div>
+   <div id="folBtn" class="btn" style="margin-top:18px;font-size:30px;padding:14px 30px">Follow MRR Pop</div></div>
+ <div id="cur8" class="abs" style="left:760px;top:1230px;opacity:0;z-index:9">${I('cursor',84)}</div>
+ <div id="conf8" class="abs" style="left:0;top:0;width:1080px;height:1920px"></div>
+</div>`;
+$('scenes').innerHTML=H;
+
+$('rows4').innerHTML=[['Lavender soy','Price updated','In stock'],['Vanilla soy','Price updated','In stock'],['Gift box','Price updated','Low stock']].map(r=>`<div class="row r4" style="gap:12px;padding:12px 16px;border:3px solid var(--ink);border-radius:18px;background:#fff;opacity:0">${I('tag',42)}<span style="font:800 27px Inter">${r[0]}</span><span class="np" style="margin-left:auto;font:800 22px Inter;color:var(--greenInk)">${r[1]} ✓</span><span class="chipui" style="font-size:14px;background:var(--limeMist)">${r[2]}</span></div>`).join('');
+const CONF=[...Array(26)].map((_,i)=>{const a=(-170+i*(160/25))*Math.PI/180;return{dx:Math.cos(a)*(330+((i*53)%220)),dy:Math.sin(a)*(360+((i*71)%240)),r:(i*47)%360,c:['#6A42EC','#C6F03A','#FF6FB5','#FFD43B','#4C8DF6'][i%5],w:14+(i%3)*8,h:8+(i%2)*14}});
+const confHTML=CONF.map(c=>`<i class="cf" style="position:absolute;left:0;top:0;width:${c.w}px;height:${c.h}px;border-radius:3px;border:2px solid #1B1838;background:${c.c};opacity:0"></i>`).join('');
+$('conf').innerHTML=confHTML;$('conf8').innerHTML=confHTML;
+$('px').innerHTML=[...Array(12*21)].map((_,i)=>`<i style="left:${(i%12)*90}px;top:${Math.floor(i/12)*92}px"></i>`).join('');
+const PXR=[...Array(12*21)].map((_,i)=>((i*7919)%251)/251);
+
+// headline words with timing
+const WORDS=B.map((b,i)=>{const w=DISPLAY[i].split(/\s+/);const tot=w.reduce((s,x)=>s+x.length+1,0);let acc=0;return w.map(x=>{const st=b.start+(b.end-b.start)*acc/tot*.92;acc+=x.length+1;return[x,st]})});
+const CHUNKS=[];WORDS.forEach((ws,bi)=>{let cur=[];ws.forEach(([w,st],k)=>{cur.push([w,st]);const end=/[.!?]$/.test(w)||(/[,:]$/.test(w)&&cur.length>=3);if(cur.length>=6||end||k===ws.length-1){CHUNKS.push({bi,words:cur,start:cur[0][1]});cur=[]}})});
+let hlChunk=-1;
+function headline(t){let ci=0;for(let i=0;i<CHUNKS.length;i++)if(t>=CHUNKS[i].start-.12)ci=i;
+ const ch=CHUNKS[ci],bi=ch.bi,el=$('hl');
+ if(ci!==hlChunk){hlChunk=ci;const a=(ACCENT[bi]||'').toLowerCase();el.innerHTML=ch.words.map(([w])=>{const clean=w.toLowerCase().replace(/[^a-z0-9]/g,'');return`<span class="w${a&&clean===a?' acc':''}">${w}</span>`}).join('')}
+ const dark=DARKBEAT[bi];el.style.color=dark?'#fff':'var(--ink)';
+ $$('#hl .w').forEach((s,k)=>{const kk=P(t,ch.words[k][1]-.05,.18);s.style.opacity=.16+.84*kk;s.style.transform=`translateY(${(1-eOut(kk))*14}px)`;if(s.classList.contains('acc'))s.style.color=dark?'var(--lime)':'var(--violet)'});
+ const kb=P(t,ch.start-.12,.22);el.style.transform=`translateY(${(1-eOut(kb))*22}px)`;el.style.opacity=.3+.7*eOut(kb)}
+
+// character
+const SLOTS={};for(const g of $$('#rig g[id]')){const m=g.id.match(/^(arms|eyes|brows|mouth|extras|glasses)-(.+)$/);if(m)(SLOTS[m[1]]??=[]).push(m[2])}
+function show(slot,v){for(const k of SLOTS[slot]||[]){const e=$(slot+'-'+k);if(e)e.style.display=k===v?'inline':'none'}}
+function setChar(pose,expr,viseme,blink){const p=MAN.poses[pose]||{},x=MAN.expressions[expr]||{};const s={...MAN.defaults,...p,...x};
+ if(viseme&&viseme!=='X')s.mouth=viseme;if(blink&&['open','up','side'].includes(s.eyes))s.eyes='closed';
+ for(const k of ['arms','eyes','brows','mouth','extras','glasses'])show(k,s[k])}
+// pose timeline follows the voice's emotions (hook excited, curious, annoyed "Not once", wow on the blue check …)
+const ST=[[[0,'pointing','shocked'],[1.4,'pointing','grin']],
+ [[bs(1),'thinking','curious']],
+ [[bs(2),'explaining','smile'],[bs(3),'pointing-side','curious'],[bs(4),'shrug','annoyed']],
+ [[bs(5),'celebrating','star-struck']],
+ [[bs(6),'explaining','grin'],[bs(6)+1.3,'thumbs-up','cheeky'],[bs(7),'explaining','smile']],
+ [[bs(8),'explaining','curious'],[bs(8)+1.6,'celebrating','money-eyes']],
+ [[bs(9),'pointing-side','curious'],[bs(9)+2.6,'explaining','smile']],
+ [[bs(10),'thinking','thinking'],[bs(10)+1.0,'shrug','skeptical']],
+ [[bs(11),'waving','grin'],[bs(11)+2.0,'thumbs-up','cheeky']]];
+const SCALE=1.12, PXU=0.7683*SCALE, WAIST=940;
+const POS=[640,650,650,640,650,660,650,640,650];
+const scy=1920-WAIST*PXU;
+const FLAT=ST.flat();
+let ARMX=null;
+function armReach(){ARMX={};for(const g of $$('#rig g[id^="arms-"]')){const d=g.style.display;g.style.display='inline';const b=g.getBBox();g.style.display=d;ARMX[g.id.slice(5)]=[b.x,b.x+b.width]}}
+const SHOWN=q=>{const x=q[2],p=q[1],o=[p];if(x==='laughing'||x==='annoyed')o.push('belly-laugh','laugh-point');if(x==='shocked')o.push('recoil');if(['cool','cheeky','skeptical'].includes(x))o.push('hands-on-hips');if(x==='nervous')o.push('clap');return o};
+function xLim(q){if(!ARMX)armReach();let l=150,r=450;
+ const ex=(MAN.expressions[q[2]]||{}).extras;if(ex&&ex!=='none'){r=Math.max(r,580);l=Math.min(l,100)} // ?, sparkle, sweat sit beside the headfor(const p of SHOWN(q)){const a=(MAN.poses[p]||{}).arms,e=ARMX[a];if(e){l=Math.min(l,e[0]);r=Math.max(r,e[1])}}
+ const m=170,k=PXU*1.03; // body motion (lean, shoulders) adds ~40 px reach beyond the static arm bbox
+ return [48-(l-m)*k, 1080-48-(r+m)*k]}
+
+window.render=function(t){
+ let si=0;for(let i=0;i<SC.length;i++)if(t>=A[i])si=i;
+ let pxOn=null;SC.forEach((s,i)=>{if(s[2]==='pixel'&&t>=A[i]-.4&&t<A[i]+.45)pxOn=i});
+ SC.forEach((s,i)=>{const el=$('s'+i),st=A[i];
+  const incoming=i===si+1&&s[2]==='wipe'&&t>=st-.35;
+  el.style.display=(i===si||incoming)?'block':'none';el.style.zIndex=i;
+  if(s[2]==='wipe'&&i>0&&(incoming||i===si)){const k=eIO(P(t,st-.35,.45));el.style.clipPath=k>=1?'none':`polygon(${(1-k)*160-60}% 0,100% 0,100% 100%,${(1-k)*160-40}% 100%)`}else el.style.clipPath='none'});
+ $$('#px i').forEach((q,k)=>{if(pxOn===null){q.style.opacity=0;return}const st=A[pxOn];const inK=P(t,st-.4+PXR[k]*.3,.05),outK=P(t,st+PXR[(k*13)%PXR.length]*.35,.05);q.style.background=SC[pxOn][1];q.style.opacity=inK*(1-outK)});
+
+ // S0
+ {const n=$('n0');n.style.transform=`scale(${1+.06*Math.sin(P(t,0,.6)*Math.PI)}) rotate(${-2+Math.sin(t*1.3)*.6}deg)`;
+  $$('.orb').forEach((o,i)=>{const k=P(t,.6+i*.16,.4);o.style.opacity=C(k*3);const a=(i/6)*Math.PI*2+t*.35;o.style.left=(500+Math.cos(a)*420-50)+'px';o.style.top=(890+Math.sin(a)*290-50)+'px';o.style.transform=`scale(${.4+.6*eBack(k)})`});
+  const c=$('ch0'),kc=pop(c,t,1.0,.35);c.style.transform=`scale(${.4+.6*eBack(kc)}) translateY(${Math.sin(t*2.2)*8}px) rotate(${Math.sin(t*1.6)*4}deg)`;
+  stampAnim('st0',t,1.5,-6);const ev=$('ev0'),k=pop(ev,t,1.8,.3);ev.style.transform=`translateY(${(1-eOut(k))*20}px)`}
+ // S1
+ {const b1=bs(1);const q=$('q1'),kq=pop(q,t,b1,.4);q.style.transform=`translateY(${(1-eBack(kq))*160}px) rotate(-1.5deg)`;
+  const you=$('you1'),ky=Math.sin(P(t,b1+.9,.5)*Math.PI);you.style.transform=`translateX(${Math.sin(t*22)*6*ky}px)`;you.style.borderColor=ky>0?'var(--pink)':'';
+  const m=$('mg1'),km=P(t,b1+.3,.7);m.style.opacity=C(km*4);m.style.transform=`translate(${(1-eOut(km))*300}px,${Math.sin(t*2)*12}px) rotate(${Math.sin(t*1.5)*8}deg)`;
+  pop($('tg1'),t,b1+.4,.3)}
+ // S2
+ {const b2=bs(2),b3=bs(3),b4=bs(4);const w=$('w2'),kw=pop(w,t,b2,.4);w.style.transform=`translateY(${(1-eBack(kw))*180}px) rotate(${-3+(1-kw)*-6}deg)`;
+  const mn=$('mn'),km=pop(mn,t,b2+.35,.4);mn.style.transform=`scale(${.4+.6*eBack(km)}) translateY(${Math.sin(t*2.4)*6}px)`;
+  const out=eIO(P(t,b3-.25,.35));w.style.opacity=kw>0?C(kw*3)*(1-out):0;mn.style.opacity=km>0?C(km*3)*(1-out):0;w.style.transform+=` translateX(${-out*700}px)`;mn.style.transform+=` translateX(${out*500}px)`;
+  const q=$('q2'),kq=pop(q,t,b3,.4);q.style.transform=`translateY(${(1-eBack(kq))*160}px) rotate(1deg)`;
+  const my=$('maya2'),shake=P(t,b4-.05,.6);my.style.transform=`translateX(${Math.sin(shake*Math.PI*6)*14*(1-shake)}px)`;my.style.opacity=t>b4?.55:1;
+  const r=$('r2'),kr=P(t,b4,.25);r.style.opacity=C(kr*4);r.style.transform=`rotate(-9deg) scale(${1.8-.8*eOut(kr)})`;
+  pop($('tg2'),t,b2+.5,.3)}
+ // S3
+ {const b5=bs(5);const c=$('cal'),kc=pop(c,t,b5,.4);c.style.transform=`rotate(${-8+(1-kc)*-20}deg) scale(${.4+.6*eBack(kc)})`;
+  const a=$('app'),ka=pop(a,t,b5+1.1,.45);a.style.transform=`translateY(${(1-eBack(ka))*200}px) rotate(${2*(1-ka)+1}deg)`;
+  stampAnim('st3',t,b5+1.5,8);
+  $$('.spk').forEach((s,i)=>{const k=pop(s,t,b5+1.4+i*.15,.3);s.style.transform=`scale(${(.3+.7*eBack(k))*(1+.12*Math.sin(t*4+i))}) rotate(${t*40*(i%2?1:-1)}deg)`});
+  $$('#conf .cf').forEach((e,i)=>{const q=CONF[i];const kk=P(t,b5+1.15+i*.01,1.4);e.style.opacity=kk>0?1-P(t,b5+2.4,.35):0;e.style.transform=`translate(${520+q.dx*eOut(kk)}px,${960+q.dy*eOut(kk)+kk*kk*620}px) rotate(${q.r*kk*3}deg)`})}
+ // S4
+ {const b6=bs(6),b7=bs(7);const w=$('w4'),kw=pop(w,t,b6,.4);w.style.transform=`translateY(${(1-eBack(kw))*200}px) rotate(${-1.5+(1-kw)*-4}deg)`;
+  const cur=$('cur4'),kc=P(t,b6+.2,.5);cur.style.opacity=t>b6+.1&&t<b6+1.4?1:0;cur.style.transform=`translate(${-eIO(kc)*250}px,${-eIO(kc)*480}px) scale(${t>b6+.75&&t<b6+.9?.85:1})`;
+  const cb=$('claimBtn'),done=t>b6+.85;cb.textContent=done?'Claimed ✓':'Claim';cb.style.background=done?'var(--lime)':'var(--violet)';cb.style.color=done?'var(--ink)':'#fff';cb.style.transform=`scale(${1+.14*Math.sin(P(t,b6+.8,.3)*Math.PI)})`;
+  $('vb').style.transform=`scale(${eBack(P(t,b6+1.25,.4))}) rotate(${(1-P(t,b6+1.25,.5))*-90}deg)`;
+  $$('.r4').forEach((r,i)=>{const k=pop(r,t,b7+.1+i*.3,.35);r.style.transform=`translateX(${(1-eBack(k))*90}px)`;r.querySelector('.np').style.transform=`scale(${1+.25*Math.sin(P(t,b7+.4+i*.3,.4)*Math.PI)})`});
+  stampAnim('st4a',t,b6+1.3,5);stampAnim('st4b',t,b7+1.6,-4);pop($('tg4'),t,b6+.4,.3)}
+ // S5
+ {const b8=bs(8),d=be(8)-b8;stampAnim('st5',t,b8,-3);const ws=[b8+d*.42,b8+d*.62,b8+d*.8];
+  ['t0','t1','t2'].forEach((id,i)=>{const e=$(id),k=pop(e,t,ws[i]-.08,.4);e.style.transform=`translateY(${(1-eBack(k))*180}px) rotate(${[-2,2,-1][i]}deg)`});
+  $('spark').style.strokeDashoffset=470*(1-eOut(P(t,ws[0]+.15,.8)));
+  $$('.cb').forEach((c,i)=>c.style.transform=`scaleY(${eBack(P(t,ws[1]+.1+i*.08,.4))})`);
+  $$('.tp').forEach((c,i)=>{const k=P(t,ws[2]+.15+i*.12,.3);c.style.opacity=C(k*3);c.style.transform=`scale(${.4+.6*eBack(k)})`});pop($('tg5'),t,b8+.3,.3)}
+ // S6
+ {const b9=bs(9);const w=$('w6'),kw=pop(w,t,b9,.45);w.style.transform=`translateY(${(1-eBack(kw))*110}px) rotate(-1.5deg)`;
+  const m0=$('m0'),k0=pop(m0,t,b9+.9,.35);m0.style.transform=`translateY(${(1-eBack(k0))*40}px)`;
+  $('typ').style.opacity=(t>b9+1.6&&t<b9+2.6)?1:0;$$('.td').forEach((d,i)=>d.style.transform=`translateY(${Math.sin(t*9-i)*6}px)`);
+  const m1=$('m1'),k1=pop(m1,t,b9+2.6,.35);m1.style.transform=`translateY(${(1-eBack(k1))*40}px)`;
+  const q=$('qr'),kq=pop(q,t,b9+3.5,.35);q.style.transform=`scale(${.4+.6*eBack(kq)})`;
+  stampAnim('st6',t,b9+.3,7);pop($('tg6'),t,b9+.7,.3)}
+ // S7
+ {const b10=bs(10),d=be(10)-b10;stampAnim('st7',t,b10-.05,-4);
+  [b10+d*.45,b10+d*.62,b10+d*.75].forEach((s,i)=>{const e=$('c'+i),k=pop(e,t,s,.35);e.style.transform=`translateX(${(1-eBack(k))*-140}px) rotate(${[-1,1,-.5][i]}deg)`});
+  const r=$('r7'),kr=P(t,be(10)-.1,.25);r.style.opacity=C(kr*4);r.style.transform=`rotate(-10deg) scale(${1.8-.8*eOut(kr)})`}
+ // S8
+ {const b11=bs(11);
+  const cm=$('cm8'),kc=pop(cm,t,b11,.4);cm.style.transform=`translateY(${(1-eBack(kc))*160}px) rotate(-1.5deg)`;
+  const fl=$('fl8'),kf=pop(fl,t,b11+.9,.4);fl.style.transform=`translateY(${(1-eBack(kf))*160}px) rotate(1deg)`;
+  const cur=$('cur8'),kx=P(t,b11+1.5,.6);cur.style.opacity=t>b11+1.4?1:0;cur.style.transform=`translate(${-eIO(kx)*480}px,${-eIO(kx)*250}px) scale(${t>b11+2.1&&t<b11+2.25?.85:1})`;
+  const fb=$('folBtn'),fd=t>b11+2.2;fb.textContent=fd?'Following ✓':'Follow MRR Pop';fb.style.background=fd?'var(--lime)':'var(--violet)';fb.style.color=fd?'var(--ink)':'#fff';
+  $$('#conf8 .cf').forEach((e,i)=>{const q=CONF[i];const kk=P(t,b11+2.2+i*.01,1.3);e.style.opacity=kk>0?1-P(t,b11+3.2,.3):0;e.style.transform=`translate(${420+q.dx*eOut(kk)*.8}px,${1080+q.dy*eOut(kk)*.8+kk*kk*600}px) rotate(${q.r*kk*3}deg)`})}
+
+ headline(t);
+ $('src').style.opacity=C(P(t,1.8,.3))*(1-P(t,bs(11)-.3,.3));
+
+ // character: waist-up from the bottom edge
+ let s=FLAT[0];for(const q of FLAT)if(t>=q[0])s=q;
+ const fi=Math.floor(t*VIS.fps),vis=VIS.frames[fi]||'X',talk=vis!=='X';
+ const en0=window.energyAt&&VIS.energy?energyAt(VIS.energy,VIS.fps,t):(talk?.6:0);
+ const qi=FLAT.indexOf(s),prevQ=qi>0?FLAT[qi-1]:null;
+ const M=window.bodyMotion?bodyMotion({t,energy:en0,talking:talk,expression:s[2],pose:s[1],since:t-s[0],prevExpression:prevQ&&prevQ[2],prevPose:prevQ&&prevQ[1]}):null;
+ setChar(M?M.pose:s[1],s[2],vis,(t%3.4)>3.27);
+ const px0=POS[Math.max(0,si-1)];let x=px0+(POS[si]-px0)*eIO(P(t,A[si],.5));
+ {const L1=xLim(s),L0=prevQ?xLim(prevQ):L1,nq=FLAT[qi+1],w=eIO(P(t,s[0],.45));
+  let lo=Math.max(L0[0],L1[0]),hi=Math.min(L0[1],L1[1]);lo+=(L1[0]-lo)*w;hi+=(L1[1]-hi)*w;
+  if(nq){const N=xLim(nq),a=eIO(P(t,nq[0]-.5,.5));lo+=(Math.max(lo,N[0])-lo)*a;hi+=(Math.min(hi,N[1])-hi)*a}
+  x=Math.min(Math.max(x,lo),hi)}
+ let dy=(1-eBack(P(t,-.3,.6)))*700,sq=1;
+ for(const q of FLAT){const kk=(t-q[0])/.5;if(kk>0&&kk<1){dy-=(.5-.5*Math.cos(kk*Math.PI*2))*28;sq=1+Math.sin(kk*Math.PI*2)*.02}}
+ const sway=M?0:Math.sin(t*1.6)*1.2; if(!M)dy+=Math.sin(t*2.2)*6;
+ $('char').style.transform=`translate(${x}px,${scy+dy}px) scale(${SCALE/sq},${SCALE*sq}) rotate(${sway}deg)`;
+ const en=VIS.energy?(VIS.energy[fi]||0):(talk?.7:0);
+ const nod=en>.05?(Math.sin(t*7.3)*3+Math.sin(t*3.1)*2)*(.5+en*.7):Math.sin(t*1.4)*1.5;
+ let lift=-Math.abs(Math.sin(t*9))*4*en,tilt=nod;
+ if(M){const T=motionTransforms(M,MP_HIP,MP_FEET,MP_WAIST||undefined);
+  $('root')?.setAttribute('transform',T.root);$('legs')?.setAttribute('transform',T.legs);$('upper')?.setAttribute('transform',T.upper);$('armsrig')?.setAttribute('transform',T.arms);
+  tilt=M.headTilt;lift=T.headY}
+ $('head').style.transform=`rotate(${tilt}deg) translateY(${lift}px)`;
+};
+window.render(0);
+</script></body></html>

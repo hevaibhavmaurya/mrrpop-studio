@@ -1,0 +1,142 @@
+{
+  "engine": "chatterbox",
+  "ref": "voices/custom/mr-pop/reference.wav",
+  "seed": 7,
+  "more": 0.0,
+  "duration": 37.838,
+  "lufs": -14.1,
+  "beats": [
+    {
+      "style": "hook",
+      "text": "Nobody tells you which small apps pay a salary.",
+      "start": 0.3,
+      "end": 2.97,
+      "take": 1,
+      "score": 10.41,
+      "pitch_range_st": 10.4,
+      "median_hz": 141,
+      "len_ratio": 1.02
+    },
+    {
+      "style": "fun",
+      "text": "I'm Mr. Pop, and finding them is my job!",
+      "start": 3.31,
+      "end": 6.229,
+      "take": 2,
+      "score": 8.77,
+      "pitch_range_st": 8.8,
+      "median_hz": 125,
+      "len_ratio": 1.51
+    },
+    {
+      "style": "curious",
+      "text": "One person. One app. How much does it make a month?",
+      "start": 6.469,
+      "end": 9.699,
+      "take": 0,
+      "score": 8.22,
+      "pitch_range_st": 8.2,
+      "median_hz": 135,
+      "len_ratio": 1.23
+    },
+    {
+      "style": "fun",
+      "text": "I cover fresh launches, and apps that just got sold.",
+      "start": 10.019,
+      "end": 13.439,
+      "take": 1,
+      "score": 8.73,
+      "pitch_range_st": 8.7,
+      "median_hz": 133,
+      "len_ratio": 1.21
+    },
+    {
+      "style": "fun",
+      "text": "Plus builders who went from zero to their first paying users.",
+      "start": 13.679,
+      "end": 16.522,
+      "take": 1,
+      "score": 9.45,
+      "pitch_range_st": 9.4,
+      "median_hz": 135,
+      "len_ratio": 0.82
+    },
+    {
+      "style": "trust",
+      "text": "But I never just throw a number at you.",
+      "start": 16.762,
+      "end": 19.053,
+      "take": 1,
+      "score": 10.03,
+      "pitch_range_st": 10.0,
+      "median_hz": 118,
+      "len_ratio": 1.11
+    },
+    {
+      "style": "trust",
+      "text": "Checked in payment data, like Stripe? Payment verified.",
+      "start": 19.433,
+      "end": 23.556,
+      "take": 0,
+      "score": 7.93,
+      "pitch_range_st": 7.9,
+      "median_hz": 119,
+      "len_ratio": 1.33
+    },
+    {
+      "style": "curious",
+      "text": "Founder just said it? Founder reported.",
+      "start": 23.936,
+      "end": 26.013,
+      "take": 2,
+      "score": 10.05,
+      "pitch_range_st": 10.0,
+      "median_hz": 119,
+      "len_ratio": 0.94
+    },
+    {
+      "style": "trust",
+      "text": "Every number gets a tag. You decide how much to believe.",
+      "start": 26.333,
+      "end": 29.889,
+      "take": 0,
+      "score": 8.26,
+      "pitch_range_st": 8.3,
+      "median_hz": 109,
+      "len_ratio": 1.17
+    },
+    {
+      "style": "fun",
+      "text": "No fluff. Thirty second stories. Boom.",
+      "start": 30.269,
+      "end": 32.975,
+      "take": 1,
+      "score": 10.14,
+      "pitch_range_st": 10.1,
+      "median_hz": 140,
+      "len_ratio": 1.31
+    },
+    {
+      "style": "cta",
+      "text": "Follow MRR Pop!",
+      "start": 33.215,
+      "end": 35.053,
+      "take": 2,
+      "score": 5.82,
+      "pitch_range_st": 9.5,
+      "median_hz": 109,
+      "len_ratio": 2.22
+    },
+    {
+      "style": "cta",
+      "text": "Which small app should I dig into first?",
+      "start": 35.253,
+      "end": 37.638,
+      "take": 1,
+      "score": 7.23,
+      "pitch_range_st": 7.2,
+      "median_hz": 140,
+      "len_ratio": 1.08
+    }
+  ]
+}

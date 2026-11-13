@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="MRR Pop app mark">
+  <rect width="512" height="512" rx="116" fill="#6A42EC"/>
+  <text x="256" y="232" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="900" font-size="150" letter-spacing="-8" fill="#FFFFFF">MRR</text>
+  <g transform="rotate(-7 256 340)">
+    <path d="M146 290 C166 272 346 266 366 284 C384 300 382 384 362 398 C340 412 168 416 150 400 C130 384 128 306 146 290 Z" fill="#1B1838" transform="translate(8 8)"/>
+    <path d="M146 290 C166 272 346 266 366 284 C384 300 382 384 362 398 C340 412 168 416 150 400 C130 384 128 306 146 290 Z" fill="#C6F03A" stroke="#1B1838" stroke-width="7" stroke-linejoin="round"/>
+    <text x="256" y="378" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-style="italic" font-weight="900" font-size="112" letter-spacing="-4" fill="#1B1838">pop</text>
+  </g>
+</svg>

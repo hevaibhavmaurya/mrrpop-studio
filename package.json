@@ -1,0 +1,14 @@
+{
+  "name": "mrrpop-studio",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "workspaces": ["packages/*", "studio"],
+  "scripts": {
+    "dev": "npm run dev -w @mrrpop/studio",
+    "build": "npm run build -w @mrrpop/studio",
+    "typecheck": "tsc -p studio --noEmit",
+    "character:parts": "node packages/character/scripts/split-rig.mjs packages/character/packs/mr-pop-v2/rig/rig-v5.svg packages/character/packs/mr-pop"
+  },
+  "engines": { "node": ">=20" }
+}

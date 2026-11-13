@@ -1,0 +1,9 @@
+{
+  "name": "@mrrpop/theme",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.tsx",
+  "exports": { ".": "./src/index.tsx", "./themes/*": "./themes/*" },
+  "peerDependencies": { "react": "^18.3.1" }
+}

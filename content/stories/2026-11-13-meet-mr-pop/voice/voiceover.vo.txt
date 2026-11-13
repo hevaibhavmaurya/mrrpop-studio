@@ -1,0 +1,13 @@
+# Meet Mr. Pop — first Reel + Highlight. Signature voice (expressive.py). Words = script.txt (final, no hyphens)
+{hook}    Nobody tells you which small apps pay a salary.
+{fun}     I'm Mr. Pop, and finding them is my job!
+{curious} One person. One app. How much does it make a month?
+{fun}     I cover fresh launches, and apps that just got sold.
+{fun}     Plus builders who went from zero to their first paying users.
+{trust}   But I never just throw a number at you.
+{trust}   Checked in payment data, like Stripe? Payment verified.
+{curious} Founder just said it? Founder reported.
+{trust}   Every number gets a tag. You decide how much to believe.
+{fun}     No fluff. Thirty second stories. Boom.
+{cta}     Follow MRR Pop!
+{cta}     Which small app should I dig into first?

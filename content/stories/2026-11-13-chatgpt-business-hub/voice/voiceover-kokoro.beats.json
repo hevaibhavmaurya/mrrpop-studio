@@ -1,0 +1,73 @@
+{
+  "voice": "pop-prime",
+  "duration": 35.103,
+  "lufs": -14.5,
+  "beats": [
+    {
+      "style": "hook",
+      "text": "One point two billion people use ChatGPT weekly.",
+      "start": 0.3,
+      "end": 3.219
+    },
+    {
+      "style": "curious",
+      "text": "Are you losing customers to it?",
+      "start": 3.619,
+      "end": 5.075
+    },
+    {
+      "style": "fun",
+      "text": "Now you can check!",
+      "start": 5.435,
+      "end": 6.282
+    },
+    {
+      "style": "fun",
+      "text": "On November tenth, OpenAI launched Business Hub.",
+      "start": 6.562,
+      "end": 9.146
+    },
+    {
+      "style": "trust",
+      "text": "Claim your business, grab the blue check, and update your prices and stock so ChatGPT shows the right ones.",
+      "start": 9.426,
+      "end": 16.015
+    },
+    {
+      "style": "fun",
+      "text": "Then you get three insights.",
+      "start": 16.435,
+      "end": 17.602
+    },
+    {
+      "style": "fun",
+      "text": "Mentions. Clicks. Topics.",
+      "start": 17.882,
+      "end": 19.344
+    },
+    {
+      "style": "curious",
+      "text": "And U.S. stores can launch a Business Agent that answers your buyers' questions right inside ChatGPT.",
+      "start": 19.624,
+      "end": 25.752
+    },
+    {
+      "style": "curious",
+      "text": "The catch?",
+      "start": 26.112,
+      "end": 26.755
+    },
+    {
+      "style": "trust",
+      "text": "It's ChatGPT only, so no Gemini and no Perplexity.",
+      "start": 27.115,
+      "end": 30.803
+    },
+    {
+      "style": "cta",
+      "text": "So, would you claim yours on ChatGPT? Follow MRR Pop!",
+      "start": 31.223,
+      "end": 34.863
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1380" data-part="torso">
+<g stroke="#0F1222" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M214 566 C210 512 250 486 300 486 C350 486 390 512 386 566 Z" fill="#5443D6"/>
+ <path d="M168 574 C150 640 154 760 174 920 L426 920 C446 760 450 640 432 574 C400 548 360 540 300 540 C240 540 200 548 168 574 Z" fill="#1E2340"/>
+ <path d="M250 546 L350 546 L330 920 L270 920 Z" fill="#6C5CE7"/>
+ <path d="M262 420 L262 552 Q300 578 338 552 L338 420 Z" fill="#B9794C"/>
+ <path d="M248 544 Q300 604 352 544 Q340 572 300 582 Q260 572 248 544 Z" fill="#7B6CF0"/>
+ <path d="M250 546 L284 780 L260 780 L212 650 L236 636 L212 604 Z" fill="#2A3157"/>
+ <path d="M350 546 L316 780 L340 780 L388 650 L364 636 L388 604 Z" fill="#2A3157"/>
+</g>
+<path d="M284 590 L282 680" stroke="#F4DB91" stroke-width="7" stroke-linecap="round"/><path d="M316 590 L318 680" stroke="#F4DB91" stroke-width="7" stroke-linecap="round"/>
+<rect x="275" y="678" width="14" height="22" rx="5" fill="#fff" stroke="#0F1222" stroke-width="4"/><rect x="311" y="678" width="14" height="22" rx="5" fill="#fff" stroke="#0F1222" stroke-width="4"/>
+<path d="M262 444 Q300 490 338 444 L338 486 Q300 510 262 486 Z" fill="#9E643E"/>
+</svg>

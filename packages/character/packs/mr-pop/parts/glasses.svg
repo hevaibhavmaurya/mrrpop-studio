@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1380" data-part="glasses">
+<g id="glasses" fill="none" stroke="#0F1222" stroke-width="9">
+ <circle cx="250" cy="284" r="40"/><circle cx="350" cy="284" r="40"/>
+ <path d="M290 280 Q300 272 310 280"/><path d="M210 278 L194 274"/><path d="M390 278 L406 274"/>
+</g>
+<path d="M226 264 Q234 254 246 252" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".9"/>
+<path d="M326 264 Q334 254 346 252" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".9"/>
+</svg>

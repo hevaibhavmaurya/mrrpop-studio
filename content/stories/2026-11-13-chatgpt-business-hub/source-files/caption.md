@@ -1,0 +1,22 @@
+# Instagram caption — paste as-is
+
+Linted with /ig-caption (READY, Job A: the Reel carries the hook) · /ig-human 100 PASS · search terms: "ChatGPT Business Hub", "ChatGPT visibility"
+
+```
+Would you claim your business in ChatGPT? Yes or no, tell me in the comments.
+
+OpenAI launched ChatGPT Business Hub on November 10. It's a beta.
+
+You claim your listing, get the blue check, and keep your prices and stock fresh with a product feed.
+
+Then you get your ChatGPT visibility in three numbers: how often it mentions you, how many people click through, and which topics bring them in. All aggregated. Nobody's chats get shared.
+
+US ecommerce and online service businesses can also launch a Business Agent. It's a labeled chat that answers buyer questions.
+
+The catch? It only covers ChatGPT. Not Gemini, not Perplexity.
+
+1.2 billion weekly users is OpenAI's own number (company-announced).
+Sources: OpenAI announcement, Nov 10 2026. The Next Web.
+
+#chatgpt #ecommerce #saas
+```

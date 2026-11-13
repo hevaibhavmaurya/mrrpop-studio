@@ -1,0 +1,273 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+/* MRR Pop · Meet Mr. Pop — first Reel + Highlight. Same system as the ChatGPT Business Hub v3 reel: theme tokens, burned ≤6-word captions,
+   stamps, pixel/wipe transitions, bodyMotion + frame guard. Safe box x 80–850, y 250–1440. No invented numbers (the price slot never lands). */
+   Theme tokens: packages/theme/themes/mrrpop-v6/theme.json · Icons: packages/ui/icons/*.svg (injected) */
+@font-face{font-family:Inter;src:url(../../../../packages/theme/themes/mrrpop-v6/fonts/Inter-Variable.ttf);font-weight:100 900}
+@font-face{font-family:Inter;src:url(../../../../packages/theme/themes/mrrpop-v6/fonts/Inter-Italic-Variable.ttf);font-weight:100 900;font-style:italic}
+@font-face{font-family:IS;src:url(../../../../packages/theme/themes/mrrpop-v6/fonts/InstrumentSerif-Italic.ttf);font-style:italic}
+:root{--paper:#FAF9FF;--white:#fff;--ink:#1B1838;--navy:#20244A;--muted:#6E6A8E;--faint:#A3A0BC;
+--lav:#ECE6FF;--limeMist:#F0F9D4;--sky:#E4EEFF;--blush:#FFE5F1;--cream:#FFF4CC;
+--violet:#6A42EC;--lime:#C6F03A;--yellow:#FFD43B;--pink:#FF6FB5;--lilac:#BBA6FF;--blue:#4C8DF6;--green:#3DBE6E;--greenInk:#1F8A48;--red:#F0475A}
+*{margin:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{background:var(--paper);font-family:Inter;color:var(--ink);font-feature-settings:"tnum" 1;position:relative}
+.abs{position:absolute}
+.scene{position:absolute;inset:0;overflow:hidden;display:none}
+.scene.dots:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(27,24,56,.07) 2px,transparent 2px);background-size:40px 40px}
+.scene.dark.dots:before{background-image:radial-gradient(rgba(255,255,255,.07) 2px,transparent 2px)}
+.glow{position:absolute;border-radius:50%;background-image:radial-gradient(circle,var(--gc,rgba(255,212,59,.75)) 2.6px,transparent 3px);background-size:15px 15px;
+  -webkit-mask-image:radial-gradient(circle,#000 0%,rgba(0,0,0,.55) 40%,transparent 70%);mask-image:radial-gradient(circle,#000 0%,rgba(0,0,0,.55) 40%,transparent 70%)}
+/* headline = the spoken line, revealed word by word */
+#hl{position:absolute;left:80px;top:262px;width:770px;font:600 66px/1.13 Inter;letter-spacing:-1.8px;z-index:30}
+#hl .w{display:inline-block;margin-right:.24em}
+#hl .acc{font-family:IS;font-style:italic;font-weight:400;letter-spacing:0;font-size:1.2em;line-height:.9}
+/* stamp labels */
+.stamp{position:absolute;display:inline-block;padding:12px 22px 10px;--fs:44px;border:5px solid var(--ink);border-radius:12px;box-shadow:6px 6px 0 var(--ink);
+  font:900 44px/1 Inter;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap;opacity:0;z-index:6}
+.stamp span{display:inline-block;transform:scaleX(.84);transform-origin:left center;margin-right:-14%}
+.rubber{position:absolute;padding:10px 24px;border:7px solid var(--red);border-radius:14px;color:var(--red);font:900 58px/1 Inter;letter-spacing:2px;text-transform:uppercase;white-space:nowrap;opacity:0;z-index:7}
+.tag{position:absolute;padding:7px 12px;border:3px solid var(--ink);border-radius:999px;background:var(--yellow);font:800 17px/1 Inter;letter-spacing:1.5px;text-transform:uppercase;opacity:0}
+/* UI cards */
+.win{position:absolute;background:#fff;border:5px solid var(--ink);border-radius:30px;box-shadow:10px 10px 0 rgba(27,24,56,.9);overflow:hidden;opacity:0}
+.win .bar{display:flex;align-items:center;gap:10px;padding:16px 20px;border-bottom:4px solid var(--ink);background:var(--paper)}
+.win .bar i{width:16px;height:16px;border-radius:50%;border:3px solid var(--ink)}
+.win .url{margin-left:12px;flex:1;height:30px;border-radius:999px;border:3px solid var(--ink);background:#fff;font:700 16px/24px Inter;padding-left:14px;color:var(--muted)}
+.card{position:absolute;background:#fff;border:5px solid var(--ink);border-radius:26px;box-shadow:8px 8px 0 var(--ink);opacity:0}
+.row{display:flex;align-items:center;gap:16px}
+.ico{display:inline-block;flex:none}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;border:4px solid var(--ink);font:800 28px/1 Inter;background:var(--violet);color:#fff;white-space:nowrap}
+.chipui{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:3px solid var(--ink);font:800 18px/1 Inter;letter-spacing:1px;text-transform:uppercase;white-space:nowrap}
+.src{position:absolute;left:80px;top:1380px;display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.88);border:3px solid var(--ink);font:600 20px/1 Inter;z-index:45}
+.src b{font-weight:800}
+.ev{position:absolute;display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border-radius:999px;font:700 24px/1 Inter;white-space:nowrap;opacity:0}
+#char{position:absolute;left:0;top:0;width:461px;height:1060px;transform-origin:0 0;z-index:40}
+#char svg{width:461px;height:1060px;display:block;filter:drop-shadow(0 20px 24px rgba(27,24,56,.28))}
+#px{position:absolute;inset:0;z-index:25;pointer-events:none}
+#px i{position:absolute;width:90px;height:92px;opacity:0}
+.msg{position:absolute;max-width:470px;padding:18px 24px;border-radius:26px;border:4px solid var(--ink);font:600 30px/1.3 Inter;opacity:0}
+.sticker{position:absolute;display:flex;align-items:center;gap:16px;padding:16px 26px 16px 16px;border:5px solid var(--ink);border-radius:22px;box-shadow:7px 7px 0 var(--ink);opacity:0;white-space:nowrap}
+.sticker .ic{width:66px;height:66px;border-radius:16px;background:#fff;border:4px solid var(--ink);display:grid;place-items:center}
+.sticker small{display:block;font:800 16px/1 Inter;letter-spacing:2px;opacity:.75}
+.sticker b{display:block;font:900 italic 44px/1.05 Inter;letter-spacing:-1px;text-transform:uppercase}
+.tile{position:absolute;width:190px;height:190px;border-radius:44px;border:5px solid var(--ink);box-shadow:8px 8px 0 var(--ink);display:grid;place-items:center;opacity:0}
+.qcoin{position:absolute;right:-22px;top:-22px;width:64px;height:64px;border-radius:50%;background:var(--yellow);border:4px solid var(--ink);font:900 38px/56px Inter;text-align:center}
+.slot{display:inline-block;width:.62em;text-align:center}
+</style></head><body>
+<div id="scenes"></div>
+<div id="px"></div>
+<div id="hl"></div>
+<div id="src" class="src"><span>Source:</span><b>MRR Pop editorial rules</b><span>· Nov 2026</span></div>
+<div id="char">RIG</div>
+
+<script>
+const DATA=DATAJSON, ICONS=ICONSJSON, B=DATA.beats, MAN=DATA.manifest, VIS=DATA.visemes;
+const C=(x,a=0,b=1)=>Math.max(a,Math.min(b,x)),P=(t,s,d)=>C((t-s)/d),eOut=x=>1-Math.pow(1-x,3),eIO=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const eBack=x=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const $=id=>document.getElementById(id), $$=s=>[...document.querySelectorAll(s)];
+const bs=i=>B[Math.min(i,B.length-1)].start, be=i=>B[Math.min(i,B.length-1)].end;
+const I=(n,s=80)=>(ICONS[n]||'').replace('<svg ',`<svg class="ico" width="${s}" height="${s}" `);
+const pop=(e,t,s,d=.4)=>{const k=P(t,s,d);e.style.opacity=C(k*3);return k};
+const stamp=(id,txt,bg,fg,x,y,fs=44)=>`<div id="${id}" class="stamp" style="left:${x}px;top:${y}px;background:${bg};color:${fg};font-size:${fs}px"><span>${txt}</span></div>`;
+const stampAnim=(id,t,s,rot)=>{const e=$(id);if(!e)return;const k=P(t,s,.32);e.style.opacity=C(k*4);e.style.transform=`rotate(${rot}deg) scale(${1.6-.6*eBack(k)})`};
+const slap=(e,t,s,rot=0)=>{const k=P(t,s,.3);e.style.opacity=C(k*4);e.style.transform=`rotate(${rot}deg) scale(${1.5-.5*eBack(k)})`;return k};
+
+// headline text per beat + the accent word (serif italic) per beat
+const DISPLAY=B.map(b=>b.text.replace(/from zero/i,'from $0').replace(/Thirty second/i,'30 second').replace(/MRR Pop/,'@getmrrpop'));
+const ACCENT=['salary','pop','month','launches','paying','number','verified','reported','believe','fluff','follow','first'];
+// word timing inside a beat (proportional to characters, same as the caption reveal)
+const WORDS=B.map((b,i)=>{const w=DISPLAY[i].split(/\s+/);const tot=w.reduce((s,x)=>s+x.length+1,0);let acc=0;return w.map(x=>{const st=b.start+(b.end-b.start)*acc/tot*.92;acc+=x.length+1;return[x,st]})});
+const wt=(bi,re)=>{const f=WORDS[bi].find(([w])=>re.test(w));return f?f[1]:bs(bi)};
+
+// scenes: [first beat, background, transition-in]
+const T_BOOM=be(9)-.5; // "Boom." is the last ~0.4 s of its line
+const SC=[[0,'#ECE6FF','none'],[1,'#20244A','pixel'],[2,'#F0F9D4','wipe'],[3,'#E4EEFF','wipe'],[5,'#FAF9FF','wipe'],[9,'#FFF4CC','wipe'],[{t:T_BOOM},'#20244A','none'],[{t:Math.max(bs(10)-.18,T_BOOM+1.05)},'#ECE6FF','wipe']];
+const A=SC.map((s,i)=>!i?0:typeof s[0]==='number'?bs(s[0])-.18:s[0].t); A.push(DATA.duration+5);
+const DARKSC=SC.map(s=>s[1]==='#20244A');
+const DOTS=(dark)=>`scene dots${dark?' dark':''}`;
+const EV={pv:['Payment verified','check','#E3F3EA','#2E8B60','#9ED3B6'],ca:['Company announced','megaphone','#E7EEFB','#3B5C9A','#A9C1EA'],fr:['Founder reported','comment','#FFF8E6','#8A6400','#E8C96A'],es:['Estimated',null,'#F1EFF6','#5E5A78','#C9C5DA']};
+const evChip=(id,k,x,y)=>{const e=EV[k];return`<div id="${id}" class="ev" style="left:${x}px;top:${y}px;background:${e[2]};color:${e[3]};border:4px solid ${e[4]};font-size:40px;padding:16px 28px;gap:14px">${e[1]?I(e[1],46):'<b style="font:900 50px/1 Inter;width:46px;text-align:center">≈</b>'} ${e[0]}</div>`};
+
+let H='';
+// S0 hook — three tiny app tiles bounce, "?" coins spin, a rent receipt prints out of the middle one
+H+=`<div class="${DOTS()}" id="s0" style="background:${SC[0][1]}">
+ <div class="glow" style="left:60px;top:430px;width:860px;height:760px;--gc:rgba(106,66,236,.4)"></div>
+ ${[['store','#C6F03A',110,560],['chart','#FF6FB5',390,500],['bot','#BBA6FF',670,560]].map((q,i)=>`<div id="tl${i}" class="tile" style="left:${q[2]}px;top:${q[3]}px;background:${q[1]};opacity:1">${I(q[0],110)}<div class="qcoin">?</div></div>`).join('')}
+ <div id="rc0" class="card" style="left:410px;top:690px;width:150px;padding:14px 12px;border-radius:10px;box-shadow:5px 5px 0 var(--ink);font:800 22px/1.25 Inter;text-align:center;z-index:-1">SALARY<br><span style="font-size:44px">?</span></div>
+ ${stamp('st0','Which small apps pay a salary?','var(--yellow)','var(--ink)',90,930,44)}
+</div>`;
+// S1 meet (dark) — name card + magnifier sweeping a row of tiny apps
+H+=`<div class="${DOTS(1)}" id="s1" style="background:${SC[1][1]}">
+ <div id="nm1" class="card" style="left:90px;top:520px;padding:26px 40px 30px;background:var(--violet);color:#fff;border-radius:34px">
+   <div style="font:800 22px/1 Inter;letter-spacing:4px;opacity:.85">HOST OF MRR POP</div>
+   <div style="font:900 132px/1 Inter;letter-spacing:-5px;margin-top:10px">Mr. Pop</div></div>
+ <div id="row1" class="abs" style="left:90px;top:820px;display:flex;gap:26px">${['coin','rocket','store','trend','tag'].map((n,i)=>`<div class="tile r1" style="position:relative;width:118px;height:118px;border-radius:30px;background:${['#C6F03A','#BBA6FF','#FFD43B','#4C8DF6','#FF6FB5'][i]};box-shadow:6px 6px 0 #000;opacity:1">${I(n,62)}</div>`).join('')}</div>
+ <div id="mg1" class="abs" style="left:90px;top:760px;opacity:0;filter:drop-shadow(4px 6px 0 rgba(0,0,0,.35))">${I('magnifier',190)}</div>
+ ${stamp('st1','My job','var(--lime)','var(--ink)',90,1030,46)}
+</div>`;
+// S2 builder → per month (slot-machine price that never lands: we don't make numbers up)
+H+=`<div class="${DOTS()}" id="s2" style="background:${SC[2][1]}">
+ <div id="bd2" class="card" style="left:90px;top:430px;width:320px;padding:24px;display:grid;justify-items:center;gap:14px;background:#fff">${I('person2',150)}
+   <div class="chipui" style="background:var(--lime);font-size:24px">1 person</div></div>
+ <div id="win2" class="win" style="left:450px;top:450px;width:400px;height:300px"><div class="bar"><i></i><i></i><i></i><div class="url">my-tiny-app</div></div>
+   <div style="padding:26px;display:grid;gap:16px"><div style="height:22px;width:80%;border-radius:8px;background:#ECE6FF"></div><div style="height:22px;width:60%;border-radius:8px;background:#ECE6FF"></div>
+   <div id="sh2" class="chipui" style="background:var(--green);color:#fff;font-size:24px;width:max-content">${I('check',26)} Shipped</div></div></div>
+ <div id="mo2" class="card" style="left:90px;top:770px;width:700px;height:250px;padding:26px 34px;background:#fff">
+   <div style="font:800 24px/1 Inter;letter-spacing:3px;color:var(--muted)">MAKING PER MONTH</div>
+   <div id="slot2" style="font:900 170px/1 Inter;letter-spacing:-6px;margin-top:12px;height:170px;overflow:hidden">$???</div></div>
+</div>`;
+// S3 what we cover — four series stickers pop with the words
+// compact stack: starts 70+ px under a 3-line caption, ends 90+ px above Mr. Pop's hair (checked by the layout test)
+const SER=[['Revenue Pop','money it makes','coin','#C6F03A','var(--ink)',80,580,-3],['Launch Pop','fresh launches','rocket','#6A42EC','#fff',250,700,2],['Deal Pop','apps that got sold','tag','#FF6FB5','var(--ink)',100,820,-2],['Growth Story','$0 → paying users','trend','#20244A','#fff',230,940,2]];
+H+=`<div class="${DOTS()}" id="s3" style="background:${SC[3][1]}">
+ ${SER.map((s,i)=>`<div id="sr${i}" class="sticker" style="left:${s[5]}px;top:${s[6]}px;background:${s[3]};color:${s[4]}"><div class="ic">${I(s[2],46)}</div><div><small>${s[1].toUpperCase()}</small><b>${s[0]}</b></div></div>`).join('')}
+</div>`;
+// S4 four labels
+H+=`<div class="${DOTS()}" id="s4" style="background:${SC[4][1]}">
+ <div id="n4" class="card" style="left:90px;top:540px;width:470px;height:290px;display:grid;place-items:center;background:var(--yellow);border-radius:40px">
+   <div style="text-align:center"><div style="font:900 30px/1 Inter;letter-spacing:4px">A NUMBER</div><div style="font:900 170px/1 Inter;letter-spacing:-6px">$???</div></div></div>
+ ${evChip('ev0','pv',90,870)}${evChip('ev1','ca',90,960)}${evChip('ev2','fr',90,1050)}${evChip('ev3','es',90,1140)}
+ <div id="trust4" class="chipui" style="position:absolute;left:600px;top:600px;background:#fff;font-size:26px;opacity:0">${I('eye',30)} you decide</div>
+</div>`;
+// S5 no guessing — crystal ball gets stamped, then a 30-second stopwatch
+H+=`<div class="${DOTS()}" id="s5" style="background:${SC[5][1]}">
+ <div id="cb5" class="abs" style="left:110px;top:470px;width:360px;height:420px">
+   <div style="position:absolute;left:20px;top:0;width:320px;height:320px;border-radius:50%;border:6px solid var(--ink);background:radial-gradient(circle at 35% 30%,#fff 0 14%,#BBA6FF 15% 60%,#6A42EC 100%);display:grid;place-items:center">${I('sparkle',110)}</div>
+   <div style="position:absolute;left:60px;top:300px;width:240px;height:90px;border-radius:20px 20px 30px 30px;border:6px solid var(--ink);background:#20244A"></div></div>
+ <div id="ng5" class="rubber" style="left:120px;top:640px;background:rgba(255,255,255,.92)">No fluff</div>
+ <div id="sw5" class="card" style="left:90px;top:940px;width:340px;height:240px;display:grid;place-items:center;background:#fff">
+   <div style="display:flex;align-items:center;gap:20px"><div style="position:relative;width:110px;height:110px;border-radius:50%;border:7px solid var(--ink);background:var(--lime)"><i id="hand5" style="position:absolute;left:47px;top:12px;width:8px;height:44px;border-radius:4px;background:var(--ink);transform-origin:4px 42px"></i></div>
+   <div style="font:900 96px/1 Inter;letter-spacing:-4px">0:30</div></div></div>
+</div>`;
+// S6 boom
+H+=`<div class="${DOTS(1)}" id="s6" style="background:${SC[6][1]}">
+ <div class="glow" style="left:40px;top:380px;width:1000px;height:900px;--gc:rgba(198,240,58,.55)"></div>
+ <div id="bm6" class="abs" style="left:150px;top:520px;width:640px;height:520px;opacity:0">
+   <svg viewBox="0 0 640 520" width="640" height="520"><polygon points="${[...Array(24)].map((_,i)=>{const r=i%2?170:300,a=i/24*Math.PI*2-Math.PI/2;return(320+Math.cos(a)*r*1.05)+','+(260+Math.sin(a)*r*.8)}).join(' ')}" fill="#C6F03A" stroke="#1B1838" stroke-width="10" stroke-linejoin="round"/></svg>
+   <div style="position:absolute;inset:0;display:grid;place-items:center;font:900 italic 150px/1 Inter;letter-spacing:-6px;color:var(--ink)">BOOM</div></div>
+ <div id="conf" class="abs" style="left:0;top:0"></div>
+</div>`;
+// S7 end card — follow (cursor clicks) + the question
+H+=`<div class="${DOTS()}" id="s7" style="background:${SC[7][1]}">
+ <div id="fc7" class="card" style="left:90px;top:530px;width:760px;padding:28px 30px;background:#fff">
+   <div class="row"><img src="avatar.svg" alt="MRR Pop profile picture (Pop Burst)" style="width:132px;height:132px;border-radius:50%;border:5px solid var(--ink);flex:none">
+   <div><div style="font:900 50px/1 Inter;letter-spacing:-1.5px">MRR Pop</div><div style="font:700 28px/1.3 Inter;color:var(--muted)">@getmrrpop · the business behind software</div></div></div>
+   <div id="fb7" class="btn" style="margin-top:22px;justify-content:center;width:100%;font-size:34px">Follow</div></div>
+ <div id="cur7" class="abs" style="left:700px;top:900px;opacity:0;z-index:5">${I('cursor',90)}</div>
+ <div id="q7" class="msg" style="left:90px;top:910px;background:var(--yellow);font-size:40px;max-width:620px;padding:24px 30px">${I('comment',44)} Which small app should I dig into first?</div>
+ <div id="cm7" class="chipui" style="position:absolute;left:90px;top:1150px;background:var(--lime);font-size:26px;opacity:0">Comment below</div>
+</div>`;
+$('scenes').innerHTML=H;
+const CONF=[...Array(28)].map((_,i)=>{const a=(-170+i*(160/27))*Math.PI/180;return{dx:Math.cos(a)*(330+((i*53)%220)),dy:Math.sin(a)*(360+((i*71)%240)),r:(i*47)%360,c:['#6A42EC','#C6F03A','#FF6FB5','#FFD43B','#4C8DF6'][i%5],w:14+(i%3)*8,h:8+(i%2)*14}});
+$('conf').innerHTML=CONF.map(c=>`<i class="cf" style="position:absolute;left:0;top:0;width:${c.w}px;height:${c.h}px;border-radius:3px;border:2px solid #1B1838;background:${c.c};opacity:0"></i>`).join('');
+$('px').innerHTML=[...Array(12*21)].map((_,i)=>`<i style="left:${(i%12)*90}px;top:${Math.floor(i/12)*92}px"></i>`).join('');
+const PXR=[...Array(12*21)].map((_,i)=>((i*7919)%251)/251);
+
+// burned captions: ≤6-word chunks, word-by-word
+const CHUNKS=[];WORDS.forEach((ws,bi)=>{let cur=[];ws.forEach(([w,st],k)=>{cur.push([w,st]);const end=/[.!?]$/.test(w)||(/[,:]$/.test(w)&&cur.length>=3);if(cur.length>=6||end||k===ws.length-1){CHUNKS.push({bi,words:cur,start:cur[0][1]});cur=[]}})});
+let hlChunk=-1;
+function headline(t,dark){let ci=0;for(let i=0;i<CHUNKS.length;i++)if(t>=CHUNKS[i].start-.12)ci=i;
+ const ch=CHUNKS[ci],bi=ch.bi,el=$('hl');
+ if(ci!==hlChunk){hlChunk=ci;const a=(ACCENT[bi]||'').toLowerCase();el.innerHTML=ch.words.map(([w])=>{const clean=w.toLowerCase().replace(/[^a-z0-9]/g,'');return`<span class="w${a&&clean===a?' acc':''}">${w}</span>`}).join('')}
+ el.style.color=dark?'#fff':'var(--ink)';
+ $$('#hl .w').forEach((s,k)=>{const kk=t<.05?1:P(t,ch.words[k][1]-.05,.18);s.style.opacity=.16+.84*kk;s.style.transform=`translateY(${(1-eOut(kk))*14}px)`;if(s.classList.contains('acc'))s.style.color=dark?'var(--lime)':'var(--violet)'});
+ const kb=t<.05?1:P(t,ch.start-.12,.22);el.style.transform=`translateY(${(1-eOut(kb))*22}px)`;el.style.opacity=.3+.7*eOut(kb)}
+
+// character: slots + waist-up framing from the bottom edge; whole-body motion from bodyMotion (injected)
+const SLOTS={};for(const g of $$('#rig g[id]')){const m=g.id.match(/^(arms|eyes|brows|mouth|extras|glasses)-(.+)$/);if(m)(SLOTS[m[1]]??=[]).push(m[2])}
+function show(slot,v){for(const k of SLOTS[slot]||[]){const e=$(slot+'-'+k);if(e)e.style.display=k===v?'inline':'none'}}
+function setChar(pose,expr,viseme,blink){const p=MAN.poses[pose]||{},x=MAN.expressions[expr]||{};const s={...MAN.defaults,...p,...x};
+ if(viseme&&viseme!=='X')s.mouth=viseme;if(blink&&['open','up','side'].includes(s.eyes))s.eyes='closed';
+ for(const k of ['arms','eyes','brows','mouth','extras','glasses'])show(k,s[k])}
+// one continuous timeline: [time, pose, expression]
+const FLAT=[[0,'pointing','shocked'],[1.25,'pointing','curious'],
+ [bs(1),'waving','grin'],[wt(1,/finding/i),'idle','cool'],
+ [bs(2),'thinking','curious'],[wt(2,/^How/),'explaining','money-eyes'],
+ [bs(3),'explaining','grin'],[wt(3,/sold/),'pointing-side','cheeky'],
+ [bs(4),'explaining','smile'],
+ [bs(5),'shrug','skeptical'],
+ [bs(6),'pointing-side','smile'],[bs(7),'shrug','cheeky'],
+ [bs(8),'explaining','serious'],
+ [bs(9),'pointing-side','laughing'],[wt(9,/^30/),'thumbs-up','grin'],
+ [T_BOOM,'celebrating','star-struck'],
+ [bs(10),'waving','grin'],[bs(11),'thinking','curious'],[be(11)+.15,'thumbs-up','wink']].sort((a,b)=>a[0]-b[0]);
+const SCALE=1.12, PXU=0.7683*SCALE, WAIST=940;
+const POS=[600,610,620,600,620,610,560,620];
+const scy=1920-WAIST*PXU;
+let ARMX=null;
+function armReach(){ARMX={};for(const g of $$('#rig g[id^="arms-"]')){const d=g.style.display;g.style.display='inline';const b=g.getBBox();g.style.display=d;ARMX[g.id.slice(5)]=[b.x,b.x+b.width]}}
+const SHOWN=q=>{const x=q[2],p=q[1],o=[p];if(x==='laughing'||x==='annoyed')o.push('belly-laugh','laugh-point');if(x==='shocked')o.push('recoil');if(['cool','cheeky','skeptical'].includes(x))o.push('hands-on-hips');if(x==='nervous')o.push('clap');return o};
+function xLim(q){if(!ARMX)armReach();let l=150,r=450;for(const p of SHOWN(q)){const a=(MAN.poses[p]||{}).arms,e=ARMX[a];if(e){l=Math.min(l,e[0]);r=Math.max(r,e[1])}}
+ const ex=(MAN.expressions[q[2]]||{}).extras;if(ex&&ex!=='none'){r=Math.max(r,580);l=Math.min(l,100)} // ?, sparkle, sweat sit beside the head
+ const m=40,k=PXU*1.03;return [48-(l-m)*k, 1080-48-(r+m)*k]}
+
+window.render=function(t){
+ let si=0;for(let i=0;i<SC.length;i++)if(t>=A[i])si=i;
+ let pxOn=null;SC.forEach((s,i)=>{if(s[2]==='pixel'&&t>=A[i]-.4&&t<A[i]+.45)pxOn=i});
+ SC.forEach((s,i)=>{const el=$('s'+i),st=A[i];
+  const incoming=i===si+1&&s[2]==='wipe'&&t>=st-.35;
+  el.style.display=(i===si||incoming)?'block':'none';el.style.zIndex=i;
+  if(s[2]==='wipe'&&i>0&&(incoming||i===si)){const k=eIO(P(t,st-.35,.45));el.style.clipPath=k>=1?'none':`polygon(${(1-k)*160-60}% 0,100% 0,100% 100%,${(1-k)*160-40}% 100%)`}else el.style.clipPath='none'});
+ $$('#px i').forEach((q,k)=>{if(pxOn===null){q.style.opacity=0;return}const st=A[pxOn];const inK=P(t,st-.4+PXR[k]*.3,.05),outK=P(t,st+PXR[(k*13)%PXR.length]*.35,.05);q.style.background=SC[pxOn][1];q.style.opacity=inK*(1-outK)});
+
+ // S0 — tiles bob, coins spin, the receipt prints (claim card is up at frame 1)
+ {[0,1,2].forEach(i=>{const e=$('tl'+i);e.style.transform=`translateY(${Math.sin(t*2.6+i*1.7)*14}px) rotate(${Math.sin(t*1.9+i)*4}deg)`;e.querySelector('.qcoin').style.transform=`scaleX(${Math.cos(t*4+i)})`});
+  const r=$('rc0'),k=eOut(P(t,.9,.8));r.style.opacity=k>0?1:0;r.style.transform=`translateY(${k*120}px) rotate(${k*-4}deg)`;
+  const s0=$('st0');s0.style.opacity=1;s0.style.transform=`rotate(-2deg) scale(${1+.05*Math.sin(P(t,0,.5)*Math.PI)})`}
+ // S1 — name card slaps in, magnifier sweeps the app row, "my whole job" stamp
+ {const b1=bs(1);slap($('nm1'),t,b1,-2);
+  const m=$('mg1'),k=P(t,b1+.5,1.6);m.style.opacity=C(k*5)*(1-P(t,be(1)+.1,.2));m.style.left=(70+eIO(k)*600)+'px';m.style.top=(740+Math.sin(k*Math.PI*2)*-30)+'px';
+  $$('.r1').forEach((e,i)=>{const hit=Math.abs((70+eIO(k)*600+95)-(90+i*144+59))<70&&k>0&&k<1;e.style.transform=`scale(${hit?1.12:1}) rotate(${hit?-4:0}deg)`});
+  stampAnim('st1',t,wt(1,/job/),3)}
+ // S2 — builder + shipped, then a slot machine for "per month" that never lands
+ {const b2=bs(2),tA=wt(2,/^app/),tH=wt(2,/^How/);pop($('bd2'),t,b2);const w=$('win2'),k=pop(w,t,tA-.1);w.style.transform=`translateY(${(1-eBack(k))*40}px)`;
+  const sh=$('sh2'),ks=P(t,tA+.25,.3);sh.style.transform=`scale(${.3+.7*eBack(ks)})`;sh.style.opacity=C(ks*3);
+  const mo=$('mo2'),km=pop(mo,t,tH-.1);mo.style.transform=`translateY(${(1-eBack(km))*50}px)`;
+  // slot machine of ?s: the reels roll and stop one by one, it never shows a digit (no invented numbers)
+  const sl=$('slot2'),stop=wt(2,/month/)+.3;sl.innerHTML='$'+[0,1,2].map(j=>{const st=stop+j*.18,spin=t<st,y=spin?((t*1400+j*57)%170)-85:-Math.sin(P(t,st,.25)*Math.PI)*14;return`<span class="slot" style="display:inline-block;transform:translateY(${y}px);opacity:${spin?.55:1}">?</span>`}).join('')+'<span style="font-size:.5em;letter-spacing:-2px">/mo</span>'}
+ // S3 — series stickers on their words
+ {const at=[wt(3,/cover/),wt(3,/launches/),wt(3,/sold/),wt(4,/paying/)];SER.forEach((s,i)=>{slap($('sr'+i),t,at[i]-.1,s[7])})}
+ // S4 — big 4, then each label slaps in on its word
+ {const n=$('n4'),k=P(t,wt(5,/throw/)-.1,.55);n.style.opacity=C(k*4);n.style.transform=`translate(${(1-eOut(k))*560}px,${(1-eOut(k))*260}px) rotate(${-2-(1-eOut(k))*200}deg)`; // tossed in
+  const at=[wt(6,/verified/),wt(8,/tag/),wt(7,/reported/),wt(8,/tag/)+.25];[0,1,2,3].forEach(i=>slap($('ev'+i),t,at[i]-.08,[-1,1,-1.5,1][i]));
+  const tr=$('trust4');tr.style.opacity=C(P(t,wt(8,/decide/)-.1,.25)*3)}
+ // S5 — crystal ball wobbles, NO GUESSING slams, stopwatch ticks
+ {const b9=bs(9);const cb=$('cb5');cb.style.opacity=C(P(t,b9-.2,.3)*3);cb.style.transform=`rotate(${Math.sin(t*3)*3}deg)`;
+  const ng=$('ng5'),k=P(t,wt(9,/fluff/)-.15,.28);ng.style.opacity=C(k*4);ng.style.transform=`rotate(-9deg) scale(${2-1*eBack(k)})`;
+  const sw=$('sw5'),ks=pop(sw,t,wt(9,/^30/)-.15);sw.style.transform=`scale(${.5+.5*eBack(ks)})`;$('hand5').style.transform=`rotate(${(t-b9)*72}deg)`}
+ // S6 — BOOM + confetti
+ {const b8=T_BOOM+.06,bm=$('bm6'),k=P(t,b8-.08,.3);bm.style.opacity=C(k*4);bm.style.transform=`scale(${.3+.7*eBack(k)}) rotate(${-6+Math.sin(t*5)*3}deg)`;
+  $$('#conf .cf').forEach((e,i)=>{const q=CONF[i];const kk=P(t,b8+i*.008,1.3);e.style.opacity=kk>0?1-P(t,b8+1.1,.3):0;e.style.transform=`translate(${520+q.dx*eOut(kk)}px,${880+q.dy*eOut(kk)+kk*kk*600}px) rotate(${q.r*kk*3}deg)`})}
+ // S7 — follow card, cursor clicks, button flips; then the question
+ {const b9=Math.max(bs(10),A[7]-.1),b10=bs(11);const fc=$('fc7'),k=pop(fc,t,b9);fc.style.transform=`translateY(${(1-eBack(k))*50}px)`;
+  const cl=Math.max(wt(10,/Follow/)+.35,A[7]+.5),cu=$('cur7'),kc=P(t,cl-.6,.55);cu.style.opacity=C(kc*4)*(1-P(t,cl+.6,.3));cu.style.left=(760-kc*120)+'px';cu.style.top=(880-kc*190)+'px';cu.style.transform=`scale(${t>cl&&t<cl+.15?.85:1})`;
+  const fb=$('fb7'),done=t>=cl;fb.innerHTML=done?I('check',34)+' Following':'Follow';fb.style.background=done?'var(--lime)':'var(--violet)';fb.style.color=done?'var(--ink)':'#fff';fb.style.transform=`scale(${t>cl&&t<cl+.2?1.06:1})`;
+  const q=$('q7'),kq=pop(q,t,b10-.1);q.style.transform=`translateY(${(1-eBack(kq))*40}px) rotate(-1deg)`;
+  const cm=$('cm7');cm.style.opacity=C(P(t,b10+.8,.3)*3)}
+
+ headline(t,DARKSC[si]);
+ $('src').style.opacity=C(P(t,.6,.3));
+
+ // character
+ let s=FLAT[0];for(const q of FLAT)if(t>=q[0])s=q;
+ const qi=FLAT.indexOf(s),prevQ=qi>0?FLAT[qi-1]:null;
+ const fi=Math.floor(t*VIS.fps),vis=VIS.frames[fi]||'X',talk=vis!=='X';
+ const en0=window.energyAt&&VIS.energy?energyAt(VIS.energy,VIS.fps,t):(talk?.6:0);
+ const M=window.bodyMotion?bodyMotion({t,energy:en0,talking:talk,expression:s[2],pose:s[1],since:t-s[0],prevExpression:prevQ&&prevQ[2],prevPose:prevQ&&prevQ[1]}):null;
+ setChar(M?M.pose:s[1],s[2],vis,(t%3.4)>3.27);
+ const px0=POS[Math.max(0,si-1)];let x=px0+(POS[si]-px0)*eIO(P(t,A[si],.5));
+ {const L1=xLim(s),L0=prevQ?xLim(prevQ):L1,nq=FLAT[qi+1],w=eIO(P(t,s[0],.45));
+  let lo=Math.max(L0[0],L1[0]),hi=Math.min(L0[1],L1[1]);lo+=(L1[0]-lo)*w;hi+=(L1[1]-hi)*w;
+  if(nq){const N=xLim(nq),a=eIO(P(t,nq[0]-.5,.5));lo+=(Math.max(lo,N[0])-lo)*a;hi+=(Math.min(hi,N[1])-hi)*a}
+  x=Math.min(Math.max(x,lo),hi)}
+ let dy=0,sq=1; // he is already on screen at frame 1 (first frame = hook + host)
+ for(const q of FLAT){const kk=(t-q[0])/.5;if(kk>0&&kk<1&&q[0]>0){dy-=(.5-.5*Math.cos(kk*Math.PI*2))*28;sq=1+Math.sin(kk*Math.PI*2)*.02}}
+ if(!M)dy+=Math.sin(t*2.2)*6;
+ $('char').style.transform=`translate(${x}px,${scy+dy}px) scale(${SCALE/sq},${SCALE*sq})`;
+ let tilt=0,lift=0;
+ if(M){const T=motionTransforms(M,MP_HIP,MP_FEET,MP_WAIST||undefined);
+  $('root')?.setAttribute('transform',T.root);$('legs')?.setAttribute('transform',T.legs);$('upper')?.setAttribute('transform',T.upper);$('armsrig')?.setAttribute('transform',T.arms);
+  tilt=M.headTilt;lift=T.headY}
+ $('head').style.transform=`rotate(${tilt}deg) translateY(${lift}px)`;
+};
+window.render(0);
+</script></body></html>

@@ -1,0 +1,5 @@
+# Timbre reference for Chatterbox: varied melody (exclaim, question, calm fact), ~12 s.
+{hook}    Wait, what? One developer made twelve thousand dollars last month!
+{curious} So how did he actually pull that off?
+{trust}   Here's the thing. The number comes straight from his payment dashboard.
+{fun}     Boom! That's a pop. Let's dig in.

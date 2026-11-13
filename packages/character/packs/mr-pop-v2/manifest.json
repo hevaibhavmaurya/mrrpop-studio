@@ -1,0 +1,197 @@
+{
+  "character": "Mr. Pop",
+  "brand": [
+    "brand/profile-avatar.png",
+    "brand/profile-avatar-square.png",
+    "brand/profile-avatar-violet.png"
+  ],
+  "style": "2D flat vector cartoon mascot, 6px ink outline",
+  "canvas": {
+    "expressions": "1200x1440 px (svg viewBox 600x720), head centered at x=600",
+    "poses": "1200x2760 px (svg viewBox 600x1380), feet at bottom"
+  },
+  "expressions": [
+    {
+      "name": "angry",
+      "png": "expressions/angry.png",
+      "png_no_badge": "expressions-no-badge/angry.png",
+      "svg": "svg/expressions/angry.svg",
+      "use_for": "scam, unfair platform change"
+    },
+    {
+      "name": "confident",
+      "png": "expressions/confident.png",
+      "png_no_badge": "expressions-no-badge/confident.png",
+      "svg": "svg/expressions/confident.svg",
+      "use_for": "strong verdict"
+    },
+    {
+      "name": "confused",
+      "png": "expressions/confused.png",
+      "png_no_badge": "expressions-no-badge/confused.png",
+      "svg": "svg/expressions/confused.svg",
+      "use_for": "weird business model"
+    },
+    {
+      "name": "cool",
+      "png": "expressions/cool.png",
+      "png_no_badge": "expressions-no-badge/cool.png",
+      "svg": "svg/expressions/cool.svg",
+      "use_for": "impressive solo founder"
+    },
+    {
+      "name": "crying",
+      "png": "expressions/crying.png",
+      "png_no_badge": "expressions-no-badge/crying.png",
+      "svg": "svg/expressions/crying.svg",
+      "use_for": "failed launch, churn"
+    },
+    {
+      "name": "curious",
+      "png": "expressions/curious.png",
+      "png_no_badge": "expressions-no-badge/curious.png",
+      "svg": "svg/expressions/curious.svg",
+      "use_for": "investigating a claim"
+    },
+    {
+      "name": "facepalm",
+      "png": "expressions/facepalm.png",
+      "png_no_badge": "expressions-no-badge/facepalm.png",
+      "svg": "svg/expressions/facepalm.svg",
+      "use_for": "obvious mistake"
+    },
+    {
+      "name": "grin",
+      "png": "expressions/grin.png",
+      "png_no_badge": "expressions-no-badge/grin.png",
+      "svg": "svg/expressions/grin.svg",
+      "use_for": "default, end card"
+    },
+    {
+      "name": "laughing-hard",
+      "png": "expressions/laughing-hard.png",
+      "png_no_badge": "expressions-no-badge/laughing-hard.png",
+      "svg": "svg/expressions/laughing-hard.svg",
+      "use_for": "absurd fact"
+    },
+    {
+      "name": "laughing",
+      "png": "expressions/laughing.png",
+      "png_no_badge": "expressions-no-badge/laughing.png",
+      "svg": "svg/expressions/laughing.svg",
+      "use_for": "funny fact"
+    },
+    {
+      "name": "money-eyes",
+      "png": "expressions/money-eyes.png",
+      "png_no_badge": "expressions-no-badge/money-eyes.png",
+      "svg": "svg/expressions/money-eyes.svg",
+      "use_for": "revenue hook"
+    },
+    {
+      "name": "nervous",
+      "png": "expressions/nervous.png",
+      "png_no_badge": "expressions-no-badge/nervous.png",
+      "svg": "svg/expressions/nervous.svg",
+      "use_for": "risky bet, low runway"
+    },
+    {
+      "name": "serious",
+      "png": "expressions/serious.png",
+      "png_no_badge": "expressions-no-badge/serious.png",
+      "svg": "svg/expressions/serious.svg",
+      "use_for": "sources, disclaimers"
+    },
+    {
+      "name": "shocked",
+      "png": "expressions/shocked.png",
+      "png_no_badge": "expressions-no-badge/shocked.png",
+      "svg": "svg/expressions/shocked.svg",
+      "use_for": "big number / acquisition"
+    },
+    {
+      "name": "skeptical",
+      "png": "expressions/skeptical.png",
+      "png_no_badge": "expressions-no-badge/skeptical.png",
+      "svg": "svg/expressions/skeptical.svg",
+      "use_for": "estimates, myths"
+    },
+    {
+      "name": "smile",
+      "png": "expressions/smile.png",
+      "png_no_badge": "expressions-no-badge/smile.png",
+      "svg": "svg/expressions/smile.svg",
+      "use_for": "calm explaining"
+    },
+    {
+      "name": "star-struck",
+      "png": "expressions/star-struck.png",
+      "png_no_badge": "expressions-no-badge/star-struck.png",
+      "svg": "svg/expressions/star-struck.svg",
+      "use_for": "record milestone"
+    },
+    {
+      "name": "thinking",
+      "png": "expressions/thinking.png",
+      "png_no_badge": "expressions-no-badge/thinking.png",
+      "svg": "svg/expressions/thinking.svg",
+      "use_for": "\"how did they do it?\""
+    },
+    {
+      "name": "wink",
+      "png": "expressions/wink.png",
+      "png_no_badge": "expressions-no-badge/wink.png",
+      "svg": "svg/expressions/wink.svg",
+      "use_for": "tip, smug fact"
+    }
+  ],
+  "poses": [
+    {
+      "name": "celebrating",
+      "png": "poses/celebrating.png",
+      "png_no_badge": "poses-no-badge/celebrating.png",
+      "svg": "svg/poses/celebrating.svg",
+      "use_for": "milestone"
+    },
+    {
+      "name": "explaining",
+      "png": "poses/explaining.png",
+      "png_no_badge": "poses-no-badge/explaining.png",
+      "svg": "svg/poses/explaining.svg",
+      "use_for": "walkthrough"
+    },
+    {
+      "name": "idle",
+      "png": "poses/idle.png",
+      "png_no_badge": "poses-no-badge/idle.png",
+      "svg": "svg/poses/idle.svg",
+      "use_for": "intro, end card"
+    },
+    {
+      "name": "pointing",
+      "png": "poses/pointing.png",
+      "png_no_badge": "poses-no-badge/pointing.png",
+      "svg": "svg/poses/pointing.svg",
+      "use_for": "point at headline/number"
+    },
+    {
+      "name": "shrug",
+      "png": "poses/shrug.png",
+      "png_no_badge": "poses-no-badge/shrug.png",
+      "svg": "svg/poses/shrug.svg",
+      "use_for": "\"who knows?\" / mixed results"
+    },
+    {
+      "name": "thumbs-up",
+      "png": "poses/thumbs-up.png",
+      "png_no_badge": "poses-no-badge/thumbs-up.png",
+      "svg": "svg/poses/thumbs-up.svg",
+      "use_for": "recommend a launch"
+    }
+  ],
+  "svg_layers": [
+    "body",
+    "badge",
+    "head > face-base, beard, mouth, moustache, eyes, glasses, brows, hair, extras"
+  ]
+}

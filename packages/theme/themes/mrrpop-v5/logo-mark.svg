@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="MRR Pop app mark">
+  <rect width="512" height="512" rx="116" fill="#7467E8"/>
+  <g fill="rgba(255,255,255,.12)"><circle cx="64" cy="64" r="6"/><circle cx="128" cy="64" r="6"/><circle cx="64" cy="128" r="6"/><circle cx="448" cy="448" r="6"/><circle cx="384" cy="448" r="6"/><circle cx="448" cy="384" r="6"/></g>
+  <text x="256" y="236" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="900" font-size="150" letter-spacing="-7" fill="#FFFFFF">MRR</text>
+  <g transform="rotate(-6 256 340)">
+    <rect x="146" y="272" width="220" height="132" rx="40" fill="#29263D" transform="translate(8 8)"/>
+    <rect x="146" y="272" width="220" height="132" rx="40" fill="#F4DB91" stroke="#29263D" stroke-width="7"/>
+    <text x="256" y="374" text-anchor="middle" font-family="'Instrument Serif', Georgia, serif" font-style="italic" font-size="118" fill="#29263D">pop!</text>
+  </g>
+</svg>

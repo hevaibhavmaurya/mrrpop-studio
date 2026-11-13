@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1380" data-part="legs">
+<g stroke="#0F1222" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+ <path d="M190 900 L410 900 L404 1300 L316 1300 L300 1010 L284 1300 L196 1300 Z" fill="#2E3A5C"/>
+ <path d="M188 1294 L292 1294 C304 1296 306 1330 298 1344 L174 1344 C162 1338 166 1306 188 1294 Z" fill="#fff"/>
+ <path d="M308 1294 L412 1294 C434 1306 438 1338 426 1344 L302 1344 C294 1330 296 1296 308 1294 Z" fill="#fff"/>
+</g>
+<path d="M178 1334 L296 1334" stroke="#F4DB91" stroke-width="8"/><path d="M304 1334 L422 1334" stroke="#F4DB91" stroke-width="8"/>
+</svg>

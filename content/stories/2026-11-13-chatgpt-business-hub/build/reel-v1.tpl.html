@@ -1,0 +1,250 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+/* MRR Pop · Launch Pop · theme mrrpop-v6 (tokens copied from packages/theme/themes/mrrpop-v6/theme.json) */
+@font-face{font-family:Inter;src:url(../../../../packages/theme/themes/mrrpop-v6/fonts/Inter-Variable.ttf);font-weight:100 900}
+@font-face{font-family:Inter;src:url(../../../../packages/theme/themes/mrrpop-v6/fonts/Inter-Italic-Variable.ttf);font-weight:100 900;font-style:italic}
+@font-face{font-family:IS;src:url(../../../../packages/theme/themes/mrrpop-v6/fonts/InstrumentSerif-Italic.ttf);font-style:italic}
+:root{--paper:#FAF9FF;--white:#fff;--ink:#1B1838;--navy:#20244A;--muted:#6E6A8E;--faint:#A3A0BC;
+--lav:#ECE6FF;--limeMist:#F0F9D4;--sky:#E4EEFF;--blush:#FFE5F1;--cream:#FFF4CC;
+--violet:#6A42EC;--lime:#C6F03A;--yellow:#FFD43B;--pink:#FF6FB5;--lilac:#BBA6FF;--blue:#4C8DF6;--green:#3DBE6E;--greenInk:#1F8A48}
+*{margin:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{background:var(--paper);font-family:Inter;color:var(--ink);font-feature-settings:"tnum" 1;position:relative}
+.abs{position:absolute}.it{font-family:IS;font-style:italic;font-weight:400;letter-spacing:0}
+.panel{position:absolute;left:36px;top:236px;width:1008px;height:1290px;border-radius:60px;box-shadow:0 30px 60px -30px rgba(27,24,56,.35),0 2px 0 rgba(27,24,56,.06);overflow:hidden;opacity:0}
+.panel:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(106,66,236,.10) 2px,transparent 2px);background-size:36px 36px}
+.card{background:#fff;border-radius:36px;box-shadow:0 16px 36px -18px rgba(27,24,56,.30),0 0 0 2px rgba(27,24,56,.06)}
+.chip{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border-radius:999px;font:800 24px/1 Inter;letter-spacing:1px;text-transform:uppercase;white-space:nowrap}
+.ev{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;font:700 21px/1 Inter;white-space:nowrap}
+.bub{position:absolute;padding:18px 30px;border:5px solid var(--ink);border-radius:30px;font:900 54px/1 Inter;font-style:italic;letter-spacing:-1px;box-shadow:6px 6px 0 var(--ink);opacity:0;white-space:nowrap}
+.bub:after{content:"";position:absolute;left:46px;bottom:-26px;width:34px;height:34px;background:inherit;border-right:5px solid var(--ink);border-bottom:5px solid var(--ink);transform:skewX(25deg) rotate(45deg)}
+.big{font:900 82px/1.02 Inter;letter-spacing:-3.5px}
+.illu{position:absolute;padding:8px 14px;border-radius:999px;background:var(--ink);color:#fff;font:800 17px/1 Inter;letter-spacing:1.5px}
+.src{position:absolute;left:56px;bottom:40px;display:flex;align-items:center;gap:10px;font:600 21px/1 Inter;color:var(--muted)}
+.src b{color:var(--ink);font-weight:800}
+#char{position:absolute;left:0;top:0;width:461px;height:1060px;transform-origin:0 0}
+#char svg{width:461px;height:1060px;display:block;filter:drop-shadow(0 18px 18px rgba(27,24,56,.22))}
+.sticker{display:inline-block;padding:14px 26px;border:5px solid var(--ink);border-radius:26px;box-shadow:6px 6px 0 var(--ink);font:900 italic 52px/1 Inter;letter-spacing:-1px}
+.tile{position:absolute;width:290px;padding:26px;border-radius:32px;background:#fff;box-shadow:0 16px 36px -18px rgba(27,24,56,.30),0 0 0 2px rgba(27,24,56,.06);opacity:0}
+.tile h4{font:900 40px/1 Inter;letter-spacing:-1px;margin-top:14px}
+.msg{position:absolute;max-width:560px;padding:20px 26px;border-radius:28px;font:600 32px/1.3 Inter;opacity:0}
+</style></head><body>
+
+<!-- S0 hook · lavender -->
+<div id="p0" class="panel" style="background:var(--lav)">
+  <div class="abs" style="left:56px;top:52px"><span class="chip" style="background:var(--violet);color:#fff">🚀 Launch Pop</span></div>
+  <div id="num0" class="abs" style="left:46px;top:140px;font:900 280px/1 Inter;letter-spacing:-14px;transform-origin:left center">1.2B</div>
+  <div id="h0a" class="abs big" style="left:56px;top:440px">people use</div>
+  <div id="h0b" class="abs big" style="left:56px;top:526px">ChatGPT <span class="it" style="color:var(--violet);font-size:98px">weekly.</span></div>
+  <div id="ev0" class="abs ev" style="left:56px;top:650px;font-size:24px;background:#E7EEFB;color:#3B5C9A;border:2px solid #A9C1EA">📣 Company-announced · OpenAI</div>
+  <div id="fx0" class="abs" style="left:0;top:0;width:1008px;height:1290px"></div>
+</div>
+
+<!-- S1 stakes · blush -->
+<div id="p1" class="panel" style="background:var(--blush)">
+  <div id="h1a" class="abs big" style="left:56px;top:90px">Are you <span class="it" style="color:var(--pink);font-size:100px;-webkit-text-stroke:1px var(--ink)">losing</span></div>
+  <div id="h1b" class="abs big" style="left:56px;top:182px">customers to it?</div>
+  <div id="chatIcon" class="abs card" style="left:470px;top:380px;width:240px;height:170px;display:grid;place-items:center;border-radius:40px">
+    <div style="display:flex;gap:14px"><i class="dot" style="width:22px;height:22px;border-radius:50%;background:var(--violet)"></i><i class="dot" style="width:22px;height:22px;border-radius:50%;background:var(--violet)"></i><i class="dot" style="width:22px;height:22px;border-radius:50%;background:var(--violet)"></i></div>
+    <div style="position:absolute;bottom:-14px;left:150px;width:40px;height:40px;background:#fff;transform:rotate(45deg);border-radius:6px"></div>
+  </div>
+  <div id="bags" class="abs" style="left:0;top:0;width:1008px;height:1290px"></div>
+  <div id="h1c" class="abs" style="left:56px;top:640px;display:flex;align-items:center;gap:22px;opacity:0">
+    <svg width="120" height="120" viewBox="0 0 120 120"><circle cx="60" cy="60" r="54" fill="#C6F03A" stroke="#1B1838" stroke-width="7"/><path id="tick" d="M34 62 L53 80 L88 42" fill="none" stroke="#1B1838" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="90" stroke-dashoffset="90"/></svg>
+    <span class="big" style="font-size:84px">Now you<br>can <span class="it" style="color:var(--violet);font-size:100px">check.</span></span>
+  </div>
+</div>
+
+<!-- S2 launch · lime mist -->
+<div id="p2" class="panel" style="background:var(--limeMist)">
+  <div id="new2" class="abs sticker" style="left:56px;top:70px;background:var(--pink);transform:rotate(-8deg)">NEW</div>
+  <div id="h2a" class="abs" style="left:52px;top:200px;font:900 170px/1 Inter;letter-spacing:-8px">Business</div>
+  <div id="h2b" class="abs" style="left:52px;top:400px"><span style="display:inline-block;background:var(--lime);border:6px solid var(--ink);border-radius:40px;padding:0 34px 18px;box-shadow:8px 8px 0 var(--ink);transform:rotate(-4deg)"><span style="font:900 italic 170px/1 Inter;letter-spacing:-7px">Hub</span></span></div>
+  <div id="ev2" class="abs ev" style="left:56px;top:660px;font-size:24px;background:#fff;color:var(--ink);border:2px solid rgba(27,24,56,.15)">OpenAI · Nov 10, 2026 · <b style="color:var(--violet)">beta</b></div>
+  <div id="conf" class="abs" style="left:0;top:0;width:1008px;height:1290px"></div>
+</div>
+
+<!-- S3 claim · sky -->
+<div id="p3" class="panel" style="background:var(--sky)">
+  <div class="abs" style="left:56px;top:60px;display:flex;gap:12px">
+    <span id="st0" class="chip" style="background:#fff;color:var(--muted)">1 Claim</span>
+    <span id="st1" class="chip" style="background:#fff;color:var(--muted)">2 ✓ Verify</span>
+    <span id="st2" class="chip" style="background:#fff;color:var(--muted)">3 Prices</span>
+  </div>
+  <div id="h3" class="abs big" style="left:56px;top:150px">Claim <span class="it" style="color:var(--violet);font-size:98px">your</span> business.</div>
+  <div id="prof" class="abs card" style="left:56px;top:300px;width:600px;padding:30px;opacity:0">
+    <div style="display:flex;align-items:center;gap:18px">
+      <div style="width:84px;height:84px;border-radius:24px;background:var(--violet);display:grid;place-items:center;font-size:44px">🏪</div>
+      <div><div style="font:900 40px/1.1 Inter;display:flex;align-items:center;gap:12px">Your Store <span id="check" style="display:inline-grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--blue);color:#fff;font:900 26px/1 Inter;transform:scale(0)">✓</span></div>
+      <div style="font:600 24px Inter;color:var(--muted);margin-top:6px">in ChatGPT</div></div>
+    </div>
+    <div id="rows" style="margin-top:26px;display:grid;gap:14px"></div>
+  </div>
+  <div id="h3b" class="abs" style="left:56px;top:760px;font:800 46px/1.2 Inter;max-width:560px;opacity:0">so ChatGPT shows <span style="background:linear-gradient(transparent 55%,var(--lime) 55%);padding:0 6px">the right ones.</span></div>
+  <div class="illu" style="left:56px;top:990px">ILLUSTRATION</div>
+</div>
+
+<!-- S4 insights · cream -->
+<div id="p4" class="panel" style="background:var(--cream)">
+  <div id="h4" class="abs" style="left:56px;top:80px;display:flex;align-items:baseline;gap:20px"><span style="font:900 220px/1 Inter;letter-spacing:-10px">3</span><span class="it" style="font-size:120px;color:var(--violet)">insights</span></div>
+  <div id="t0" class="tile" style="left:56px;top:390px"><div style="font-size:54px">💬</div><h4>Mentions</h4><svg width="238" height="70" style="margin-top:14px"><path id="spark" d="M4 60 L44 48 L84 52 L124 30 L164 36 L204 14 L234 8" fill="none" stroke="#6A42EC" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="300" stroke-dashoffset="300"/></svg></div>
+  <div id="t1" class="tile" style="left:366px;top:470px"><div style="font-size:54px">👆</div><h4>Clicks</h4><div style="display:flex;align-items:flex-end;gap:12px;height:70px;margin-top:14px">
+    <i class="cb" style="flex:1;height:30%;background:#BBA6FF;border-radius:8px;transform-origin:bottom"></i><i class="cb" style="flex:1;height:55%;background:#BBA6FF;border-radius:8px;transform-origin:bottom"></i><i class="cb" style="flex:1;height:45%;background:#BBA6FF;border-radius:8px;transform-origin:bottom"></i><i class="cb" style="flex:1;height:85%;background:#6A42EC;border-radius:8px;transform-origin:bottom"></i></div></div>
+  <div id="t2" class="tile" style="left:56px;top:760px;width:600px"><div style="font-size:54px">#️⃣</div><h4>Topics</h4><div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
+    <span class="tp chip" style="background:var(--lav);color:var(--ink);text-transform:none;letter-spacing:0;font-size:24px">running shoes</span><span class="tp chip" style="background:var(--limeMist);color:var(--ink);text-transform:none;letter-spacing:0;font-size:24px">gift ideas</span><span class="tp chip" style="background:var(--blush);color:var(--ink);text-transform:none;letter-spacing:0;font-size:24px">sizing</span></div></div>
+  <div class="illu" style="left:56px;top:330px">ILLUSTRATION · NO REAL DATA</div>
+</div>
+
+<!-- S5 business agent · lavender -->
+<div id="p5" class="panel" style="background:var(--lav)">
+  <div id="h5" class="abs big" style="left:56px;top:70px;font-size:96px;letter-spacing:-4px">Business <span class="it" style="color:var(--violet);font-size:116px">Agent</span></div>
+  <div id="ev5" class="abs ev" style="left:56px;top:200px;background:#fff;color:var(--ink);border:2px solid rgba(27,24,56,.15)">🇺🇸 U.S. ecommerce + online services</div>
+  <div id="win" class="abs card" style="left:56px;top:290px;width:640px;height:640px;padding:0;overflow:hidden;opacity:0">
+    <div style="display:flex;align-items:center;gap:14px;padding:22px 26px;border-bottom:2px solid rgba(27,24,56,.08)">
+      <div style="width:56px;height:56px;border-radius:18px;background:var(--violet);display:grid;place-items:center;font-size:30px">🏪</div>
+      <div style="font:900 30px Inter">Your Store</div>
+      <span style="margin-left:auto;padding:8px 14px;border-radius:999px;background:var(--limeMist);font:800 18px Inter;border:2px solid #9FCB1E">BUSINESS AGENT</span>
+    </div>
+    <div id="m0" class="msg" style="right:26px;top:120px;background:var(--violet);color:#fff;border-bottom-right-radius:8px">Do these run true to size?</div>
+    <div id="typing" class="msg" style="left:26px;top:260px;background:#F1EFF6;display:flex;gap:10px;padding:22px 26px"><i class="td" style="width:16px;height:16px;border-radius:50%;background:var(--muted)"></i><i class="td" style="width:16px;height:16px;border-radius:50%;background:var(--muted)"></i><i class="td" style="width:16px;height:16px;border-radius:50%;background:var(--muted)"></i></div>
+    <div id="qr" class="abs chip" style="left:26px;top:430px;background:var(--lime);color:var(--ink);border:4px solid var(--ink);text-transform:none;letter-spacing:0;font-size:28px;opacity:0">📏 Size chart</div>
+    <div id="m1" class="msg" style="left:26px;top:260px;background:#F1EFF6;color:var(--ink);border-bottom-left-radius:8px">Most buyers order their usual size. Want the size chart?</div>
+  </div>
+  <div class="illu" style="left:56px;top:950px">ILLUSTRATION</div>
+</div>
+
+<!-- S6 the catch · blush -->
+<div id="p6" class="panel" style="background:var(--blush)">
+  <div id="h6" class="abs" style="left:56px;top:90px;font:900 140px/1 Inter;letter-spacing:-6px">The <span class="it" style="color:var(--pink);font-size:170px;-webkit-text-stroke:1px var(--ink)">catch?</span></div>
+  <div id="c0" class="abs chip" style="left:56px;top:330px;background:var(--lime);color:var(--ink);font-size:46px;padding:22px 34px;border:5px solid var(--ink);box-shadow:6px 6px 0 var(--ink);text-transform:none;letter-spacing:-1px;opacity:0">ChatGPT ✓</div>
+  <div id="c1" class="abs chip" style="left:56px;top:470px;background:#fff;color:var(--muted);font-size:46px;padding:22px 34px;border:5px solid var(--faint);text-transform:none;letter-spacing:-1px;opacity:0">Gemini <b style="color:#F0475A;margin-left:8px">✗</b></div>
+  <div id="c2" class="abs chip" style="left:56px;top:610px;background:#fff;color:var(--muted);font-size:46px;padding:22px 34px;border:5px solid var(--faint);text-transform:none;letter-spacing:-1px;opacity:0">Perplexity <b style="color:#F0475A;margin-left:8px">✗</b></div>
+  <div id="h6b" class="abs" style="left:56px;top:770px;font:800 44px Inter;opacity:0">ChatGPT <span style="background:linear-gradient(transparent 55%,var(--lime) 55%);padding:0 6px">only.</span> For now.</div>
+</div>
+
+<!-- S7 end card · cream -->
+<div id="p7" class="panel" style="background:var(--cream)">
+  <div id="lg" class="abs" style="left:56px;top:80px;display:flex;align-items:center;gap:14px"><span style="font:900 140px/1 Inter;letter-spacing:-7px">MRR</span><span style="display:inline-block;background:var(--lime);border:6px solid var(--ink);border-radius:44px;padding:0 30px 14px;box-shadow:8px 8px 0 var(--ink);transform:rotate(-6deg)"><span style="font:900 italic 120px/1 Inter;letter-spacing:-5px">pop</span></span></div>
+  <div id="q7" class="abs big" style="left:56px;top:300px;font-size:96px;letter-spacing:-4px">Would you<br>claim <span class="it" style="color:var(--violet);font-size:116px">yours?</span></div>
+  <div id="cm" class="abs card" style="left:56px;top:560px;padding:22px 30px;display:flex;align-items:center;gap:18px;opacity:0"><span style="font-size:52px">💬</span><span style="font:800 38px Inter">Tell me below</span><span id="arr" style="font:900 52px Inter;color:var(--violet)">↓</span></div>
+  <div id="fol" class="abs" style="left:56px;top:700px;padding:22px 36px;border-radius:999px;background:var(--violet);color:#fff;font:800 42px Inter;box-shadow:6px 6px 0 var(--ink);border:4px solid var(--ink);opacity:0">Follow @getmrrpop</div>
+</div>
+
+<div id="src" class="src" style="left:92px;top:1460px;bottom:auto;z-index:19"><span>Source:</span><b>OpenAI announcement</b><span>· Nov 10, 2026</span></div>
+<div id="fx" class="abs" style="left:0;top:0;width:1080px;height:1920px;z-index:15"></div>
+<div id="char" style="z-index:20">RIG</div>
+<div id="b0" class="bub" style="z-index:21;background:var(--yellow);color:var(--ink)">LET'S GO!</div>
+<div id="b1" class="bub" style="z-index:21;background:var(--violet);color:#fff">WOW!</div>
+<div id="b2" class="bub" style="z-index:21;background:var(--lilac);color:var(--ink)">HMM…</div>
+<div id="b3" class="bub" style="z-index:21;background:#fff;color:var(--violet)">BOOM!</div>
+<div id="cap" class="abs" style="left:60px;top:1312px;width:960px;z-index:22"></div>
+
+<script>
+const DATA=DATAJSON, B=DATA.beats, MAN=DATA.manifest, VIS=DATA.visemes;
+const C=(x,a=0,b=1)=>Math.max(a,Math.min(b,x)),P=(t,s,d)=>C((t-s)/d),eOut=x=>1-Math.pow(1-x,3),eIO=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const eBack=x=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const $=id=>document.getElementById(id), $$=s=>[...document.querySelectorAll(s)];
+const bs=i=>B[i].start, be=i=>B[i].end;
+// scenes start on these beats
+const SB=[0,1,3,4,5,7,8,10], A=SB.map((b,i)=>i?bs(b)-0.25:0); A.push(DATA.duration+5);
+// character: slot switching
+const SLOTS={};for(const g of $$('#rig g[id]')){const m=g.id.match(/^(arms|eyes|brows|mouth|extras)-(.+)$/);if(m)(SLOTS[m[1]]??=[]).push(m[2])}
+function show(slot,v){for(const k of SLOTS[slot]||[]){const e=$(slot+'-'+k);if(e)e.style.display=k===v?'inline':'none'}}
+function setChar(pose,expr,viseme,blink){const p=MAN.poses[pose],x=MAN.expressions[expr];const s={...MAN.defaults,...p,...x};
+ if(viseme&&viseme!=='X')s.mouth=viseme; if(blink&&['open','up','side'].includes(s.eyes))s.eyes='closed';
+ for(const k of ['arms','eyes','brows','mouth','extras'])show(k,s[k])}
+// per scene: states [absTime, pose, expression] and placement [x,y,scale]
+const ST=[[[0,'pointing','shocked'],[1.5,'pointing','grin']],
+ [[bs(1),'shrug','nervous'],[bs(2),'thumbs-up','grin']],
+ [[bs(3),'celebrating','star-struck']],
+ [[bs(4),'explaining','smile'],[bs(4)+2.2,'pointing-side','cheeky'],[bs(4)+4.4,'thumbs-up','grin']],
+ [[bs(5),'explaining','curious'],[bs(6),'celebrating','star-struck']],
+ [[bs(7),'pointing-side','curious'],[bs(7)+3,'explaining','smile']],
+ [[bs(8),'thinking','thinking'],[bs(9),'shrug','skeptical']],
+ [[bs(10),'waving','grin'],[bs(10)+1.8,'thumbs-up','cheeky']]];
+const POS=[[620,700,.84],[640,720,.8],[600,700,.86],[690,830,.72],[690,820,.72],[700,830,.7],[620,720,.82],[610,700,.86]];
+// content builders
+$('rows').innerHTML=[['Runner Tee','$32','$29','In stock'],['Trail Cap','$24','$19','Low stock'],['Socks 3-pack','$15','$12','In stock']].map((r,i)=>`<div class="row" style="display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:20px;background:#F6F4FC;opacity:0"><span style="font:800 28px Inter">${r[0]}</span><span style="margin-left:auto;font:700 26px Inter;color:var(--faint);text-decoration:line-through">${r[1]}</span><span class="np" style="font:900 30px Inter;color:var(--greenInk)">${r[2]}</span><span style="padding:6px 12px;border-radius:999px;background:var(--limeMist);font:700 18px Inter">${r[3]}</span></div>`).join('');
+const BUB=[...Array(8)].map((_,i)=>({x:120+((i*131)%700),y:1180+((i*67)%80),d:.9+((i*37)%50)/100,r:((i*53)%40)-20,e:['💬','✨','💬','🛍️'][i%4]}));
+$('fx0').innerHTML=BUB.map(b=>`<div class="fb" style="position:absolute;left:${b.x}px;top:${b.y}px;font-size:64px;opacity:0">${b.e}</div>`).join('');
+$('bags').innerHTML=[...Array(6)].map((_,i)=>`<div class="bag" style="position:absolute;left:${60+i*40}px;top:${420+((i*43)%120)}px;font-size:70px;opacity:0">🛍️</div>`).join('');
+const CONF=[...Array(22)].map((_,i)=>{const a=(-170+i*(160/21))*Math.PI/180;return{dx:Math.cos(a)*(360+((i*53)%200)),dy:Math.sin(a)*(380+((i*71)%220)),r:(i*47)%360,c:['#6A42EC','#C6F03A','#FF6FB5','#FFD43B','#4C8DF6'][i%5]}});
+$('conf').innerHTML=CONF.map((c,i)=>`<i class="cf" style="position:absolute;left:480px;top:520px;width:${18+(i%3)*8}px;height:${10+(i%2)*14}px;border-radius:4px;background:${c.c};opacity:0"></i>`).join('');
+// captions: split each beat into short phrases, timed by character count
+const KW=['billion','losing','customers','check','Business','Hub','blue','prices','three','Mentions','Clicks','Topics','Agent','catch','only','yours'];
+const CAPS=[];B.forEach(b=>{const w=b.text.replace(/One point two billion/,'1.2 billion').split(/\s+/);const ph=[];let cur=[];
+ for(const x of w){cur.push(x);if(cur.length>=4||/[.?!,…]$/.test(x)&&cur.length>=2){ph.push(cur);cur=[]}} if(cur.length)ph.push(cur);
+ const tot=ph.reduce((s,p)=>s+p.join(' ').length,0);let t=b.start;for(const p of ph){const d=(b.end-b.start)*p.join(' ').length/tot;CAPS.push([p,t,t+d]);t+=d}});
+function caption(t){let ph=null;for(const c of CAPS)if(t>=c[1]-.04&&t<c[2]+.12)ph=c;const el=$('cap');if(!ph){el.style.opacity=0;return}
+ el.style.opacity=1;const k=P(t,ph[1]-.04,.18);
+ const words=ph[0].map(w=>KW.some(k=>w.replace(/[^A-Za-z.0-9]/g,'').toLowerCase().startsWith(k.toLowerCase()))?`<span style="color:#6A42EC;background:linear-gradient(transparent 58%,#C6F03A 58%);padding:0 4px">${w}</span>`:w).join(' ');
+ el.innerHTML=`<span style="display:inline-block;padding:16px 28px;background:#fff;border-radius:26px;font:800 54px/1.15 Inter;letter-spacing:-1px;box-shadow:0 14px 30px -14px rgba(27,24,56,.45),0 0 0 3px rgba(27,24,56,.08);transform:translateY(${(1-eBack(k))*30}px) scale(${.94+.06*eOut(k)})">${words}</span>`}
+function bubble(id,t,s,e,x,y,rot){const b=$(id);const pi=P(t,s,.35),po=P(t,e,.25);b.style.opacity=C(pi*3)*(1-po);b.style.left=x+'px';b.style.top=y+'px';b.style.transform=`rotate(${rot}deg) scale(${(.3+.7*eBack(pi))*(1-.3*po)})`;b.style.transformOrigin='20% 100%'}
+const pop=(e,t,s,d=.4)=>{const k=P(t,s,d);e.style.opacity=C(k*3);return k};
+function lerpPos(si,t){const a=POS[si];if(si===0)return a;const b=POS[si-1],k=eIO(P(t,A[si],.55));return a.map((v,i)=>b[i]+(v-b[i])*k)}
+window.render=function(t){
+ let si=0;for(let i=0;i<8;i++)if(t>=A[i])si=i;
+ for(let i=0;i<8;i++){const p=$('p'+i),s=A[i],e=A[i+1];const pin=i==0?1:eOut(P(t,s-.15,.55));const pout=i<7?eIO(P(t,e-.1,.5)):0;
+  p.style.opacity=i>0&&t<s-.2?0:(1-P(t,e+.35,.1)*(i<7?1:0));p.style.zIndex=i;
+  p.style.transform=`translateY(${(1-pin)*1400}px) rotate(${(1-pin)*6}deg) translateY(${-pout*40}px) scale(${1-pout*.06})`;p.style.filter=`brightness(${1-pout*.08})`}
+ // S0 hook: number is on screen at frame 1, counts up
+ {const n=$('num0');n.textContent='1.2B';n.style.transform=`scale(${1+.08*Math.sin(P(t,0,.6)*Math.PI)}) rotate(${Math.sin(P(t,1.1,.5)*Math.PI*3)*2*(1-P(t,1.1,.5))}deg)`;
+  [['h0a',.5],['h0b',.9]].forEach(([id,s])=>{const e=$(id),k=pop(e,t,s);e.style.transform=`translateX(${(1-eBack(k))*-200}px)`});
+  const ev=$('ev0');pop(ev,t,1.4,.3);
+  $$('.fb').forEach((f,i)=>{const b=BUB[i];const kk=P(t,.6+i*.15,2.4);f.style.opacity=kk>0&&kk<1?Math.sin(kk*Math.PI):0;f.style.transform=`translateY(${-kk*420}px) rotate(${b.r*kk}deg)`})}
+ // S1 stakes
+ {[['h1a',bs(1)],['h1b',bs(1)+.25]].forEach(([id,s])=>{const e=$(id),k=pop(e,t,s);e.style.transform=`translateY(${(1-eBack(k))*60}px)`});
+  const ci=$('chatIcon');const kc=P(t,bs(1)+.2,.45);ci.style.opacity=C(kc*3);ci.style.transform=`scale(${.4+.6*eBack(kc)}) rotate(${Math.sin(t*2)*3}deg)`;
+  $$('.dot').forEach((d,i)=>d.style.transform=`translateY(${Math.sin(t*8-i)*6}px)`);
+  $$('.bag').forEach((b,i)=>{const kk=P(t,bs(1)+.4+i*.12,.9);b.style.opacity=kk>0?(kk<.9?1:1-(kk-.9)*10):0;b.style.transform=`translate(${eIO(kk)*(500-i*30)}px,${-Math.sin(kk*Math.PI)*160+kk*20}px) scale(${1-kk*.6}) rotate(${kk*30}deg)`});
+  const h=$('h1c'),kh=pop(h,t,bs(2),.35);h.style.transform=`scale(${.6+.4*eBack(kh)})`;h.style.transformOrigin='left center';$('tick').style.strokeDashoffset=90*(1-eOut(P(t,bs(2)+.15,.35)))}
+ // S2 launch
+ {const n=$('new2'),kn=pop(n,t,bs(3),.35);n.style.transform=`rotate(${-8+Math.sin(t*3)*3}deg) scale(${.3+.7*eBack(kn)})`;
+  const a=$('h2a'),ka=pop(a,t,bs(3)+.15);a.style.transform=`translateX(${(1-eBack(ka))*-260}px)`;
+  const b=$('h2b'),kb=pop(b,t,bs(3)+1.05,.45);b.style.transform=`scale(${.3+.7*eBack(kb)}) rotate(${(1-kb)*-12}deg)`;b.style.transformOrigin='30% 60%';
+  pop($('ev2'),t,bs(3)+1.6,.3);
+  $$('.cf').forEach((c,i)=>{const q=CONF[i];const kk=P(t,bs(3)+1.1+i*.01,1.4);c.style.opacity=kk>0?1-P(t,bs(3)+2.3,.4):0;c.style.transform=`translate(${q.dx*eOut(kk)}px,${q.dy*eOut(kk)+kk*kk*600}px) rotate(${q.r*kk*3}deg)`})}
+ // S3 claim
+ {const b4=bs(4);const h=$('h3'),kh=pop(h,t,b4);h.style.transform=`translateY(${(1-eBack(kh))*50}px)`;
+  [0,1,2].forEach(i=>{const s=$('st'+i),on=t>=b4+i*2.2;s.style.background=on?(i==1?'#4C8DF6':'#6A42EC'):'#fff';s.style.color=on?'#fff':'#6E6A8E';s.style.transform=`scale(${1+.12*Math.sin(P(t,b4+i*2.2,.35)*Math.PI)})`});
+  const pr=$('prof'),kp=pop(pr,t,b4+.3,.45);pr.style.transform=`translateY(${(1-eBack(kp))*200}px) rotate(${(1-kp)*-4}deg)`;
+  $('check').style.transform=`scale(${eBack(P(t,b4+2.2,.4))})`;
+  $$('#rows .row').forEach((r,i)=>{const k=pop(r,t,b4+3.6+i*.35,.35);r.style.transform=`translateX(${(1-eBack(k))*80}px)`;r.querySelector('.np').style.transform=`scale(${1+.25*Math.sin(P(t,b4+3.9+i*.35,.4)*Math.PI)})`});
+  const h2=$('h3b'),k2=pop(h2,t,b4+5,.4);h2.style.transform=`translateY(${(1-eOut(k2))*30}px)`}
+ // S4 insights
+ {const h=$('h4'),k=pop(h,t,bs(5)-.1,.45);h.style.transform=`scale(${.6+.4*eBack(k)})`;h.style.transformOrigin='left center';
+  const ws=[bs(6),bs(6)+.48,bs(6)+.96];['t0','t1','t2'].forEach((id,i)=>{const e=$(id),kk=pop(e,t,ws[i]-.05,.4);e.style.transform=`translateY(${(1-eBack(kk))*160}px) rotate(${[-3,2,-1][i]*(1-kk)+[-2,2,-1][i]}deg)`});
+  $('spark').style.strokeDashoffset=300*(1-eOut(P(t,ws[0]+.2,.8)));
+  $$('.cb').forEach((c,i)=>c.style.transform=`scaleY(${eBack(P(t,ws[1]+.15+i*.08,.4))})`);
+  $$('.tp').forEach((c,i)=>{const kk=P(t,ws[2]+.2+i*.12,.3);c.style.opacity=C(kk*3);c.style.transform=`scale(${.4+.6*eBack(kk)})`})}
+ // S5 agent
+ {const b7=bs(7);const h=$('h5'),k=pop(h,t,b7);h.style.transform=`translateX(${(1-eBack(k))*-220}px)`;pop($('ev5'),t,b7+.5,.3);
+  const w=$('win'),kw=pop(w,t,b7+.4,.45);w.style.transform=`translateY(${(1-eBack(kw))*220}px)`;
+  const m0=$('m0'),k0=pop(m0,t,b7+1.2,.35);m0.style.transform=`translateY(${(1-eBack(k0))*40}px)`;
+  const ty=$('typing');ty.style.opacity=(t>b7+2.1&&t<b7+3.2)?1:0;$$('.td').forEach((d,i)=>d.style.transform=`translateY(${Math.sin(t*9-i)*5}px)`);
+  const m1=$('m1'),k1=pop(m1,t,b7+3.2,.35);m1.style.transform=`translateY(${(1-eBack(k1))*40}px)`;const q=$('qr'),kq=pop(q,t,b7+4.3,.35);q.style.transform=`scale(${.4+.6*eBack(kq)})`}
+ // S6 catch
+ {const h=$('h6'),k=pop(h,t,bs(8)-.05,.4);h.style.transform=`scale(${.5+.5*eBack(k)}) rotate(${(1-k)*-6}deg)`;h.style.transformOrigin='left center';
+  [['c0',bs(9)+.1],['c1',bs(9)+1.4],['c2',bs(9)+1.9]].forEach(([id,s],i)=>{const e=$(id),kk=pop(e,t,s,.35);e.style.transform=`scale(${.4+.6*eBack(kk)}) rotate(${[-2,1,-1][i]}deg)`});
+  const hb=$('h6b'),kb=pop(hb,t,bs(9)+2.6,.35);hb.style.transform=`translateY(${(1-eOut(kb))*30}px)`}
+ // S7 end
+ {const b10=bs(10);[['lg',b10-.2],['q7',b10+.2],['cm',b10+1.6],['fol',b10+2.4]].forEach(([id,s])=>{const e=$(id),k=pop(e,t,s,.45);e.style.transform=(id=='lg'?`translateY(${-Math.abs(Math.sin(t*3))*10*P(t,b10+1,.5)}px) `:'')+`scale(${.5+.5*eBack(k)})`;e.style.transformOrigin='left center'});
+  $('arr').style.transform=`translateY(${Math.abs(Math.sin(t*5))*12}px)`}
+ // source bar visible while claims are on screen
+ $('src').style.opacity=C(P(t,1.4,.3))*(1-P(t,bs(10)-.3,.3));
+ // bubbles (page coords)
+ bubble('b0',t,bs(2)+.1,bs(3)-.05,110,1120,-7);bubble('b1',t,bs(3)+1.1,bs(4)-.1,120,1060,-6);bubble('b2',t,bs(8)-.05,bs(9)+.5,560,640,-6);bubble('b3',t,bs(6)+1.0,bs(7)-.1,660,330,6);
+ caption(t);
+ // character
+ let s=ST[si][0];for(const q of ST[si])if(t>=q[0])s=q;
+ const fi=Math.floor(t*VIS.fps),vis=VIS.frames[fi]||'X',talk=vis!=='X';
+ const blink=(t%3.4)>3.27;setChar(s[1],s[2],vis,blink);
+ let [x,y,sc]=lerpPos(si,t);
+ const ent=P(t,.1,.55);let dy=(1-eBack(ent))*900,sq=1;
+ const hop=ST[si].map(q=>q[0]);for(const h of hop){const kk=(t-h)/.42;if(kk>0&&kk<1){dy-=Math.sin(kk*Math.PI)*60;sq=1+Math.sin(kk*Math.PI*2)*.04}}
+ dy+=Math.sin(t*2.4)*5;const sway=Math.sin(t*1.7)*1.6+(talk?Math.sin(t*6.3)*1.1:0);
+ $('char').style.transform=`translate(${x}px,${y+dy}px) scale(${sc/sq},${sc*sq}) rotate(${sway}deg)`;
+ const nod=talk?Math.sin(t*7.3)*3+Math.sin(t*3.1)*2:Math.sin(t*1.4)*1.5;
+ $('head').style.transform=`rotate(${nod}deg) translateY(${talk?Math.abs(Math.sin(t*9))*-3:0}px)`;
+};
+window.render(0);
+</script></body></html>

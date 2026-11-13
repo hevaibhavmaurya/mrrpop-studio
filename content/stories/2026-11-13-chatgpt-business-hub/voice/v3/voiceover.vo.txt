@@ -1,0 +1,12 @@
+# ChatGPT Business Hub — Launch Pop · v3 script (hook 81.6 STRONG, loops on "ChatGPT", ≤40 s target). Signature voice, settings unchanged.
+{hook}    ChatGPT has one point two billion weekly users!
+{curious} Are you losing customers to it?
+{wow}     Now you can check!
+{fun}     On November tenth, OpenAI launched Business Hub.
+{trust}   Claim your business, get the blue check, update prices and stock.
+{fun}     Then you get three insights.
+{fun}     Mentions. Clicks. Topics.
+{curious} U.S. stores can even launch a Business Agent that answers buyers.
+{curious} The catch?
+{trust}   It's ChatGPT only. No Gemini, no Perplexity.
+{cta}     Would you claim yours on ChatGPT? Follow MRR Pop!

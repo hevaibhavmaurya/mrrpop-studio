@@ -1,0 +1,9 @@
+# TabTidy DEMO — performance script for packages/pipeline/voice/perform.py
+# Words match the archived demo (DEMO data, not a real product). Styles: hook · curious · fun · trust · wow · cta
+{hook}    [Twelve thousand four hundred dollars](+1) a month… from a [Chrome](+2) extension!
+{curious} It's called TabTidy. It turns [forty-eight](+1) messy tabs… into [four](+2) neat groups.
+{trust}   After thirty days, the payments keep coming. Nine bucks… then an annual plan.
+{curious} How?
+{fun}     He built it [solo](+2), launched it on Reddit, and kept one simple plan.
+{wow}     Boom.
+{cta}     So… would you build this? Comment below, and follow MRR Pop!

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 230" role="img" aria-label="MRR Pop">
+  <text x="6" y="168" font-family="Inter, system-ui, sans-serif" font-weight="900" font-size="156" letter-spacing="-8" fill="#1B1838">MRR</text>
+  <g transform="rotate(-7 505 115)">
+    <path d="M372 62 C398 40 600 30 626 52 C650 72 646 168 620 186 C590 204 404 210 380 190 C354 170 350 82 372 62 Z" fill="#1B1838" transform="translate(8 8)"/>
+    <path d="M372 62 C398 40 600 30 626 52 C650 72 646 168 620 186 C590 204 404 210 380 190 C354 170 350 82 372 62 Z" fill="#C6F03A" stroke="#1B1838" stroke-width="7" stroke-linejoin="round"/>
+    <text x="500" y="160" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-style="italic" font-weight="900" font-size="128" letter-spacing="-5" fill="#1B1838">pop</text>
+  </g>
+  <path d="M640 18 l7 18 18 7 -18 7 -7 18 -7 -18 -18 -7 18 -7z" fill="#6A42EC"/>
+</svg>

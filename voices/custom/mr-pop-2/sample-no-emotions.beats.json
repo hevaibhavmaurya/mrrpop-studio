@@ -1,0 +1,46 @@
+{
+  "engine": "chatterbox",
+  "ref": "voices/custom/mr-pop-2/reference.wav",
+  "seed": 7,
+  "more": 0.0,
+  "duration": 9.674,
+  "lufs": -14.1,
+  "beats": [
+    {
+      "style": "hook",
+      "text": "Wait. One developer, one browser extension, twelve thousand dollars a month?",
+      "start": 0.3,
+      "end": 6.107,
+      "take": 5,
+      "score": 16.69,
+      "pitch_range_st": 16.0,
+      "median_hz": 147,
+      "len_ratio": 1.36,
+      "similarity": 0.955
+    },
+    {
+      "style": "wow",
+      "text": "That's a pop!",
+      "start": 6.447,
+      "end": 7.357,
+      "take": 4,
+      "score": 9.96,
+      "pitch_range_st": 22.0,
+      "median_hz": 139,
+      "len_ratio": 1.46,
+      "similarity": 0.87
+    },
+    {
+      "style": "cta",
+      "text": "Here's how they did it.",
+      "start": 7.657,
+      "end": 9.474,
+      "take": 0,
+      "score": 7.69,
+      "pitch_range_st": 14.0,
+      "median_hz": 106,
+      "len_ratio": 1.55,
+      "similarity": 0.908
+    }
+  ]
+}
