@@ -15,3 +15,7 @@ Checked 13 Nov 2026. Every on-screen claim maps to a line here.
 
 Not used (unverified): pricing (no source states it), "trending" rankings.
 Illustrations (chat mock-ups, insight bars) are clearly labelled ILLUSTRATION — no real numbers.
+
+## Story version (exports/reel.mp4, 13 Nov 2026)
+- "Maya" and "Maya's Candles" are an ILLUSTRATION (labelled on screen "Illustration · Maya is not real" and in the caption). Her shop, prices, chats and insight numbers are not real data.
+- All product facts are the same as above; the 1.2 billion weekly users figure is OpenAI's own (Company-announced).

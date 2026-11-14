@@ -13,6 +13,15 @@
       "notes": "Reference = voices/custom/mr-pop-2/reference.wav, bootstrapped by packages/pipeline/voice/liven.py (round 1, seed 7) from Mr. Pop's own Kokoro reference. No outside or real person's voice used. 97.8% speaker similarity to the previous signature."
     },
     {
+      "id": "mr-pop-3",
+      "name": "Mr. Pop (human)",
+      "role": "Candidate: Mr. Pop's delivery in a real human timbre (not yet approved)",
+      "vibe": "Same Mr. Pop emotions and timing, but the voice quality of a real adult man",
+      "engine": "chatterbox",
+      "consent": "Vaibhav Maurya's own voice, provided by him on 2026-11-14 for MRR Pop use. Source: voices/custom/mr-pop-3/source/vaibhav-original.mp3",
+      "notes": "timbre.wav = 13 s clean clip of Vaibhav's recording (human.py ref). reference.wav + emotions/*.wav = mr-pop-2's own reference and emotion clips re-voiced into that timbre with Chatterbox VC (human.py build), so expressive.py --ref mr-pop-3 performs with Mr. Pop's delivery in Vaibhav's timbre. Speaker similarity to Vaibhav 0.85 (mr-pop-2: 0.64); pitch range kept (12.4 vs 13.4 st)."
+    },
+    {
       "id": "mr-pop",
       "name": "Mr. Pop (previous)",
       "role": "Previous signature (2026-11-13 morning) — kept for comparison",

@@ -8,6 +8,7 @@ import { Placeholder } from './pages/Placeholder';
 import { VoicesPage } from './pages/Voices';
 import { StoriesPage } from './pages/Stories';
 import { CanvasPage } from './pages/Canvas';
+import { DraftsPage } from './pages/Drafts';
 
 const PAGES = [
   { id: 'brand', label: 'Brand', icon: 'palette', ready: true },
@@ -16,6 +17,7 @@ const PAGES = [
   { id: 'canvas', label: 'Canvas', icon: 'play', ready: true },
   { id: 'carousels', label: 'Carousels', icon: 'slides', ready: false },
   { id: 'voices', label: 'Voices', icon: 'mic', ready: true },
+  { id: 'drafts', label: 'Drafts', icon: 'slides', ready: true },
   { id: 'stories', label: 'Stories', icon: 'book', ready: true },
   { id: 'skills', label: 'Skills', icon: 'sparkle', ready: false },
 ] as const;
@@ -84,6 +86,7 @@ export function App() {
         {page === 'brand' && <BrandPage themeId={themeId} onTheme={chooseTheme} />}
         {page === 'character' && <CharacterPage packId={packId} onPack={choosePack} />}
         {page === 'voices' && <VoicesPage packId={packId} />}
+        {page === 'drafts' && <DraftsPage />}
         {page === 'stories' && <StoriesPage />}
         {page === 'canvas' && <CanvasPage packId={packId} />}
         {!PAGES.find((p) => p.id === page)?.ready && <Placeholder name={PAGES.find((p) => p.id === page)?.label ?? page} />}

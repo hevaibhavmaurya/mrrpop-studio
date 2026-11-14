@@ -1,50 +1,51 @@
 [
-  {
-    "slug": "2026-11-13-chatgpt-business-hub",
-    "date": "2026-11-13",
-    "series": "launch-pop",
-    "product": "Businesses in ChatGPT \u2014 Business Hub (OpenAI)",
-    "key_number": "1.2B weekly ChatGPT users",
-    "evidence": "company-announced",
-    "sponsored": false,
-    "status": "draft",
-    "files": {
-      "reel": "exports/reel.mp4",
-      "caption": "exports/caption.txt",
-      "cover": "exports/cover.jpg",
-      "reel_v3": "exports/reel-v3.mp4"
-    }
+ {
+  "slug": "2026-11-13-chatgpt-business-hub",
+  "date": "2026-11-13",
+  "series": "launch-pop",
+  "product": "Businesses in ChatGPT \u2014 Business Hub (OpenAI)",
+  "key_number": "1.2B weekly ChatGPT users",
+  "evidence": "company-announced",
+  "sponsored": false,
+  "status": "draft",
+  "files": {
+   "reel": "exports/reel.mp4",
+   "caption": "exports/caption.txt",
+   "cover": "exports/cover.jpg"
   },
-  {
-    "slug": "2026-11-13-meet-mr-pop",
-    "date": "2026-11-13",
-    "series": "intro",
-    "product": "MRR Pop \u2014 Meet Mr. Pop (channel intro, Highlight: Start here)",
-    "key_number": "",
-    "evidence": "company-announced",
-    "sponsored": false,
-    "status": "draft",
-    "files": {
-      "reel": "exports/reel.mp4",
-      "caption": "caption.md",
-      "cover": "exports/cover.jpg"
-    }
-  },
-  {
-    "slug": "2026-11-14-movemrr-for-sale",
-    "date": "2026-11-14",
-    "series": "deal-pop",
-    "product": "MoveMRR (Stripe subscription migration), listed for sale on TrustMRR",
-    "key_number": "$49,800 asking \u00b7 $8,262 all time revenue",
-    "evidence": "payment-verified",
-    "sponsored": false,
-    "status": "draft",
-    "files": {
-      "reel": "exports/reel.mp4",
-      "caption": "exports/caption.txt",
-      "cover": "exports/cover.jpg"
-    },
-    "version": "story",
-    "duration_s": 47.6
+  "version": "story",
+  "duration_s": 50.3
+ },
+ {
+  "slug": "2026-11-13-meet-mr-pop",
+  "date": "2026-11-13",
+  "series": "intro",
+  "product": "MRR Pop \u2014 Meet Mr. Pop (channel intro, Highlight: Start here)",
+  "key_number": "",
+  "evidence": "company-announced",
+  "sponsored": false,
+  "status": "draft",
+  "files": {
+   "reel": "exports/reel.mp4",
+   "caption": "caption.md",
+   "cover": "exports/cover.jpg"
   }
+ },
+ {
+  "slug": "2026-11-14-movemrr-for-sale",
+  "date": "2026-11-14",
+  "series": "deal-pop",
+  "product": "MoveMRR (Stripe subscription migration), listed for sale on TrustMRR",
+  "key_number": "$49,800 asking \u00b7 $8,262 all time revenue",
+  "evidence": "payment-verified",
+  "sponsored": false,
+  "status": "draft",
+  "files": {
+   "reel": "exports/reel.mp4",
+   "caption": "exports/caption.txt",
+   "cover": "exports/cover.jpg"
+  },
+  "version": "story",
+  "duration_s": 47.6
+ }
 ]

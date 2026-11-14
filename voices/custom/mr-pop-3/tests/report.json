@@ -1,0 +1,40 @@
+{
+ "7-clean-source-raw": [
+  {
+   "line": "hook",
+   "cracks": 0.9,
+   "sim": 0.948,
+   "range": 8.2
+  },
+  {
+   "line": "annoyed",
+   "cracks": 0.0,
+   "sim": 0.912,
+   "range": 11.5
+  },
+  {
+   "line": "curious",
+   "cracks": 0.0,
+   "sim": 0.938,
+   "range": 9.0
+  },
+  {
+   "line": "wow",
+   "cracks": 0.6,
+   "sim": 0.942,
+   "range": 9.1
+  },
+  {
+   "line": "laugh",
+   "cracks": 1.7,
+   "sim": 0.947,
+   "range": 14.0
+  },
+  {
+   "line": "cta",
+   "cracks": 0.8,
+   "sim": 0.925,
+   "range": 9.7
+  }
+ ]
+}

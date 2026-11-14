@@ -361,14 +361,164 @@ const sunglasses = () =>
   line('M262 306 L274 296 M358 306 L370 296', C.white, 4, ' opacity=".35"');
 const GLASSES = { regular: glasses(), shades: sunglasses() };
 
+// ═════════ expression pack 2 (≈50 expressions): new hands, gestures, front-hand layer, face parts ═════════
+// new hand shapes (local frame: wrist at 0,0; +y away from wrist; thumb on -x)
+Object.assign(HANDS, {
+  two: () => circ(0, 28, 24, C.skin, O * 2 - 3) + knuckles + fin(-3, 36, -8, 92, 12) + fin(10, 34, 17, 88, 12) + fin(-17, 20, 2, 33, 12),
+  three: () => circ(0, 28, 24, C.skin, O * 2 - 3) + knuckles + fin(-6, 36, -14, 90, 12) + fin(6, 36, 6, 94, 12) + fin(17, 33, 26, 84, 11) + fin(-17, 20, 2, 33, 12),
+  pinch: () => circ(0, 28, 22, C.skin, O * 2 - 3) + fin(-2, 40, 2, 64, 11) + fin(-16, 18, -4, 60, 12) + line('M-6 40 Q0 46 8 40', C.skinSh, 3),
+});
+// split arm: upper arm (stays in the arms layer, behind the head) + forearm/hand (front layer, over the face)
+function armUpper({ s, e, sleeve = C.navy }) {
+  const [dx, dy] = [e[0] - s[0], e[1] - s[1]], len = Math.hypot(dx, dy), nx = -dy / len, ny = dx / len;
+  return line(poly([s, e]), C.ink, 58 + O * 2) + line(poly([s, e]), sleeve, 58) +
+    line(poly([[s[0] + nx * 14, s[1] + ny * 14], [e[0] + nx * 14, e[1] + ny * 14]]), C.navyHi, 8, ' opacity=".7"');
+}
+function armFore({ e, w, hand = 'relaxed', rot, flip, sleeve = C.navy }) {
+  const [dx, dy] = [w[0] - e[0], w[1] - e[1]], len = Math.hypot(dx, dy);
+  const ang = (Math.atan2(dy, dx) * 180) / Math.PI, cuffStart = [w[0] - (dx / len) * 12, w[1] - (dy / len) * 12];
+  let out = line(poly([e, w]), C.ink, 52 + O * 2) + line(poly([e, w]), sleeve, 52) + circ(e[0], e[1], 26, sleeve, 0, null);
+  out += tube([cuffStart, w], 44, C.violet);
+  const r = rot ?? ang - 90;
+  return out + `<g transform="translate(${f(w[0])} ${f(w[1])}) rotate(${f(r)}) scale(${flip ? -1 : 1} 1) translate(0 4)">${HANDS[hand]()}</g>`;
+}
+// face gestures: the arm that touches the face is split; the other arm is a normal arm
+const FACE_G = {
+  facepalm: { other: L_IDLE, s: SR, e: [452, 610], w: [380, 392], hand: 'open' },
+  shush: { other: L_IDLE, s: SR, e: [446, 668], w: [318, 474], hand: 'point', rot: 180 },
+  'head-scratch': { other: L_IDLE, s: SR, e: [500, 430], w: [452, 282], hand: 'relaxed' },
+};
+const CHEEKS = [
+  { s: SL, e: [168, 692], w: [226, 442], hand: 'open', flip: true },
+  { s: SR, e: [432, 692], w: [374, 442], hand: 'open' },
+];
+Object.assign(ARMS, {
+  'arms-crossed': [
+    { s: SL, e: [194, 782], w: [372, 738], hand: 'fist', flip: true },
+    { s: SR, e: [406, 782], w: [228, 738], hand: 'fist' },
+  ],
+  'fist-pump': [{ s: SL, e: [150, 722], w: [222, 828], hand: 'fist', flip: true }, { s: SR, e: [478, 640], w: [458, 486], hand: 'fist' }],
+  'count-two': [L_IDLE, { s: SR, e: [470, 700], w: [488, 560], hand: 'two' }],
+  'count-three': [L_IDLE, { s: SR, e: [470, 700], w: [488, 560], hand: 'three' }],
+  'money-rub': [L_IDLE, { s: SR, e: [444, 744], w: [392, 662], hand: 'pinch' }],
+  present: [
+    { s: SL, e: [150, 690], w: [78, 600], hand: 'open', flip: true },
+    { s: SR, e: [450, 690], w: [522, 600], hand: 'open' },
+  ],
+  'thumbs-down': [L_IDLE, { s: SR, e: [458, 742], w: [470, 646], hand: 'thumb', rot: -90 }],
+});
+const ARMS_SPLIT = {}; // arms-layer art for face gestures (other arm + upper arm(s))
+for (const [k, g] of Object.entries(FACE_G)) ARMS_SPLIT[k] = arm(g.other) + '\n' + armUpper(g);
+ARMS_SPLIT.cheeks = CHEEKS.map(armUpper).join('\n');
+const FRONT = { none: '' };
+for (const [k, g] of Object.entries(FACE_G)) FRONT[k] = armFore(g);
+FRONT.cheeks = CHEEKS.map(armFore).join('\n');
+
+// eyes
+const heart = (x, y, s = 20, fill = '#FF6FB5') =>
+  path(`M${x} ${y + s * 0.8} C${x - s * 1.4} ${y - s * 0.1} ${x - s * 0.7} ${y - s * 1.1} ${x} ${y - s * 0.35} C${x + s * 0.7} ${y - s * 1.1} ${x + s * 1.4} ${y - s * 0.1} ${x} ${y + s * 0.8} Z`, fill, C.ink, 4);
+Object.assign(EYES, {
+  squint: both((x, y) => line(`M${x - 17} ${y + 2} Q${x} ${y - 7} ${x + 17} ${y + 2}`, C.ink, 7) + line(`M${x - 11} ${y + 9} Q${x} ${y + 12} ${x + 11} ${y + 9}`, C.ink, 3)),
+  teary: both((x, y) => openEye(0, 3, 13)(x, y) + path(`M${x - 15} ${y + 9} Q${x} ${y + 22} ${x + 15} ${y + 9} Q${x} ${y + 15} ${x - 15} ${y + 9} Z`, C.blue, null, 0, ' opacity=".7"') + circ(x - 6, y - 5, 3.5, C.white, 0, null)),
+  dizzy: both((x, y) => line(`M${x} ${y} a4 4 0 1 1 8 0 a8 8 0 1 1 -16 0 a12 12 0 1 1 24 0 a15 15 0 1 1 -30 0`, C.ink, 4)),
+  sleepy: both((x, y) => ell(x, y + 7, 15, 8, C.white, 4) + circ(x + 1, y + 9, 7, C.iris, 0, null) + line(`M${x - 19} ${y + 1} Q${x} ${y - 2} ${x + 19} ${y + 1}`, C.ink, 7)),
+  roll: both(openEye(2, -11)),
+  'side-r': both(openEye(6, 2)),
+  wide: both((x, y) => ell(x, y, 19, 22, C.white, 4) + circ(x + 1, y + 2, 13, C.iris, 0, null) + circ(x + 1, y + 2, 6, '#120B08', 0, null) + circ(x + 6, y - 5, 5, C.white, 0, null) + circ(x - 4, y + 8, 2.5, C.white, 0, null)),
+  heart: both((x, y) => heart(x, y, 20)),
+  glare: both((x, y, side) => openEye(0, 4)(x, y) +
+    path(side === 'L' ? `M${x - 24} ${y - 30} L${x + 24} ${y - 30} L${x + 24} ${y - 2} L${x - 24} ${y - 14} Z` : `M${x - 24} ${y - 30} L${x + 24} ${y - 30} L${x + 24} ${y - 14} L${x - 24} ${y - 2} Z`, C.skin, null) +
+    line(side === 'L' ? `M${x - 20} ${y - 13} L${x + 20} ${y - 3}` : `M${x - 20} ${y - 3} L${x + 20} ${y - 13}`, C.ink, 7)),
+  squeeze: both((x, y, side) => line(side === 'L' ? `M${x - 14} ${y - 11} L${x + 13} ${y} L${x - 14} ${y + 11}` : `M${x + 14} ${y - 11} L${x - 13} ${y} L${x + 14} ${y + 11}`, C.ink, 7)),
+});
+
+// brows
+Object.assign(BROWS, {
+  worried: brow('M222 234 Q250 226 280 214', 'M320 214 Q350 226 378 234'),
+  'one-left': brow('M222 218 Q250 200 280 212', 'M320 236 L378 238'),
+  determined: brow('M222 230 L282 241', 'M318 241 L378 230'),
+  max: brow('M222 206 Q250 186 280 198', 'M320 198 Q350 186 378 206'),
+  relaxed: brow('M224 236 Q250 230 278 234', 'M322 234 Q350 230 376 236'),
+});
+
+// mouths (expression mouths; visemes A–H/X above are untouched)
+Object.assign(MOUTHS, {
+  'big-grin': path('M254 382 Q300 391 346 382 Q340 434 300 438 Q260 434 254 382 Z', M, C.ink, 5) + path('M261 385 Q300 394 339 385 L336 399 Q300 406 264 399 Z', C.white, null) + path('M282 428 Q300 414 318 428 Q300 437 282 428 Z', C.tongue, null),
+  pout: ell(300, 402, 10, 8, '#8A3A44', 4) + line('M294 400 Q300 397 306 400', C.ink, 2.5),
+  frown: line('M274 414 Q300 390 326 414', C.ink, 7),
+  'frown-open': path('M270 416 Q300 384 330 416 Q300 406 270 416 Z', M, C.ink, 5),
+  gasp: ell(300, 410, 17, 26, M, 5) + path('M290 426 Q300 418 310 426 Q300 433 290 426 Z', C.tongue, null),
+  teeth: path('M264 390 L336 390 Q338 404 336 416 L264 416 Q262 404 264 390 Z', C.white, C.ink, 5) + line('M264 403 L336 403 M282 390 L282 416 M300 390 L300 416 M318 390 L318 416', C.ink, 2.5),
+  whistle: circ(308, 402, 7, M, 5) + line('M296 395 Q308 388 320 395', C.ink, 3),
+  tongue: path('M264 386 Q300 394 336 386 Q332 420 300 422 Q268 420 264 386 Z', M, C.ink, 5) + path('M270 389 Q300 396 330 389 L328 400 Q300 405 272 400 Z', C.white, null) + path('M286 412 Q286 446 300 446 Q316 446 314 412 Z', C.tongue, C.ink, 4) + line('M300 418 L300 436', '#D45A6A', 3),
+  flat: line('M280 400 L320 400', C.ink, 6),
+  content: line('M268 393 Q300 412 332 393', C.ink, 6),
+  yawn: ell(300, 408, 22, 30, M, 5) + path('M286 428 Q300 418 314 428 Q300 436 286 428 Z', C.tongue, null),
+  'smirk-l': line('M276 388 Q296 406 320 400', C.ink, 6),
+});
+
+// extras (props around the head)
+const zz = (x, y, s, r) => `<text x="${x}" y="${y}" font-family="Inter, Arial, sans-serif" font-weight="900" font-size="${s}" fill="${C.violet}" stroke="${C.ink}" stroke-width="2.5" transform="rotate(${r} ${x} ${y})">Z</text>`;
+const dollar = (x, y, s, r) => `<text x="${x}" y="${y}" font-family="Inter, Arial, sans-serif" font-weight="900" font-size="${s}" fill="#3DBE6E" stroke="${C.ink}" stroke-width="2.5" transform="rotate(${r} ${x} ${y})">$</text>`;
+const cloud = (x, y) => circ(x, y, 16, C.white, 4) + circ(x + 18, y - 8, 18, C.white, 4) + circ(x + 34, y + 2, 14, C.white, 4) + ell(x + 16, y + 6, 26, 12, C.white, 0, null);
+Object.assign(EXTRAS, {
+  blush: ell(226, 345, 27, 12, '#FF6FB5', 0, null, ' opacity=".5"') + ell(374, 345, 27, 12, '#FF6FB5', 0, null, ' opacity=".5"') +
+    line('M212 340 l-6 10 M224 340 l-6 10 M236 340 l-6 10 M364 340 l-6 10 M376 340 l-6 10 M388 340 l-6 10', '#E2557F', 3),
+  idea: line('M410 64 L410 48 M444 76 L454 64 M376 76 L366 64', C.yellow, 6) +
+    circ(410, 112, 30, C.yellow, 5) + path('M398 138 L422 138 L420 158 L400 158 Z', '#C9C6D6', C.ink, 4) + line('M402 148 L418 148', C.ink, 3) + line('M400 104 Q410 94 420 104', C.white, 4, ' opacity=".8"'),
+  exclaim: path('M414 96 L440 96 L434 170 L420 170 Z', C.red, C.ink, 4) + circ(427, 192, 12, C.red, 4),
+  steam: cloud(150, 196) + cloud(414, 196) + cloud(270, 70),
+  zzz: zz(392, 176, 34, -8) + zz(414, 136, 44, -4) + zz(400, 90, 56, 6),
+  hearts: heart(430, 168, 20) + heart(420, 110, 14) + heart(172, 184, 14),
+  dots: path('M352 120 Q352 92 380 92 L424 92 Q452 92 452 120 Q452 148 424 148 L392 148 L374 166 L376 148 Q352 146 352 120 Z', C.white, C.ink, 4) +
+    circ(382, 120, 7, C.ink, 0, null) + circ(402, 120, 7, C.ink, 0, null) + circ(422, 120, 7, C.ink, 0, null),
+  dollars: dollar(404, 176, 52, -10) + dollar(410, 112, 40, 12) + dollar(158, 190, 40, -14),
+  burst: [...Array(14)].map((_, i) => { const a = (i / 14) * Math.PI * 2, r1 = 236, r2 = i % 2 ? 268 : 290; return line(`M${f(300 + Math.cos(a) * r1)} ${f(270 + Math.sin(a) * r1 * 0.9)} L${f(300 + Math.cos(a) * r2)} ${f(270 + Math.sin(a) * r2 * 0.9)}`, i % 2 ? C.yellow : C.lime, 9); }).join('') ,
+  notes: `<text x="366" y="384" font-family="Arial, sans-serif" font-weight="900" font-size="48" fill="${C.violet}" stroke="${C.ink}" stroke-width="2">♪</text><text x="396" y="340" font-family="Arial, sans-serif" font-weight="900" font-size="52" fill="${C.violet}" stroke="${C.ink}" stroke-width="2">♫</text>`,
+  gloom: line('M248 160 L248 214 M272 156 L272 222 M300 154 L300 226 M328 156 L328 222 M352 160 L352 214', '#5130C9', 6, ' opacity=".55"'),
+});
+
+// ═════════ expression pack 3: distinct reads (refs: Toonsmag "emotions from simple changes", Don Corgi angry face,
+// Clip Studio eye design). Laughing = eyes squeezed + crow's feet + wide open mouth; annoyed = tight half-lidded eyes,
+// brows pulled DOWN and TOGETHER with frown lines, flat mouth pushed to one side. Eyes + brows carry the emotion. ═════════
+Object.assign(EYES, {
+  laugh: both((x, y, side) => line(`M${x - 17} ${y + 5} Q${x} ${y - 13} ${x + 17} ${y + 5}`, C.ink, 8) +
+    line(side === 'L' ? `M${x - 21} ${y + 1} l-9 -5 M${x - 21} ${y + 7} l-10 1` : `M${x + 21} ${y + 1} l9 -5 M${x + 21} ${y + 7} l10 1`, C.ink, 3) +
+    line(`M${x - 12} ${y + 15} Q${x} ${y + 20} ${x + 12} ${y + 15}`, C.skinSh, 3)),
+  tight: both((x, y, side) => ell(x, y + 5, 17, 10, C.white, 0, null) + circ(x + (side === 'L' ? 4 : 4), y + 6, 8, C.iris, 0, null) + circ(x + 6, y + 3, 2.5, C.white, 0, null) +
+    line(`M${x - 19} ${y - 1} L${x + 19} ${y - 3}`, C.ink, 8) + line(`M${x - 14} ${y + 14} Q${x} ${y + 10} ${x + 14} ${y + 14}`, C.ink, 3)),
+  sparkle: both((x, y) => ell(x, y, 19, 22, C.white, 4) + circ(x + 1, y + 3, 13, C.iris, 0, null) +
+    path(`M${x + 5} ${y - 12} L${x + 8} ${y - 4} L${x + 16} ${y - 1} L${x + 8} ${y + 2} L${x + 5} ${y + 10} L${x + 2} ${y + 2} L${x - 6} ${y - 1} L${x + 2} ${y - 4} Z`, C.white, null) + circ(x - 6, y + 10, 3, C.white, 0, null)),
+  soft: both((x, y) => line(`M${x - 15} ${y + 3} Q${x} ${y - 8} ${x + 15} ${y + 3}`, C.ink, 5) + line(`M${x - 10} ${y + 12} Q${x} ${y + 15} ${x + 10} ${y + 12}`, C.skinSh, 3)),
+  cry: both((x, y, side) => line(`M${x - 17} ${y - 3} Q${x} ${y + 9} ${x + 17} ${y - 3}`, C.ink, 8) +
+    path(`M${x + (side === 'L' ? -12 : 12)} ${y + 6} C${x + (side === 'L' ? -16 : 16)} ${y + 30} ${x + (side === 'L' ? -18 : 18)} ${y + 54} ${x + (side === 'L' ? -10 : 10)} ${y + 70} L${x + (side === 'L' ? -2 : 2)} ${y + 66} C${x + (side === 'L' ? -6 : 6)} ${y + 46} ${x + (side === 'L' ? -6 : 6)} ${y + 26} ${x + (side === 'L' ? -4 : 4)} ${y + 6} Z`, C.blue, C.ink, 2.5, ' opacity=".9"')),
+});
+Object.assign(BROWS, {
+  // pulled down and together + vertical frown lines between the brows (the strongest "annoyed" cue)
+  knit: brow('M222 226 Q252 230 286 244', 'M314 244 Q348 230 378 226') + line('M295 232 L293 250 M305 232 L307 250', C.ink, 3),
+});
+Object.assign(MOUTHS, {
+  laugh: path('M248 378 Q300 388 352 378 Q348 448 300 452 Q252 448 248 378 Z', M, C.ink, 5) + path('M256 382 Q300 391 344 382 L341 396 Q300 404 259 396 Z', C.white, null) +
+    path('M272 438 Q300 412 328 438 Q300 452 272 438 Z', C.tongue, null) + line('M246 376 l-8 -6 M354 376 l8 -6', C.ink, 4),
+  'side-frown': line('M288 404 Q306 396 330 408', C.ink, 6) + line('M331 401 l5 -5', C.ink, 3),
+  grimace: path('M256 392 Q300 384 344 392 Q345 410 338 416 Q300 408 262 416 Q255 410 256 392 Z', C.white, C.ink, 5) + line('M260 402 Q300 396 340 402 M276 389 L276 414 M292 387 L292 411 M308 387 L308 411 M324 389 L324 414', C.ink, 2.5),
+  cheer: path('M276 386 Q300 380 324 386 Q336 418 300 440 Q264 418 276 386 Z', M, C.ink, 5) + path('M286 426 Q300 414 314 426 Q300 436 286 426 Z', C.tongue, null),
+  mm: line('M284 400 Q298 396 312 401', C.ink, 6) + line('M281 395 Q275 400 281 406', C.ink, 3),
+});
+Object.assign(EXTRAS, {
+  'joy-tears': path('M190 268 C178 268 170 280 176 288 C182 294 192 290 194 282 Z', C.blue, C.ink, 3) + path('M410 268 C422 268 430 280 424 288 C418 294 408 290 406 282 Z', C.blue, C.ink, 3) +
+    line('M168 266 l-12 -6 M432 266 l12 -6', C.blue, 4),
+});
+
 // ---------- write ----------
 const parts = {
   legs: legs(), torso: torso(), badge: badge(), 'head-base': headBase(), moustache: moustache(), hair: hair(),
 };
 const MOUTH_FIT = (m) => `<g transform="translate(300 390) scale(0.86) translate(-300 -396)">${m}</g>`;
 const variants = {
-  arms: Object.fromEntries(Object.entries(ARMS).map(([k, list]) => [k, list.map(arm).join('\n')])),
+  arms: { ...Object.fromEntries(Object.entries(ARMS).map(([k, list]) => [k, list.map(arm).join('\n')])), ...ARMS_SPLIT },
   eyes: EYES, brows: BROWS, mouth: Object.fromEntries(Object.entries(MOUTHS).map(([k, m]) => [k, MOUTH_FIT(m)])), extras: EXTRAS, glasses: GLASSES,
+  front: FRONT, // forearm + hand drawn OVER the face (facepalm, shush, hands on cheeks, head scratch); 'none' otherwise
 };
 const wrap = (body, name) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${VB}" data-part="${name}">\n${body}\n</svg>\n`;
 const dir = join(HERE, 'parts');

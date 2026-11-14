@@ -1,0 +1,35 @@
+{
+  "from": "Mr. Pop",
+  "takes": [
+    {
+      "text": "Wait, what? One person built this in a weekend, and it already pays a salary!",
+      "fizz": 0.003,
+      "warble": 1.16,
+      "sim": 0.948
+    },
+    {
+      "text": "Okay, so how did they actually find their first paying users?",
+      "fizz": 0.0037,
+      "warble": 1.44,
+      "sim": 0.943
+    },
+    {
+      "text": "Here's the thing. That number comes straight from their payment dashboard.",
+      "fizz": 0.0032,
+      "warble": 1.15,
+      "sim": 0.937
+    },
+    {
+      "text": "Nine bucks a month, and people are lining up for it. I love that.",
+      "fizz": 0.0038,
+      "warble": 1.72,
+      "sim": 0.95
+    },
+    {
+      "text": "So, would you build it, or buy it? Tell me in the comments.",
+      "fizz": 0.0032,
+      "warble": 1.15,
+      "sim": 0.948
+    }
+  ]
+}

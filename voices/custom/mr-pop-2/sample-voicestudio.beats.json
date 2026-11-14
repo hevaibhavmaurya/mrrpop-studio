@@ -1,0 +1,31 @@
+{
+  "engine": "voicestudio",
+  "voice": {
+    "id": "ebc6e4d5",
+    "name": "Mr. Pop"
+  },
+  "steps": 32,
+  "speed": 1.0,
+  "duration": 7.805,
+  "lufs": -14.1,
+  "beats": [
+    {
+      "style": "hook",
+      "text": "Wait. One developer, one browser extension, twelve thousand dollars a month?",
+      "start": 0.3,
+      "end": 4.744
+    },
+    {
+      "style": "wow",
+      "text": "That's a pop!",
+      "start": 5.084,
+      "end": 5.8
+    },
+    {
+      "style": "cta",
+      "text": "Here's how they did it.",
+      "start": 6.1,
+      "end": 7.605
+    }
+  ]
+}

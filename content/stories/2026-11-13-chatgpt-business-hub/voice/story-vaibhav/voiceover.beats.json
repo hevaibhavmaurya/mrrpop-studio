@@ -1,0 +1,85 @@
+{
+  "engine": "voicestudio",
+  "voice": {
+    "id": "2be784ac",
+    "name": "Vaibhav"
+  },
+  "steps": 32,
+  "speed": 1.0,
+  "duration": 40.988,
+  "lufs": -14.1,
+  "beats": [
+    {
+      "style": "hook",
+      "text": "One point two billion people use ChatGPT every week.",
+      "start": 0.3,
+      "end": 3.583
+    },
+    {
+      "style": "curious",
+      "text": "Is your shop in the answer?",
+      "start": 3.923,
+      "end": 5.84
+    },
+    {
+      "style": "fun",
+      "text": "Take Maya. She sells candles online.",
+      "start": 6.16,
+      "end": 8.438
+    },
+    {
+      "style": "curious",
+      "text": "Someone asks ChatGPT for the best soy candle, and her shop never comes up.",
+      "start": 8.678,
+      "end": 13.166
+    },
+    {
+      "style": "annoyed",
+      "text": "Not once.",
+      "start": 13.486,
+      "end": 14.843
+    },
+    {
+      "style": "fun",
+      "text": "Then on November tenth, OpenAI launched Business Hub.",
+      "start": 15.143,
+      "end": 18.524
+    },
+    {
+      "style": "wow",
+      "text": "Maya claims her shop. Blue check, done.",
+      "start": 18.764,
+      "end": 21.161
+    },
+    {
+      "style": "trust",
+      "text": "She adds her prices and stock, so ChatGPT's not guessing.",
+      "start": 21.461,
+      "end": 24.968
+    },
+    {
+      "style": "fun",
+      "text": "Now she sees three numbers: mentions, clicks and topics.",
+      "start": 25.348,
+      "end": 28.818
+    },
+    {
+      "style": "curious",
+      "text": "You're selling in the U.S.? Turn on a Business Agent and it answers your buyers inside ChatGPT.",
+      "start": 29.058,
+      "end": 34.844
+    },
+    {
+      "style": "trust",
+      "text": "The catch? It's ChatGPT only.",
+      "start": 35.164,
+      "end": 37.033
+    },
+    {
+      "style": "cta",
+      "text": "So, would you claim your shop on ChatGPT? Follow MRR Pop.",
+      "start": 37.413,
+      "end": 40.788
+    }
+  ]
+}

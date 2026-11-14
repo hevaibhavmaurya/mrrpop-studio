@@ -187,11 +187,11 @@ function headline(t){let bi=0;for(let i=0;i<B.length;i++)if(t>=bs(i)-.08)bi=i;
  const kb=P(t,bs(bi)-.08,.25);el.style.transform=`translateY(${(1-eOut(kb))*24}px)`}
 
 // character: slot switching + waist-up framing from the bottom edge (legs stay in the pack, off-frame)
-const SLOTS={};for(const g of $$('#rig g[id]')){const m=g.id.match(/^(arms|eyes|brows|mouth|extras|glasses)-(.+)$/);if(m)(SLOTS[m[1]]??=[]).push(m[2])}
+const SLOTS={};for(const g of $$('#rig g[id]')){const m=g.id.match(/^(arms|eyes|brows|mouth|extras|glasses|front)-(.+)$/);if(m)(SLOTS[m[1]]??=[]).push(m[2])}
 function show(slot,v){for(const k of SLOTS[slot]||[]){const e=$(slot+'-'+k);if(e)e.style.display=k===v?'inline':'none'}}
 function setChar(pose,expr,viseme,blink){const p=MAN.poses[pose]||{},x=MAN.expressions[expr]||{};const s={...MAN.defaults,...p,...x};
  if(viseme&&viseme!=='X')s.mouth=viseme;if(blink&&['open','up','side'].includes(s.eyes))s.eyes='closed';
- for(const k of ['arms','eyes','brows','mouth','extras','glasses'])show(k,s[k])}
+ for(const k of ['arms','eyes','brows','mouth','extras','glasses','front'])show(k,s[k])}
 const ST=[[[0,'pointing','shocked'],[1.4,'pointing','grin']],
  [[bs(1),'shrug','nervous'],[bs(2),'thumbs-up','grin']],
  [[bs(3),'celebrating','star-struck']],

@@ -5,7 +5,7 @@ dist/
 *.log
 # heavy / private
 archive/private/
-content/stories/*/exports/*.mp4
+content/stories/*/exports/**/*.mp4
 studio/.cache/
 packages/pipeline/.venv/
 
@@ -26,3 +26,4 @@ content/stories/*/build/*.html
 references/
 archive/
 voices/new-voice/
+packages/pipeline/.cache-clearvoice/

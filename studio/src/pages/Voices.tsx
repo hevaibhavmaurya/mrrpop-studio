@@ -15,6 +15,7 @@ const voiceName = (id?: string) => registry.voices.find((v) => v.id === id)?.nam
 
 const GROUPS = [
   { key: 'signature', title: 'Signature · Mr. Pop', sub: 'the one voice · lip sync + expressions from the audio', icon: 'star', fill: 'var(--mp-accent-yellow)' },
+  { key: 'mr-pop-3', title: 'Mr. Pop · human voice', sub: 'same delivery, real human timbre (Vaibhav) · candidate, not approved yet', icon: 'mic', fill: 'var(--mp-accent-yellow)' },
   { key: '', title: 'Other voiceovers', sub: 'older renders — re-render with the signature voice', icon: 'play', fill: 'var(--mp-accent-yellow)' },
 ];
 
@@ -95,7 +96,7 @@ export function VoicesPage({ packId }: { packId?: string }) {
           </h1>
           <p>
             One signature voice: male, bright on the big moments, steady on the numbers. Performed by Chatterbox (MIT) from an original
-            Kokoro timbre (Apache-2.0, no real person cloned). Registry: <span className="mono">voices/custom/voices.json</span>.
+            Kokoro timbre (Apache-2.0, no real person cloned). Candidate <b>Mr. Pop (human)</b> uses Vaibhav's own voice, with his consent. Registry: <span className="mono">voices/custom/voices.json</span>.
           </p>
         </div>
       </header>
@@ -122,7 +123,9 @@ export function VoicesPage({ packId }: { packId?: string }) {
                   ? Object.entries(v.blend)
                       .map(([k, w]) => `${k} ${Math.round(Number(w) * 100)}%`)
                       .join(' + ') + ` · speed ${v.speed} · `
-                  : 'chatterbox reference (liven.py) · '}
+                  : 'consent' in v
+                    ? 'human timbre (human.py) · '
+                    : 'chatterbox reference (liven.py) · '}
                 id <b>{v.id}</b>
               </div>
             </div>
@@ -139,6 +142,12 @@ export function VoicesPage({ packId }: { packId?: string }) {
           generated <span className="mono">--takes</span> times and the most expressive clean take is kept. Writes{' '}
           <span className="mono">.face.json</span> (lip sync + expressions) that plays above. <span className="mono">--more 0.15</span> = more
           animated.
+        </span>
+        <b style={{ marginTop: 8 }}>Mr. Pop (human): same delivery, Vaibhav's timbre</b>
+        <pre className="mono">{`packages/pipeline/.venv-chatterbox/bin/python packages/pipeline/voice/expressive.py voice/voiceover.vo.txt voice/mr-pop-3/voiceover.wav --ref mr-pop-3`}</pre>
+        <span>
+          Rebuild only if the timbre recording changes: <span className="mono">human.py ref &lt;recording&gt; voices/custom/mr-pop-3 --len 13</span>{' '}
+          then <span className="mono">human.py build voices/custom/mr-pop-2 voices/custom/mr-pop-3</span>.
         </span>
         <b style={{ marginTop: 8 }}>Rebuild Mr. Pop's timbre (only if you change his blend)</b>
         <pre className="mono">{`packages/pipeline/.venv/bin/python packages/pipeline/voice/kokoro_blend.py build mr-pop

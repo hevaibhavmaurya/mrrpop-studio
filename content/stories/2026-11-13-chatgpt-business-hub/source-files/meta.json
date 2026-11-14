@@ -1,6 +1,28 @@
-{ "slug": "2026-11-13-chatgpt-business-hub", "series": "launch-pop", "template": "launch-pop-v6", "status": "draft", "sponsored": false,
-  "product": "Businesses in ChatGPT — Business Hub (OpenAI)", "product_url": "https://community.openai.com/t/introducing-businesses-in-chatgpt-in-beta/1414865",
-  "key_number": "1.2 billion weekly ChatGPT users", "evidence": "company-announced",
-  "sources": ["https://community.openai.com/t/introducing-businesses-in-chatgpt-in-beta/1414865", "https://thenextweb.com/news/openai-businesses-in-chatgpt-business-agents", "https://www.trendingtopics.eu/a-new-rival-for-geo-startups-chatgpt-now-tells-companies-how-often-theyre-mentioned/"],
-  "files": { "voice": "voice/voiceover.wav", "final": "exports/reel.mp4", "cover": "exports/cover.jpg" },
-  "published": { "instagram": null, "x": null, "linkedin": null } }
+{
+  "slug": "2026-11-13-chatgpt-business-hub",
+  "series": "launch-pop",
+  "template": "reel-story (build/reel-story.tpl.html)",
+  "status": "draft",
+  "sponsored": false,
+  "product": "Businesses in ChatGPT — Business Hub (OpenAI)",
+  "product_url": "https://community.openai.com/t/introducing-businesses-in-chatgpt-in-beta/1414865",
+  "key_number": "1.2 billion weekly ChatGPT users",
+  "evidence": "company-announced",
+  "sources": [
+    "https://community.openai.com/t/introducing-businesses-in-chatgpt-in-beta/1414865",
+    "https://thenextweb.com/news/openai-businesses-in-chatgpt-business-agents",
+    "https://www.trendingtopics.eu/a-new-rival-for-geo-startups-chatgpt-now-tells-companies-how-often-theyre-mentioned/"
+  ],
+  "files": {
+    "voice": "voice/story/voiceover.wav",
+    "final": "exports/reel.mp4",
+    "cover": "exports/cover.jpg",
+    "caption": "exports/caption.txt"
+  },
+  "published": {
+    "instagram": null,
+    "x": null,
+    "linkedin": null
+  },
+  "notes": "Story version with illustrative shop owner \"Maya\" (labelled on screen + caption). 50.3 s — over the 25–40 s spec, approved in Canvas."
+}
