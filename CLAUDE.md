@@ -2,6 +2,8 @@
 
 You are the production assistant for **MRR Pop** (@getmrrpop) — "The business behind software" — a vertical-video
 media brand hosted by the cartoon mascot Mr. Pop. Read `docs/BRAND.md` and the active theme's `theme.json` before any creative work.
+Before researching or scripting any story, read `docs/STORY-PROTOCOL.md` (how to find stories, research, audience,
+hooks, script rules, real images) or use the `/mrrpop-story` skill. Add new rules the user gives to that file.
 
 ## Hard rules
 1. Scope: tech software products only — revenue milestones, "made $X in Y days", launches, growth stories, paid showcases. See BRAND.md.
@@ -20,7 +22,8 @@ media brand hosted by the cartoon mascot Mr. Pop. Read `docs/BRAND.md` and the a
 
 ## Production loop for one story
 1. Create `content/stories/YYYY-MM-DD-slug/` from `content/_story-template/`; check `content/ledger.json` for duplicates.
-2. Research + verify → `sources.md`. Reject the story if the key number can't be sourced.
+2. Research + verify → `sources.md` following `docs/STORY-PROTOCOL.md` §2 (all product pages, founder X, TrustMRR,
+   cross-check, real images). Reject the story if the key number can't be sourced.
 3. Write `script.md` (≈80–100 words, hook in first line) using BRAND.md voice.
 4. Voice → always the locked **Mr. Pop signature voice** (approved 2026-11-13; settings in `voices/custom/voices.json` → `signature`, don't change them without asking). Write `voice/voiceover.vo.txt` with `{hook} {curious} {fun} {trust} {wow} {cta}` tags, then `packages/pipeline/.venv-chatterbox/bin/python packages/pipeline/voice/expressive.py voice/voiceover.vo.txt voice/signature/mr-pop.wav` (also writes `.face.json` for lip sync + expressions). Captions: `bash scripts/captions.sh content/<slug>/voice.wav`.
 5. Build scenes with the matching template in `templates/` using HyperFrames (`/hyperframes` skill). Run `npx hyperframes check --json`, fix all errors.

@@ -1,0 +1,15 @@
+{
+  "slug": "2026-11-14-movemrr-for-sale",
+  "series": "deal-pop",
+  "template": "reel (build/reel.tpl.html)",
+  "status": "draft",
+  "sponsored": false,
+  "product": "MoveMRR (Stripe subscription migration for SaaS sales)",
+  "product_url": "https://movemrr.com/",
+  "key_number": "$49,800 asking price · $8,262 all time revenue",
+  "evidence": "payment-verified",
+  "sources": ["https://trustmrr.com/startup/movemrr", "https://movemrr.com/", "https://movemrr.com/about/", "https://movemrr.com/customers/", "https://x.com/AleksDoesCode"],
+  "files": {"voice": "voice/voiceover.wav", "final": "exports/reel.mp4", "cover": "exports/cover.jpg", "caption": "exports/caption.txt"},
+  "published": {"instagram": null, "x": null, "linkedin": null},
+  "notes": "Confirm still for sale: pinned X post (Oct 5) says sold for 10k; TrustMRR lists it for sale Nov 14."
+}

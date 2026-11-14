@@ -1,0 +1,378 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+/* MRR Pop · Deal Pop · MoveMRR is for sale. Layout system from the ChatGPT story reel: text safe box (x 80 to 850, y 250 to 1440).
+   Real images in assets/: founder photo (his X profile), MoveMRR logo + site screenshot, TrustMRR icon + listing screenshot, customer logos (movemrr.com).
+   Script: voice/voiceover.vo.txt · Theme: packages/theme/themes/mrrpop-v6 · Icons: packages/ui/icons (injected) */
+@font-face{font-family:Inter;src:url(../../../../packages/theme/themes/mrrpop-v6/fonts/Inter-Variable.ttf);font-weight:100 900}
+@font-face{font-family:IS;src:url(../../../../packages/theme/themes/mrrpop-v6/fonts/InstrumentSerif-Italic.ttf);font-style:italic}
+:root{--paper:#FAF9FF;--white:#fff;--ink:#1B1838;--navy:#20244A;--muted:#6E6A8E;--faint:#A3A0BC;
+--lav:#ECE6FF;--limeMist:#F0F9D4;--sky:#E4EEFF;--blush:#FFE5F1;--cream:#FFF4CC;
+--violet:#6A42EC;--lime:#C6F03A;--yellow:#FFD43B;--pink:#FF6FB5;--lilac:#BBA6FF;--blue:#4C8DF6;--green:#3DBE6E;--greenInk:#1F8A48;--red:#F0475A}
+*{margin:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{background:var(--paper);font-family:Inter;color:var(--ink);font-feature-settings:"tnum" 1;position:relative}
+.abs{position:absolute}
+#scenes{position:absolute;inset:0}
+.scene{position:absolute;inset:0;overflow:hidden;display:none}
+.scene.dots:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(27,24,56,.07) 2px,transparent 2px);background-size:40px 40px}
+.scene.dark.dots:before{background-image:radial-gradient(rgba(255,255,255,.07) 2px,transparent 2px)}
+.glow{position:absolute;border-radius:50%;background-image:radial-gradient(circle,var(--gc,rgba(255,212,59,.75)) 2.6px,transparent 3px);background-size:15px 15px;
+  -webkit-mask-image:radial-gradient(circle,#000 0%,rgba(0,0,0,.55) 40%,transparent 70%);mask-image:radial-gradient(circle,#000 0%,rgba(0,0,0,.55) 40%,transparent 70%)}
+#hl{position:absolute;left:80px;top:262px;width:770px;font:600 66px/1.13 Inter;letter-spacing:-1.8px;z-index:30}
+#hl .w{display:inline-block;margin-right:.24em}
+#hl .acc{font-family:IS;font-style:italic;font-weight:400;letter-spacing:0;font-size:1.2em;line-height:.9}
+.stamp{position:absolute;display:inline-block;padding:12px 22px 10px;border:5px solid var(--ink);border-radius:12px;box-shadow:6px 6px 0 var(--ink);
+  font:900 44px/1 Inter;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap;opacity:0;z-index:6}
+.stamp span{display:inline-block;transform:scaleX(.84);transform-origin:left center;margin-right:-14%}
+.rubber{position:absolute;padding:10px 24px;border:8px solid var(--red);border-radius:14px;color:var(--red);font:900 58px/1 Inter;letter-spacing:2px;text-transform:uppercase;white-space:nowrap;opacity:0;z-index:7}
+.win{position:absolute;background:#fff;border:5px solid var(--ink);border-radius:30px;box-shadow:10px 10px 0 rgba(27,24,56,.9);overflow:hidden;opacity:0}
+.win .bar{display:flex;align-items:center;gap:10px;padding:14px 20px;border-bottom:4px solid var(--ink);background:var(--paper)}
+.win .bar i{width:16px;height:16px;border-radius:50%;border:3px solid var(--ink)}
+.win .url{margin-left:12px;flex:1;height:30px;border-radius:999px;border:3px solid var(--ink);background:#fff;font:700 16px/24px Inter;padding-left:14px;color:var(--muted);white-space:nowrap;overflow:hidden}
+.card{position:absolute;background:#fff;border:5px solid var(--ink);border-radius:26px;box-shadow:8px 8px 0 var(--ink);opacity:0}
+.row{display:flex;align-items:center;gap:16px}
+.ico{display:inline-block;flex:none}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;border:4px solid var(--ink);font:800 28px/1 Inter;background:var(--violet);color:#fff;white-space:nowrap}
+.chipui{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:3px solid var(--ink);font:800 18px/1 Inter;letter-spacing:1px;text-transform:uppercase;white-space:nowrap}
+.src{position:absolute;left:80px;top:1380px;display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.9);border:3px solid var(--ink);font:600 20px/1 Inter;z-index:31;white-space:nowrap}
+.src b{font-weight:800}
+.ev{position:absolute;display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border-radius:999px;font:700 24px/1 Inter;white-space:nowrap;opacity:0;z-index:5}
+.ev.fr{background:#FFF4CC;color:#7A5A00;border:3px solid #E8C04A}
+.ev.pv{background:#E4F7EA;color:var(--greenInk);border:3px solid #8FD6A6}
+.ev.cr{background:#E7EEFB;color:#3B5C9A;border:3px solid #A9C1EA}
+.photo{border-radius:50%;border:6px solid var(--ink);box-shadow:8px 8px 0 var(--ink);object-fit:cover;background:#fff;display:block}
+.logo{background:#fff;border:5px solid var(--ink);border-radius:28px;box-shadow:8px 8px 0 var(--ink);display:grid;place-items:center}
+.crop{background-repeat:no-repeat;display:block}
+.big{font:900 200px/1 Inter;letter-spacing:-10px}
+#char{position:absolute;left:0;top:0;width:461px;height:1060px;transform-origin:0 0;z-index:40}
+#char svg{width:461px;height:1060px;display:block;filter:drop-shadow(0 20px 24px rgba(27,24,56,.28))}
+#px{position:absolute;inset:0;z-index:25;pointer-events:none}
+#px i{position:absolute;width:90px;height:92px;opacity:0}
+/* VHS rewind (animation only, no voice) */
+#rw{position:absolute;inset:0;z-index:60;pointer-events:none;opacity:0}
+#rw .scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.16) 0 3px,transparent 3px 7px);mix-blend-mode:multiply}
+#rw .band{position:absolute;left:0;width:1080px;height:70px;background:linear-gradient(180deg,transparent,rgba(255,255,255,.75) 40%,rgba(255,255,255,.35) 60%,transparent);filter:blur(1px)}
+#rw .osd{position:absolute;left:96px;top:300px;display:flex;align-items:center;gap:18px;font:800 64px/1 ui-monospace,Menlo,monospace;color:#fff;letter-spacing:4px;text-shadow:4px 0 0 rgba(240,71,90,.85),-4px 0 0 rgba(76,141,246,.85)}
+#rw .tint{position:absolute;inset:0;background:linear-gradient(180deg,rgba(106,66,236,.18),rgba(32,36,74,.28))}
+</style></head><body>
+
+<div id="scenes"></div>
+<div id="px"></div>
+<div id="hl"></div>
+<div id="src" class="src"><span>Source:</span><b id="srcB"></b><span id="srcD"></span></div>
+<div id="rw"><div class="tint"></div><div class="scan"></div><div class="band" id="bd0"></div><div class="band" id="bd1"></div>
+ <div class="osd"><svg width="96" height="60" viewBox="0 0 96 60"><path d="M48 4 L8 30 L48 56Z M92 4 L52 30 L92 56Z" fill="#fff"/></svg><span>REWIND</span></div></div>
+<div id="char">RIG</div>
+
+<script>
+const DATA=DATAJSON, ICONS=ICONSJSON, B=DATA.beats, MAN=DATA.manifest, VIS=DATA.visemes;
+const C=(x,a=0,b=1)=>Math.max(a,Math.min(b,x)),P=(t,s,d)=>C((t-s)/d),eOut=x=>1-Math.pow(1-x,3),eIO=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const eBack=x=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const $=id=>document.getElementById(id), $$=s=>[...document.querySelectorAll(s)];
+const bs=i=>B[Math.min(i,B.length-1)].start, be=i=>B[Math.min(i,B.length-1)].end;
+const I=(n,s=80)=>(ICONS[n]||'').replace('<svg ',`<svg class="ico" width="${s}" height="${s}" `);
+const pop=(e,t,s,d=.4)=>{const k=P(t,s,d);e.style.opacity=C(k*3);return k};
+const stamp=(id,txt,bg,fg,x,y)=>`<div id="${id}" class="stamp" style="left:${x}px;top:${y}px;background:${bg};color:${fg}"><span>${txt}</span></div>`;
+const stampAnim=(id,t,s,rot)=>{const e=$(id);if(!e)return;const k=P(t,s,.32);e.style.opacity=C(k*4);e.style.transform=`rotate(${rot}deg) scale(${1.6-.6*eBack(k)})`};
+const rubberAnim=(id,t,s,rot)=>{const r=$(id),k=P(t,s,.25);r.style.opacity=C(k*4);r.style.transform=`rotate(${rot}deg) scale(${1.8-.8*eOut(k)})`};
+// crop a region (original pixels) of a 2560 px wide screenshot into a box w px wide
+const CROP=(src,ox,oy,ow,oh,w,extra='')=>{const s=w/ow;return `<div class="crop" style="width:${w}px;height:${Math.round(oh*s)}px;background-image:url(${src});background-size:${2560*s}px auto;background-position:${-ox*s}px ${-oy*s}px;${extra}"></div>`};
+const LOGO=(s,pad=.16)=>`<div class="logo" style="width:${s}px;height:${s}px;border-radius:${s*.24}px"><img src="assets/movemrr-logo.png" alt="MoveMRR logo" style="width:${s*(1-pad*2)}px"></div>`;
+const FOUNDER=(s)=>`<img class="photo" src="assets/founder-x.jpg" alt="Aleksandar Jovanovic" style="width:${s}px;height:${s}px">`;
+const HOUSE=(c)=>`<svg width="300" height="250" viewBox="0 0 300 250"><path d="M20 120 L150 20 L280 120" fill="${c}" stroke="#1B1838" stroke-width="10" stroke-linejoin="round"/><rect x="45" y="110" width="210" height="130" rx="10" fill="#fff" stroke="#1B1838" stroke-width="10"/><rect x="125" y="160" width="50" height="80" rx="6" fill="${c}" stroke="#1B1838" stroke-width="8"/></svg>`;
+
+// beats (voice/voiceover.vo.txt):
+// 0 hook 4 cents / $300 · 1 Aleksandar selling first SaaS · 2 Stripe said nope · 3 customers move, subs stuck · 4 built the fix
+// 5 subs pack their bags · 6 sale went through, founders knocking · 7 76k subs · 8 $8K later selling · 9 $49,800 · 10 marketing · 11 CTA
+const DISPLAY=B.map(b=>b.text.replace(/four cents/i,'4 cents').replace(/three hundred dollars/i,'$300').replace(/seventy six thousand/i,'76,000')
+  .replace(/eight thousand dollars/i,'$8,000').replace(/forty nine thousand eight hundred/i,'$49,800'));
+const ACCENT=['300','saas','nope','stuck','movemrr','twice','knocking','76000','selling','49800','marketing','buy'];
+const DARKBEAT=[0,0,1,0,0,0,0,1,0,0,0,0];
+const SRC=[['Founder on TrustMRR','· Nov 2026'],['movemrr.com/about',''],['movemrr.com',''],['movemrr.com',''],['movemrr.com',''],['movemrr.com',''],
+  ['movemrr.com/customers',''],['movemrr.com/customers',''],['TrustMRR via Polar','· Nov 14'],['TrustMRR listing','· Nov 14'],['Founder on TrustMRR',''],null];
+
+// rewind window: between the hook and the story (animation + tape SFX, no voice)
+const RW0=be(0)-.02, RW1=Math.max(bs(1)+.05,RW0+.75);
+// scenes: [first beat, background, transition-in]
+const SC=[[0,'#ECE6FF','none'],[1,'#FFF4CC','rewind'],[2,'#20244A','pixel'],[3,'#E4EEFF','wipe'],[4,'#ECE6FF','wipe'],[5,'#F0F9D4','wipe'],
+  [6,'#FFE5F1','wipe'],[7,'#20244A','pixel'],[8,'#FAF9FF','wipe'],[9,'#FFF4CC','wipe'],[10,'#FFE5F1','wipe'],[11,'#ECE6FF','wipe']];
+const A=SC.map((s,i)=>i===0?0:s[2]==='rewind'?(RW0+RW1)/2:bs(s[0])-.18); A.push(DATA.duration+5);
+const DOTS=(dark)=>`scene dots${dark?' dark':''}`;
+
+let H='';
+// S0 hook: €0.04 to run, $300 to buy
+H+=`<div class="${DOTS()}" id="s0" style="background:${SC[0][1]}">
+ <div class="glow" style="left:60px;top:470px;width:960px;height:960px;--gc:rgba(106,66,236,.42)"></div>
+ <div id="h0" class="card" style="left:80px;top:540px;width:770px;padding:28px 34px 30px;border-radius:40px;opacity:1">
+   <div class="row" style="gap:14px"><img src="assets/movemrr-logo.png" alt="" style="width:64px"><div style="font:900 40px Inter;letter-spacing:-1px">MoveMRR</div></div>
+   <div class="row" style="margin-top:22px;align-items:flex-end;gap:20px"><div id="n0a" style="font:900 170px/1 Inter;letter-spacing:-8px;color:var(--muted)">€0.04</div><div style="font:800 34px/1.1 Inter;color:var(--muted);padding-bottom:22px">to run</div></div>
+   <div id="arr0" style="margin:6px 0 4px 40px;width:16px;height:60px;background:var(--ink);border-radius:8px;position:relative"><i style="position:absolute;left:-18px;bottom:-14px;border:26px solid transparent;border-top:30px solid var(--ink);border-bottom:0"></i></div>
+   <div class="row" style="align-items:flex-end;gap:20px"><div id="n0b" style="font:900 210px/1 Inter;letter-spacing:-10px;color:var(--violet)">$300</div><div style="font:800 34px/1.1 Inter;color:var(--muted);padding-bottom:28px">he charges</div></div></div>
+ <div id="ev0" class="ev fr" style="left:80px;top:1205px">${I('megaphone',32)} Per migration · Founder reported · TrustMRR</div>
+ <div id="f0" class="abs" style="left:640px;top:470px;opacity:0;z-index:8">${FOUNDER(190)}</div>
+ ${stamp('st0','For sale','var(--yellow)','var(--ink)',470,1080)}
+</div>`;
+// S1 the founder, selling his first SaaS
+H+=`<div class="${DOTS()}" id="s1" style="background:${SC[1][1]}">
+ <div class="glow" style="left:0;top:420px;width:700px;height:700px;--gc:rgba(255,111,181,.5)"></div>
+ <div id="f1" class="abs" style="left:80px;top:560px;opacity:0">${FOUNDER(300)}</div>
+ <div id="n1" class="abs" style="left:405px;top:600px;width:400px;opacity:0">
+   <div style="font:900 52px/1.02 Inter;letter-spacing:-2px">Aleksandar Jovanovic</div>
+   <div style="font:700 28px Inter;color:var(--muted);margin-top:12px">@AleksDoesCode</div>
+   <div class="row" style="gap:10px;margin-top:16px"><span class="chipui" style="background:#fff">Indie hacker</span><span class="chipui" style="background:var(--lime)">2 exits</span></div></div>
+ <div id="w1" class="win" style="left:80px;top:920px;width:560px">
+   <div class="bar"><i style="background:#FF6FB5"></i><i style="background:#FFD43B"></i><i style="background:#C6F03A"></i><div class="url">gpt-watermark-remover.com</div></div>
+   <div class="row" style="padding:20px 24px"><img src="assets/gpt-watermark-96.webp" alt="GPT Watermark Remover logo" style="width:84px;height:84px;border-radius:18px;border:4px solid var(--ink)"><div><div style="font:900 34px/1.05 Inter;letter-spacing:-1px">GPT Watermark Remover</div><div style="font:700 22px Inter;color:var(--muted);margin-top:6px">his first SaaS</div></div></div></div>
+ ${stamp('st1','Selling','var(--pink)','var(--ink)',470,880)}
+</div>`;
+// S2 (dark): Stripe says nope
+H+=`<div class="${DOTS(1)}" id="s2" style="background:${SC[2][1]}">
+ <div id="w2" class="win" style="left:80px;top:600px;width:770px">
+   <div class="bar"><i style="background:#FF6FB5"></i><i style="background:#FFD43B"></i><i style="background:#C6F03A"></i><div class="url">Stripe · move to a new account</div></div>
+   <div style="padding:30px 32px"><div style="font:900 46px/1.1 Inter;letter-spacing:-1.5px">Move active subscriptions to the buyer?</div>
+   <div class="row" style="margin-top:26px;gap:14px"><div id="btn2" class="btn">Move them</div><div class="btn" style="background:#fff;color:var(--ink)">Cancel</div></div></div></div>
+ <div id="cur2" class="abs" style="left:700px;top:1100px;opacity:0;z-index:9">${I('cursor',84)}</div>
+ <div id="r2" class="rubber" style="left:300px;top:900px;font-size:110px;background:rgba(255,255,255,.9)">Nope</div>
+</div>`;
+// S3 customers move, subscriptions stuck at the old house
+H+=`<div class="${DOTS()}" id="s3" style="background:${SC[3][1]}">
+ <div id="hA" class="abs" style="left:85px;top:600px;opacity:0;text-align:center">${HOUSE('#BBA6FF')}<div style="font:900 34px Inter;margin-top:4px">Old Stripe</div></div>
+ <div id="hB" class="abs" style="left:535px;top:600px;opacity:0;text-align:center">${HOUSE('#C6F03A')}<div style="font:900 34px Inter;margin-top:4px">New Stripe</div></div>
+ ${[1,2,3].map(i=>`<div class="abs walk" id="pp${i}" style="left:0;top:0;opacity:0">${I('person'+i,90)}</div>`).join('')}
+ ${[0,1,2].map(i=>`<div class="abs sub3" id="sb${i}" style="left:${90+i*80}px;top:${740+(i%2)*26}px;opacity:0;z-index:4"><span class="chipui" style="background:#fff;font-size:20px;padding:8px 10px">${I('lock',28)} SUB</span></div>`).join('')}
+ <div id="lb3a" class="ev pv" style="left:460px;top:930px">${I('check',30)} Customers copy over</div>
+ <div id="lb3b" class="ev" style="left:80px;top:1010px;background:#FFE3E7;color:#B4283A;border:3px solid #F29AA6">${I('lock',30)} Subscriptions stay behind</div>
+</div>`;
+// S4 he built the fix: MoveMRR (real site)
+H+=`<div class="${DOTS()}" id="s4" style="background:${SC[4][1]}">
+ <div class="glow" style="left:60px;top:420px;width:960px;height:960px;--gc:rgba(106,66,236,.38)"></div>
+ <div id="w4" class="win" style="left:80px;top:690px;width:770px">
+   <div class="bar"><i style="background:#FF6FB5"></i><i style="background:#FFD43B"></i><i style="background:#C6F03A"></i><div class="url">movemrr.com</div></div>
+   <div style="position:relative">${CROP('assets/site-home.png',150,280,2110,1060,760)}<div id="ld4" class="abs" style="left:0;top:0;height:8px;background:var(--violet)"></div></div></div>
+ <div id="lg4" class="abs" style="left:80px;top:530px;opacity:0;z-index:8"><div class="row" style="gap:18px">${LOGO(130)}<div style="font:900 76px/1 Inter;letter-spacing:-3px;padding:14px 22px;background:#fff;border:5px solid var(--ink);border-radius:22px;box-shadow:8px 8px 0 var(--ink)">MoveMRR</div></div></div>
+ ${stamp('st4','The fix','var(--lime)','var(--ink)',90,1170)}
+</div>`;
+// S5 subscriptions pack their bags, no double billing
+H+=`<div class="${DOTS()}" id="s5" style="background:${SC[5][1]}">
+ <div id="aA" class="card" style="left:80px;top:580px;width:320px;height:360px;padding:22px"><div class="row" style="gap:12px"><span class="chipui" style="background:var(--lav)">A</span><div style="font:900 30px/1.05 Inter">Seller's<br>Stripe</div></div></div>
+ <div id="aB" class="card" style="left:530px;top:580px;width:320px;height:360px;padding:22px"><div class="row" style="gap:12px"><span class="chipui" style="background:var(--lime)">B</span><div style="font:900 30px/1.05 Inter">Buyer's<br>Stripe</div></div></div>
+ <div id="mid5" class="abs" style="left:395px;top:690px;opacity:0;z-index:5">${LOGO(140)}</div>
+ ${[0,1,2,3].map(i=>`<div class="abs bag" id="bg${i}" style="left:0;top:0;z-index:6">${I('bag',74)}</div>`).join('')}
+ ${stamp('st5','✓ Charged once','var(--lime)','var(--ink)',80,1000)}
+ <div id="ev5" class="ev cr" style="left:80px;top:1110px">${I('check',30)} New subs first, old ones off after</div>
+</div>`;
+// S6 sale went through, founders came knocking (real customer logos)
+H+=`<div class="${DOTS()}" id="s6" style="background:${SC[6][1]}">
+ <div id="w6" class="card" style="left:80px;top:560px;width:770px;padding:20px 24px"><div class="row"><img src="assets/gpt-watermark-96.webp" alt="" style="width:76px;height:76px;border-radius:16px;border:4px solid var(--ink)"><div style="font:900 34px/1.05 Inter;letter-spacing:-1px">GPT Watermark Remover</div></div></div>
+ <div id="r6" class="rubber" style="left:470px;top:650px;border-color:var(--greenInk);color:var(--greenInk);background:rgba(240,249,212,.92);font-size:50px">Sold ✓</div>
+ ${[['baked-design','Baked.Design','560+ customers'],['the-ampscript-guide','The AMPscript Guide','600+ subs in 30 min'],['own-page','own.page','moved across countries']].map((c,i)=>`<div id="k${i}" class="card" style="left:80px;top:${760+i*120}px;width:560px;padding:14px 18px;border-radius:22px"><div class="row" style="gap:14px"><img src="assets/${c[0]}-96.webp" alt="${c[1]} logo" style="width:66px;height:66px;border-radius:14px;border:3px solid var(--ink);background:#fff"><div><div style="font:900 28px Inter">${c[1]}</div><div style="font:700 20px Inter;color:var(--muted);margin-top:4px">${c[2]}</div></div><span class="chipui" style="margin-left:auto;background:var(--yellow);font-size:15px">knock knock</span></div></div>`).join('')}
+</div>`;
+// S7 (dark): 76,300+ subscriptions
+H+=`<div class="${DOTS(1)}" id="s7" style="background:${SC[7][1]}">
+ <div class="glow" style="left:60px;top:470px;width:960px;height:960px;--gc:rgba(198,240,58,.4)"></div>
+ <div id="c7" class="card" style="left:80px;top:580px;width:770px;padding:30px 34px;border-radius:40px">
+   <div style="font:800 28px Inter;color:var(--muted);letter-spacing:1px;text-transform:uppercase">One acquirer · 3 SaaS deals</div>
+   <div id="n7" class="big" style="margin-top:10px">76,300+</div>
+   <div style="font:800 40px Inter;letter-spacing:-1px;margin-top:6px">subscriptions moved</div></div>
+ <div id="ev7" class="ev cr" style="left:80px;top:1010px">${I('megaphone',32)} Customer reported · movemrr.com</div>
+</div>`;
+// S8 TrustMRR verified revenue (real screenshot) then FOR SALE
+H+=`<div class="${DOTS()}" id="s8" style="background:${SC[8][1]}">
+ <div id="w8" class="win" style="left:80px;top:560px;width:620px">
+   <div class="bar"><img src="assets/trustmrr-icon.png" alt="TrustMRR logo" style="width:34px;height:34px;border-radius:8px"><div class="url">trustmrr.com/startup/movemrr</div></div>
+   <div style="padding:22px 26px 26px;background:#F4F4F5"><div class="row" style="gap:14px;margin-bottom:18px"><img src="assets/movemrr-logo.png" alt="" style="width:62px"><div style="font:900 40px Inter;letter-spacing:-1px">MoveMRR</div></div>
+   ${CROP('assets/trustmrr-listing.png',461,697,386,377,560,'border-radius:18px')}</div></div>
+ <div id="ev8" class="ev pv" style="left:80px;top:1240px">${I('verified',32)} Payment verified · TrustMRR</div>
+ ${stamp('st8','For sale','var(--yellow)','var(--ink)',430,1120)}
+</div>`;
+// S9 asking price (real listing banner)
+H+=`<div class="${DOTS()}" id="s9" style="background:${SC[9][1]}">
+ <div class="glow" style="left:60px;top:520px;width:960px;height:960px"></div>
+ <div id="b9" class="card" style="left:80px;top:560px;width:770px;padding:14px;border-radius:24px;overflow:hidden">${CROP('assets/trustmrr-listing.png',470,40,890,140,730,'border-radius:12px')}</div>
+ <div id="p9" class="card" style="left:80px;top:760px;width:770px;padding:24px 34px 30px;border-radius:40px">
+   <div class="row" style="gap:16px"><div id="old9" style="font:800 56px Inter;color:var(--muted);letter-spacing:-2px;position:relative">$57,600<i id="strike9" style="position:absolute;left:-4px;top:30px;height:7px;width:0;background:var(--red);border-radius:4px"></i></div><span class="chipui" style="background:var(--lime)">price cut</span></div>
+   <div id="n9" class="big" style="margin-top:8px;color:var(--violet)">$49,800</div>
+   <div style="font:700 28px Inter;color:var(--muted);margin-top:6px">asking price on TrustMRR</div></div>
+</div>`;
+// S10 the reason, in his words
+H+=`<div class="${DOTS()}" id="s10" style="background:${SC[10][1]}">
+ <div id="q10" class="card" style="left:80px;top:600px;width:770px;padding:30px 34px;border-radius:36px">
+   <div class="row" style="gap:20px">${FOUNDER(130)}<div><div style="font:900 34px Inter;letter-spacing:-1px">Aleksandar</div><div style="font:700 22px Inter;color:var(--muted);margin-top:4px">founder of MoveMRR, on TrustMRR</div></div></div>
+   <div style="font:400 64px/1.08 IS;font-style:italic;margin-top:24px">"Why am I selling? I dont like marketing."</div></div>
+ <div id="ev10" class="ev fr" style="left:80px;top:1040px">${I('megaphone',32)} Founder reported</div>
+ ${stamp('st10','Relatable','var(--pink)','var(--ink)',500,540)}
+</div>`;
+// S11 end card
+H+=`<div class="${DOTS()}" id="s11" style="background:${SC[11][1]}">
+ <div class="glow" style="left:60px;top:540px;width:900px;height:900px;--gc:rgba(106,66,236,.35)"></div>
+ <div id="cm11" class="card" style="left:80px;top:560px;width:770px;padding:22px 26px"><div class="row">${LOGO(96,.12)}<div><div style="font:900 40px Inter;letter-spacing:-1px">Would you buy MoveMRR?</div><div style="font:600 24px Inter;color:var(--muted);margin-top:6px">Yes or no, tell me in the comments</div></div></div></div>
+ <div id="fl11" class="card" style="left:80px;top:770px;width:700px;padding:22px 24px"><div class="row"><img src="avatar.svg" alt="MRR Pop profile picture" style="width:132px;height:132px;border-radius:50%;border:5px solid var(--ink);flex:none"><div><div style="font:900 36px Inter;letter-spacing:-1px">@getmrrpop</div><div style="font:600 22px Inter;color:var(--muted);margin-top:4px">The business behind software</div></div></div>
+   <div id="folBtn" class="btn" style="margin-top:18px;font-size:30px;padding:14px 30px">Follow MRR Pop</div></div>
+ <div id="cur11" class="abs" style="left:760px;top:1230px;opacity:0;z-index:9">${I('cursor',84)}</div>
+ <div id="conf11" class="abs" style="left:0;top:0;width:1080px;height:1920px"></div>
+</div>`;
+$('scenes').innerHTML=H;
+
+const CONF=[...Array(26)].map((_,i)=>{const a=(-170+i*(160/25))*Math.PI/180;return{dx:Math.cos(a)*(330+((i*53)%220)),dy:Math.sin(a)*(360+((i*71)%240)),r:(i*47)%360,c:['#6A42EC','#C6F03A','#FF6FB5','#FFD43B','#4C8DF6'][i%5],w:14+(i%3)*8,h:8+(i%2)*14}});
+$('conf11').innerHTML=CONF.map(c=>`<i class="cf" style="position:absolute;left:0;top:0;width:${c.w}px;height:${c.h}px;border-radius:3px;border:2px solid #1B1838;background:${c.c};opacity:0"></i>`).join('');
+$('px').innerHTML=[...Array(12*21)].map((_,i)=>`<i style="left:${(i%12)*90}px;top:${Math.floor(i/12)*92}px"></i>`).join('');
+const PXR=[...Array(12*21)].map((_,i)=>((i*7919)%251)/251);
+
+// headline words with timing
+const WORDS=B.map((b,i)=>{const w=DISPLAY[i].split(/\s+/);const tot=w.reduce((s,x)=>s+x.length+1,0);let acc=0;return w.map(x=>{const st=b.start+(b.end-b.start)*acc/tot*.92;acc+=x.length+1;return[x,st]})});
+const CHUNKS=[];WORDS.forEach((ws,bi)=>{let cur=[];ws.forEach(([w,st],k)=>{cur.push([w,st]);const end=/[.!?]$/.test(w)||(/[,:]$/.test(w)&&cur.length>=3);if(cur.length>=6||end||k===ws.length-1){CHUNKS.push({bi,words:cur,start:cur[0][1]});cur=[]}})});
+let hlChunk=-1;
+function headline(t){let ci=0;for(let i=0;i<CHUNKS.length;i++)if(t>=CHUNKS[i].start-.12)ci=i;
+ const ch=CHUNKS[ci],bi=ch.bi,el=$('hl');
+ if(ci!==hlChunk){hlChunk=ci;const a=(ACCENT[bi]||'').toLowerCase();el.innerHTML=ch.words.map(([w])=>{const clean=w.toLowerCase().replace(/[^a-z0-9]/g,'');return`<span class="w${a&&clean===a?' acc':''}">${w}</span>`}).join('')}
+ const dark=DARKBEAT[bi];el.style.color=dark?'#fff':'var(--ink)';
+ $$('#hl .w').forEach((s,k)=>{const kk=P(t,ch.words[k][1]-.05,.18);s.style.opacity=.16+.84*kk;s.style.transform=`translateY(${(1-eOut(kk))*14}px)`;if(s.classList.contains('acc'))s.style.color=dark?'var(--lime)':'var(--violet)'});
+ const kb=P(t,ch.start-.12,.22);el.style.transform=`translateY(${(1-eOut(kb))*22}px)`;el.style.opacity=(.3+.7*eOut(kb))*(t>RW0&&t<RW1?.25:1)}
+
+// character
+const SLOTS={};for(const g of $$('#rig g[id]')){const m=g.id.match(/^(arms|eyes|brows|mouth|extras|glasses|front)-(.+)$/);if(m)(SLOTS[m[1]]??=[]).push(m[2])}
+function show(slot,v){for(const k of SLOTS[slot]||[]){const e=$(slot+'-'+k);if(e)e.style.display=k===v?'inline':'none'}}
+function setChar(pose,expr,viseme,blink){const p=MAN.poses[pose]||{},x=MAN.expressions[expr]||{};const s={...MAN.defaults,...p,...x};
+ if(viseme&&viseme!=='X')s.mouth=viseme;if(blink&&['open','up','side'].includes(s.eyes))s.eyes='closed';
+ for(const k of ['arms','eyes','brows','mouth','extras','glasses','front'])show(k,s[k])}
+const ST=[[[0,'pointing','money-eyes'],[1.6,'pointing','shocked']],
+ [[bs(1),'explaining','smile']],
+ [[bs(2),'shrug','annoyed']],
+ [[bs(3),'pointing-side','curious'],[bs(3)+1.6,'thinking','skeptical']],
+ [[bs(4),'thinking','thinking'],[bs(4)+1.4,'celebrating','star-struck']],
+ [[bs(5),'explaining','grin'],[be(5)-1.0,'thumbs-up','cheeky']],
+ [[bs(6),'clap','grin'],[bs(6)+1.4,'pointing-side','curious']],
+ [[bs(7),'recoil','shocked'],[bs(7)+1.0,'celebrating','money-eyes']],
+ [[bs(8),'explaining','smile'],[be(8)-1.0,'pointing','shocked']],
+ [[bs(9),'celebrating','money-eyes']],
+ [[bs(10),'belly-laugh','laughing'],[be(10)-.8,'laugh-point','wink']],
+ [[bs(11),'waving','grin'],[bs(11)+2.0,'thumbs-up','cheeky']]];
+const SCALE=1.12, PXU=0.7683*SCALE, WAIST=940;
+const POS=[650,650,650,650,650,660,650,640,660,650,650,650];
+const scy=1920-WAIST*PXU;
+const FLAT=ST.flat();
+let ARMX=null;
+function armReach(){ARMX={};for(const g of $$('#rig g[id^="arms-"]')){const d=g.style.display;g.style.display='inline';const b=g.getBBox();g.style.display=d;ARMX[g.id.slice(5)]=[b.x,b.x+b.width]}}
+const SHOWN=q=>{const x=q[2],p=q[1],o=[p];if(x==='laughing'||x==='annoyed')o.push('belly-laugh','laugh-point');if(x==='shocked')o.push('recoil');if(['cool','cheeky','skeptical'].includes(x))o.push('hands-on-hips');if(x==='nervous')o.push('clap');return o};
+function xLim(q){if(!ARMX)armReach();let l=150,r=450;
+ const ex=(MAN.expressions[q[2]]||{}).extras;if(ex&&ex!=='none'){r=Math.max(r,580);l=Math.min(l,100)}
+ for(const p of SHOWN(q)){const a=(MAN.poses[p]||{}).arms,e=ARMX[a];if(e){l=Math.min(l,e[0]);r=Math.max(r,e[1])}}
+ const m=170,k=PXU*1.03;
+ return [48-(l-m)*k, 1080-48-(r+m)*k]}
+
+window.render=function(t){
+ let si=0;for(let i=0;i<SC.length;i++)if(t>=A[i])si=i;
+ let pxOn=null;SC.forEach((s,i)=>{if(s[2]==='pixel'&&t>=A[i]-.4&&t<A[i]+.45)pxOn=i});
+ SC.forEach((s,i)=>{const el=$('s'+i),st=A[i];
+  const incoming=i===si+1&&s[2]==='wipe'&&t>=st-.35;
+  el.style.display=(i===si||incoming)?'block':'none';el.style.zIndex=i;
+  if(s[2]==='wipe'&&i>0&&(incoming||i===si)){const k=eIO(P(t,st-.35,.45));el.style.clipPath=k>=1?'none':`polygon(${(1-k)*160-60}% 0,100% 0,100% 100%,${(1-k)*160-40}% 100%)`}else el.style.clipPath='none'});
+ $$('#px i').forEach((q,k)=>{if(pxOn===null){q.style.opacity=0;return}const st=A[pxOn];const inK=P(t,st-.4+PXR[k]*.3,.05),outK=P(t,st+PXR[(k*13)%PXR.length]*.35,.05);q.style.background=SC[pxOn][1];q.style.opacity=inK*(1-outK)});
+
+ // VHS rewind
+ {const on=t>RW0&&t<RW1,k=on?Math.sin(P(t,RW0,RW1-RW0)*Math.PI):0,rw=$('rw');rw.style.opacity=on?C(k*3):0;
+  const sc=$('scenes');
+  if(on){const j=Math.sin(t*93)*18+Math.sin(t*41)*10;sc.style.transform=`translateX(${j*k}px) skewX(${Math.sin(t*57)*4*k}deg)`;sc.style.filter=`saturate(${1+.8*k}) contrast(${1+.25*k}) hue-rotate(${Math.sin(t*30)*12*k}deg)`;
+   $('bd0').style.top=((t*2600)%2100-100)+'px';$('bd1').style.top=((t*1900+900)%2100-100)+'px';
+   rw.querySelector('.osd').style.opacity=(Math.floor(t*8)%2)?1:.55}
+  else{sc.style.transform='';sc.style.filter=''}}
+
+ // S0 hook
+ {const h=$('h0');h.style.transform=`scale(${1+.05*Math.sin(P(t,0,.6)*Math.PI)}) rotate(${-1.5+Math.sin(t*1.3)*.5}deg)`;
+  const a=$('n0a'),b=$('n0b'),d=be(0)-bs(0);
+  a.style.transform=`scale(${1+.08*Math.sin(P(t,.15,.35)*Math.PI)})`;
+  const kb=P(t,d*.45,.4);b.style.transform=`scale(${1+.12*Math.sin(kb*Math.PI)})`;
+  const ev=$('ev0'),ke=pop(ev,t,d*.55,.3);ev.style.transform=`translateY(${(1-eOut(ke))*20}px)`;
+  const f=$('f0'),kf=pop(f,t,be(0)-.9,.35);f.style.transform=`scale(${.3+.7*eBack(kf)}) rotate(${6+Math.sin(t*2)*3}deg)`;
+  stampAnim('st0',t,be(0)-.55,-8)}
+ // S1 founder
+ {const b1=bs(1);const f=$('f1'),kf=pop(f,t,b1,.4);f.style.transform=`scale(${.4+.6*eBack(kf)}) rotate(${-4+Math.sin(t*1.7)*2}deg)`;
+  const n=$('n1'),kn=pop(n,t,b1+.25,.4);n.style.transform=`translateX(${(1-eOut(kn))*80}px)`;
+  const w=$('w1'),kw=pop(w,t,b1+.7,.4);w.style.transform=`translateY(${(1-eBack(kw))*160}px) rotate(-1.5deg)`;
+  stampAnim('st1',t,b1+1.1,7)}
+ // S2 Stripe says nope
+ {const b2=bs(2),d=be(2)-b2;const w=$('w2'),kw=pop(w,t,b2-.05,.35);w.style.transform=`translateY(${(1-eBack(kw))*140}px) rotate(1deg)`;
+  const cur=$('cur2'),kc=P(t,b2+.15,.45);cur.style.opacity=t>b2+.1&&t<be(2)+.3?1:0;cur.style.transform=`translate(${-eIO(kc)*420}px,${-eIO(kc)*240}px) scale(${t>b2+.6&&t<b2+.72?.85:1})`;
+  const bt=$('btn2'),pr=t>b2+.62;bt.style.transform=`scale(${pr&&t<b2+.8?.92:1})`;
+  rubberAnim('r2',t,b2+Math.min(.8,d*.55),-10);
+  if(t>b2+.8){const sh=1-P(t,b2+.8,.4);w.style.transform+=` translateX(${Math.sin(t*70)*14*sh}px)`}}
+ // S3 houses
+ {const b3=bs(3),d=be(3)-b3;const hA=$('hA'),hB=$('hB'),ka=pop(hA,t,b3-.05,.35),kb=pop(hB,t,b3+.15,.35);
+  hA.style.transform=`translateY(${(1-eBack(ka))*120}px)`;hB.style.transform=`translateY(${(1-eBack(kb))*120}px)`;
+  [1,2,3].forEach((i,j)=>{const e=$('pp'+i),k=P(t,b3+.4+j*.25,1.1),hop=Math.abs(Math.sin(k*Math.PI*4))*30;e.style.opacity=t>b3+.35+j*.25?1:0;
+   e.style.transform=`translate(${190+k*440-j*30}px,${700-hop+j*14}px)`});
+  $$('.sub3').forEach((e,i)=>{const k=pop(e,t,b3+.2+i*.12,.3),stuck=P(t,b3+d*.5,1.2);e.style.transform=`translateX(${Math.sin(t*28+i)*10*stuck*(1-P(t,b3+d*.5+1.2,.3)*.6)}px) rotate(${-4+i*4}deg) scale(${.5+.5*eBack(k)})`});
+  const la=$('lb3a'),k1=pop(la,t,b3+1.2,.3);la.style.transform=`scale(${.6+.4*eBack(k1)})`;
+  const lb=$('lb3b'),k2=pop(lb,t,b3+d*.5,.3);lb.style.transform=`scale(${.6+.4*eBack(k2)})`}
+ // S4 the fix
+ {const b4=bs(4),d=be(4)-b4;const w=$('w4'),kw=pop(w,t,b4-.05,.4);w.style.transform=`translateY(${(1-eBack(kw))*180}px) rotate(-1deg)`;
+  $('ld4').style.width=(770*eOut(P(t,b4+.1,d*.6)))+'px';$('ld4').style.opacity=1-P(t,b4+.1+d*.6,.2);
+  const lg=$('lg4'),kl=pop(lg,t,be(4)-1.0,.35);lg.style.transform=`scale(${.4+.6*eBack(kl)}) rotate(${-3+Math.sin(t*2)*1.5}deg)`;
+  stampAnim('st4',t,be(4)-.6,6)}
+ // S5 bags hop A to B
+ {const b5=bs(5),d=be(5)-b5;const aA=$('aA'),aB=$('aB'),k1=pop(aA,t,b5-.05,.3),k2=pop(aB,t,b5+.1,.3);
+  aA.style.transform=`translateY(${(1-eBack(k1))*100}px) rotate(-1deg)`;aB.style.transform=`translateY(${(1-eBack(k2))*100}px) rotate(1deg)`;
+  const m=$('mid5'),km=pop(m,t,b5+.3,.3);m.style.transform=`scale(${.4+.6*eBack(km)}) rotate(${Math.sin(t*3)*4}deg)`;
+  $$('.bag').forEach((e,i)=>{const s=b5+.5+i*d*.14,k=eIO(P(t,s,.7));const x0=120+(i%2)*120,y0=690+Math.floor(i/2)*120,x1=560+(i%2)*120,y1=y0;
+   e.style.opacity=t>b5+.2?1:0;e.style.transform=`translate(${x0+(x1-x0)*k}px,${y0-Math.sin(k*Math.PI)*220}px) rotate(${k*360}deg)`});
+  stampAnim('st5',t,be(5)-1.1,-5);const ev=$('ev5'),ke=pop(ev,t,be(5)-.7,.3);ev.style.transform=`translateY(${(1-eOut(ke))*20}px)`}
+ // S6 sold, then founders knocking
+ {const b6=bs(6),d=be(6)-b6;const w=$('w6'),kw=pop(w,t,b6-.05,.35);w.style.transform=`translateY(${(1-eBack(kw))*120}px)`;
+  rubberAnim('r6',t,b6+.5,-8);
+  [0,1,2].forEach(i=>{const e=$('k'+i),s=b6+d*.45+i*.35,k=pop(e,t,s,.35),kn=P(t,s+.3,.5);e.style.transform=`translateX(${(1-eBack(k))*-200}px) rotate(${Math.sin(kn*Math.PI*4)*2*(1-kn)}deg)`})}
+ // S7 76,300+
+ {const b7=bs(7);const c=$('c7'),kc=pop(c,t,b7-.05,.35);c.style.transform=`scale(${.6+.4*eBack(kc)}) rotate(-1.5deg)`;
+  const n=Math.round(76300*eOut(P(t,b7+.1,1.3))/100)*100;$('n7').textContent=n.toLocaleString('en-US')+(n>=76300?'+':'');
+  const ev=$('ev7'),ke=pop(ev,t,b7+1.2,.3);ev.style.transform=`translateY(${(1-eOut(ke))*20}px)`}
+ // S8 TrustMRR revenue, then for sale
+ {const b8=bs(8);const w=$('w8'),kw=pop(w,t,b8-.05,.4);w.style.transform=`translateY(${(1-eBack(kw))*160}px) rotate(-1.5deg)`;
+  const ev=$('ev8'),ke=pop(ev,t,b8+.7,.3);ev.style.transform=`translateY(${(1-eOut(ke))*20}px)`;
+  stampAnim('st8',t,be(8)-.9,-8)}
+ // S9 asking price
+ {const b9=bs(9);const b=$('b9'),kb=pop(b,t,b9-.1,.35);b.style.transform=`translateY(${(1-eBack(kb))*-80}px) rotate(1deg)`;
+  const p=$('p9'),kp=pop(p,t,b9+.1,.35);p.style.transform=`translateY(${(1-eBack(kp))*160}px) rotate(-1deg)`;
+  $('strike9').style.width=(250*eOut(P(t,b9+.45,.35)))+'px';
+  const n=$('n9'),kn=P(t,b9+.6,.4);n.style.transform=`scale(${.6+.4*eBack(kn)})`;n.style.opacity=.1+.9*C(kn*3)}
+ // S10 quote
+ {const b10=bs(10);const q=$('q10'),kq=pop(q,t,b10-.05,.4);q.style.transform=`translateY(${(1-eBack(kq))*160}px) rotate(-1deg)`;
+  const ev=$('ev10'),ke=pop(ev,t,b10+.8,.3);ev.style.transform=`translateY(${(1-eOut(ke))*20}px)`;
+  stampAnim('st10',t,be(10)-.8,8)}
+ // S11 end card
+ {const b11=bs(11);
+  const cm=$('cm11'),kc=pop(cm,t,b11,.4);cm.style.transform=`translateY(${(1-eBack(kc))*160}px) rotate(-1.5deg)`;
+  const fl=$('fl11'),kf=pop(fl,t,b11+.9,.4);fl.style.transform=`translateY(${(1-eBack(kf))*160}px) rotate(1deg)`;
+  const cur=$('cur11'),kx=P(t,b11+1.5,.6);cur.style.opacity=t>b11+1.4?1:0;cur.style.transform=`translate(${-eIO(kx)*480}px,${-eIO(kx)*250}px) scale(${t>b11+2.1&&t<b11+2.25?.85:1})`;
+  const fb=$('folBtn'),fd=t>b11+2.2;fb.textContent=fd?'Following ✓':'Follow MRR Pop';fb.style.background=fd?'var(--lime)':'var(--violet)';fb.style.color=fd?'var(--ink)':'#fff';
+  $$('#conf11 .cf').forEach((e,i)=>{const q=CONF[i];const kk=P(t,b11+2.2+i*.01,1.3);e.style.opacity=kk>0?1-P(t,b11+3.2,.3):0;e.style.transform=`translate(${420+q.dx*eOut(kk)*.8}px,${1080+q.dy*eOut(kk)*.8+kk*kk*600}px) rotate(${q.r*kk*3}deg)`})}
+
+ headline(t);
+ // source line follows the beat
+ {let bi=0;for(let i=0;i<B.length;i++)if(t>=bs(i)-.18)bi=i;const s=SRC[bi],el=$('src');
+  if(s){$('srcB').textContent=s[0];$('srcD').textContent=s[1];$('srcD').style.display=s[1]?'':'none'}
+  el.style.opacity=s?C(P(t,.6,.3))*(t>RW0&&t<RW1?0:1):0}
+
+ // character: waist up from the bottom edge
+ let s=FLAT[0];for(const q of FLAT)if(t>=q[0])s=q;
+ const fi=Math.floor(t*VIS.fps),vis=VIS.frames[fi]||'X',talk=vis!=='X';
+ const en0=window.energyAt&&VIS.energy?energyAt(VIS.energy,VIS.fps,t):(talk?.6:0);
+ const qi=FLAT.indexOf(s),prevQ=qi>0?FLAT[qi-1]:null;
+ const M=window.bodyMotion?bodyMotion({t,energy:en0,talking:talk,expression:s[2],pose:s[1],since:t-s[0],prevExpression:prevQ&&prevQ[2],prevPose:prevQ&&prevQ[1]}):null;
+ setChar(M?M.pose:s[1],s[2],vis,(t%3.4)>3.27);
+ const px0=POS[Math.max(0,si-1)];let x=px0+(POS[si]-px0)*eIO(P(t,A[si],.5));
+ {const L1=xLim(s),L0=prevQ?xLim(prevQ):L1,nq=FLAT[qi+1],w=eIO(P(t,s[0],.45));
+  let lo=Math.max(L0[0],L1[0]),hi=Math.min(L0[1],L1[1]);lo+=(L1[0]-lo)*w;hi+=(L1[1]-hi)*w;
+  if(nq){const N=xLim(nq),a=eIO(P(t,nq[0]-.5,.5));lo+=(Math.max(lo,N[0])-lo)*a;hi+=(Math.min(hi,N[1])-hi)*a}
+  x=Math.min(Math.max(x,lo),hi)}
+ let dy=(1-eBack(P(t,-.3,.6)))*700,sq=1;
+ for(const q of FLAT){const kk=(t-q[0])/.5;if(kk>0&&kk<1){dy-=(.5-.5*Math.cos(kk*Math.PI*2))*28;sq=1+Math.sin(kk*Math.PI*2)*.02}}
+ const sway=M?0:Math.sin(t*1.6)*1.2; if(!M)dy+=Math.sin(t*2.2)*6;
+ $('char').style.transform=`translate(${x}px,${scy+dy}px) scale(${SCALE/sq},${SCALE*sq}) rotate(${sway}deg)`;
+ const en=VIS.energy?(VIS.energy[fi]||0):(talk?.7:0);
+ const nod=en>.05?(Math.sin(t*7.3)*3+Math.sin(t*3.1)*2)*(.5+en*.7):Math.sin(t*1.4)*1.5;
+ let lift=-Math.abs(Math.sin(t*9))*4*en,tilt=nod;
+ if(M){const T=motionTransforms(M,MP_HIP,MP_FEET,MP_WAIST||undefined);
+  $('root')?.setAttribute('transform',T.root);$('legs')?.setAttribute('transform',T.legs);$('upper')?.setAttribute('transform',T.upper);$('armsrig')?.setAttribute('transform',T.arms);
+  tilt=M.headTilt;lift=T.headY}
+ $('head').style.transform=`rotate(${tilt}deg) translateY(${lift}px)`;
+};
+window.render(0);
+</script></body></html>

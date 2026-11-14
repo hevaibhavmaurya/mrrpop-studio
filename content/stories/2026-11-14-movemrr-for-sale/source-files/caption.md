@@ -1,0 +1,20 @@
+# Instagram caption (paste as is)
+
+```
+Would you buy MoveMRR for $49,800? Yes or no, tell me in the comments.
+
+Aleksandar was selling his first SaaS when he hit a wall. Stripe could copy his customers, but not their subscriptions.
+
+So he built MoveMRR. It recreates your Stripe subscriptions in the buyer's account and switches the old ones off after, so nobody gets charged twice.
+
+One acquirer moved 76,300+ subscriptions with it. It has made $8,262 so far, payment verified on TrustMRR.
+
+Now it's listed for sale at $49,800. His reason: he doesn't like marketing.
+
+Sources: TrustMRR listing (revenue verified via Polar, Nov 14 2026), movemrr.com, founder on TrustMRR. 76,300+ is customer reported.
+
+#saas #indiehacker #buildinpublic
+```
+
+## Alt text
+Animated Reel: cartoon host Mr. Pop tells the MoveMRR story. Shows the founder's photo, a Stripe "nope" stamp, subscriptions stuck at an old house, the MoveMRR website, bags hopping between two Stripe accounts, customer logos, a 76,300+ subscriptions card, the TrustMRR revenue card ($8,262) and the $49,800 asking price.

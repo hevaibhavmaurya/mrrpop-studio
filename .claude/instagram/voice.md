@@ -9,8 +9,8 @@
 
 ## What I sound like
 - **On camera I am:** fast, upbeat, curious, a bit cheeky. Never hype-bro.
-- **Words I actually use:** builder, shipped, launched, paying users, solo, bootstrapped, "nine bucks", "here's the thing", "boom".
-- **Words I would never say:** guru, passive income, get rich, insane, secret hack, game-changer.
+- **Words I actually use:** builder, shipped, launched, paying users, solo, bootstrapped, "nine bucks", "here's the thing", "just like that".
+- **Words I would never say:** guru, passive income, get rich, insane, secret hack, game-changer, "boom" (reads as a bot). No hyphens, dashes or "…" in scripts or on-screen text.
 - **Do I swear:** no
 - **Emoji in captions:** one, rarely
 - **Face on camera:** faceless (cartoon host Mr. Pop)

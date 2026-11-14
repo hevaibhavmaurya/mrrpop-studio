@@ -1,0 +1,12 @@
+# MoveMRR v2 (problem first). Signature Mr. Pop voice. Not voiced yet.
+{hook}    Selling your SaaS? Your subscriptions don't move with your customers.
+{curious} Stripe's data copy moves customers and cards. Not subscriptions.
+{annoyed} So someone rebuilds every one. Price, plan, billing date.
+{wow}     Get the timing wrong, and customers pay twice.
+{fun}     Aleksandar hit this selling his first SaaS. So he built MoveMRR.
+{trust}   Dry run first. New subscriptions on, old ones off.
+{wow}     One buyer moved seventy six thousand subscriptions with it.
+{curious} Plot twist. MoveMRR is now for sale.
+{wow}     Forty nine thousand eight hundred dollars.
+{laugh}   His reason? He doesn't like marketing.
+{cta}     Would you buy this SaaS? Comment yes or no.

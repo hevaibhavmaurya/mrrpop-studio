@@ -1,0 +1,13 @@
+# MoveMRR for sale (Deal Pop). Signature Mr. Pop voice. "Rewind" is animation + SFX only, not spoken.
+{hook}    Would you sell a tool that costs four cents and earns three hundred dollars? He is.
+{fun}     Aleksandar was selling his first SaaS.
+{annoyed} Then Stripe said nope.
+{curious} Customers can move. Subscriptions? Stuck at the old house.
+{fun}     So he did what builders do. He built the fix. MoveMRR.
+{trust}   Subscriptions pack their bags, move in, and nobody gets charged twice.
+{fun}     His sale went through. Then other founders came knocking.
+{wow}     One buyer moved seventy six thousand subscriptions with it.
+{curious} Eight thousand dollars later, he's selling MoveMRR too.
+{wow}     Forty nine thousand eight hundred.
+{laugh}   Why? He doesn't like marketing. Relatable.
+{cta}     Would you buy it? Follow MRR Pop.
