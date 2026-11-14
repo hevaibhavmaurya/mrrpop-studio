@@ -1,0 +1,16 @@
+{
+  "slug": "2026-11-14-postiz",
+  "series": "revenue-pop",
+  "template": "reel (build/reel.tpl.html)",
+  "status": "draft",
+  "sponsored": false,
+  "product": "Postiz (open source agentic social media scheduler)",
+  "product_url": "https://postiz.com/",
+  "key_number": "$418,575 MRR · 12,325 active subscriptions",
+  "evidence": "payment-verified",
+  "voice": "mr-pop-4 (Mr. Pop smooth), as Vaibhav asked on 2026-11-14",
+  "sources": ["https://trustmrr.com/startup/postiz", "https://postiz.com/", "https://github.com/gitroomhq/postiz-app", "https://x.com/wickedguro"],
+  "files": {"voice": "voice/voiceover.wav", "final": "exports/reel.mp4", "cover": "exports/cover.jpg", "caption": "exports/caption.txt"},
+  "published": {"instagram": null, "x": null, "linkedin": null},
+  "notes": "First draft from content/drafts/01-postiz. Numbers re-verified on TrustMRR Nov 14 14:24 ($418,575 / 12,325); voice says \"over $400K\" and \"over 12,000\". Recheck on posting day."
+}

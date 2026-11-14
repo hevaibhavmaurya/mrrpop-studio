@@ -17,7 +17,8 @@ const facePath = join(vdir, 'voiceover.face.json');
 const face = existsSync(facePath) ? JSON.parse(readFileSync(facePath, 'utf8')) : null;
 const cuesToFrames = (cues, fps, dur) => { const n = Math.ceil(dur * fps), f = Array(n).fill('X'); for (const c of cues) for (let i = Math.floor(c.start * fps); i < Math.min(n, Math.ceil(c.end * fps)); i++) f[i] = c.value; return f.join(''); };
 const visemes = face ? { fps: 30, frames: cuesToFrames(face.visemes, 30, face.duration), energy: face.energy, source: 'face.json' } : JSON.parse(readFileSync(join(b, 'visemes.json'), 'utf8'));
-const data = { duration: beats.duration, beats: beats.beats, visemes,
+// expression + pose cues from the same face.json, so templates can follow the voice's emotion per beat
+const data = { duration: beats.duration, beats: beats.beats, visemes, face: face ? { expressions: face.expressions, poses: face.poses } : null,
   manifest: { poses: m.poses, expressions: m.expressions, defaults: m.defaults || {} } };
 const iconDir = 'packages/ui/icons';
 const icons = Object.fromEntries(readdirSync(iconDir).filter((f) => f.endsWith('.svg')).map((f) => [f.slice(0, -4), readFileSync(join(iconDir, f), 'utf8').trim()]));

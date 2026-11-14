@@ -1,0 +1,293 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+/* MRR Pop · Revenue Pop · Postiz. Layout system from the MoveMRR reel: text safe box (x 80 to 850, y 250 to 1440).
+   Real images in assets/: Postiz app icon + logo + OG image + homepage screenshot, channel + agent icons from postiz.com,
+   GitHub repo screenshot, TrustMRR icon + listing screenshot, founder photo (his X profile).
+   Script: voice/voiceover.vo.txt (Mr. Pop smooth, mr-pop-4) · Theme: packages/theme/themes/mrrpop-v6 · Icons: packages/ui/icons (injected) */
+@font-face{font-family:Inter;src:url(../../../../packages/theme/themes/mrrpop-v6/fonts/Inter-Variable.ttf);font-weight:100 900}
+@font-face{font-family:IS;src:url(../../../../packages/theme/themes/mrrpop-v6/fonts/InstrumentSerif-Italic.ttf);font-style:italic}
+:root{--paper:#FAF9FF;--white:#fff;--ink:#1B1838;--navy:#20244A;--muted:#6E6A8E;--faint:#A3A0BC;
+--lav:#ECE6FF;--limeMist:#F0F9D4;--sky:#E4EEFF;--blush:#FFE5F1;--cream:#FFF4CC;
+--violet:#6A42EC;--lime:#C6F03A;--yellow:#FFD43B;--pink:#FF6FB5;--lilac:#BBA6FF;--blue:#4C8DF6;--green:#3DBE6E;--greenInk:#1F8A48;--red:#F0475A}
+*{margin:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{background:var(--paper);font-family:Inter;color:var(--ink);font-feature-settings:"tnum" 1;position:relative}
+.abs{position:absolute}
+#scenes{position:absolute;inset:0}
+.scene{position:absolute;inset:0;overflow:hidden;display:none}
+.scene.dots:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(27,24,56,.07) 2px,transparent 2px);background-size:40px 40px}
+.scene.dark.dots:before{background-image:radial-gradient(rgba(255,255,255,.07) 2px,transparent 2px)}
+.glow{position:absolute;border-radius:50%;background-image:radial-gradient(circle,var(--gc,rgba(255,212,59,.75)) 2.6px,transparent 3px);background-size:15px 15px;
+  -webkit-mask-image:radial-gradient(circle,#000 0%,rgba(0,0,0,.55) 40%,transparent 70%);mask-image:radial-gradient(circle,#000 0%,rgba(0,0,0,.55) 40%,transparent 70%)}
+#hl{position:absolute;left:80px;top:262px;width:770px;font:600 66px/1.13 Inter;letter-spacing:-1.8px;z-index:30}
+#hl .w{display:inline-block;margin-right:.24em}
+#hl .acc{font-family:IS;font-style:italic;font-weight:400;letter-spacing:0;font-size:1.2em;line-height:.9}
+.stamp{position:absolute;display:inline-block;padding:12px 22px 10px;border:5px solid var(--ink);border-radius:12px;box-shadow:6px 6px 0 var(--ink);
+  font:900 44px/1 Inter;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap;opacity:0;z-index:6}
+.stamp span{display:inline-block;transform:scaleX(.84);transform-origin:left center;margin-right:-14%}
+.rubber{position:absolute;padding:10px 24px;border:8px solid var(--red);border-radius:14px;color:var(--red);font:900 58px/1 Inter;letter-spacing:2px;text-transform:uppercase;white-space:nowrap;opacity:0;z-index:7}
+.win{position:absolute;background:#fff;border:5px solid var(--ink);border-radius:30px;box-shadow:10px 10px 0 rgba(27,24,56,.9);overflow:hidden;opacity:0}
+.win .bar{display:flex;align-items:center;gap:10px;padding:14px 20px;border-bottom:4px solid var(--ink);background:var(--paper)}
+.win .bar i{width:16px;height:16px;border-radius:50%;border:3px solid var(--ink)}
+.win .url{margin-left:12px;flex:1;height:30px;border-radius:999px;border:3px solid var(--ink);background:#fff;font:700 16px/24px Inter;padding-left:14px;color:var(--muted);white-space:nowrap;overflow:hidden}
+.card{position:absolute;background:#fff;border:5px solid var(--ink);border-radius:26px;box-shadow:8px 8px 0 var(--ink);opacity:0}
+.row{display:flex;align-items:center;gap:16px}
+.ico{display:inline-block;flex:none}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;border:4px solid var(--ink);font:800 28px/1 Inter;background:var(--violet);color:#fff;white-space:nowrap}
+.chipui{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:3px solid var(--ink);font:800 18px/1 Inter;letter-spacing:1px;text-transform:uppercase;white-space:nowrap}
+.src{position:absolute;left:80px;top:1380px;display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.9);border:3px solid var(--ink);font:600 20px/1 Inter;z-index:31;white-space:nowrap}
+.src b{font-weight:800}
+.ev{position:absolute;display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border-radius:999px;font:700 24px/1 Inter;white-space:nowrap;opacity:0;z-index:5}
+.ev.fr{background:#FFF4CC;color:#7A5A00;border:3px solid #E8C04A}
+.ev.pv{background:#E4F7EA;color:var(--greenInk);border:3px solid #8FD6A6}
+.ev.cr{background:#E7EEFB;color:#3B5C9A;border:3px solid #A9C1EA}
+.photo{border-radius:50%;border:6px solid var(--ink);box-shadow:8px 8px 0 var(--ink);object-fit:cover;background:#fff;display:block}
+.appicon{display:block;border:5px solid var(--ink);box-shadow:8px 8px 0 var(--ink);background:#6A42EC}
+.crop{background-repeat:no-repeat;display:block}
+.big{font:900 200px/1 Inter;letter-spacing:-10px}
+.soc{position:absolute;left:0;top:0;width:84px;height:84px;border-radius:22px;background:#fff;border:4px solid var(--ink);box-shadow:5px 5px 0 var(--ink);display:grid;place-items:center;opacity:0;z-index:7}
+.soc img{width:54px;height:54px}
+.agent{display:inline-grid;place-items:center;width:52px;height:52px;border-radius:14px;background:#fff;border:4px solid var(--ink);opacity:0}
+.agent img{width:32px;height:32px}
+.task{display:flex;align-items:center;gap:14px;font:800 32px/1 Inter;padding:14px 0;border-bottom:3px dashed rgba(27,24,56,.18);opacity:0}
+#char{position:absolute;left:0;top:0;width:461px;height:1060px;transform-origin:0 0;z-index:40}
+#char svg{width:461px;height:1060px;display:block;filter:drop-shadow(0 20px 24px rgba(27,24,56,.28))}
+#px{position:absolute;inset:0;z-index:25;pointer-events:none}
+#px i{position:absolute;width:90px;height:92px;opacity:0}
+</style></head><body>
+
+<div id="scenes"></div>
+<div id="px"></div>
+<div id="hl"></div>
+<div id="src" class="src"><span>Source:</span><b id="srcB"></b><span id="srcD"></span></div>
+<div id="char">RIG</div>
+
+<script>
+const DATA=DATAJSON, ICONS=ICONSJSON, B=DATA.beats, MAN=DATA.manifest, VIS=DATA.visemes;
+const C=(x,a=0,b=1)=>Math.max(a,Math.min(b,x)),P=(t,s,d)=>C((t-s)/d),eOut=x=>1-Math.pow(1-x,3),eIO=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const eBack=x=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const $=id=>document.getElementById(id), $$=s=>[...document.querySelectorAll(s)];
+const bs=i=>B[Math.min(i,B.length-1)].start, be=i=>B[Math.min(i,B.length-1)].end;
+const I=(n,s=80)=>(ICONS[n]||'').replace('<svg ',`<svg class="ico" width="${s}" height="${s}" `);
+const pop=(e,t,s,d=.4)=>{const k=P(t,s,d);e.style.opacity=C(k*3);return k};
+const stamp=(id,txt,bg,fg,x,y)=>`<div id="${id}" class="stamp" style="left:${x}px;top:${y}px;background:${bg};color:${fg}"><span>${txt}</span></div>`;
+const stampAnim=(id,t,s,rot)=>{const e=$(id);if(!e)return;const k=P(t,s,.32);e.style.opacity=C(k*4);e.style.transform=`rotate(${rot}deg) scale(${1.6-.6*eBack(k)})`};
+const rubberAnim=(id,t,s,rot)=>{const r=$(id),k=P(t,s,.25);r.style.opacity=C(k*4);r.style.transform=`rotate(${rot}deg) scale(${1.8-.8*eOut(k)})`};
+// crop a region (original pixels) of a 2560 px wide screenshot into a box w px wide
+const CROP=(src,ox,oy,ow,oh,w,extra='')=>{const s=w/ow;return `<div class="crop" style="width:${w}px;height:${Math.round(oh*s)}px;background-image:url(${src});background-size:${2560*s}px auto;background-position:${-ox*s}px ${-oy*s}px;${extra}"></div>`};
+const ICON=(s)=>`<img class="appicon" src="assets/postiz-icon.png" alt="Postiz app icon" style="width:${s}px;height:${s}px;border-radius:${s*.24}px">`;
+const FOUNDER=(s)=>`<img class="photo" src="assets/founder-x.jpg" alt="Nevo David" style="width:${s}px;height:${s}px">`;
+const SOCIALS=['Instagram','TikTok','Youtube','Linkedin','X','Facebook','Threads','Bluesky','Reddit','Pinterest','Discord','Telegram','Mastodon','Slack'];
+const AGENTS=[['chatgpt','ChatGPT'],['claude','Claude'],['codex','Codex'],['cursor','Cursor'],['mcp','MCP']];
+
+// beats (voice/voiceover.vo.txt):
+// 0 hook free / over $400K a month · 1 completely free · 2 Postiz, 30+ platforms, AI agents · 3 open source · 4 over 12,000 active subs · 5 nobody wants a server · 6 CTA
+// Facts: TrustMRR (Stripe) Nov 14 2026 14:24 · postiz.com/pricing (30+ channels, 7 day trial) · github README (free self host)
+const FACT={mrr:'$418,575',mrrK:418,subs:12325,when:'Nov 14'};
+const DISPLAY=B.map(b=>b.text.replace(/four hundred thousand dollars/i,'$400K').replace(/over thirty/i,'over 30').replace(/twelve thousand/i,'12,000'));
+const ACCENT=['400k','free','postiz','open','12000','server','free'];
+const DARKBEAT=[0,1,0,1,0,0,0];
+const SRC=[['TrustMRR via Stripe','· '+FACT.when],['Postiz README on GitHub',''],['postiz.com',''],['github.com/gitroomhq/postiz-app',''],['TrustMRR via Stripe','· '+FACT.when],['Postiz README',''],null];
+// scenes: [first beat, background, transition-in]
+const SC=[[0,'#ECE6FF','none'],[1,'#20244A','pixel'],[2,'#FFF4CC','wipe'],[3,'#20244A','pixel'],[4,'#F0F9D4','wipe'],[5,'#FFE5F1','wipe'],[6,'#ECE6FF','wipe']];
+const A=SC.map((s,i)=>i===0?0:bs(s[0])-.18); A.push(DATA.duration+5);
+const DOTS=(dark)=>`scene dots${dark?' dark':''}`;
+
+let H='';
+// S0 hook: free to host, still $417K a month (real icon + TrustMRR verified)
+H+=`<div class="${DOTS()}" id="s0" style="background:${SC[0][1]}">
+ <div class="glow" style="left:60px;top:470px;width:960px;height:960px;--gc:rgba(106,66,236,.42)"></div>
+ <div id="h0" class="card" style="left:80px;top:560px;width:770px;padding:28px 34px 30px;border-radius:40px;opacity:1">
+   <div class="row" style="gap:18px">${ICON(84)}<div><div style="font:900 50px/1 Inter;letter-spacing:-1.5px">Postiz</div><div style="font:700 22px Inter;color:var(--muted);margin-top:6px">open source social media scheduler</div></div></div>
+   <div class="row" style="margin-top:20px;align-items:flex-end;gap:16px"><div id="n0" class="big" style="color:var(--violet)">$418K</div><div style="font:800 40px/1.1 Inter;color:var(--muted);padding-bottom:26px">a month</div></div>
+   <div class="row" style="margin-top:12px;gap:10px"><img src="assets/trustmrr-icon.png" alt="TrustMRR logo" style="width:40px;height:40px;border-radius:10px"><div style="font:700 24px Inter;color:var(--muted)">MRR ${FACT.mrr} · ${FACT.subs.toLocaleString('en-US')} active subscriptions</div></div></div>
+ <div id="ev0" class="ev pv" style="left:80px;top:1130px">${I('verified',32)} Payment verified · TrustMRR · Stripe</div>
+ ${stamp('st0','Free to host','var(--lime)','var(--ink)',430,500)}
+</div>`;
+// S1 (dark): Free. (GitHub README, Cloud vs Open source table)
+H+=`<div class="${DOTS(1)}" id="s1" style="background:${SC[1][1]}">
+ <div class="glow" style="left:60px;top:470px;width:960px;height:960px;--gc:rgba(198,240,58,.4)"></div>
+ <div id="fr1" class="abs" style="left:96px;top:600px;font:900 250px/1 Inter;letter-spacing:-10px;color:var(--lime);opacity:0">FREE</div>
+ <div id="q1" class="card" style="left:80px;top:900px;width:770px;padding:24px 30px;border-radius:30px">
+   <div class="row" style="gap:12px">${I('lock',34)}<div style="font:800 24px Inter;color:var(--muted);letter-spacing:1px;text-transform:uppercase">Postiz README · self hosted</div></div>
+   <div style="font:400 64px/1.05 IS;font-style:italic;margin-top:14px">“Free forever (AGPL-3.0)”</div>
+   <div style="font:700 24px Inter;color:var(--muted);margin-top:10px">you pay only for your own server</div></div>
+</div>`;
+// S2 what it is: postiz.com, every platform, AI agents write (real site, channel + agent icons, founder)
+H+=`<div class="${DOTS()}" id="s2" style="background:${SC[2][1]}">
+ <div id="w2" class="win" style="left:80px;top:560px;width:770px">
+   <div class="bar"><i style="background:#FF6FB5"></i><i style="background:#FFD43B"></i><i style="background:#C6F03A"></i><div class="url">postiz.com</div></div>
+   ${CROP('assets/site-home.png',403,286,1760,780,760)}</div>
+ ${SOCIALS.map((n,i)=>`<div class="soc" id="so${i}"><img src="assets/socials/${n}.svg" alt="${n} logo"></div>`).join('')}
+ <div id="ag2" class="card" style="left:80px;top:1176px;width:396px;padding:12px 16px 14px;border-radius:24px">
+   <div style="font:900 22px/1 Inter;margin-bottom:10px">AI agents write the posts</div><div class="row" style="gap:8px">${AGENTS.map((a,i)=>`<span class="agent" id="ag${i}"><img src="assets/agents/${a[0]}.svg" alt="${a[1]} logo"></span>`).join('')}</div></div>
+ <div id="fd2" class="card" style="left:470px;top:500px;padding:10px 18px 10px 10px;border-radius:999px;z-index:9"><div class="row" style="gap:12px">${FOUNDER(64)}<div><div style="font:900 24px Inter">Nevo David</div><div style="font:700 17px Inter;color:var(--muted)">founder · @wickedguro</div></div></div></div>
+</div>`;
+// S3 (dark): the code is open source (real GitHub repo)
+H+=`<div class="${DOTS(1)}" id="s3" style="background:${SC[3][1]}">
+ <div id="w3" class="win" style="left:80px;top:560px;width:770px">
+   <div class="bar"><i style="background:#FF6FB5"></i><i style="background:#FFD43B"></i><i style="background:#C6F03A"></i><div class="url">github.com/gitroomhq/postiz-app</div></div>
+   <div class="row" style="padding:10px 18px 18px;align-items:flex-start;gap:14px">${CROP('assets/github-repo.png',1950,530,560,700,330,'border-radius:12px;border:3px solid #e5e5e5')}
+     <div style="padding-top:8px"><div id="n3" style="font:900 120px/1 Inter;letter-spacing:-6px">41.6k</div><div style="font:800 30px Inter;color:var(--muted)">GitHub stars</div>
+     <div class="row" style="gap:8px;margin-top:16px"><span class="chipui" style="background:var(--lime)">AGPL-3.0</span><span class="chipui" style="background:#fff">7.9k forks</span></div></div></div></div>
+ ${stamp('st3','Open source','var(--yellow)','var(--ink)',120,1190)}
+</div>`;
+// S4 12,304 paid subscriptions (real TrustMRR listing)
+H+=`<div class="${DOTS()}" id="s4" style="background:${SC[4][1]}">
+ <div class="glow" style="left:60px;top:470px;width:960px;height:960px;--gc:rgba(61,190,110,.4)"></div>
+ <div id="w4" class="win" style="left:80px;top:560px;width:770px">
+   <div class="bar"><img src="assets/trustmrr-icon.png" alt="TrustMRR logo" style="width:34px;height:34px;border-radius:8px"><div class="url">trustmrr.com/startup/postiz</div></div>
+   <div style="padding:18px 22px 20px;background:#F4F4F5">${CROP('assets/trustmrr-listing.png',459,148,1060,170,560,'margin-bottom:14px')}${CROP('assets/trustmrr-listing.png',459,376,840,345,640,'border-radius:16px')}</div></div>
+ <div id="c4" class="card" style="left:80px;top:1040px;width:640px;padding:16px 28px 18px;border-radius:34px">
+   <div id="n4" class="big" style="font-size:150px;letter-spacing:-7px">12,325</div>
+   <div style="font:800 38px Inter;letter-spacing:-1px;margin-top:4px">active subscriptions</div></div>
+ <div id="ev4" class="ev pv" style="left:80px;top:1300px">${I('verified',30)} Payment verified · Stripe</div>
+</div>`;
+// S5 why: nobody wants to touch a server (README: self host setup vs Cloud)
+H+=`<div class="${DOTS()}" id="s5" style="background:${SC[5][1]}">
+ <div id="sv5" class="card" style="left:80px;top:560px;width:440px;padding:20px 26px;border-radius:30px">
+   <div style="font:900 32px Inter;letter-spacing:-1px">Self hosting</div>
+   ${['Postgres','Redis','Storage','Env vars','Updates'].map((x,i)=>`<div class="task" id="tk${i}">${I('cross',34)} ${x}</div>`).join('')}</div>
+ <div id="r5" class="rubber" style="left:330px;top:640px;font-size:50px;background:rgba(255,229,241,.92)">No thanks</div>
+ <div id="cl5" class="card" style="left:450px;top:900px;width:400px;padding:20px 22px;border-radius:30px;z-index:8">
+   <div class="row" style="gap:14px">${ICON(70)}<div style="font:900 30px/1.05 Inter">Postiz<br>Cloud</div></div>
+   <div style="font:700 24px/1.25 Inter;color:var(--muted);margin-top:14px">Sign up and connect channels in minutes</div>
+   <div class="row" style="margin-top:14px;gap:8px"><span class="chipui" style="background:var(--lime)">from $29/mo</span></div></div>
+ <div id="ev5" class="ev cr" style="left:80px;top:1190px">${I('megaphone',30)} README · TrustMRR</div>
+</div>`;
+// S6 end card
+H+=`<div class="${DOTS()}" id="s6" style="background:${SC[6][1]}">
+ <div class="glow" style="left:60px;top:540px;width:900px;height:900px;--gc:rgba(106,66,236,.35)"></div>
+ <div id="cm6" class="card" style="left:80px;top:560px;width:770px;padding:22px 26px"><div class="row">${ICON(96)}<div><div style="font:900 40px/1.1 Inter;letter-spacing:-1px">Would you pay for it?</div><div style="font:600 24px Inter;color:var(--muted);margin-top:6px">Or host it free. Tell me in the comments</div></div></div></div>
+ <div id="fl6" class="card" style="left:80px;top:790px;width:700px;padding:22px 24px"><div class="row"><img src="avatar.svg" alt="MRR Pop profile picture" style="width:132px;height:132px;border-radius:50%;border:5px solid var(--ink);flex:none"><div><div style="font:900 36px Inter;letter-spacing:-1px">@getmrrpop</div><div style="font:600 22px Inter;color:var(--muted);margin-top:4px">The business behind software</div></div></div>
+   <div id="folBtn" class="btn" style="margin-top:18px;font-size:30px;padding:14px 30px">Follow MRR Pop</div></div>
+ <div id="cur6" class="abs" style="left:760px;top:1250px;opacity:0;z-index:9">${I('cursor',84)}</div>
+ <div id="conf6" class="abs" style="left:0;top:0;width:1080px;height:1920px"></div>
+</div>`;
+$('scenes').innerHTML=H;
+
+const CONF=[...Array(26)].map((_,i)=>{const a=(-170+i*(160/25))*Math.PI/180;return{dx:Math.cos(a)*(330+((i*53)%220)),dy:Math.sin(a)*(360+((i*71)%240)),r:(i*47)%360,c:['#6A42EC','#C6F03A','#FF6FB5','#FFD43B','#4C8DF6'][i%5],w:14+(i%3)*8,h:8+(i%2)*14}});
+$('conf6').innerHTML=CONF.map(c=>`<i class="cf" style="position:absolute;left:0;top:0;width:${c.w}px;height:${c.h}px;border-radius:3px;border:2px solid #1B1838;background:${c.c};opacity:0"></i>`).join('');
+$('px').innerHTML=[...Array(12*21)].map((_,i)=>`<i style="left:${(i%12)*90}px;top:${Math.floor(i/12)*92}px"></i>`).join('');
+const PXR=[...Array(12*21)].map((_,i)=>((i*7919)%251)/251);
+// channel icons: where each lands around the site window (2 rows under it, then they settle)
+const SOCPOS=SOCIALS.map((_,i)=>[80+(i%7)*104,i<7?975:1072]);
+
+// headline words with timing
+const WORDS=B.map((b,i)=>{const w=DISPLAY[i].split(/\s+/);const tot=w.reduce((s,x)=>s+x.length+1,0);let acc=0;return w.map(x=>{const st=b.start+(b.end-b.start)*acc/tot*.92;acc+=x.length+1;return[x,st]})});
+const CHUNKS=[];WORDS.forEach((ws,bi)=>{let cur=[];ws.forEach(([w,st],k)=>{cur.push([w,st]);const sent=/[.!?]$/.test(w),comma=/,$/.test(w)&&cur.length>=5;if(sent||comma||cur.length>=11||k===ws.length-1){CHUNKS.push({bi,words:cur,start:cur[0][1]});cur=[]}})});
+let hlChunk=-1;
+function headline(t){let ci=0;for(let i=0;i<CHUNKS.length;i++)if(t>=CHUNKS[i].start-.12)ci=i;
+ const ch=CHUNKS[ci],bi=ch.bi,el=$('hl');
+ if(ci!==hlChunk){hlChunk=ci;const a=(ACCENT[bi]||'').toLowerCase();el.innerHTML=ch.words.map(([w])=>{const clean=w.toLowerCase().replace(/[^a-z0-9]/g,'');return`<span class="w${a&&clean===a?' acc':''}">${w}</span>`}).join('')}
+ const dark=DARKBEAT[bi];el.style.color=dark?'#fff':'var(--ink)';
+ $$('#hl .w').forEach((s,k)=>{const kk=P(t,ch.words[k][1]-.05,.18);s.style.opacity=.16+.84*kk;s.style.transform=`translateY(${(1-eOut(kk))*14}px)`;if(s.classList.contains('acc'))s.style.color=dark?'var(--lime)':'var(--violet)'});
+ const kb=P(t,ch.start-.12,.22);el.style.transform=`translateY(${(1-eOut(kb))*22}px)`;el.style.opacity=.3+.7*eOut(kb)}
+
+// character
+const SLOTS={};for(const g of $$('#rig g[id]')){const m=g.id.match(/^(arms|eyes|brows|mouth|extras|glasses|front)-(.+)$/);if(m)(SLOTS[m[1]]??=[]).push(m[2])}
+function show(slot,v){for(const k of SLOTS[slot]||[]){const e=$(slot+'-'+k);if(e)e.style.display=k===v?'inline':'none'}}
+function setChar(pose,expr,viseme,blink){const p=MAN.poses[pose]||{},x=MAN.expressions[expr]||{};const s={...MAN.defaults,...p,...x};
+ if(viseme&&viseme!=='X')s.mouth=viseme;if(blink&&['open','up','side'].includes(s.eyes))s.eyes='closed';
+ for(const k of ['arms','eyes','brows','mouth','extras','glasses','front'])show(k,s[k])}
+// Face: follow the voice engine's cues (voice/voiceover.face.json, same styles as voices.json → expressive.*.face),
+// so every expression + pose change lands on the beat whose emotion it was voiced with.
+const FC=DATA.face;
+function faceCues(){if(!FC||!FC.expressions)return null;
+ const at=(list,t)=>{let v=list[0].value;for(const c of list)if(t>=c.start-1e-3)v=c.value;return v};
+ const ts=[...new Set([0,...FC.expressions.map(c=>c.start),...FC.poses.map(c=>c.start)])].sort((a,b)=>a-b);
+ return ts.map(t=>[t,at(FC.poses,t),at(FC.expressions,t)])}
+const ST=[faceCues()||[[0,'pointing','shocked'],[bs(1),'celebrating','star-struck'],[bs(2),'explaining','grin'],[bs(3),'thinking','curious'],[bs(4),'explaining','serious'],[bs(5),'explaining','grin'],[bs(6),'waving','grin']]];
+const SCALE=1.12, PXU=0.7683*SCALE, WAIST=940;
+const POS=[650,650,650,650,650,650,650];
+const scy=1920-WAIST*PXU;
+const FLAT=ST.flat();
+let ARMX=null;
+function armReach(){ARMX={};for(const g of $$('#rig g[id^="arms-"]')){const d=g.style.display;g.style.display='inline';const b=g.getBBox();g.style.display=d;ARMX[g.id.slice(5)]=[b.x,b.x+b.width]}}
+const SHOWN=q=>{const x=q[2],p=q[1],o=[p];if(x==='laughing'||x==='annoyed')o.push('belly-laugh','laugh-point');if(x==='shocked')o.push('recoil');if(['cool','cheeky','skeptical'].includes(x))o.push('hands-on-hips');if(x==='nervous')o.push('clap');return o};
+function xLim(q){if(!ARMX)armReach();let l=150,r=450;
+ const ex=(MAN.expressions[q[2]]||{}).extras;if(ex&&ex!=='none'){r=Math.max(r,580);l=Math.min(l,100)}
+ for(const p of SHOWN(q)){const a=(MAN.poses[p]||{}).arms,e=ARMX[a];if(e){l=Math.min(l,e[0]);r=Math.max(r,e[1])}}
+ const m=170,k=PXU*1.03;
+ return [48-(l-m)*k, 1080-48-(r+m)*k]}
+
+window.render=function(t){
+ let si=0;for(let i=0;i<SC.length;i++)if(t>=A[i])si=i;
+ let pxOn=null;SC.forEach((s,i)=>{if(s[2]==='pixel'&&t>=A[i]-.4&&t<A[i]+.45)pxOn=i});
+ SC.forEach((s,i)=>{const el=$('s'+i),st=A[i];
+  const incoming=i===si+1&&s[2]==='wipe'&&t>=st-.35;
+  el.style.display=(i===si||incoming)?'block':'none';el.style.zIndex=i;
+  if(s[2]==='wipe'&&i>0&&(incoming||i===si)){const k=eIO(P(t,st-.35,.45));el.style.clipPath=k>=1?'none':`polygon(${(1-k)*160-60}% 0,100% 0,100% 100%,${(1-k)*160-40}% 100%)`}else el.style.clipPath='none'});
+ $$('#px i').forEach((q,k)=>{if(pxOn===null){q.style.opacity=0;return}const st=A[pxOn];const inK=P(t,st-.4+PXR[k]*.3,.05),outK=P(t,st+PXR[(k*13)%PXR.length]*.35,.05);q.style.background=SC[pxOn][1];q.style.opacity=inK*(1-outK)});
+
+ // S0 hook: $417K counts up, FREE TO HOST slams in
+ {const h=$('h0'),d=be(0)-bs(0);h.style.transform=`scale(${1+.05*Math.sin(P(t,0,.6)*Math.PI)}) rotate(${-1.5+Math.sin(t*1.3)*.5}deg)`;
+  stampAnim('st0',t,.35,-7);
+  const kn=eOut(P(t,d*.45,1.0)),n=$('n0');n.textContent='$'+Math.round(FACT.mrrK*Math.max(kn,t<d*.45?1:0))+'K';n.style.transform=`scale(${1+.1*Math.sin(P(t,d*.45,.5)*Math.PI)})`;
+  const ev=$('ev0'),ke=pop(ev,t,d*.6,.3);ev.style.transform=`translateY(${(1-eOut(ke))*20}px)`}
+ // S1 FREE.
+ {const b1=bs(1);const f=$('fr1'),kf=pop(f,t,b1-.05,.3);f.style.transform=`scale(${1.8-.8*eBack(kf)}) rotate(${-4+Math.sin(t*3)*1.5}deg)`;
+  const q=$('q1'),kq=pop(q,t,b1+.35,.4);q.style.transform=`translateY(${(1-eBack(kq))*160}px) rotate(1deg)`}
+ // S2 site, channel icons fly in, agents light up
+ {const b2=bs(2),d=be(2)-b2;const w=$('w2'),kw=pop(w,t,b2-.05,.4);w.style.transform=`translateY(${(1-eBack(kw))*160}px) rotate(-1deg)`;
+  const fd=$('fd2'),kd=pop(fd,t,b2+.3,.35);fd.style.transform=`translateX(${(1-eBack(kd))*160}px) rotate(3deg)`;
+  
+  SOCIALS.forEach((_,i)=>{const e=$('so'+i),s=b2+d*.18+i*.07,k=eBack(P(t,s,.45));e.style.opacity=t>s?1:0;
+   const [x1,y1]=SOCPOS[i],x0=430,y0=760;const bob=Math.sin(t*3+i)*4;
+   e.style.transform=`translate(${x0+(x1-x0)*k}px,${y0+(y1-y0)*k+bob}px) rotate(${(1-C(k))*(i%2?-40:40)}deg) scale(${.4+.6*C(k)})`});
+  const ag=$('ag2'),ka=pop(ag,t,b2+d*.58,.35);ag.style.transform=`translateY(${(1-eBack(ka))*120}px)`;
+  AGENTS.forEach((_,i)=>{const e=$('ag'+i),k=pop(e,t,b2+d*.62+i*.1,.3);e.style.transform=`scale(${.3+.7*eBack(k)}) rotate(${Math.sin(t*4+i)*4}deg)`})}
+ // S3 GitHub
+ {const b3=bs(3);const w=$('w3'),kw=pop(w,t,b3-.05,.4);w.style.transform=`translateY(${(1-eBack(kw))*160}px) rotate(1deg)`;
+  const n=$('n3'),kn=eOut(P(t,b3+.2,.9));n.textContent=(41.6*kn).toFixed(1)+'k';
+  stampAnim('st3',t,b3+.5,-6)}
+ // S4 TrustMRR + 12,304
+ {const b4=bs(4);const w=$('w4'),kw=pop(w,t,b4-.05,.4);w.style.transform=`translateY(${(1-eBack(kw))*160}px) rotate(-1deg)`;
+  const c=$('c4'),kc=pop(c,t,b4+.4,.35);c.style.transform=`scale(${.6+.4*eBack(kc)}) rotate(1deg)`;
+  const n=Math.round(FACT.subs*eOut(P(t,b4+.5,1.4)));$('n4').textContent=n.toLocaleString('en-US');
+  const ev=$('ev4'),ke=pop(ev,t,b4+1.5,.3);ev.style.transform=`translateY(${(1-eOut(ke))*20}px)`}
+ // S5 server chores vs Cloud
+ {const b5=bs(5),d=be(5)-b5;const s=$('sv5'),ks=pop(s,t,b5-.05,.35);s.style.transform=`translateY(${(1-eBack(ks))*140}px) rotate(-1deg)`;
+  $$('#sv5 .task').forEach((e,i)=>{const k=pop(e,t,b5+.15+i*.14,.25);e.style.transform=`translateX(${(1-eOut(k))*-60}px)`});
+  rubberAnim('r5',t,b5+d*.5,-12);
+  const cl=$('cl5'),kc=pop(cl,t,b5+d*.62,.4);cl.style.transform=`translateY(${(1-eBack(kc))*180}px) rotate(2deg)`;
+  const ev=$('ev5'),ke=pop(ev,t,b5+d*.75,.3);ev.style.transform=`translateY(${(1-eOut(ke))*20}px)`}
+ // S6 end card
+ {const b6=bs(6);
+  const cm=$('cm6'),kc=pop(cm,t,b6,.4);cm.style.transform=`translateY(${(1-eBack(kc))*160}px) rotate(-1.5deg)`;
+  const fl=$('fl6'),kf=pop(fl,t,b6+.9,.4);fl.style.transform=`translateY(${(1-eBack(kf))*160}px) rotate(1deg)`;
+  const cur=$('cur6'),kx=P(t,b6+1.5,.6);cur.style.opacity=t>b6+1.4?1:0;cur.style.transform=`translate(${-eIO(kx)*480}px,${-eIO(kx)*250}px) scale(${t>b6+2.1&&t<b6+2.25?.85:1})`;
+  const fb=$('folBtn'),fd=t>b6+2.2;fb.textContent=fd?'Following ✓':'Follow MRR Pop';fb.style.background=fd?'var(--lime)':'var(--violet)';fb.style.color=fd?'var(--ink)':'#fff';
+  $$('#conf6 .cf').forEach((e,i)=>{const q=CONF[i];const kk=P(t,b6+2.2+i*.01,1.3);e.style.opacity=kk>0?1-P(t,b6+3.2,.3):0;e.style.transform=`translate(${420+q.dx*eOut(kk)*.8}px,${1080+q.dy*eOut(kk)*.8+kk*kk*600}px) rotate(${q.r*kk*3}deg)`})}
+
+ headline(t);
+ // source line follows the beat
+ {let bi=0;for(let i=0;i<B.length;i++)if(t>=bs(i)-.18)bi=i;const s=SRC[bi],el=$('src');
+  if(s){$('srcB').textContent=s[0];$('srcD').textContent=s[1];$('srcD').style.display=s[1]?'':'none'}
+  el.style.opacity=s?C(P(t,.6,.3)):0}
+
+ // character: waist up from the bottom edge
+ let s=FLAT[0];for(const q of FLAT)if(t>=q[0])s=q;
+ const fi=Math.floor(t*VIS.fps),vis=VIS.frames[fi]||'X',talk=vis!=='X';
+ const en0=window.energyAt&&VIS.energy?energyAt(VIS.energy,VIS.fps,t):(talk?.6:0);
+ const qi=FLAT.indexOf(s),prevQ=qi>0?FLAT[qi-1]:null;
+ const M=window.bodyMotion?bodyMotion({t,energy:en0,talking:talk,expression:s[2],pose:s[1],since:t-s[0],prevExpression:prevQ&&prevQ[2],prevPose:prevQ&&prevQ[1]}):null;
+ setChar(M?M.pose:s[1],s[2],vis,(t%3.4)>3.27);
+ const px0=POS[Math.max(0,si-1)];let x=px0+(POS[si]-px0)*eIO(P(t,A[si],.5));
+ {const L1=xLim(s),L0=prevQ?xLim(prevQ):L1,nq=FLAT[qi+1],w=eIO(P(t,s[0],.45));
+  let lo=Math.max(L0[0],L1[0]),hi=Math.min(L0[1],L1[1]);lo+=(L1[0]-lo)*w;hi+=(L1[1]-hi)*w;
+  if(nq){const N=xLim(nq),a=eIO(P(t,nq[0]-.5,.5));lo+=(Math.max(lo,N[0])-lo)*a;hi+=(Math.min(hi,N[1])-hi)*a}
+  x=Math.min(Math.max(x,lo),hi)}
+ let dy=(1-eBack(P(t,-.3,.6)))*700,sq=1;
+ for(const q of FLAT){const kk=(t-q[0])/.5;if(kk>0&&kk<1){dy-=(.5-.5*Math.cos(kk*Math.PI*2))*28;sq=1+Math.sin(kk*Math.PI*2)*.02}}
+ const sway=M?0:Math.sin(t*1.6)*1.2; if(!M)dy+=Math.sin(t*2.2)*6;
+ $('char').style.transform=`translate(${x}px,${scy+dy}px) scale(${SCALE/sq},${SCALE*sq}) rotate(${sway}deg)`;
+ const en=VIS.energy?(VIS.energy[fi]||0):(talk?.7:0);
+ const nod=en>.05?(Math.sin(t*7.3)*3+Math.sin(t*3.1)*2)*(.5+en*.7):Math.sin(t*1.4)*1.5;
+ let lift=-Math.abs(Math.sin(t*9))*4*en,tilt=nod;
+ if(M){const T=motionTransforms(M,MP_HIP,MP_FEET,MP_WAIST||undefined);
+  $('root')?.setAttribute('transform',T.root);$('legs')?.setAttribute('transform',T.legs);$('upper')?.setAttribute('transform',T.upper);$('armsrig')?.setAttribute('transform',T.arms);
+  tilt=M.headTilt;lift=T.headY}
+ $('head').style.transform=`rotate(${tilt}deg) translateY(${lift}px)`;
+};
+window.render(0);
+</script></body></html>

@@ -16,6 +16,7 @@ const voiceName = (id?: string) => registry.voices.find((v) => v.id === id)?.nam
 const GROUPS = [
   { key: 'signature', title: 'Signature · Mr. Pop', sub: 'the one voice · lip sync + expressions from the audio', icon: 'star', fill: 'var(--mp-accent-yellow)' },
   { key: 'mr-pop-3', title: 'Mr. Pop · human voice', sub: 'same delivery, real human timbre (Vaibhav) · candidate, not approved yet', icon: 'mic', fill: 'var(--mp-accent-yellow)' },
+  { key: 'mr-pop-4', title: 'Mr. Pop · smooth voice', sub: 'the signature since 2026-11-14 · signature accent + delivery, smooth reference timbre', icon: 'mic', fill: 'var(--mp-accent-yellow)' },
   { key: '', title: 'Other voiceovers', sub: 'older renders — re-render with the signature voice', icon: 'play', fill: 'var(--mp-accent-yellow)' },
 ];
 
@@ -95,8 +96,8 @@ export function VoicesPage({ packId }: { packId?: string }) {
             Voices <span className="it" style={{ color: 'var(--mp-role-primary)', fontSize: 54 }}>of Mr. Pop</span>
           </h1>
           <p>
-            One signature voice: male, bright on the big moments, steady on the numbers. Performed by Chatterbox (MIT) from an original
-            Kokoro timbre (Apache-2.0, no real person cloned). Candidate <b>Mr. Pop (human)</b> uses Vaibhav's own voice, with his consent. Registry: <span className="mono">voices/custom/voices.json</span>.
+            One signature voice: <b>Mr. Pop (smooth)</b>, male, bright on the big moments, steady on the numbers. Performed by Chatterbox (MIT) with
+            Mr. Pop's delivery and emotions in a smooth human timbre provided by Vaibhav. Earlier voices use an original Kokoro timbre (Apache-2.0, no real person cloned); <b>Mr. Pop (human)</b> uses Vaibhav's own voice, with his consent. Registry: <span className="mono">voices/custom/voices.json</span>.
           </p>
         </div>
       </header>

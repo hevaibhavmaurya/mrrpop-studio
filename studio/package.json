@@ -9,8 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mrrpop/character": "*",
-    "@mrrpop/theme": "*",
+    "@mrrpop/character": "workspace:*",
+    "@mrrpop/theme": "workspace:*",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },

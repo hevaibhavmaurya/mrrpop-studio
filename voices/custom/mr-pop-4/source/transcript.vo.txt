@@ -1,0 +1,13 @@
+# Re-performance of Lucknow_Sitapur_Road_3 (Whisper transcript), beats tagged to match the source's emotion.
+{hook}     Wait, what? One person built this app in a weekend, and it already pays their rent?
+{fun}      Okay, I love this. Let's go!
+{curious}  So here's my question. How did they find their very first paying user? Was it Reddit, a cold email… or just luck?
+{laugh}    Ha! Nine bucks a month? Nine bucks, and people are lining up for it! Honestly, I can't stop laughing.
+{annoyed}  Seriously? Nobody told me about this? Come on! I've been building this wrong stuff for two years!
+{wow}      No way. Twelve thousand dollars in one month?
+{curious}  Hold on. Say that again.
+{trust}    But not every story ends like that. Some builders ship for months, and nobody comes. That one hurts.
+{trust}    Here's the thing, though. Every number I share gets a label, so you always know where it came from. That's a promise.
+{curious}  Want to know the trick most people miss?
+{fun}      Pricing. Just pricing. A small software, real money, real people behind it.
+{cta}      So, would you build it, or would you buy it? Tell me in the comments, and I'll see you in the next one!

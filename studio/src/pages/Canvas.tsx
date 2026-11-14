@@ -99,7 +99,7 @@ export function CanvasPage({ packId }: { packId: string }) {
     if (!slug || !beats || !vis) return '';
     const tpl = tpls[ver.tplPath];
     const base = tplUrls[ver.tplPath].replace(/[^/]*$/, ''); // so relative font paths resolve
-    const data = { duration: beats.duration, beats: beats.beats, visemes: vis,
+    const data = { duration: beats.duration, beats: beats.beats, visemes: vis, face: face ? { expressions: face.expressions, poses: face.poses } : null,
       manifest: { poses: pack.poses, expressions: pack.expressions, defaults: pack.defaults ?? {} } };
     // the exact motion engine the studio uses, so Canvas = studio = render
     const motionJs = `<script>window.bodyMotion=${bodyMotion.toString()};window.motionTransforms=${motionTransforms.toString()};window.energyAt=${energyAt.toString()};` +

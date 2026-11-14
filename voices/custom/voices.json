@@ -1,13 +1,22 @@
 {
   "engine": "chatterbox (performance) · kokoro-82m (timbre reference only)",
-  "license": "Apache-2.0 (Kokoro base voices for the original timbre) + MIT (Chatterbox performance). Mr. Pop is an original MRR Pop voice — not cloned from any person. mr-pop-2 is bootstrapped from mr-pop's own audio only.",
+  "license": "Apache-2.0 (Kokoro base voices for the original timbre) + MIT (Chatterbox performance). mr-pop and mr-pop-2 are original MRR Pop voices, not cloned from any person (mr-pop-2 is bootstrapped from mr-pop's own audio). mr-pop-3 and mr-pop-4 (the signature since 2026-11-14) use real human timbres provided by Vaibhav; see each voice's consent note.",
   "sample": "Wait. One developer, one browser extension, twelve thousand dollars a month? That's a pop! Here's how they did it.",
-  "default": "mr-pop-2",
+  "default": "mr-pop-4",
   "voices": [
+    {
+      "id": "mr-pop-4",
+      "name": "Mr. Pop (smooth)",
+      "role": "THE voice of Mr. Pop — every Reel (signature since 2026-11-14)",
+      "vibe": "Same Mr. Pop accent, emotions and timing as the signature, with the reference recording's smoother voice quality",
+      "engine": "chatterbox",
+      "consent": "Reference recording Lucknow_Sitapur_Road_3_clean.m4a provided by Vaibhav on 2026-11-14 for MRR Pop use. Speaker identity + consent to be confirmed before approval. Source: voices/custom/mr-pop-4/source/reference-original.m4a",
+      "notes": "timbre.wav = 12 s clip (49.5-61.5 s) of the reference picked by human.py ref. reference.wav + emotions/*.wav = mr-pop-2's own reference and emotion clips re-voiced into that timbre (human.py build mr-pop-2 -> mr-pop-4), so expressive.py --ref mr-pop-4 keeps the signature accent/delivery. Speaker similarity to the reference 0.86, to the signature 0.85 (pure VC of the reference: 0.71)."
+    },
     {
       "id": "mr-pop-2",
       "name": "Mr. Pop",
-      "role": "THE voice of Mr. Pop — every Reel (signature)",
+      "role": "Previous signature (2026-11-13 to 2026-11-14) — kept for comparison",
       "vibe": "Same Mr. Pop, more human: wider pitch movement, real excitement, laughs and annoyance",
       "engine": "chatterbox",
       "notes": "Reference = voices/custom/mr-pop-2/reference.wav, bootstrapped by packages/pipeline/voice/liven.py (round 1, seed 7) from Mr. Pop's own Kokoro reference. No outside or real person's voice used. 97.8% speaker similarity to the previous signature."
@@ -200,19 +209,19 @@
     }
   },
   "signature": {
-    "voice": "mr-pop-2",
+    "voice": "mr-pop-4",
     "engine": "chatterbox",
-    "ref": "mr-pop-2",
+    "ref": "mr-pop-4",
     "seed": 7,
     "takes": 6,
     "more": 0.0,
-    "ref_sha256_16": "13368124c3b19820",
-    "approved": "2026-11-13 — Vaibhav picked liven.py round 1 (voices/custom/mr-pop-2) + per-emotion references (emotions/*.wav, emotions.py), 6 takes, voice-match take picking. Previous signature: voices/custom/mr-pop (kept).",
+    "ref_sha256_16": "5a0474844139a5d8",
+    "approved": "2026-11-14 — Vaibhav made Mr. Pop (smooth), voices/custom/mr-pop-4, the default: signature accent + delivery (mr-pop-2 reference + emotions re-voiced by human.py build) in the smooth timbre of his Lucknow_Sitapur_Road_3 reference. Seed 7, 6 takes, voice-match take picking unchanged. Previous signature: mr-pop-2 (kept).",
     "script": "packages/pipeline/voice/expressive.py",
     "_about": "LOCKED: the approved Mr. Pop voice. expressive.py uses these defaults. Changing the 'expressive' styles, the seed or reference.wav changes how he sounds.",
     "previous": {
-      "voice": "mr-pop",
-      "ref_sha256_16": "90fc13f225418c09"
+      "voice": "mr-pop-2",
+      "ref_sha256_16": "13368124c3b19820"
     }
   }
 }

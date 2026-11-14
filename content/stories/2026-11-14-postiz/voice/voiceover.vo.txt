@@ -1,0 +1,10 @@
+# Postiz (Revenue Pop). Voice: Mr. Pop (smooth), mr-pop-4, as Vaibhav asked 2026-11-14.
+# Facts re-checked Nov 14 2026 14:24 (TrustMRR $418,575 MRR, 12,325 active subs; postiz.com 30+ channels; README free self-host).
+# Spoken numbers are rounded down ("over") so the line stays true as TrustMRR updates; exact figures are on screen.
+{hook}    You can host this app for free. People still pay over four hundred thousand dollars a month.
+{wow}     Yes. Completely free.
+{fun}     It's called Postiz. It schedules your posts on over thirty platforms, while AI agents write them for you.
+{curious} The code's open source.
+{trust}   Yet there are over twelve thousand active subscriptions.
+{fun}     Because most people never want to touch a server.
+{cta}     Would you pay for an app you could host for free?

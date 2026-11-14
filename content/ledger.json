@@ -47,5 +47,23 @@
   },
   "version": "story",
   "duration_s": 47.6
+ },
+ {
+  "slug": "2026-11-14-postiz",
+  "date": "2026-11-14",
+  "series": "revenue-pop",
+  "product": "Postiz (open source agentic social media scheduler)",
+  "key_number": "$418,575 MRR \u00b7 12,325 active subscriptions",
+  "evidence": "payment-verified",
+  "sponsored": false,
+  "status": "draft",
+  "files": {
+   "reel": "exports/reel.mp4",
+   "caption": "exports/caption.txt",
+   "cover": "exports/cover.jpg"
+  },
+  "version": "canvas",
+  "duration_s": 25.1,
+  "voice": "mr-pop-4"
  }
 ]
