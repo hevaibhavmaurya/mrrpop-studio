@@ -1,0 +1,289 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+/* MRR Pop · Launch Pop · Ship or Die $100K Hackathon. Layout system from the MoveMRR/Postiz reels: text safe box (x 80 to 850, y 250 to 1440).
+   Real images in assets/: hackathon page + rules screenshots (2x), OG image, Ship or Die + Higgsfield logos, chest art from the page,
+   Marc Lou + Jack Friks photos (their X profiles), TrustMRR icon.
+   Script v2: voice/voiceover.vo.txt (Mr. Pop smooth, mr-pop-4) · Theme: packages/theme/themes/mrrpop-v6 · Icons: packages/ui/icons (injected) */
+@font-face{font-family:Inter;src:url(../../../../packages/theme/themes/mrrpop-v6/fonts/Inter-Variable.ttf);font-weight:100 900}
+@font-face{font-family:IS;src:url(../../../../packages/theme/themes/mrrpop-v6/fonts/InstrumentSerif-Italic.ttf);font-style:italic}
+:root{--paper:#FAF9FF;--white:#fff;--ink:#1B1838;--navy:#20244A;--muted:#6E6A8E;--faint:#A3A0BC;
+--lav:#ECE6FF;--limeMist:#F0F9D4;--sky:#E4EEFF;--blush:#FFE5F1;--cream:#FFF4CC;
+--violet:#6A42EC;--lime:#C6F03A;--yellow:#FFD43B;--pink:#FF6FB5;--lilac:#BBA6FF;--blue:#4C8DF6;--green:#3DBE6E;--greenInk:#1F8A48;--red:#F0475A}
+*{margin:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{background:var(--paper);font-family:Inter;color:var(--ink);font-feature-settings:"tnum" 1;position:relative}
+.abs{position:absolute}
+#scenes{position:absolute;inset:0}
+.scene{position:absolute;inset:0;overflow:hidden;display:none}
+.scene.dots:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(27,24,56,.07) 2px,transparent 2px);background-size:40px 40px}
+.scene.dark.dots:before{background-image:radial-gradient(rgba(255,255,255,.07) 2px,transparent 2px)}
+.glow{position:absolute;border-radius:50%;background-image:radial-gradient(circle,var(--gc,rgba(255,212,59,.75)) 2.6px,transparent 3px);background-size:15px 15px;
+  -webkit-mask-image:radial-gradient(circle,#000 0%,rgba(0,0,0,.55) 40%,transparent 70%);mask-image:radial-gradient(circle,#000 0%,rgba(0,0,0,.55) 40%,transparent 70%)}
+#hl{position:absolute;left:80px;top:262px;width:770px;font:600 66px/1.13 Inter;letter-spacing:-1.8px;z-index:30}
+#hl .w{display:inline-block;margin-right:.24em}
+#hl .acc{font-family:IS;font-style:italic;font-weight:400;letter-spacing:0;font-size:1.2em;line-height:.9}
+.stamp{position:absolute;display:inline-block;padding:12px 22px 10px;border:5px solid var(--ink);border-radius:12px;box-shadow:6px 6px 0 var(--ink);
+  font:900 44px/1 Inter;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap;opacity:0;z-index:6}
+.stamp span{display:inline-block;transform:scaleX(.84);transform-origin:left center;margin-right:-14%}
+.rubber{position:absolute;padding:10px 24px;border:8px solid var(--red);border-radius:14px;color:var(--red);font:900 58px/1 Inter;letter-spacing:2px;text-transform:uppercase;white-space:nowrap;opacity:0;z-index:7}
+.win{position:absolute;background:#fff;border:5px solid var(--ink);border-radius:30px;box-shadow:10px 10px 0 rgba(27,24,56,.9);overflow:hidden;opacity:0}
+.win .bar{display:flex;align-items:center;gap:10px;padding:14px 20px;border-bottom:4px solid var(--ink);background:var(--paper)}
+.win .bar i{width:16px;height:16px;border-radius:50%;border:3px solid var(--ink)}
+.win .url{margin-left:12px;flex:1;height:30px;border-radius:999px;border:3px solid var(--ink);background:#fff;font:700 16px/24px Inter;padding-left:14px;color:var(--muted);white-space:nowrap;overflow:hidden}
+.card{position:absolute;background:#fff;border:5px solid var(--ink);border-radius:26px;box-shadow:8px 8px 0 var(--ink);opacity:0}
+.row{display:flex;align-items:center;gap:16px}
+.ico{display:inline-block;flex:none}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;border:4px solid var(--ink);font:800 28px/1 Inter;background:var(--violet);color:#fff;white-space:nowrap}
+.chipui{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:3px solid var(--ink);font:800 18px/1 Inter;letter-spacing:1px;text-transform:uppercase;white-space:nowrap}
+.src{position:absolute;left:80px;top:1380px;display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;background:rgba(255,255,255,.9);border:3px solid var(--ink);font:600 20px/1 Inter;z-index:31;white-space:nowrap}
+.src b{font-weight:800}
+.ev{position:absolute;display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border-radius:999px;font:700 24px/1 Inter;white-space:nowrap;opacity:0;z-index:5}
+.ev.fr{background:#FFF4CC;color:#7A5A00;border:3px solid #E8C04A}
+.ev.pv{background:#E4F7EA;color:var(--greenInk);border:3px solid #8FD6A6}
+.ev.cr{background:#E7EEFB;color:#3B5C9A;border:3px solid #A9C1EA}
+.photo{border-radius:50%;border:6px solid var(--ink);box-shadow:8px 8px 0 var(--ink);object-fit:cover;background:#fff;display:block}
+.appicon{display:block;border:5px solid var(--ink);box-shadow:8px 8px 0 var(--ink);background:#6A42EC}
+.crop{background-repeat:no-repeat;display:block}
+.big{font:900 200px/1 Inter;letter-spacing:-10px}
+.soc{position:absolute;left:0;top:0;width:84px;height:84px;border-radius:22px;background:#fff;border:4px solid var(--ink);box-shadow:5px 5px 0 var(--ink);display:grid;place-items:center;opacity:0;z-index:7}
+.soc img{width:54px;height:54px}
+.agent{display:inline-grid;place-items:center;width:52px;height:52px;border-radius:14px;background:#fff;border:4px solid var(--ink);opacity:0}
+.agent img{width:32px;height:32px}
+.task{display:flex;align-items:center;gap:14px;font:800 32px/1 Inter;padding:14px 0;border-bottom:3px dashed rgba(27,24,56,.18);opacity:0}
+#char{position:absolute;left:0;top:0;width:461px;height:1060px;transform-origin:0 0;z-index:40}
+#char svg{width:461px;height:1060px;display:block;filter:drop-shadow(0 20px 24px rgba(27,24,56,.28))}
+#px{position:absolute;inset:0;z-index:25;pointer-events:none}
+#px i{position:absolute;width:90px;height:92px;opacity:0}
+</style></head><body>
+
+<div id="scenes"></div>
+<div id="px"></div>
+<div id="hl"></div>
+<div id="src" class="src"><span>Source:</span><b id="srcB"></b><span id="srcD"></span></div>
+<div id="char">RIG</div>
+
+<script>
+const DATA=DATAJSON, ICONS=ICONSJSON, B=DATA.beats, MAN=DATA.manifest, VIS=DATA.visemes;
+const C=(x,a=0,b=1)=>Math.max(a,Math.min(b,x)),P=(t,s,d)=>C((t-s)/d),eOut=x=>1-Math.pow(1-x,3),eIO=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const eBack=x=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const $=id=>document.getElementById(id), $$=s=>[...document.querySelectorAll(s)];
+const bs=i=>B[Math.min(i,B.length-1)].start, be=i=>B[Math.min(i,B.length-1)].end;
+const I=(n,s=80)=>(ICONS[n]||'').replace('<svg ',`<svg class="ico" width="${s}" height="${s}" `);
+const pop=(e,t,s,d=.4)=>{const k=P(t,s,d);e.style.opacity=C(k*3);return k};
+const stamp=(id,txt,bg,fg,x,y)=>`<div id="${id}" class="stamp" style="left:${x}px;top:${y}px;background:${bg};color:${fg}"><span>${txt}</span></div>`;
+const stampAnim=(id,t,s,rot)=>{const e=$(id);if(!e)return;const k=P(t,s,.32);e.style.opacity=C(k*4);e.style.transform=`rotate(${rot}deg) scale(${1.6-.6*eBack(k)})`};
+const rubberAnim=(id,t,s,rot)=>{const r=$(id),k=P(t,s,.25);r.style.opacity=C(k*4);r.style.transform=`rotate(${rot}deg) scale(${1.8-.8*eOut(k)})`};
+// crop a region (original pixels) of a 2560 px wide screenshot into a box w px wide
+const CROP=(src,ox,oy,ow,oh,w,extra='')=>{const s=w/ow;return `<div class="crop" style="width:${w}px;height:${Math.round(oh*s)}px;background-image:url(${src});background-size:${2560*s}px auto;background-position:${-ox*s}px ${-oy*s}px;${extra}"></div>`};
+const ICON=(s)=>`<img class="appicon" src="assets/shipordie-icon.png" alt="Ship or Die logo" style="width:${s}px;height:${s}px;border-radius:${s*.24}px;background:#0B0F1A">`;
+const PHOTO=(f,alt,s)=>`<img class="photo" src="assets/${f}" alt="${alt}" style="width:${s}px;height:${s}px">`;
+const ORG=[['marc-lou.jpg','Marc Lou','@marclou'],['jack-friks.jpg','Jack Friks','@jackfriks'],['higgsfield-icon.png','Higgsfield','prize sponsor']];
+
+// beats (voice/voiceover.vo.txt, v2):
+// 0 hook $100,000 for profit, not revenue · 1 Marc Lou, Jack Friks, Higgsfield, 30 day hackathon, 3,000+ solo builders
+// 2 brand new apps, zero customers · 3 catch: ad spend comes off, every sale checked on TrustMRR
+// 4 real test: customers without buying them · 5 I'll track the leaderboard until Dec 16 · 6 CTA would you enter, yes or no
+// Facts: ship-or-die.com/100k-hackathon + /rules, Nov 16 2026 (page counter 3,309 to 3,310; shown as 3,300+)
+const FACT={prize:100000,builders:3300,when:'Nov 16'};
+const DISPLAY=B.map(b=>b.text.replace(/a hundred thousand dollars/ig,'$100,000').replace(/thirty day/i,'30 day').replace(/three thousand/i,'3,000').replace(/December sixteenth/i,'Dec 16'));
+const ACCENT=['profit','hackathon','zero','ads','buying','leaderboard','link'];
+const DARKBEAT=[0,0,0,1,0,0,0];
+const SRC=[['Ship or Die hackathon page','· '+FACT.when],['Ship or Die hackathon page','· '+FACT.when],['Hackathon rules §1 and §4',''],['Hackathon rules §5 and §13',''],['Hackathon rules §6',''],['Hackathon rules §2',''],null];
+const SC=[[0,'#ECE6FF','none'],[1,'#FFF4CC','wipe'],[2,'#F0F9D4','wipe'],[3,'#20244A','pixel'],[4,'#FFE5F1','wipe'],[5,'#E4EEFF','wipe'],[6,'#ECE6FF','wipe']];
+const A=SC.map((s,i)=>i===0?0:bs(s[0])-.18); A.push(DATA.duration+5);
+const DOTS=(dark)=>`scene dots${dark?' dark':''}`;
+
+let H='';
+// S0 hook: $100,000 prize card (hackathon art), REVENUE struck, PROFIT stamp
+H+=`<div class="${DOTS()}" id="s0" style="background:${SC[0][1]}">
+ <div class="glow" style="left:60px;top:470px;width:960px;height:960px;--gc:rgba(106,66,236,.42)"></div>
+ <div id="h0" class="card" style="left:80px;top:540px;width:770px;padding:28px 34px 30px;border-radius:40px;opacity:1">
+   <div class="row" style="gap:18px">${ICON(84)}<div><div style="font:900 46px/1 Inter;letter-spacing:-1.5px">$100K Hackathon</div><div style="font:700 22px Inter;color:var(--muted);margin-top:6px">Ship or Die · 30 days · first prize</div></div></div>
+   <div class="row" style="margin-top:22px;align-items:flex-end;gap:10px"><div id="n0" class="big" style="color:var(--violet);font-size:164px;letter-spacing:-8px;transform-origin:left bottom">$100,000</div></div>
+   <div class="row" style="margin-top:16px;gap:16px"><div id="rv0" style="position:relative;font:900 54px/1 Inter;color:var(--faint);letter-spacing:-1px">REVENUE<i id="ln0" style="position:absolute;left:-6px;top:24px;height:8px;width:0;background:var(--red);border-radius:4px"></i></div>
+   <img src="assets/chest.png" alt="Treasure chest art from the hackathon page" style="width:110px;height:100px;image-rendering:pixelated;margin-left:auto"></div></div>
+ ${stamp('st0','Profit','var(--lime)','var(--ink)',430,1000)}
+ <div id="ev0" class="ev cr" style="left:80px;top:1100px">${I('megaphone',30)} Company announced</div>
+</div>`;
+// S1 who + how many: real hackathon page, organisers with real photos, 3,300+ counter
+H+=`<div class="${DOTS()}" id="s1" style="background:${SC[1][1]}">
+ <div id="w1" class="win" style="left:80px;top:560px;width:770px">
+   <div class="bar"><i style="background:#FF6FB5"></i><i style="background:#FFD43B"></i><i style="background:#C6F03A"></i><div class="url"></div></div>
+   ${CROP('assets/hackathon-hero.png',560,380,1440,760,760)}</div>
+ ${ORG.map((o,i)=>`<div id="og${i}" class="card" style="left:${80+i*0}px;top:${1000+i*0}px;padding:10px 20px 10px 10px;border-radius:999px;z-index:9"><div class="row" style="gap:12px">${i<2?PHOTO(o[0],o[1],66):`<img class="appicon" src="assets/${o[0]}" alt="Higgsfield logo" style="width:66px;height:66px;border-radius:16px;background:#C6F03A">`}<div><div style="font:900 25px Inter">${o[1]}</div><div style="font:700 17px Inter;color:var(--muted)">${o[2]}</div></div></div></div>`).join('')}
+ <div id="c1" class="card" style="left:80px;top:1040px;width:500px;padding:16px 28px 18px;border-radius:34px;z-index:10">
+   <div class="row" style="align-items:flex-end;gap:14px"><div id="n1" class="big" style="font-size:124px;letter-spacing:-6px">3,300+</div></div>
+   <div style="font:800 32px Inter;letter-spacing:-1px;margin-top:4px">solo builders signed up</div></div>
+</div>`;
+// S2 brand new apps, zero customers: rule chips
+H+=`<div class="${DOTS()}" id="s2" style="background:${SC[2][1]}">
+ <div class="glow" style="left:60px;top:470px;width:960px;height:960px;--gc:rgba(61,190,110,.38)"></div>
+ <div id="z2" class="card" style="left:80px;top:560px;width:620px;padding:24px 30px;border-radius:34px">
+   <div style="font:800 26px Inter;color:var(--muted);letter-spacing:1px;text-transform:uppercase">Customers on day 1</div>
+   <div class="big" style="font-size:230px;letter-spacing:-12px;color:var(--violet)">0</div></div>
+ ${stamp('st2a','Brand new app','var(--yellow)','var(--ink)',120,1000)}
+ ${stamp('st2b','Solo only','#fff','var(--ink)',180,1120)}
+ ${stamp('st2c','Nov 16 start','var(--pink)','var(--ink)',150,1240)}
+</div>`;
+// S3 (dark) the catch: profit formula (rules §13), ad spend flashes red, then TrustMRR checks
+H+=`<div class="${DOTS(1)}" id="s3" style="background:${SC[3][1]}">
+ <div id="w3" class="win" style="left:80px;top:560px;width:770px">
+   <div class="bar"><i style="background:#FF6FB5"></i><i style="background:#FFD43B"></i><i style="background:#C6F03A"></i><div class="url"></div></div>
+   ${CROP('assets/rules-profit.png',500,20,1580,300,760)}</div>
+ <div id="f3" class="card" style="left:80px;top:790px;width:770px;padding:20px 30px;border-radius:30px">
+   <div style="font:900 40px Inter;letter-spacing:-1px">Profit =</div>
+   ${[['money received','+'],['refunds','−'],['payment fees','−'],['ad spend','−']].map((x,i)=>`<div class="task" id="fm${i}" style="font-size:38px;${i===3?'color:var(--red)':''}"><b style="width:40px;display:inline-block;text-align:center">${x[1]}</b>${x[0]}</div>`).join('')}</div>
+ <div id="tm3" class="card" style="left:80px;top:580px;width:770px;padding:18px 26px;border-radius:26px;z-index:9"><div class="row" style="gap:14px"><img src="assets/trustmrr-icon.png" alt="TrustMRR logo" style="width:60px;height:60px;border-radius:14px"><div><div style="font:900 30px Inter">Every sale checked</div><div style="font:700 22px Inter;color:var(--muted)">payments connected to TrustMRR</div></div><div id="ck3" style="margin-left:auto;opacity:0">${I('verified',56)}</div></div></div>
+</div>`;
+// S4 real test: customers without buying them
+H+=`<div class="${DOTS()}" id="s4" style="background:${SC[4][1]}">
+ <div id="p4" class="card" style="left:80px;top:560px;width:560px;padding:22px 28px;border-radius:30px">
+   <div class="row" style="gap:16px">${I('megaphone',70)}<div><div style="font:900 40px Inter;letter-spacing:-1px">Paid ads</div><div style="font:700 24px Inter;color:var(--muted)">every dollar comes off</div></div></div></div>
+ <div id="r4" class="rubber" style="left:560px;top:520px;font-size:54px;background:rgba(255,229,241,.92)">Minus</div>
+ <div id="o4" class="card" style="left:80px;top:850px;width:640px;padding:22px 28px;border-radius:30px">
+   <div class="row" style="gap:16px">${I('trend',70)}<div><div style="font:900 40px Inter;letter-spacing:-1px">Customers who find you</div><div style="font:700 24px Inter;color:var(--muted)">word of mouth, posts, search</div></div></div></div>
+ ${stamp('st4','Real test','var(--lime)','var(--ink)',420,1100)}
+</div>`;
+// S5 tracking the leaderboard: Nov 16 to Dec 16, part 1 of 3
+H+=`<div class="${DOTS()}" id="s5" style="background:${SC[5][1]}">
+ <div id="cal5" class="card" style="left:80px;top:560px;width:770px;padding:24px 30px;border-radius:34px">
+   <div class="row" style="gap:14px">${I('calendar',56)}<div style="font:900 40px Inter;letter-spacing:-1px">Leaderboard watch</div></div>
+   <div class="row" style="margin-top:22px;gap:18px;align-items:center"><div style="font:900 64px Inter;letter-spacing:-2px">Nov 16</div>
+     <div style="flex:1;height:14px;border-radius:7px;background:var(--lav);border:3px solid var(--ink);overflow:hidden"><i id="bar5" style="display:block;height:100%;width:0;background:var(--violet)"></i></div>
+     <div style="font:900 64px Inter;letter-spacing:-2px;color:var(--violet)">Dec 16</div></div></div>
+ ${['Part 1 · Launch','Part 2 · Halfway','Part 3 · Winner'].map((x,i)=>`<div id="pt${i}" class="chipui" style="position:absolute;left:80px;top:${860+i*80}px;font-size:26px;padding:12px 20px;opacity:0;background:${i===0?'var(--lime)':'#fff'}">${x}</div>`).join('')}
+</div>`;
+// S6 end card: YES / NO question + follow
+H+=`<div class="${DOTS()}" id="s6" style="background:${SC[6][1]}">
+ <div class="glow" style="left:60px;top:540px;width:900px;height:900px;--gc:rgba(106,66,236,.35)"></div>
+ <div id="cm6" class="card" style="left:80px;top:560px;width:770px;padding:22px 26px"><div class="row">${ICON(96)}<div><div style="font:900 40px/1.1 Inter;letter-spacing:-1px">Want to enter?</div><div style="font:600 24px Inter;color:var(--muted);margin-top:6px">Comment the word below. I'll send you the link</div></div></div>
+   <div class="row" style="margin-top:16px;gap:14px">${I('comment',44)}<span class="chipui" style="font-size:40px;padding:14px 34px;background:var(--lime);letter-spacing:4px">LINK</span></div></div>
+ <div id="fl6" class="card" style="left:80px;top:860px;width:700px;padding:22px 24px"><div class="row"><img src="avatar.svg" alt="MRR Pop profile picture" style="width:132px;height:132px;border-radius:50%;border:5px solid var(--ink);flex:none"><div><div style="font:900 36px Inter;letter-spacing:-1px">@getmrrpop</div><div style="font:600 22px Inter;color:var(--muted);margin-top:4px">The business behind software</div></div></div>
+   <div id="folBtn" class="btn" style="margin-top:18px;font-size:30px;padding:14px 30px">Follow MRR Pop</div></div>
+ <div id="cur6" class="abs" style="left:760px;top:1320px;opacity:0;z-index:9">${I('cursor',84)}</div>
+ <div id="conf6" class="abs" style="left:0;top:0;width:1080px;height:1920px"></div>
+</div>`;
+$('scenes').innerHTML=H;
+
+const CONF=[...Array(26)].map((_,i)=>{const a=(-170+i*(160/25))*Math.PI/180;return{dx:Math.cos(a)*(330+((i*53)%220)),dy:Math.sin(a)*(360+((i*71)%240)),r:(i*47)%360,c:['#6A42EC','#C6F03A','#FF6FB5','#FFD43B','#4C8DF6'][i%5],w:14+(i%3)*8,h:8+(i%2)*14}});
+$('conf6').innerHTML=CONF.map(c=>`<i class="cf" style="position:absolute;left:0;top:0;width:${c.w}px;height:${c.h}px;border-radius:3px;border:2px solid #1B1838;background:${c.c};opacity:0"></i>`).join('');
+$('px').innerHTML=[...Array(12*21)].map((_,i)=>`<i style="left:${(i%12)*90}px;top:${Math.floor(i/12)*92}px"></i>`).join('');
+const PXR=[...Array(12*21)].map((_,i)=>((i*7919)%251)/251);
+
+// headline words with timing
+const WORDS=B.map((b,i)=>{const w=DISPLAY[i].split(/\s+/);const tot=w.reduce((s,x)=>s+x.length+1,0);let acc=0;return w.map(x=>{const st=b.start+(b.end-b.start)*acc/tot*.92;acc+=x.length+1;return[x,st]})});
+const CHUNKS=[];WORDS.forEach((ws,bi)=>{let cur=[];ws.forEach(([w,st],k)=>{cur.push([w,st]);const sent=/[.!?]$/.test(w),comma=/,$/.test(w)&&cur.length>=5;if(sent||comma||cur.length>=11||k===ws.length-1){CHUNKS.push({bi,words:cur,start:cur[0][1]});cur=[]}})});
+let hlChunk=-1;
+function headline(t){let ci=0;for(let i=0;i<CHUNKS.length;i++)if(t>=CHUNKS[i].start-.12)ci=i;
+ const ch=CHUNKS[ci],bi=ch.bi,el=$('hl');
+ if(ci!==hlChunk){hlChunk=ci;const a=(ACCENT[bi]||'').toLowerCase();el.innerHTML=ch.words.map(([w])=>{const clean=w.toLowerCase().replace(/[^a-z0-9]/g,'');return`<span class="w${a&&clean===a?' acc':''}">${w}</span>`}).join('')}
+ const dark=DARKBEAT[bi];el.style.color=dark?'#fff':'var(--ink)';
+ $$('#hl .w').forEach((s,k)=>{const kk=P(t,ch.words[k][1]-.05,.18);s.style.opacity=bi===0?1:.16+.84*kk;s.style.transform=`translateY(${(1-eOut(kk))*14}px)`;if(s.classList.contains('acc'))s.style.color=dark?'var(--lime)':'var(--violet)'});
+ const kb=P(t,ch.start-.12,.22);el.style.transform=`translateY(${(1-eOut(kb))*22}px)`;el.style.opacity=bi===0?1:.3+.7*eOut(kb)}
+
+// character
+const SLOTS={};for(const g of $$('#rig g[id]')){const m=g.id.match(/^(arms|eyes|brows|mouth|extras|glasses|front)-(.+)$/);if(m)(SLOTS[m[1]]??=[]).push(m[2])}
+function show(slot,v){for(const k of SLOTS[slot]||[]){const e=$(slot+'-'+k);if(e)e.style.display=k===v?'inline':'none'}}
+function setChar(pose,expr,viseme,blink){const p=MAN.poses[pose]||{},x=MAN.expressions[expr]||{};const s={...MAN.defaults,...p,...x};
+ if(viseme&&viseme!=='X')s.mouth=viseme;if(blink&&['open','up','side'].includes(s.eyes))s.eyes='closed';
+ for(const k of ['arms','eyes','brows','mouth','extras','glasses','front'])show(k,s[k])}
+// Face: follow the voice engine's cues (voice/voiceover.face.json, same styles as voices.json → expressive.*.face),
+// so every expression + pose change lands on the beat whose emotion it was voiced with.
+const FC=DATA.face;
+function faceCues(){if(!FC||!FC.expressions)return null;
+ const at=(list,t)=>{let v=list[0].value;for(const c of list)if(t>=c.start-1e-3)v=c.value;return v};
+ const ts=[...new Set([0,...FC.expressions.map(c=>c.start),...FC.poses.map(c=>c.start)])].sort((a,b)=>a-b);
+ return ts.map(t=>[t,at(FC.poses,t),at(FC.expressions,t)])}
+const ST=[faceCues()||[[0,'pointing','shocked'],[bs(1),'celebrating','star-struck'],[bs(2),'explaining','grin'],[bs(3),'thinking','curious'],[bs(4),'explaining','serious'],[bs(5),'explaining','grin'],[bs(6),'waving','grin']]];
+const SCALE=1.12, PXU=0.7683*SCALE, WAIST=940;
+const POS=[650,650,650,650,650,650,650];
+const scy=1920-WAIST*PXU;
+const FLAT=ST.flat();
+let ARMX=null;
+function armReach(){ARMX={};for(const g of $$('#rig g[id^="arms-"]')){const d=g.style.display;g.style.display='inline';const b=g.getBBox();g.style.display=d;ARMX[g.id.slice(5)]=[b.x,b.x+b.width]}}
+const SHOWN=q=>{const x=q[2],p=q[1],o=[p];if(x==='laughing'||x==='annoyed')o.push('belly-laugh','laugh-point');if(x==='shocked')o.push('recoil');if(['cool','cheeky','skeptical'].includes(x))o.push('hands-on-hips');if(x==='nervous')o.push('clap');return o};
+function xLim(q){if(!ARMX)armReach();let l=150,r=450;
+ const ex=(MAN.expressions[q[2]]||{}).extras;if(ex&&ex!=='none'){r=Math.max(r,580);l=Math.min(l,100)}
+ for(const p of SHOWN(q)){const a=(MAN.poses[p]||{}).arms,e=ARMX[a];if(e){l=Math.min(l,e[0]);r=Math.max(r,e[1])}}
+ const m=170,k=PXU*1.03;
+ return [48-(l-m)*k, 1080-48-(r+m)*k]}
+
+window.render=function(t){
+ let si=0;for(let i=0;i<SC.length;i++)if(t>=A[i])si=i;
+ let pxOn=null;SC.forEach((s,i)=>{if(s[2]==='pixel'&&t>=A[i]-.4&&t<A[i]+.45)pxOn=i});
+ SC.forEach((s,i)=>{const el=$('s'+i),st=A[i];
+  const incoming=i===si+1&&s[2]==='wipe'&&t>=st-.35;
+  el.style.display=(i===si||incoming)?'block':'none';el.style.zIndex=i;
+  if(s[2]==='wipe'&&i>0&&(incoming||i===si)){const k=eIO(P(t,st-.35,.45));el.style.clipPath=k>=1?'none':`polygon(${(1-k)*160-60}% 0,100% 0,100% 100%,${(1-k)*160-40}% 100%)`}else el.style.clipPath='none'});
+ $$('#px i').forEach((q,k)=>{if(pxOn===null){q.style.opacity=0;return}const st=A[pxOn];const inK=P(t,st-.4+PXR[k]*.3,.05),outK=P(t,st+PXR[(k*13)%PXR.length]*.35,.05);q.style.background=SC[pxOn][1];q.style.opacity=inK*(1-outK)});
+
+ // S0 hook: $100,000 counts up, REVENUE struck through, PROFIT stamp
+ {const h=$('h0'),d=be(0)-bs(0);h.style.transform=`scale(${1+.05*Math.sin(P(t,0,.6)*Math.PI)}) rotate(${-1.5+Math.sin(t*1.3)*.5}deg)`;
+  const kn=eOut(P(t,d*.05,.8)),n=$('n0');n.textContent='$'+Math.round(FACT.prize*Math.max(kn,t<d*.05?1:0)).toLocaleString('en-US');n.style.transform=`scale(${1+.08*Math.sin(P(t,d*.05,.5)*Math.PI)})`;
+  $('ln0').style.width=(eOut(P(t,d*.55,.3))*290)+'px';
+  stampAnim('st0',t,d*.75,-7);
+  const ev=$('ev0'),ke=pop(ev,t,d*.3,.3);ev.style.transform=`translateY(${(1-eOut(ke))*20}px)`}
+ // S1 hackathon page, organisers pop in, then 3,300+ counter
+ {const b1=bs(1),d=be(1)-b1;const w=$('w1'),kw=pop(w,t,b1-.05,.4);w.style.transform=`translateY(${(1-eBack(kw))*160}px) rotate(-1deg)`;
+  const OP=[[80,1040],[400,1040],[80,1150]];
+  ORG.forEach((_,i)=>{const e=$('og'+i),s=b1+d*(.05+i*.12),k=pop(e,t,s,.35),out=P(t,b1+d*.55,.3);e.style.opacity=C(k*3)*(1-out);
+   e.style.left=OP[i][0]+'px';e.style.top=OP[i][1]+'px';e.style.transform=`translateY(${(1-eBack(k))*120}px) rotate(${i%2?2:-2}deg)`});
+  const c=$('c1'),kc=pop(c,t,b1+d*.58,.35);c.style.transform=`scale(${.6+.4*eBack(kc)}) rotate(1deg)`;
+  const n=Math.round(FACT.builders*eOut(P(t,b1+d*.6,1.2)));$('n1').textContent=n.toLocaleString('en-US')+(n>=FACT.builders?'+':'')}
+ // S2 zero customers, three rule stamps
+ {const b2=bs(2),d=be(2)-b2;const z=$('z2'),kz=pop(z,t,b2-.05,.35);z.style.transform=`scale(${.7+.3*eBack(kz)}) rotate(-1.5deg)`;
+  stampAnim('st2a',t,b2+d*.15,-6);stampAnim('st2b',t,b2+d*.4,4);stampAnim('st2c',t,b2+d*.65,-3)}
+ // S3 rules receipt, formula builds term by term, ad spend shakes, TrustMRR checks
+ {const b3=bs(3),d=be(3)-b3;const w=$('w3'),kw=pop(w,t,b3-.05,.4);w.style.transform=`translateY(${(1-eBack(kw))*160}px) rotate(-1deg)`;
+  const f=$('f3'),kf=pop(f,t,b3+d*.08,.35);f.style.transform=`translateY(${(1-eBack(kf))*140}px) rotate(.5deg)`;
+  $$('#f3 .task').forEach((e,i)=>{const k=pop(e,t,b3+d*(.12+i*.07),.25);const sh=i===3&&t>b3+d*.35&&t<b3+d*.55?Math.sin(t*60)*6:0;e.style.transform=`translateX(${(1-eOut(k))*-60+sh}px)`});
+  const tm=$('tm3'),kt=pop(tm,t,b3+d*.62,.35);tm.style.transform=`translateY(${(1-eBack(kt))*140}px) rotate(-1deg)`;
+  const ck=$('ck3'),kc=P(t,b3+d*.78,.3);ck.style.opacity=C(kc*3);ck.style.transform=`scale(${1.6-.6*eBack(kc)})`}
+ // S4 paid ads (minus) vs customers who find you, REAL TEST stamp
+ {const b4=bs(4),d=be(4)-b4;const p=$('p4'),kp=pop(p,t,b4-.05,.35);p.style.transform=`translateY(${(1-eBack(kp))*140}px) rotate(-1deg)`;
+  rubberAnim('r4',t,b4+d*.2,-10);
+  const o=$('o4'),ko=pop(o,t,b4+d*.45,.35);o.style.transform=`translateY(${(1-eBack(ko))*140}px) rotate(1deg)`;
+  stampAnim('st4',t,b4+d*.7,-5)}
+ // S5 calendar bar fills, part chips
+ {const b5=bs(5),d=be(5)-b5;const c=$('cal5'),kc=pop(c,t,b5-.05,.35);c.style.transform=`translateY(${(1-eBack(kc))*140}px) rotate(-1deg)`;
+  $('bar5').style.width=(eIO(P(t,b5+d*.2,1.4))*100)+'%';
+  [0,1,2].forEach(i=>{const e=$('pt'+i),k=pop(e,t,b5+d*(.3+i*.15),.3);e.style.transform=`translateX(${(1-eBack(k))*-120}px)`})}
+ // S6 end card
+ {const b6=bs(6);
+  const cm=$('cm6'),kc=pop(cm,t,b6,.4);cm.style.transform=`translateY(${(1-eBack(kc))*160}px) rotate(-1.5deg)`;
+  const fl=$('fl6'),kf=pop(fl,t,b6+.9,.4);fl.style.transform=`translateY(${(1-eBack(kf))*160}px) rotate(1deg)`;
+  const cur=$('cur6'),kx=P(t,b6+1.5,.6);cur.style.opacity=t>b6+1.4?1:0;cur.style.transform=`translate(${-eIO(kx)*480}px,${-eIO(kx)*250}px) scale(${t>b6+2.1&&t<b6+2.25?.85:1})`;
+  const fb=$('folBtn'),fd=t>b6+2.2;fb.textContent=fd?'Following ✓':'Follow MRR Pop';fb.style.background=fd?'var(--lime)':'var(--violet)';fb.style.color=fd?'var(--ink)':'#fff';
+  $$('#conf6 .cf').forEach((e,i)=>{const q=CONF[i];const kk=P(t,b6+2.2+i*.01,1.3);e.style.opacity=kk>0?1-P(t,b6+3.2,.3):0;e.style.transform=`translate(${420+q.dx*eOut(kk)*.8}px,${1080+q.dy*eOut(kk)*.8+kk*kk*600}px) rotate(${q.r*kk*3}deg)`})}
+
+ headline(t);
+ // source line follows the beat
+ {let bi=0;for(let i=0;i<B.length;i++)if(t>=bs(i)-.18)bi=i;const s=SRC[bi],el=$('src');
+  if(s){$('srcB').textContent=s[0];$('srcD').textContent=s[1];$('srcD').style.display=s[1]?'':'none'}
+  el.style.opacity=s?C(P(t,.6,.3)):0}
+
+ // character: waist up from the bottom edge
+ let s=FLAT[0];for(const q of FLAT)if(t>=q[0])s=q;
+ const fi=Math.floor(t*VIS.fps),vis=VIS.frames[fi]||'X',talk=vis!=='X';
+ const en0=window.energyAt&&VIS.energy?energyAt(VIS.energy,VIS.fps,t):(talk?.6:0);
+ const qi=FLAT.indexOf(s),prevQ=qi>0?FLAT[qi-1]:null;
+ const M=window.bodyMotion?bodyMotion({t,energy:en0,talking:talk,expression:s[2],pose:s[1],since:t-s[0],prevExpression:prevQ&&prevQ[2],prevPose:prevQ&&prevQ[1]}):null;
+ setChar(M?M.pose:s[1],s[2],vis,(t%3.4)>3.27);
+ const px0=POS[Math.max(0,si-1)];let x=px0+(POS[si]-px0)*eIO(P(t,A[si],.5));
+ {const L1=xLim(s),L0=prevQ?xLim(prevQ):L1,nq=FLAT[qi+1],w=eIO(P(t,s[0],.45));
+  let lo=Math.max(L0[0],L1[0]),hi=Math.min(L0[1],L1[1]);lo+=(L1[0]-lo)*w;hi+=(L1[1]-hi)*w;
+  if(nq){const N=xLim(nq),a=eIO(P(t,nq[0]-.5,.5));lo+=(Math.max(lo,N[0])-lo)*a;hi+=(Math.min(hi,N[1])-hi)*a}
+  x=Math.min(Math.max(x,lo),hi)}
+ let dy=(1-eBack(P(t,-.3,.6)))*700,sq=1;
+ for(const q of FLAT){const kk=(t-q[0])/.5;if(kk>0&&kk<1){dy-=(.5-.5*Math.cos(kk*Math.PI*2))*28;sq=1+Math.sin(kk*Math.PI*2)*.02}}
+ const sway=M?0:Math.sin(t*1.6)*1.2; if(!M)dy+=Math.sin(t*2.2)*6;
+ $('char').style.transform=`translate(${x}px,${scy+dy}px) scale(${SCALE/sq},${SCALE*sq}) rotate(${sway}deg)`;
+ const en=VIS.energy?(VIS.energy[fi]||0):(talk?.7:0);
+ const nod=en>.05?(Math.sin(t*7.3)*3+Math.sin(t*3.1)*2)*(.5+en*.7):Math.sin(t*1.4)*1.5;
+ let lift=-Math.abs(Math.sin(t*9))*4*en,tilt=nod;
+ if(M){const T=motionTransforms(M,MP_HIP,MP_FEET,MP_WAIST||undefined);
+  $('root')?.setAttribute('transform',T.root);$('legs')?.setAttribute('transform',T.legs);$('upper')?.setAttribute('transform',T.upper);$('armsrig')?.setAttribute('transform',T.arms);
+  tilt=M.headTilt;lift=T.headY}
+ $('head').style.transform=`rotate(${tilt}deg) translateY(${lift}px)`;
+};
+window.render(0);
+</script></body></html>

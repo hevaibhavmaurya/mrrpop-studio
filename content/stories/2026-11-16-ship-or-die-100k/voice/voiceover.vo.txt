@@ -1,0 +1,11 @@
+# Ship or Die $100K Hackathon (Launch Pop) v2. Voice: Mr. Pop (smooth), mr-pop-4. Written 2026-11-16.
+# Facts: ship-or-die.com/100k-hackathon + /rules (Nov 16). Builder count 3,309 spoken as "over three thousand".
+# v3 (Nov 16): CTA changed to the standing "Comment LINK" ask; only this line re-voiced (voice/cta/), spliced onto v2 audio.
+# v2: ig-human 95.9 PASS (v1 71.1), easy yes/no CTA, series promise for follows (week 1 report: zero actions, zero profile visits).
+{hook}    A hundred thousand dollars for your app's profit. Not revenue. Profit.
+{curious} Marc Lou, Jack Friks and Higgsfield just started a thirty day hackathon, and over three thousand solo builders signed up.
+{fun}     Brand new apps. Zero customers.
+{wow}     Here's the catch. Every dollar you spend on ads comes off your score, and every sale gets checked on TrustMRR.
+{trust}   So the real test is simple. Can you get customers without buying them?
+{curious} I'll track the leaderboard until December sixteenth.
+{cta}     Want to enter for a hundred thousand dollars? Comment LINK and I'll send it to you.

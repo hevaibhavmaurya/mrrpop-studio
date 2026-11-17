@@ -1,0 +1,101 @@
+{
+ "engine": "chatterbox",
+ "ref": "voices/custom/mr-pop-4/reference.wav",
+ "seed": 7,
+ "more": 0.0,
+ "duration": 38.243,
+ "lufs": -14.4,
+ "beats": [
+  {
+   "style": "hook",
+   "text": "A hundred thousand dollars for your app's profit. Not revenue. Profit.",
+   "start": 0.3,
+   "end": 4.979,
+   "take": 3,
+   "score": 22.36,
+   "pitch_range_st": 21.9,
+   "median_hz": 183,
+   "len_ratio": 1.21,
+   "similarity": 0.953,
+   "prompt": "excited"
+  },
+  {
+   "style": "curious",
+   "text": "Marc Lou, Jack Friks and Higgsfield just started a thirty day hackathon, and over three thousand solo builders signed up.",
+   "start": 5.319,
+   "end": 12.638,
+   "take": 3,
+   "score": 17.39,
+   "pitch_range_st": 15.3,
+   "median_hz": 155,
+   "len_ratio": 1.07,
+   "similarity": 0.964,
+   "prompt": "curious"
+  },
+  {
+   "style": "fun",
+   "text": "Brand new apps. Zero customers.",
+   "start": 12.958,
+   "end": 15.862,
+   "take": 1,
+   "score": 15.16,
+   "pitch_range_st": 23.6,
+   "median_hz": 182,
+   "len_ratio": 1.68,
+   "similarity": 0.897,
+   "prompt": "playful"
+  },
+  {
+   "style": "wow",
+   "text": "Here's the catch. Every dollar you spend on ads comes off your score, and every sale gets checked on TrustMRR.",
+   "start": 16.102,
+   "end": 23.277,
+   "take": 5,
+   "score": 16.43,
+   "pitch_range_st": 15.5,
+   "median_hz": 164,
+   "len_ratio": 1.2,
+   "similarity": 0.956,
+   "prompt": "shocked"
+  },
+  {
+   "style": "trust",
+   "text": "So the real test is simple. Can you get customers without buying them?",
+   "start": 23.577,
+   "end": 27.802,
+   "take": 4,
+   "score": 13.5,
+   "pitch_range_st": 15.7,
+   "median_hz": 148,
+   "len_ratio": 1.09,
+   "similarity": 0.938,
+   "prompt": "warm"
+  },
+  {
+   "style": "curious",
+   "text": "I'll track the leaderboard until December sixteenth.",
+   "start": 28.182,
+   "end": 30.285,
+   "take": 1,
+   "score": 11.39,
+   "pitch_range_st": 21.7,
+   "median_hz": 167,
+   "len_ratio": 0.69,
+   "similarity": 0.881,
+   "prompt": "curious"
+  },
+  {
+   "style": "cta",
+   "text": "Want to enter for a hundred thousand dollars? Comment LINK and I'll send it to you.",
+   "start": 30.605,
+   "end": 35.843,
+   "take": 2,
+   "score": 15.69,
+   "pitch_range_st": 15.6,
+   "median_hz": 185,
+   "len_ratio": 1.17,
+   "similarity": 0.952,
+   "prompt": "playful"
+  }
+ ]
+}

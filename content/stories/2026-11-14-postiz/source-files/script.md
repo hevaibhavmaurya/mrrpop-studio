@@ -1,4 +1,25 @@
-# Script: Postiz (Revenue Pop), first draft
+# Script: Postiz (Revenue Pop), v2
+
+Rewritten 2026-11-14. Why: v1 read like an ad (feature list after the hook) and "people pay $400K a month" sounded
+like one person paying. v2 says the lesson out loud: the code is free, people pay for convenience.
+Hook score 83.0 STRONG (v1 hook 58.0). 84 words. Voice: Mr. Pop (smooth), mr-pop-4. Facts unchanged, see sources.md.
+
+| # | Tag | Voiceover | On screen |
+|---|---|---|---|
+| 0 | hook | Four hundred thousand dollars a month. And you can get the code for free. | Postiz icon · $418K a month · ✓ Payment verified · CODE: FREE stamp |
+| 1 | curious | It's Postiz. It schedules your social posts, and it's open source. | postiz.com hero + channel icons · GitHub 41.6k stars · AGPL-3.0 |
+| 2 | fun | Anyone can download it and run it on their own server. | README "Free forever (AGPL-3.0)" · download → server |
+| 3 | trust | Yet there are over twelve thousand active subscriptions to the hosted version. | TrustMRR listing · 12,325 active subscriptions · ✓ Payment verified |
+| 4 | curious | Why? Hosting it yourself means a database, a cache, storage and setup. | Self hosting chores checklist (README): Postgres · Redis · Storage · Env setup |
+| 5 | wow | People pay to skip that work. The code is free. The convenience isn't. | Big text: Free code. Paid convenience. · Postiz Cloud from $29/mo |
+| 6 | cta | Would you pay for an app you could run for free? | Question card + Follow MRR Pop |
+
+"People pay to skip that work" is our read of why, not a sourced claim.
+
+---
+
+## Previous version (v1)
+
 
 From content/drafts/01-postiz/script.txt. Facts re-verified Nov 14 2026 14:24 (see sources.md). Voice: Mr. Pop (smooth), mr-pop-4.
 Changes from the draft: "every platform" → "over thirty platforms" (postiz.com says 30+), "people pay / paid" → "active subscriptions"

@@ -1,0 +1,31 @@
+{
+  "slug": "2026-11-16-ship-or-die-100k",
+  "series": "launch-pop",
+  "template": "reel (build/reel.tpl.html)",
+  "status": "draft",
+  "sponsored": false,
+  "product": "Ship or Die $100K Hackathon (Marc Lou, Jack Friks, Higgsfield)",
+  "product_url": "https://www.ship-or-die.com/100k-hackathon",
+  "key_number": "$100,000 for the most profit in 30 days \u00b7 3,309 builders (Nov 16)",
+  "evidence": "company-announced",
+  "voice": "mr-pop-4 (Mr. Pop smooth)",
+  "sources": [
+    "https://www.ship-or-die.com/100k-hackathon",
+    "https://www.ship-or-die.com/100k-hackathon/rules",
+    "https://x.com/marclou/status/2121592241248776615",
+    "https://x.com/marclou/status/2121974507544183216"
+  ],
+  "files": {
+    "voice": "voice/voiceover.wav",
+    "final": "exports/reel.mp4",
+    "cover": "exports/cover.jpg",
+    "caption": "exports/caption.txt"
+  },
+  "published": {
+    "instagram": null,
+    "x": null,
+    "linkedin": null
+  },
+  "notes": "Part 1 of a 3 reel series (launch, halfway around Dec 1, winner around Dec 16 to 26). Post Nov 17 or 18 while 'it just started' is true; Conductor must still go out before Nov 20. Re-check builder count and rules on posting day. Open question: site showed 'You're already in' on Vaibhav's browser; if he competes, disclose on screen and in caption. Script v2 approved and built Nov 16: 38.2 s (36.0 s voice + 2.2 s end card), -14.4 LUFS; v3 CTA \"Comment LINK\" re-voiced and spliced. DM link: https://www.ship-or-die.com/100k-hackathon, safe zone passes.",
+  "duration_s": 38.2
+}

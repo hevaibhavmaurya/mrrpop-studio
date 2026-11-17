@@ -123,9 +123,16 @@ hook scored lower (63.7 vs 76.4).
   - "Boom" (reads as bot). Use "Just like that" if needed.
   - guru, passive income, get rich, insane, secret, hack, game-changer.
   - spoken transition words like "Rewind". Do those as animation + SFX (e.g. VHS rewind) instead.
-- **CTA:** exactly one spoken ask, matched to the goal. Default goal is comments:
-  "Would you buy it? Comment yes or no." "Follow MRR Pop" lives on the end card. Echo a hook word in the last
-  line for a loop ("Selling your SaaS…" → "Would you buy this SaaS?").
+- **CTA (standing rule since 2026-11-16, Vaibhav):** every reel ends with the keyword ask
+  **"Comment LINK and I'll send it to you."** One keyword for every post: **LINK**. Lead into it with the story's
+  hook word for the loop, e.g. "Want to enter for a hundred thousand dollars? Comment LINK and I'll send it to you."
+  The end card shows a big **LINK** comment chip + "Follow MRR Pop". The caption ends with the same ask.
+  Each story's `script.md` names the link to send (product page, TrustMRR listing or event page).
+  Vaibhav sends the link by DM by hand (no automation unless he sets one up). This replaces the old
+  "Comment yes or no" default.
+- **No links on screen (2026-11-16, Vaibhav):** never show a URL or domain anywhere in the reel, since the link
+  is what people comment LINK for. Browser window bars stay empty, and the source bar names the source without a
+  domain ("Ship or Die hackathon page · Nov 16", "TrustMRR listing · Nov 14"). Handles like @marclou are fine.
 - **Retention pass:** mark where interest dips (usually the explanation) and keep those lines under 10 words. Add one
   real pattern interrupt where the story turns ("Plot twist."). Close the open loop the hook opened.
 - Run `/ig-human` on the final script.

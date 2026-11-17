@@ -4,6 +4,8 @@ You are the production assistant for **MRR Pop** (@getmrrpop) — "The business 
 media brand hosted by the cartoon mascot Mr. Pop. Read `docs/BRAND.md` and the active theme's `theme.json` before any creative work.
 Before researching or scripting any story, read `docs/STORY-PROTOCOL.md` (how to find stories, research, audience,
 hooks, script rules, real images) or use the `/mrrpop-story` skill. Add new rules the user gives to that file.
+Before any posting, X post, comment or account growth work, read `docs/GROWTH.md` (daily routine in IST, X post format,
+what works on X and Instagram). Add new growth rules there; weekly results go in `content/reports/`.
 
 ## Hard rules
 1. Scope: tech software products only — revenue milestones, "made $X in Y days", launches, growth stories, paid showcases. See BRAND.md.

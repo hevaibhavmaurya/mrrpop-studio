@@ -63,7 +63,25 @@
    "cover": "exports/cover.jpg"
   },
   "version": "canvas",
-  "duration_s": 25.1,
+  "duration_s": 31.6,
+  "voice": "mr-pop-4"
+ },
+ {
+  "slug": "2026-11-16-ship-or-die-100k",
+  "date": "2026-11-16",
+  "series": "launch-pop",
+  "product": "Ship or Die $100K Hackathon (Marc Lou, Jack Friks, Higgsfield)",
+  "key_number": "$100,000 for most profit in 30 days \u00b7 3,309 builders",
+  "evidence": "company-announced",
+  "sponsored": false,
+  "status": "draft",
+  "files": {
+   "reel": "exports/reel.mp4",
+   "caption": "exports/caption.txt",
+   "cover": "exports/cover.jpg"
+  },
+  "version": "canvas",
+  "duration_s": 38.2,
   "voice": "mr-pop-4"
  }
 ]

@@ -30,6 +30,6 @@
 - (Only figures from the story's sources.md. If empty, leave {{number}} — never invent.)
 
 ## The ask
-- **Keyword CTA:** DEALS
+- **Keyword CTA:** LINK on every post ("Comment LINK and I'll send it to you"); the link is the story's product/event page. DEALS is reserved for the newsletter later.
 - **What the keyword sends them:** the weekly list of software for sale / new launches (when the newsletter exists)
 - **Where my link goes:** mrrpop.com (planned)

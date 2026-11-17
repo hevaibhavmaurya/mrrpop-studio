@@ -2,7 +2,7 @@
 /* MRR Pop · Revenue Pop · Postiz. Layout system from the MoveMRR reel: text safe box (x 80 to 850, y 250 to 1440).
    Real images in assets/: Postiz app icon + logo + OG image + homepage screenshot, channel + agent icons from postiz.com,
    GitHub repo screenshot, TrustMRR icon + listing screenshot, founder photo (his X profile).
-   Script: voice/voiceover.vo.txt (Mr. Pop smooth, mr-pop-4) · Theme: packages/theme/themes/mrrpop-v6 · Icons: packages/ui/icons (injected) */
+   Script v2: voice/voiceover.vo.txt (Mr. Pop smooth, mr-pop-4) · Theme: packages/theme/themes/mrrpop-v6 · Icons: packages/ui/icons (injected) */
 @font-face{font-family:Inter;src:url(../../../../packages/theme/themes/mrrpop-v6/fonts/Inter-Variable.ttf);font-weight:100 900}
 @font-face{font-family:IS;src:url(../../../../packages/theme/themes/mrrpop-v6/fonts/InstrumentSerif-Italic.ttf);font-style:italic}
 :root{--paper:#FAF9FF;--white:#fff;--ink:#1B1838;--navy:#20244A;--muted:#6E6A8E;--faint:#A3A0BC;
@@ -79,85 +79,81 @@ const FOUNDER=(s)=>`<img class="photo" src="assets/founder-x.jpg" alt="Nevo Davi
 const SOCIALS=['Instagram','TikTok','Youtube','Linkedin','X','Facebook','Threads','Bluesky','Reddit','Pinterest','Discord','Telegram','Mastodon','Slack'];
 const AGENTS=[['chatgpt','ChatGPT'],['claude','Claude'],['codex','Codex'],['cursor','Cursor'],['mcp','MCP']];
 
-// beats (voice/voiceover.vo.txt):
-// 0 hook free / over $400K a month · 1 completely free · 2 Postiz, 30+ platforms, AI agents · 3 open source · 4 over 12,000 active subs · 5 nobody wants a server · 6 CTA
-// Facts: TrustMRR (Stripe) Nov 14 2026 14:24 · postiz.com/pricing (30+ channels, 7 day trial) · github README (free self host)
+// beats (voice/voiceover.vo.txt, v2):
+// 0 hook $400K a month, code free · 1 Postiz, schedules posts, open source · 2 anyone can run it on own server
+// 3 over 12,000 active subs to hosted version · 4 why: database, cache, storage, setup · 5 pay to skip it: free code, paid convenience · 6 CTA
+// Facts: TrustMRR (Stripe) Nov 14 2026 14:24 · postiz.com/pricing (from $29/mo) · github README (free self host; Postgres, Redis, storage, env)
 const FACT={mrr:'$418,575',mrrK:418,subs:12325,when:'Nov 14'};
-const DISPLAY=B.map(b=>b.text.replace(/four hundred thousand dollars/i,'$400K').replace(/over thirty/i,'over 30').replace(/twelve thousand/i,'12,000'));
-const ACCENT=['400k','free','postiz','open','12000','server','free'];
-const DARKBEAT=[0,1,0,1,0,0,0];
-const SRC=[['TrustMRR via Stripe','· '+FACT.when],['Postiz README on GitHub',''],['postiz.com',''],['github.com/gitroomhq/postiz-app',''],['TrustMRR via Stripe','· '+FACT.when],['Postiz README',''],null];
+const DISPLAY=B.map(b=>b.text.replace(/four hundred thousand dollars/i,'$400K').replace(/twelve thousand/i,'12,000'));
+const ACCENT=['400k','postiz','server','12000','why','convenience','free'];
+const DARKBEAT=[0,0,1,0,0,1,0];
+const SRC=[['TrustMRR via Stripe','· '+FACT.when],['postiz.com',''],['Postiz README on GitHub',''],['TrustMRR via Stripe','· '+FACT.when],['Postiz README on GitHub',''],['postiz.com/pricing',''],null];
 // scenes: [first beat, background, transition-in]
-const SC=[[0,'#ECE6FF','none'],[1,'#20244A','pixel'],[2,'#FFF4CC','wipe'],[3,'#20244A','pixel'],[4,'#F0F9D4','wipe'],[5,'#FFE5F1','wipe'],[6,'#ECE6FF','wipe']];
+const SC=[[0,'#ECE6FF','none'],[1,'#FFF4CC','wipe'],[2,'#20244A','pixel'],[3,'#F0F9D4','wipe'],[4,'#FFE5F1','wipe'],[5,'#20244A','pixel'],[6,'#ECE6FF','wipe']];
 const A=SC.map((s,i)=>i===0?0:bs(s[0])-.18); A.push(DATA.duration+5);
 const DOTS=(dark)=>`scene dots${dark?' dark':''}`;
 
 let H='';
-// S0 hook: free to host, still $417K a month (real icon + TrustMRR verified)
+// S0 hook: $418K a month (real icon + TrustMRR verified), CODE: FREE stamp
 H+=`<div class="${DOTS()}" id="s0" style="background:${SC[0][1]}">
  <div class="glow" style="left:60px;top:470px;width:960px;height:960px;--gc:rgba(106,66,236,.42)"></div>
  <div id="h0" class="card" style="left:80px;top:560px;width:770px;padding:28px 34px 30px;border-radius:40px;opacity:1">
    <div class="row" style="gap:18px">${ICON(84)}<div><div style="font:900 50px/1 Inter;letter-spacing:-1.5px">Postiz</div><div style="font:700 22px Inter;color:var(--muted);margin-top:6px">open source social media scheduler</div></div></div>
-   <div class="row" style="margin-top:20px;align-items:flex-end;gap:16px"><div id="n0" class="big" style="color:var(--violet)">$418K</div><div style="font:800 40px/1.1 Inter;color:var(--muted);padding-bottom:26px">a month</div></div>
+   <div class="row" style="margin-top:20px;align-items:flex-end;gap:16px"><div id="n0" class="big" style="color:var(--violet);font-size:180px;letter-spacing:-9px;transform-origin:left bottom">$418K</div><div style="font:800 40px/1.1 Inter;color:var(--muted);padding-bottom:26px">a month</div></div>
    <div class="row" style="margin-top:12px;gap:10px"><img src="assets/trustmrr-icon.png" alt="TrustMRR logo" style="width:40px;height:40px;border-radius:10px"><div style="font:700 24px Inter;color:var(--muted)">MRR ${FACT.mrr} · ${FACT.subs.toLocaleString('en-US')} active subscriptions</div></div></div>
  <div id="ev0" class="ev pv" style="left:80px;top:1130px">${I('verified',32)} Payment verified · TrustMRR · Stripe</div>
- ${stamp('st0','Free to host','var(--lime)','var(--ink)',430,500)}
+ ${stamp('st0','Code: free','var(--lime)','var(--ink)',470,500)}
 </div>`;
-// S1 (dark): Free. (GitHub README, Cloud vs Open source table)
-H+=`<div class="${DOTS(1)}" id="s1" style="background:${SC[1][1]}">
- <div class="glow" style="left:60px;top:470px;width:960px;height:960px;--gc:rgba(198,240,58,.4)"></div>
- <div id="fr1" class="abs" style="left:96px;top:600px;font:900 250px/1 Inter;letter-spacing:-10px;color:var(--lime);opacity:0">FREE</div>
- <div id="q1" class="card" style="left:80px;top:900px;width:770px;padding:24px 30px;border-radius:30px">
-   <div class="row" style="gap:12px">${I('lock',34)}<div style="font:800 24px Inter;color:var(--muted);letter-spacing:1px;text-transform:uppercase">Postiz README · self hosted</div></div>
-   <div style="font:400 64px/1.05 IS;font-style:italic;margin-top:14px">“Free forever (AGPL-3.0)”</div>
-   <div style="font:700 24px Inter;color:var(--muted);margin-top:10px">you pay only for your own server</div></div>
-</div>`;
-// S2 what it is: postiz.com, every platform, AI agents write (real site, channel + agent icons, founder)
-H+=`<div class="${DOTS()}" id="s2" style="background:${SC[2][1]}">
- <div id="w2" class="win" style="left:80px;top:560px;width:770px">
+// S1 what it is: postiz.com, channel icons, founder, open source
+H+=`<div class="${DOTS()}" id="s1" style="background:${SC[1][1]}">
+ <div id="w1" class="win" style="left:80px;top:560px;width:770px">
    <div class="bar"><i style="background:#FF6FB5"></i><i style="background:#FFD43B"></i><i style="background:#C6F03A"></i><div class="url">postiz.com</div></div>
    ${CROP('assets/site-home.png',403,286,1760,780,760)}</div>
  ${SOCIALS.map((n,i)=>`<div class="soc" id="so${i}"><img src="assets/socials/${n}.svg" alt="${n} logo"></div>`).join('')}
- <div id="ag2" class="card" style="left:80px;top:1176px;width:396px;padding:12px 16px 14px;border-radius:24px">
-   <div style="font:900 22px/1 Inter;margin-bottom:10px">AI agents write the posts</div><div class="row" style="gap:8px">${AGENTS.map((a,i)=>`<span class="agent" id="ag${i}"><img src="assets/agents/${a[0]}.svg" alt="${a[1]} logo"></span>`).join('')}</div></div>
- <div id="fd2" class="card" style="left:470px;top:500px;padding:10px 18px 10px 10px;border-radius:999px;z-index:9"><div class="row" style="gap:12px">${FOUNDER(64)}<div><div style="font:900 24px Inter">Nevo David</div><div style="font:700 17px Inter;color:var(--muted)">founder · @wickedguro</div></div></div></div>
+ <div id="fd1" class="card" style="left:470px;top:500px;padding:10px 18px 10px 10px;border-radius:999px;z-index:9"><div class="row" style="gap:12px">${FOUNDER(64)}<div><div style="font:900 24px Inter">Nevo David</div><div style="font:700 17px Inter;color:var(--muted)">founder · @wickedguro</div></div></div></div>
+ ${stamp('st1','Open source','var(--yellow)','var(--ink)',100,1200)}
 </div>`;
-// S3 (dark): the code is open source (real GitHub repo)
-H+=`<div class="${DOTS(1)}" id="s3" style="background:${SC[3][1]}">
- <div id="w3" class="win" style="left:80px;top:560px;width:770px">
+// S2 (dark): anyone can run it (real GitHub repo + README quote)
+H+=`<div class="${DOTS(1)}" id="s2" style="background:${SC[2][1]}">
+ <div id="w2" class="win" style="left:80px;top:560px;width:770px">
    <div class="bar"><i style="background:#FF6FB5"></i><i style="background:#FFD43B"></i><i style="background:#C6F03A"></i><div class="url">github.com/gitroomhq/postiz-app</div></div>
    <div class="row" style="padding:10px 18px 18px;align-items:flex-start;gap:14px">${CROP('assets/github-repo.png',1950,530,560,700,330,'border-radius:12px;border:3px solid #e5e5e5')}
-     <div style="padding-top:8px"><div id="n3" style="font:900 120px/1 Inter;letter-spacing:-6px">41.6k</div><div style="font:800 30px Inter;color:var(--muted)">GitHub stars</div>
+     <div style="padding-top:8px"><div id="n2" style="font:900 120px/1 Inter;letter-spacing:-6px">41.6k</div><div style="font:800 30px Inter;color:var(--muted)">GitHub stars</div>
      <div class="row" style="gap:8px;margin-top:16px"><span class="chipui" style="background:var(--lime)">AGPL-3.0</span><span class="chipui" style="background:#fff">7.9k forks</span></div></div></div></div>
- ${stamp('st3','Open source','var(--yellow)','var(--ink)',120,1190)}
+ <div id="q2" class="card" style="left:80px;top:1090px;width:770px;padding:20px 28px;border-radius:30px">
+   <div class="row" style="gap:12px">${I('lock',30)}<div style="font:800 22px Inter;color:var(--muted);letter-spacing:1px;text-transform:uppercase">README · self hosted</div></div>
+   <div style="font:400 58px/1.05 IS;font-style:italic;margin-top:8px">“Free forever (AGPL-3.0)”</div></div>
 </div>`;
-// S4 12,304 paid subscriptions (real TrustMRR listing)
-H+=`<div class="${DOTS()}" id="s4" style="background:${SC[4][1]}">
+// S3 12,325 active subscriptions (real TrustMRR listing)
+H+=`<div class="${DOTS()}" id="s3" style="background:${SC[3][1]}">
  <div class="glow" style="left:60px;top:470px;width:960px;height:960px;--gc:rgba(61,190,110,.4)"></div>
- <div id="w4" class="win" style="left:80px;top:560px;width:770px">
+ <div id="w3" class="win" style="left:80px;top:560px;width:770px">
    <div class="bar"><img src="assets/trustmrr-icon.png" alt="TrustMRR logo" style="width:34px;height:34px;border-radius:8px"><div class="url">trustmrr.com/startup/postiz</div></div>
    <div style="padding:18px 22px 20px;background:#F4F4F5">${CROP('assets/trustmrr-listing.png',459,148,1060,170,560,'margin-bottom:14px')}${CROP('assets/trustmrr-listing.png',459,376,840,345,640,'border-radius:16px')}</div></div>
- <div id="c4" class="card" style="left:80px;top:1040px;width:640px;padding:16px 28px 18px;border-radius:34px">
-   <div id="n4" class="big" style="font-size:150px;letter-spacing:-7px">12,325</div>
+ <div id="c3" class="card" style="left:80px;top:1040px;width:640px;padding:16px 28px 18px;border-radius:34px">
+   <div id="n3" class="big" style="font-size:150px;letter-spacing:-7px">12,325</div>
    <div style="font:800 38px Inter;letter-spacing:-1px;margin-top:4px">active subscriptions</div></div>
- <div id="ev4" class="ev pv" style="left:80px;top:1300px">${I('verified',30)} Payment verified · Stripe</div>
+ <div id="ev3" class="ev pv" style="left:80px;top:1300px">${I('verified',30)} Payment verified · Stripe</div>
 </div>`;
-// S5 why: nobody wants to touch a server (README: self host setup vs Cloud)
-H+=`<div class="${DOTS()}" id="s5" style="background:${SC[5][1]}">
- <div id="sv5" class="card" style="left:80px;top:560px;width:440px;padding:20px 26px;border-radius:30px">
-   <div style="font:900 32px Inter;letter-spacing:-1px">Self hosting</div>
-   ${['Postgres','Redis','Storage','Env vars','Updates'].map((x,i)=>`<div class="task" id="tk${i}">${I('cross',34)} ${x}</div>`).join('')}</div>
- <div id="r5" class="rubber" style="left:330px;top:640px;font-size:50px;background:rgba(255,229,241,.92)">No thanks</div>
- <div id="cl5" class="card" style="left:450px;top:900px;width:400px;padding:20px 22px;border-radius:30px;z-index:8">
-   <div class="row" style="gap:14px">${ICON(70)}<div style="font:900 30px/1.05 Inter">Postiz<br>Cloud</div></div>
-   <div style="font:700 24px/1.25 Inter;color:var(--muted);margin-top:14px">Sign up and connect channels in minutes</div>
-   <div class="row" style="margin-top:14px;gap:8px"><span class="chipui" style="background:var(--lime)">from $29/mo</span></div></div>
- <div id="ev5" class="ev cr" style="left:80px;top:1190px">${I('megaphone',30)} README · TrustMRR</div>
+// S4 why: self hosting chores (README)
+H+=`<div class="${DOTS()}" id="s4" style="background:${SC[4][1]}">
+ <div id="sv4" class="card" style="left:80px;top:560px;width:560px;padding:20px 26px;border-radius:30px">
+   <div style="font:900 34px Inter;letter-spacing:-1px">Hosting it yourself</div>
+   ${['Postgres database','Redis cache','File storage','Env setup'].map((x,i)=>`<div class="task" id="tk${i}">${I('cross',34)} ${x}</div>`).join('')}</div>
+ <div id="r4" class="rubber" style="left:420px;top:1010px;font-size:54px;background:rgba(255,229,241,.92)">No thanks</div>
+ <div id="ev4" class="ev cr" style="left:80px;top:1190px">${I('megaphone',30)} Setup from the Postiz README</div>
+</div>`;
+// S5 (dark): free code, paid convenience
+H+=`<div class="${DOTS(1)}" id="s5" style="background:${SC[5][1]}">
+ <div class="glow" style="left:60px;top:470px;width:960px;height:960px;--gc:rgba(198,240,58,.32)"></div>
+ <div id="a5" class="abs" style="left:96px;top:560px;opacity:0"><div style="font:800 40px Inter;color:#fff;opacity:.75">The code</div><div style="font:900 190px/1 Inter;letter-spacing:-9px;color:var(--lime)">FREE</div></div>
+ <div id="b5" class="abs" style="left:96px;top:850px;opacity:0"><div style="font:800 40px Inter;color:#fff;opacity:.75">The convenience</div><div style="font:900 190px/1 Inter;letter-spacing:-9px;color:#fff">$29<span style="font-size:70px;letter-spacing:-2px">/mo</span></div></div>
+ <div id="cl5" class="card" style="left:80px;top:1150px;width:560px;padding:16px 22px;border-radius:26px"><div class="row" style="gap:14px">${ICON(64)}<div><div style="font:900 30px Inter">Postiz Cloud</div><div style="font:700 22px Inter;color:var(--muted)">plans from $29 a month</div></div></div></div>
 </div>`;
 // S6 end card
 H+=`<div class="${DOTS()}" id="s6" style="background:${SC[6][1]}">
  <div class="glow" style="left:60px;top:540px;width:900px;height:900px;--gc:rgba(106,66,236,.35)"></div>
- <div id="cm6" class="card" style="left:80px;top:560px;width:770px;padding:22px 26px"><div class="row">${ICON(96)}<div><div style="font:900 40px/1.1 Inter;letter-spacing:-1px">Would you pay for it?</div><div style="font:600 24px Inter;color:var(--muted);margin-top:6px">Or host it free. Tell me in the comments</div></div></div></div>
+ <div id="cm6" class="card" style="left:80px;top:560px;width:770px;padding:22px 26px"><div class="row">${ICON(96)}<div><div style="font:900 40px/1.1 Inter;letter-spacing:-1px">Would you pay for it?</div><div style="font:600 24px Inter;color:var(--muted);margin-top:6px">Or run it free. Tell me in the comments</div></div></div></div>
  <div id="fl6" class="card" style="left:80px;top:790px;width:700px;padding:22px 24px"><div class="row"><img src="avatar.svg" alt="MRR Pop profile picture" style="width:132px;height:132px;border-radius:50%;border:5px solid var(--ink);flex:none"><div><div style="font:900 36px Inter;letter-spacing:-1px">@getmrrpop</div><div style="font:600 22px Inter;color:var(--muted);margin-top:4px">The business behind software</div></div></div>
    <div id="folBtn" class="btn" style="margin-top:18px;font-size:30px;padding:14px 30px">Follow MRR Pop</div></div>
  <div id="cur6" class="abs" style="left:760px;top:1250px;opacity:0;z-index:9">${I('cursor',84)}</div>
@@ -180,8 +176,8 @@ function headline(t){let ci=0;for(let i=0;i<CHUNKS.length;i++)if(t>=CHUNKS[i].st
  const ch=CHUNKS[ci],bi=ch.bi,el=$('hl');
  if(ci!==hlChunk){hlChunk=ci;const a=(ACCENT[bi]||'').toLowerCase();el.innerHTML=ch.words.map(([w])=>{const clean=w.toLowerCase().replace(/[^a-z0-9]/g,'');return`<span class="w${a&&clean===a?' acc':''}">${w}</span>`}).join('')}
  const dark=DARKBEAT[bi];el.style.color=dark?'#fff':'var(--ink)';
- $$('#hl .w').forEach((s,k)=>{const kk=P(t,ch.words[k][1]-.05,.18);s.style.opacity=.16+.84*kk;s.style.transform=`translateY(${(1-eOut(kk))*14}px)`;if(s.classList.contains('acc'))s.style.color=dark?'var(--lime)':'var(--violet)'});
- const kb=P(t,ch.start-.12,.22);el.style.transform=`translateY(${(1-eOut(kb))*22}px)`;el.style.opacity=.3+.7*eOut(kb)}
+ $$('#hl .w').forEach((s,k)=>{const kk=P(t,ch.words[k][1]-.05,.18);s.style.opacity=bi===0?1:.16+.84*kk;s.style.transform=`translateY(${(1-eOut(kk))*14}px)`;if(s.classList.contains('acc'))s.style.color=dark?'var(--lime)':'var(--violet)'});
+ const kb=P(t,ch.start-.12,.22);el.style.transform=`translateY(${(1-eOut(kb))*22}px)`;el.style.opacity=bi===0?1:.3+.7*eOut(kb)}
 
 // character
 const SLOTS={};for(const g of $$('#rig g[id]')){const m=g.id.match(/^(arms|eyes|brows|mouth|extras|glasses|front)-(.+)$/);if(m)(SLOTS[m[1]]??=[]).push(m[2])}
@@ -219,38 +215,36 @@ window.render=function(t){
   if(s[2]==='wipe'&&i>0&&(incoming||i===si)){const k=eIO(P(t,st-.35,.45));el.style.clipPath=k>=1?'none':`polygon(${(1-k)*160-60}% 0,100% 0,100% 100%,${(1-k)*160-40}% 100%)`}else el.style.clipPath='none'});
  $$('#px i').forEach((q,k)=>{if(pxOn===null){q.style.opacity=0;return}const st=A[pxOn];const inK=P(t,st-.4+PXR[k]*.3,.05),outK=P(t,st+PXR[(k*13)%PXR.length]*.35,.05);q.style.background=SC[pxOn][1];q.style.opacity=inK*(1-outK)});
 
- // S0 hook: $417K counts up, FREE TO HOST slams in
+ // S0 hook: $418K counts up, CODE: FREE slams in
  {const h=$('h0'),d=be(0)-bs(0);h.style.transform=`scale(${1+.05*Math.sin(P(t,0,.6)*Math.PI)}) rotate(${-1.5+Math.sin(t*1.3)*.5}deg)`;
-  stampAnim('st0',t,.35,-7);
-  const kn=eOut(P(t,d*.45,1.0)),n=$('n0');n.textContent='$'+Math.round(FACT.mrrK*Math.max(kn,t<d*.45?1:0))+'K';n.style.transform=`scale(${1+.1*Math.sin(P(t,d*.45,.5)*Math.PI)})`;
-  const ev=$('ev0'),ke=pop(ev,t,d*.6,.3);ev.style.transform=`translateY(${(1-eOut(ke))*20}px)`}
- // S1 FREE.
- {const b1=bs(1);const f=$('fr1'),kf=pop(f,t,b1-.05,.3);f.style.transform=`scale(${1.8-.8*eBack(kf)}) rotate(${-4+Math.sin(t*3)*1.5}deg)`;
-  const q=$('q1'),kq=pop(q,t,b1+.35,.4);q.style.transform=`translateY(${(1-eBack(kq))*160}px) rotate(1deg)`}
- // S2 site, channel icons fly in, agents light up
- {const b2=bs(2),d=be(2)-b2;const w=$('w2'),kw=pop(w,t,b2-.05,.4);w.style.transform=`translateY(${(1-eBack(kw))*160}px) rotate(-1deg)`;
-  const fd=$('fd2'),kd=pop(fd,t,b2+.3,.35);fd.style.transform=`translateX(${(1-eBack(kd))*160}px) rotate(3deg)`;
-  
-  SOCIALS.forEach((_,i)=>{const e=$('so'+i),s=b2+d*.18+i*.07,k=eBack(P(t,s,.45));e.style.opacity=t>s?1:0;
+  stampAnim('st0',t,d*.55,-7);
+  const kn=eOut(P(t,d*.1,.8)),n=$('n0');n.textContent='$'+Math.round(FACT.mrrK*Math.max(kn,t<d*.1?1:0))+'K';n.style.transform=`scale(${1+.1*Math.sin(P(t,d*.1,.5)*Math.PI)})`;
+  const ev=$('ev0'),ke=pop(ev,t,d*.3,.3);ev.style.transform=`translateY(${(1-eOut(ke))*20}px)`}
+ // S1 site, founder, channel icons fly in, OPEN SOURCE stamp
+ {const b1=bs(1),d=be(1)-b1;const w=$('w1'),kw=pop(w,t,b1-.05,.4);w.style.transform=`translateY(${(1-eBack(kw))*160}px) rotate(-1deg)`;
+  const fd=$('fd1'),kd=pop(fd,t,b1+.3,.35);fd.style.transform=`translateX(${(1-eBack(kd))*160}px) rotate(3deg)`;
+  SOCIALS.forEach((_,i)=>{const e=$('so'+i),s=b1+d*.25+i*.06,k=eBack(P(t,s,.45));e.style.opacity=t>s?1:0;
    const [x1,y1]=SOCPOS[i],x0=430,y0=760;const bob=Math.sin(t*3+i)*4;
    e.style.transform=`translate(${x0+(x1-x0)*k}px,${y0+(y1-y0)*k+bob}px) rotate(${(1-C(k))*(i%2?-40:40)}deg) scale(${.4+.6*C(k)})`});
-  const ag=$('ag2'),ka=pop(ag,t,b2+d*.58,.35);ag.style.transform=`translateY(${(1-eBack(ka))*120}px)`;
-  AGENTS.forEach((_,i)=>{const e=$('ag'+i),k=pop(e,t,b2+d*.62+i*.1,.3);e.style.transform=`scale(${.3+.7*eBack(k)}) rotate(${Math.sin(t*4+i)*4}deg)`})}
- // S3 GitHub
- {const b3=bs(3);const w=$('w3'),kw=pop(w,t,b3-.05,.4);w.style.transform=`translateY(${(1-eBack(kw))*160}px) rotate(1deg)`;
-  const n=$('n3'),kn=eOut(P(t,b3+.2,.9));n.textContent=(41.6*kn).toFixed(1)+'k';
-  stampAnim('st3',t,b3+.5,-6)}
- // S4 TrustMRR + 12,304
- {const b4=bs(4);const w=$('w4'),kw=pop(w,t,b4-.05,.4);w.style.transform=`translateY(${(1-eBack(kw))*160}px) rotate(-1deg)`;
-  const c=$('c4'),kc=pop(c,t,b4+.4,.35);c.style.transform=`scale(${.6+.4*eBack(kc)}) rotate(1deg)`;
-  const n=Math.round(FACT.subs*eOut(P(t,b4+.5,1.4)));$('n4').textContent=n.toLocaleString('en-US');
-  const ev=$('ev4'),ke=pop(ev,t,b4+1.5,.3);ev.style.transform=`translateY(${(1-eOut(ke))*20}px)`}
- // S5 server chores vs Cloud
- {const b5=bs(5),d=be(5)-b5;const s=$('sv5'),ks=pop(s,t,b5-.05,.35);s.style.transform=`translateY(${(1-eBack(ks))*140}px) rotate(-1deg)`;
-  $$('#sv5 .task').forEach((e,i)=>{const k=pop(e,t,b5+.15+i*.14,.25);e.style.transform=`translateX(${(1-eOut(k))*-60}px)`});
-  rubberAnim('r5',t,b5+d*.5,-12);
-  const cl=$('cl5'),kc=pop(cl,t,b5+d*.62,.4);cl.style.transform=`translateY(${(1-eBack(kc))*180}px) rotate(2deg)`;
-  const ev=$('ev5'),ke=pop(ev,t,b5+d*.75,.3);ev.style.transform=`translateY(${(1-eOut(ke))*20}px)`}
+  stampAnim('st1',t,b1+d*.72,-5)}
+ // S2 GitHub + README
+ {const b2=bs(2);const w=$('w2'),kw=pop(w,t,b2-.05,.4);w.style.transform=`translateY(${(1-eBack(kw))*160}px) rotate(1deg)`;
+  const n=$('n2'),kn=eOut(P(t,b2+.2,.9));n.textContent=(41.6*kn).toFixed(1)+'k';
+  const q=$('q2'),kq=pop(q,t,b2+.9,.4);q.style.transform=`translateY(${(1-eBack(kq))*160}px) rotate(-1deg)`}
+ // S3 TrustMRR + 12,325
+ {const b3=bs(3);const w=$('w3'),kw=pop(w,t,b3-.05,.4);w.style.transform=`translateY(${(1-eBack(kw))*160}px) rotate(-1deg)`;
+  const c=$('c3'),kc=pop(c,t,b3+.4,.35);c.style.transform=`scale(${.6+.4*eBack(kc)}) rotate(1deg)`;
+  const n=Math.round(FACT.subs*eOut(P(t,b3+.5,1.4)));$('n3').textContent=n.toLocaleString('en-US');
+  const ev=$('ev3'),ke=pop(ev,t,b3+1.5,.3);ev.style.transform=`translateY(${(1-eOut(ke))*20}px)`}
+ // S4 chores tick in one per word, NO THANKS
+ {const b4=bs(4),d=be(4)-b4;const s=$('sv4'),ks=pop(s,t,b4-.05,.35);s.style.transform=`translateY(${(1-eBack(ks))*140}px) rotate(-1deg)`;
+  $$('#sv4 .task').forEach((e,i)=>{const k=pop(e,t,b4+d*.3+i*d*.13,.25);e.style.transform=`translateX(${(1-eOut(k))*-60}px)`});
+  rubberAnim('r4',t,b4+d*.9,-10);
+  const ev=$('ev4'),ke=pop(ev,t,b4+d*.5,.3);ev.style.transform=`translateY(${(1-eOut(ke))*20}px)`}
+ // S5 FREE vs $29/mo
+ {const b5=bs(5),d=be(5)-b5;const a=$('a5'),ka=pop(a,t,b5+d*.3,.35);a.style.transform=`scale(${1.5-.5*eBack(ka)}) rotate(-2deg)`;
+  const b=$('b5'),kb=pop(b,t,b5+d*.6,.35);b.style.transform=`scale(${1.5-.5*eBack(kb)}) rotate(1.5deg)`;
+  const cl=$('cl5'),kc=pop(cl,t,b5+d*.75,.4);cl.style.transform=`translateY(${(1-eBack(kc))*160}px) rotate(1deg)`}
  // S6 end card
  {const b6=bs(6);
   const cm=$('cm6'),kc=pop(cm,t,b6,.4);cm.style.transform=`translateY(${(1-eBack(kc))*160}px) rotate(-1.5deg)`;

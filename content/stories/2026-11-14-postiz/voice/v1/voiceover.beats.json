@@ -1,0 +1,101 @@
+{
+  "engine": "chatterbox",
+  "ref": "voices\\custom\\mr-pop-4\\reference.wav",
+  "seed": 7,
+  "more": 0.0,
+  "duration": 25.108,
+  "lufs": -14.4,
+  "beats": [
+    {
+      "style": "hook",
+      "text": "You can host this app for free. People still pay over four hundred thousand dollars a month.",
+      "start": 0.3,
+      "end": 5.139,
+      "take": 5,
+      "score": 12.87,
+      "pitch_range_st": 11.9,
+      "median_hz": 167,
+      "len_ratio": 0.95,
+      "similarity": 0.957,
+      "prompt": "excited"
+    },
+    {
+      "style": "wow",
+      "text": "Yes. Completely free.",
+      "start": 5.479,
+      "end": 7.909,
+      "take": 2,
+      "score": 7.96,
+      "pitch_range_st": 17.2,
+      "median_hz": 171,
+      "len_ratio": 2.07,
+      "similarity": 0.907,
+      "prompt": "shocked"
+    },
+    {
+      "style": "fun",
+      "text": "It's called Postiz. It schedules your posts on over thirty platforms, while AI agents write them for you.",
+      "start": 8.209,
+      "end": 14.599,
+      "take": 5,
+      "score": 22.07,
+      "pitch_range_st": 20.9,
+      "median_hz": 195,
+      "len_ratio": 1.1,
+      "similarity": 0.958,
+      "prompt": "playful"
+    },
+    {
+      "style": "curious",
+      "text": "The code's open source.",
+      "start": 14.839,
+      "end": 16.098,
+      "take": 3,
+      "score": 14.42,
+      "pitch_range_st": 22.8,
+      "median_hz": 198,
+      "len_ratio": 1.01,
+      "similarity": 0.894,
+      "prompt": "curious"
+    },
+    {
+      "style": "trust",
+      "text": "Yet there are over twelve thousand active subscriptions.",
+      "start": 16.418,
+      "end": 19.608,
+      "take": 5,
+      "score": 21.7,
+      "pitch_range_st": 22.1,
+      "median_hz": 145,
+      "len_ratio": 0.96,
+      "similarity": 0.947,
+      "prompt": "warm"
+    },
+    {
+      "style": "fun",
+      "text": "Because most people never want to touch a server.",
+      "start": 19.988,
+      "end": 22.358,
+      "take": 3,
+      "score": 14.47,
+      "pitch_range_st": 16.8,
+      "median_hz": 225,
+      "len_ratio": 0.86,
+      "similarity": 0.935,
+      "prompt": "playful"
+    },
+    {
+      "style": "cta",
+      "text": "Would you pay for an app you could host for free?",
+      "start": 22.598,
+      "end": 24.908,
+      "take": 1,
+      "score": 18.39,
+      "pitch_range_st": 22.5,
+      "median_hz": 192,
+      "len_ratio": 0.88,
+      "similarity": 0.923,
+      "prompt": "playful"
+    }
+  ]
+}

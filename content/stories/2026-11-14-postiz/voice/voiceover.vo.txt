@@ -1,10 +1,10 @@
-# Postiz (Revenue Pop). Voice: Mr. Pop (smooth), mr-pop-4, as Vaibhav asked 2026-11-14.
-# Facts re-checked Nov 14 2026 14:24 (TrustMRR $418,575 MRR, 12,325 active subs; postiz.com 30+ channels; README free self-host).
-# Spoken numbers are rounded down ("over") so the line stays true as TrustMRR updates; exact figures are on screen.
-{hook}    You can host this app for free. People still pay over four hundred thousand dollars a month.
-{wow}     Yes. Completely free.
-{fun}     It's called Postiz. It schedules your posts on over thirty platforms, while AI agents write them for you.
-{curious} The code's open source.
-{trust}   Yet there are over twelve thousand active subscriptions.
-{fun}     Because most people never want to touch a server.
-{cta}     Would you pay for an app you could host for free?
+# Postiz v2 (Revenue Pop). Voice: Mr. Pop (smooth), mr-pop-4. Rewritten 2026-11-14 after the v1 read as an ad.
+# Facts: TrustMRR $418,575 MRR + 12,325 active subs (Nov 14 14:24); README self-host needs Postgres, Redis, storage, env setup.
+# Spoken numbers rounded down ("over") so they stay true. "Active subscriptions", never "paid" (7 day trials).
+{hook}    Four hundred thousand dollars a month. And you can get the code for free.
+{curious} It's Postiz. It schedules your social posts, and it's open source.
+{fun}     Anyone can download it and run it on their own server.
+{trust}   Yet there are over twelve thousand active subscriptions to the hosted version.
+{curious} Why? Hosting it yourself means a database, a cache, storage and setup.
+{wow}     People pay to skip that work. The code is free. The convenience isn't.
+{cta}     Would you pay for an app you could run for free?

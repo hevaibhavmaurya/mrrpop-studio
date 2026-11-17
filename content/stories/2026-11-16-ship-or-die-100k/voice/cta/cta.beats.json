@@ -1,0 +1,23 @@
+{
+  "engine": "chatterbox",
+  "ref": "voices/custom/mr-pop-4/reference.wav",
+  "seed": 7,
+  "more": 0.0,
+  "duration": 5.738,
+  "lufs": -14.4,
+  "beats": [
+    {
+      "style": "cta",
+      "text": "Want to enter for a hundred thousand dollars? Comment LINK and I'll send it to you.",
+      "start": 0.3,
+      "end": 5.538,
+      "take": 2,
+      "score": 15.69,
+      "pitch_range_st": 15.6,
+      "median_hz": 185,
+      "len_ratio": 1.17,
+      "similarity": 0.952,
+      "prompt": "playful"
+    }
+  ]
+}
